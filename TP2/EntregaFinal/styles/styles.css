@@ -1,3 +1,18 @@
 :root {
-    --Primary_500: #18B613;
+    --primary_400: #80FF7C;
+    --primary_500: #18B613;
+    --primary_600: #0F5B0D;
+    --secondary_400: #97FFEA;
+    --secondary_500: #12C8A3;
+    --secondary_700: #0E7662;
+    --background_600: #1D1A25;
+    --background_500: #23202B;
+    --background_400: #352D48;
+    --background_300: #62508D;
+    --accent: #EC6C04;
+    --white_200: #EDEDED;
+    --white_300: #D1D1D1;
+    --white_400: #B6B6B6;
+    --white_500: #919191;
+    --white_700: #555555;
 }
