@@ -56,7 +56,7 @@ body {
     height: fit-content;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 header {
@@ -79,4 +79,69 @@ header {
 
 .btn_burger_menu svg {
     cursor: pointer;
+}
+
+footer{
+    width: 1350px;
+    height: 234px;
+    margin-top: 700px;
+    background-color: var(--background_400);
+    display: flex;
+}
+.conteiner {
+    display: grid;
+    padding: 5px;
+    margin-top: 32px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin-bottom: 92px;
+    margin-left: 95px;
+}
+.conteiner h3{
+    color: var(--white_200);
+    display: flex;
+    justify-content: start;
+    font-size: 16px;
+}
+.conteiner h4{
+    display: flex;
+    font-size: 16px;
+    justify-content: start;
+    color: var(--white_500);
+}
+.sobre_nosotros{
+    margin-left: 15px;
+    /*background-color: #0F5B0D;*/
+    padding: 12px;
+}
+.ayuda{
+    margin-left: 15px;
+    /*background-color: #12C8A3;*/
+    padding: 12px;
+}
+.unete{
+    margin-left: 15px;
+    /*background-color: #80FF7C;*/
+    padding: 12px;
+}
+.mas{
+    margin-left: 15px;
+    padding: 12px;
+    /*background-color: #EC6C04;*/
+}
+.categorias{
+    /*background-color: aqua;*/
+    margin-left: 15px;
+    padding: 12px;
+}
+.redes{
+    /*background-color: brown;*/
+    margin-left: 15px;
+    padding: 12px;
+}
+
+.iconos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-left: 15px;
+    margin-top: 10px;
 }
