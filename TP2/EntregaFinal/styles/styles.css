@@ -20,9 +20,9 @@
     --white_500: #919191;
     --white_700: #555555;
     
-    --font_title:"Roboto", sans-serif;
-    --font_form: "Roboto Condensed", sans-serif;
-    --font_button: "Lalezar", system-ui;
+    --font_roboto:"Roboto", sans-serif;
+    --font_condensed: "Roboto Condensed", sans-serif;
+    --font_lalezar: "Lalezar", system-ui;
     --size_xxxl: 40px;
     --size_xxl: 32px;
     --size_xl: 24px;
@@ -75,7 +75,11 @@ body {
     height: fit-content;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+}
+
+.logo h1{
+    font-size: var(--size_xxxl);
+    font-family: var(--font_roboto);
 }
 
 header {
@@ -145,6 +149,8 @@ footer{
     gap: 72px;
     padding-bottom: 8px;
     color: var(--white_200);
+    font-family: var(--font_roboto);
+    font-size: var(--size_m);
 }
 .footer_container {
     width: 100%;
@@ -161,10 +167,14 @@ footer{
 }
 
 footer h4{
+    font-weight: normal;
     opacity: 40%;
+
+
 }
 
 .footer_category h3{
+    font-weight: normal;
     text-transform: uppercase;
 }
 
