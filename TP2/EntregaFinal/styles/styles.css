@@ -165,8 +165,22 @@ header {
 }
 
 .menu .nav_redes {
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 36px;
+}
+
+.nav_redes img{
+    height: 35px;
+    width: 32px;
+
+}
+#burger_menu img{
+    height: 32px;
+    width: 32;
+}
+
+#burger_menu li{
+    align-items: center;
 }
 
 /* FOOTER */
@@ -250,6 +264,7 @@ footer h4 {
     bottom: 0;
     color: var(--white_200);
 }
+
 
 
 
