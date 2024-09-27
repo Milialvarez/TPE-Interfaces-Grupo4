@@ -234,6 +234,11 @@ footer h4 {
     justify-content: center;
 }
 
+.icons img{
+    height: 38px;
+    width: 38;
+}
+
 /*CARRUSEL*/
 .carousel{
     display: flex;
