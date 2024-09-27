@@ -19,8 +19,8 @@
     --white_400: #B6B6B6;
     --white_500: #919191;
     --white_700: #555555;
-    
-    --font_roboto:"Roboto", sans-serif;
+
+    --font_roboto: "Roboto", sans-serif;
     --font_condensed: "Roboto Condensed", sans-serif;
     --font_lalezar: "Lalezar", system-ui;
     --size_xxxl: 40px;
@@ -51,6 +51,7 @@ button {
     background-color: transparent;
     border: 0;
 }
+
 /*HEADER*/
 .search_input {
     color: var(--white_700);
@@ -72,8 +73,8 @@ button {
     height: 40px;
 }
 
-.right_options{
-    display:flex;
+.right_options {
+    display: flex;
     align-items: center;
     gap: 32px;
 }
@@ -90,7 +91,7 @@ button {
     align-items: center;
 }
 
-.logo h1{
+.logo h1 {
     font-size: var(--size_xxxl);
     font-family: var(--font_roboto);
 }
@@ -105,8 +106,8 @@ header {
 }
 
 /*MENÚ*/
-#btn_profile_menu{
-    border-radius: 100%;
+#btn_profile_menu {
+    border-radius: 50%;
     padding: 4px;
     border: 2px solid var(--white_200);
 }
@@ -122,35 +123,36 @@ header {
     color: var(--white_200);
 }
 
-#btn_burger_menu:hover{
+#btn_burger_menu:hover {
     transition: 300ms ease-in-out;
 }
 
-#profile_menu{
+#profile_menu {
     right: 0;
 }
 
-#burger_menu{
+#burger_menu {
     left: 0;
 }
 
-.visible{
+.visible {
     opacity: 1;
     visibility: visible;
 }
 
-.invisible{
+.invisible {
     opacity: 0;
     visibility: hidden;
 }
 
-.menu{
+.menu {
     background-color: var(--background_400);
     position: absolute;
     top: 84px;
+    z-index: 1;
 }
 
-.menu li{
+.menu li {
     display: flex;
     margin-bottom: 20px;
     margin-left: 16px;
@@ -162,13 +164,13 @@ header {
     justify-content: start;
 }
 
-.menu .nav_redes{
+.menu .nav_redes {
     justify-content: space-between;
     margin-top: 36px;
 }
 
 /* FOOTER */
-footer{
+footer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -184,6 +186,7 @@ footer{
     font-family: var(--font_roboto);
     font-size: var(--size_m);
 }
+
 .footer_container {
     width: 100%;
     display: flex;
@@ -191,30 +194,61 @@ footer{
     gap: 98px;
 }
 
-.footer_category{
+.footer_category {
     display: flex;
     gap: 12px;
     flex-direction: column;
     font-size: 16px;
 }
 
-footer h4{
+footer h4 {
     font-weight: normal;
     opacity: 40%;
 
 
 }
 
-.footer_category h3{
+.footer_category h3 {
     font-weight: normal;
     text-transform: uppercase;
 }
 
 
-.icons{
+.icons {
     display: flex;
     gap: 16px;
     justify-content: center;
+}
+
+/*CARRUSEL*/
+.carousel{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    gap: 16px;
+}
+.card{
+    width: 209px;
+    height: 118px;
+    position: relative;
+}
+
+.card img{
+    border-radius: 16px;
+    width: 100%;
+
+}
+
+.title{
+    width: 100%;
+    text-align: center;
+    height: 19px;
+    background-color: var(--primary_600);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    position: absolute;
+    bottom: 0;
+    color: var(--white_200);
 }
 
 
