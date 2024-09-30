@@ -13,4 +13,16 @@ btn_profile_menu.addEventListener("click", ()=>{
     profile_menu.classList.toggle("invisible");
 })
 
+const button_open_popover = document.querySelector("#show_popover");
+const button_close_popover = document.querySelector(".close_popover");
+const div_popover = document.querySelector("#id_popover");
+
+button_open_popover.addEventListener('click', ()=>{
+    div_popover.style.display = 'flex';
+})
+
+button_close_popover.addEventListener('click', ()=> {
+    div_popover.style.display = 'none';
+})
+
 

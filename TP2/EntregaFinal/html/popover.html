@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/forms.css">
+    <link rel="icon" href="../iconos/icono_joystick.png.ico">
+    <title>Mega Games Zone</title>
+</head>
+
+<body>
+    <header>
+        <div class="container_btn_burger">
+            <button id="btn_burger_menu">
+                <img src="../iconos/logo_menu_haburguesa.svg" alt="">
+            </button>
+        </div>
+
+        <div class="logo">
+            <img src="../iconos/logo_joystick.svg" alt="logo">
+            <h1>MGZ</h1>
+        </div>
+
+        <div class="right_options">
+            <div class="search_input">
+                <input type="text" placeholder="¿Qué quieres jugar hoy?"></input>
+                <img src="../iconos/logo_buscador.svg" alt="logo_buscador" fill="currentColor">
+            </div>
+
+            <button>
+                <img src="../iconos/logo_carrito.svg" alt="">
+            </button>
+            <button id="btn_profile_menu">
+                <img src="../iconos/logo_user.svg" alt="">
+            </button>
+
+            <nav id="profile_menu" class="menu invisible">
+                <ul>
+                    <li>Mi perfil</li>
+                    <li><button id="show_popover">Registrarse</button></li>
+                </ul>
+            </nav>
+        </div>
+
+        <nav id="burger_menu" class="menu invisible">
+            <ul>
+                <li><img src="../iconos/logo_home.png" alt="logo_home">Home</li>
+                <li> <img src="../iconos/logo_tendencias.png" alt="logo_tendencias">Tendencias</li>
+                <li><img src="../iconos/logo_accion.png" alt="">Acción</li>
+                <li><img src="../iconos/logo_deportes.png" alt="">Deportes</li>
+                <li><img src="../iconos/logo_romance.png" alt="">Romance</li>
+                <li><img src="../iconos/logo_cocina.png" alt="">Cocina</li>
+                <li><img src="../iconos/logo_estrategia.png" alt="">Estrategia</li>
+                <li><img src="../iconos/logo_moda.png" alt="">Moda</li>
+                <li><img src="../iconos/logo_clasicos.png" alt="">Clásicos</li>
+                <li><img src="../iconos/logo_multijugador.png" alt="">Multi jugador</li>
+                <li><img src="../iconos/logo_carreras.png" alt="">Carreras</li>
+                <li><img src="../iconos/logo_aventura.png" alt="">Aventuras</li>
+                <li class="nav_redes">
+                    <img src="../iconos/logo_twitter.png" alt="logo_twitter">
+                    <img src="../iconos/logo_instagram.png" alt="logo_instagram">
+                    <img src="../iconos/logo_facebook.png" alt="logo_facebook">
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="id_popover">
+        <form action="">
+            <label for="">Nombre</label>
+            <input type="text">
+            <label for="">apellido</label>
+            <input type="text">
+            <button type="submit">Enviar</button>
+        </form>
+        <button class="close_popover" type="button">X</button>
+    </div>
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
