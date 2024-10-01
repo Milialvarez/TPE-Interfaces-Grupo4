@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mega Games Zone</title>
+    <link rel="icon" href="../iconos/icono_joystick.png.ico">
     <link rel="stylesheet" href="../styles/general.css">
     <link rel="stylesheet" href="../styles/game.css">
 </head>
@@ -66,12 +67,12 @@
 
     <main>
         <section class="main_container">
-            <aside class="publicity_container">
-                <img src="../imgs/publicity_1.png" alt="">
-                <img src="../imgs/publicity_2.png" alt="">
-            </aside>
-
             <article class="content">
+                <!-- <aside class="publicity_container">
+                    <img src="../imgs/publicity_1.png" alt="">
+                    <img src="../imgs/publicity_2.png" alt="">
+                </aside> -->
+
                 <div class="game_container">
                     <div class="breadcrumb">
                         Tendencias
@@ -125,26 +126,101 @@
                         <div class="media"><img src="../imgs/media_file_3.png" alt="Media 3"></div>
                     </div>
                 </div>
-            </article>
 
-            <aside class="recommended_games">
-                <h4>Juegos similares</h4>
+                <div class="comments_section">
+                    <div class="comments_info">
+                        <img src="../iconos/logo_comment.svg" alt="Comentarios">
+                        <h3>Comentarios</h3>
+                    </div>
+
+                    <div class="input_container">
+                        <img src="../imgs/people_1.png" alt="Profile picture" class="profile_picture">
+
+                        <form class="form_comment">
+                            <textarea placeholder="¿Qué te pareció el juego? Escribe aquí tu comentario" re class="input_comment" required></textarea>
+                            <button class="btn_send_comment">Enviar</button>
+                        </form>
+                    </div>
+
+                    <div class="comments_container">
+                        <div class="comment">
+                            <img src="../imgs/people_2.png" alt="Profile picture" class="profile_picture">
+
+                            <div class="comment_content">
+                                <p>Me gustó mucho, tengo 30 años y estos juegos nunca me aburren!</p>
+                                <div class="comment_info">
+                                    <p>hace 45 min</p>
+
+                                    <div class="comment_actions">
+                                        <button>
+                                            <img src="../iconos/logo_like.svg" alt="Like">
+                                        </button>
+                                        <div class="actions_divider"></div>
+                                        <button>Responder</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment">
+                            <img src="../imgs/people_3.png" alt="Profile picture" class="profile_picture">
+                            
+                            <div class="comment_content">
+                                <p>Muy buen juego, amo Tom y Jerry</p>
+                                <div class="comment_info">
+                                    <p>hace 1 día</p>
+
+                                    <div class="comment_actions">
+                                        <button>
+                                            <img src="../iconos/logo_like.svg" alt="Like">
+                                        </button>
+                                        <div class="actions_divider"></div>
+                                        <button>Responder</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment">
+                            <img src="../imgs/people_4.png" alt="Profile picture" class="profile_picture">
+                            
+                            <div class="comment_content">
+                                <p>Podría mejorar, por qué no se come el perro al perdedor?</p>
+                                <div class="comment_info">
+                                    <p>hace 3 semanas</p>
+
+                                    <div class="comment_actions">
+                                        <button>
+                                            <img src="../iconos/logo_like.svg" alt="Like">
+                                        </button>
+                                        <div class="actions_divider"></div>
+                                        <button>Responder</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
-                <div class="card">
-                    <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
-                    <div class="title">Subway Surfers</div>
-                </div>
-
-                <div class="card">
-                    <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
-                    <div class="title">Subway Surfers</div>
-                </div>
-
-                <div class="card">
-                    <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
-                    <div class="title">Subway Surfers</div>
-                </div>
-            </aside>
+                <aside class="recommended_games">
+                    <h4>Juegos similares</h4>
+                    
+                    <div class="card">
+                        <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
+                        <div class="title">Subway Surfers</div>
+                    </div>
+    
+                    <div class="card">
+                        <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
+                        <div class="title">Subway Surfers</div>
+                    </div>
+    
+                    <div class="card">
+                        <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
+                        <div class="title">Subway Surfers</div>
+                    </div>
+                </aside>
+            </article>
         </section>
     </main>
 
