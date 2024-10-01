@@ -29,23 +29,6 @@
     --facebook_color: #1877F2;
 }
 
-#id_popover::backdrop{
-    opacity: 50%;
-}
-
-#id_popover{
-    display: none;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    border: 2px;
-    padding: 10px;
-    margin-top: 10px;
-    position: absolute;
-    z-index: 2;
-    color: aliceblue;
-    justify-content: center;
-    align-items: center;
-}
-
 .session_forms{
     display: flex;
     flex-direction: column;
@@ -105,10 +88,16 @@ label, .session_forms>h3{
     margin-right: 6px;
 }
 
-#form .logo img{
+.session_forms .logo_form img{
     width: 35px;
     height: 35px;
 }
+
+.logo_form{
+    display: flex;
+}
+
+/*COMO MIERDA PONGO LA CRUCESITA A LA DERECVHA*/
 
 .session_options{
     display: flex;
@@ -148,7 +137,7 @@ label, .session_forms>h3{
     font-size: var(--size_s);
 }
 
-.logo h1{
+.logo_form h1, .logo_form button{
     color: var(--white_200);
 }
 
@@ -199,4 +188,12 @@ label, .session_forms>h3{
     width: 130px;
     font-family: var(--font_lalezar);
     font-size: var(--size_m);
+}
+
+#profile_menu button{
+    color: var(--white_200);
+}
+
+#profile_menu button:hover{
+    color: var(--primary_400);
 }
