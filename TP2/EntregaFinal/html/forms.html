@@ -67,7 +67,7 @@
         </nav>
     </header>
 
-    <div id="form">
+    <div id="signin_form" class="session_forms visible">
         <div class="logo">
             <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
             <h1>MGZ</h1>
@@ -88,24 +88,70 @@
             <p>━━━━━━━━━</p>
         </div>
         <h3>* Campos obligatorios</h3>
-        <form action="" method="get">
+        <form id="form_signIn">
             <label for="">* Nombre y apellido</label>
-            <input type="text" placeholder="nombre y apellido" required>
+            <input type="text" placeholder="nombre y apellido" >
             <label for="">Nickname</label>
             <input type="text" placeholder="nickname">
             <label for="">* Edad</label>
-            <input type="number" placeholder="edad" required>
+            <input type="number" placeholder="edad" >
             <label for="">* Correo electrónico</label>
-            <input type="email" placeholder="email" required>
+            <input type="email" placeholder="email" >
             <label for="">* Contraseña</label>
             <div class="password_input">
-                <input type="password" placeholder="contraseña" required>
+                <input type="password" placeholder="contraseña" >
                 <img src="../iconos/visibility_off_icon.svg" alt="">
             </div>
             <label for="">* Repetir contraseña</label>
             <div class="password_input">
-                <input type="password" placeholder="repetir contraseña" required>
+                <input type="password" placeholder="repetir contraseña" >
                 <img src="../iconos/visibility_off_icon.svg" alt="">
+            </div>
+            <div class="captcha_button">
+                <input type="checkbox">
+                <p>No soy un robot</p>
+                <img src="../iconos/captcha_icon.png" alt="">
+            </div>
+            <div class="sendForm_buttons">
+                <button type="button" class="login_button">Ingresar</button>
+                <!-- agregar id=sign_in cuando se haga funcionalidad de registro correcto -->
+                <button type="button">Registrarse</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="login_form" class="session_forms invisible">
+        <div class="logo">
+            <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
+            <h1>MGZ</h1>
+        </div>
+        <div class="session_options">
+            <button class="google_button">
+                <img src="../iconos/logo_google.png" alt="logo_google">
+                <h3>Continuar con Google</h3>
+            </button>
+            <button class="facebook_button">
+                <img src="../iconos/logo_facebook.png" alt="logo_facebook">
+                <h3>Continuar con Facebook</h3>
+            </button>
+        </div>
+        <div class="separation">
+            <p>━━━━━━━━━</p>
+            <p>o</p>
+            <p>━━━━━━━━━</p>
+        </div>
+        <form id="form_logIn" action="">
+            <label for="">Correo electrónico</label>
+            <input type="email" placeholder="Correo electrónico">
+            <label for="">Contraseña</label>
+            <div class="password_input">
+                <input type="password" placeholder="contraseña">
+                <img src="../iconos/visibility_off_icon.svg" alt="">
+            </div>
+            <div class="sendForm_buttons">
+                <!-- agregar id="login" cuando se haga funcionalidad de logueo correcto -->
+                <button type="button">Ingresar</button>
+                <button type="button" class="signin_button">Registrarse</button>
             </div>
         </form>
     </div>

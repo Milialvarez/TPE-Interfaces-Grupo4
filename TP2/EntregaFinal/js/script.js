@@ -25,4 +25,25 @@ button_close_popover.addEventListener('click', ()=> {
     div_popover.style.display = 'none';
 })
 
+/*mostrar un form u otro*/
+const signin_form = document.querySelector('#signin_form');
+const login_form = document.querySelector('#login_form');
+const login_button = document.querySelector('.login_button');
+const signin_button = document.querySelector('.signin_button');
+
+login_button.addEventListener('click', (event) => {
+    event.preventDefault(); // Evita el comportamiento predeterminado
+    signin_form.classList.remove("visible");
+    signin_form.classList.add("invisible");
+    login_form.classList.remove("invisible");
+    login_form.classList.add("visible");
+});
+
+signin_button.addEventListener('click', (event) => {
+    event.preventDefault(); // Evita el comportamiento predeterminado
+    login_form.classList.remove("visible");
+    login_form.classList.add("invisible");
+    signin_form.classList.remove("invisible");
+    signin_form.classList.add("visible");
+});
 
