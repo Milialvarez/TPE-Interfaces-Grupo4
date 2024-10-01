@@ -190,7 +190,7 @@ footer {
     align-items: center;
     width: 100%;
     position: absolute;
-    bottom: 0;
+    margin-top: 100%;
     left: 0;
     background-color: var(--background_400);
     padding-top: 32px;
@@ -218,15 +218,12 @@ footer {
 footer h4 {
     font-weight: normal;
     opacity: 40%;
-
-
 }
 
 .footer_category h3 {
     font-weight: normal;
     text-transform: uppercase;
 }
-
 
 .icons {
     display: flex;
@@ -240,27 +237,63 @@ footer h4 {
 }
 
 /*CARRUSEL*/
-.carousel{
+
+.carousel_tendency h2{
+    width: 800px;
+    text-align: start;
+    color: var(--white_200);
+    font-family: var(--font_roboto);
+    font-size: var(--size_xl);
+}
+
+.carousel_tendency{
+    margin: 16px;
     display: flex;
-    margin-top: 20px;
+    flex-wrap: wrap;
+    width: 900px;
+    margin-left: 20%;
+    gap: 16px;
+}
+
+.carousel{
+    margin-top: 28px;
+    padding: 10px;
+}
+
+.carousel_juegos{
+    display: flex;
+    margin: 20px;
     justify-content: center;
     gap: 16px;
 }
-.card{
+
+.carousel h2{
+    text-align:start;
+    padding-left: 6%;
+    color: var(--white_200);
+    font-family: var(--font_roboto);
+    font-size: var(--size_xl);
+}
+.card, .carousel_tendency img, .card img{
     width: 209px;
     height: 118px;
+    border-radius: 16px;
     position: relative;
+    cursor: pointer;
 }
 
-.card img{
-    border-radius: 16px;
-    width: 100%;
-
+.logo_cards{
+    width: 61px;
+    height: 29px;
+    position: absolute;
+    bottom: 120px;
 }
 
 .title{
     width: 100%;
     text-align: center;
+    font-family: var(--font_lalezar);
+    font-size: var(--size_m);
     height: 19px;
     background-color: var(--primary_600);
     border-bottom-left-radius: 16px;
@@ -270,8 +303,70 @@ footer h4 {
     color: var(--white_200);
 }
 
+.card img{
+    width: 100%;
+}
 
+.card:hover .img_and_title_card{
+    opacity: 0.3;
+}
 
+.card:hover .btn_play{
+    display: flex;
+}
+
+.card:hover .title{
+    display: none;
+}
+
+.btn_play{
+    display: none;
+    justify-content: center;
+    margin-right: 40px;
+}
+
+.btn_play img{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 30px;
+}
+
+.precio_juego, .carrito{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+}
+
+.precio_juego{
+    bottom: 0;
+    margin-left: 68%;
+    color: var(--white_200);
+    font-size: var(--size_xl);
+    font-family: var(--font_lalezar);
+}
+
+.carrito{
+    width: 28px;
+    height: 28px;
+    top: 10px;
+    right: 10px;
+    align-items: center;
+    border-radius: 14px;
+    border: 2px solid var(--primary_600);
+    background-color: var(--white_200);
+}
+
+.card:hover .precio_juego, .card:hover .carrito{
+    display: flex;
+}
+
+.carrito img{
+    width: 22px;
+    height: 22px;
+    left: 2px;
+}
 
 /*EFECTO BOTONES*/
 /* .btnfos-5 { 

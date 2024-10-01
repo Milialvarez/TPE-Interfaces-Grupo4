@@ -12,5 +12,3 @@ btn_profile_menu.addEventListener("click", ()=>{
     profile_menu.classList.toggle("visible");
     profile_menu.classList.toggle("invisible");
 })
-
-
