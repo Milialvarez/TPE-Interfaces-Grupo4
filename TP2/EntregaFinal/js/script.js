@@ -22,8 +22,8 @@ const register_button = document.querySelector('#register_button');
 
 const signin_form = document.querySelector('#signin_form');
 const login_form = document.querySelector('#login_form');
-const login_button = document.querySelector('.login_button');
-const signin_button = document.querySelector('.signin_button');
+const login_button = document.querySelector('#login_button');
+const signin_button = document.querySelector('#signin_button');
 
 register_button.addEventListener('click', ()=>{
     signin_form.classList.toggle('invisible');
@@ -46,4 +46,21 @@ signin_button.addEventListener('click', (event) => {
     signin_form.classList.remove("invisible");
     signin_form.classList.add("visible");
 });
+
+const login = document.querySelector("#log_in");
+const signin = document.querySelector("#sign_in");
+
+login.addEventListener('click', (event)=>{
+    event.preventDefault();
+    alert("Welcome user 12234");
+    login_form.classList.remove("visible");
+    login_form.classList.add("invisible");
+})
+
+signin.addEventListener('click', (event)=>{
+    event.preventDefault();
+    alert("Welcome user 12234");
+    signin_form.classList.remove("visible");
+    signin_form.classList.add("invisible");
+})
 

@@ -19,6 +19,7 @@
     --font_roboto: "Roboto", sans-serif;
     --font_condensed: "Roboto Condensed", sans-serif;
     --font_lalezar: "Lalezar", system-ui;
+    --font_session: "Google Sans", arial, sans-serif;
     --size_xxxl: 40px;
     --size_xxl: 32px;
     --size_xl: 24px;
@@ -88,17 +89,15 @@ label, .session_forms>h3{
     margin-right: 6px;
 }
 
-.session_forms .logo_form img{
-    width: 35px;
-    height: 35px;
+.logo_form img{
+    width: 50px;
+    height: 50px;
 }
 
 .logo_form{
+    margin-top: 10px;
     display: flex;
 }
-
-/*COMO MIERDA PONGO LA CRUCESITA A LA DERECVHA*/
-
 .session_options{
     display: flex;
     margin-top: 30px;
@@ -115,6 +114,8 @@ label, .session_forms>h3{
 
 .session_options button h3{
     margin-left: 4px;
+    font-family: var(--font_session);
+    font-size: var(--size_s);
 }
 
 .google_button{
@@ -132,13 +133,9 @@ label, .session_forms>h3{
     height: 24px;
 }
 
-.session_options h3, h3, label{
+h3, label{
     font-family: var(--font_condensed);
     font-size: var(--size_s);
-}
-
-.logo_form h1, .logo_form button{
-    color: var(--white_200);
 }
 
 .separation{
@@ -174,20 +171,22 @@ label, .session_forms>h3{
 
 .sendForm_buttons{
     display: flex;
-    gap: 50px;
+    gap: 40px;
     margin-top: 50px;
     margin-bottom: 12px;
 }
 
 .sendForm_buttons button{
     border-radius: 16px;
-    background-color: var(--primary_500);
-    color: var(--background_500);
     padding-top: 8px;
     padding-bottom: 8px;
     width: 130px;
     font-family: var(--font_lalezar);
     font-size: var(--size_m);
+}
+
+.sendForm_buttons button:hover{
+    scale: 1.1;
 }
 
 #profile_menu button{
@@ -196,4 +195,21 @@ label, .session_forms>h3{
 
 #profile_menu button:hover{
     color: var(--primary_400);
+}
+
+.active_button{
+    background-color: var(--primary_500);
+    color: var(--background_500);
+}
+
+.unactive_button{
+    background-color: transparent;
+    border: 3px solid var(--secondary_400);
+    color: var(--secondary_400);
+    letter-spacing: 2px;
+}
+
+.unactive_button:hover{
+    border: 3px solid var(--secondary_500);
+    color: var(--secondary_500);
 }
