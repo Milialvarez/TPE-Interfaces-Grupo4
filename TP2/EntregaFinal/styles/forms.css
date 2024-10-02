@@ -36,8 +36,6 @@
 /*preguntar como hago para que quede fijo el form en el medio en ambos ejes, porque cuando agrando la pantalla se sube*/
     position: absolute;
     z-index: 2;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
     justify-content: center;
     transform: translate(-50%, -50%);
@@ -45,6 +43,18 @@
     padding: 12px;
     background-color: var(--background_400);
     align-items: center;
+}
+
+#signin_form{
+    top: 80%;
+}
+
+#login_form{
+    top: 50%;
+}
+
+#signin_form, #login_form{
+    left: 50%;
 }
 
 form{
@@ -57,6 +67,7 @@ input, .password_input{
     background-color: var(--background_300);
     border-radius: 8px;
     border: 2px solid var(--white_500);
+    outline: none;
 }
 
 input{
@@ -97,7 +108,9 @@ label, .session_forms>h3{
 .logo_form{
     margin-top: 10px;
     display: flex;
+    align-items: center;
 }
+
 .session_options{
     display: flex;
     margin-top: 30px;
@@ -213,3 +226,4 @@ h3, label{
     border: 3px solid var(--secondary_500);
     color: var(--secondary_500);
 }
+
