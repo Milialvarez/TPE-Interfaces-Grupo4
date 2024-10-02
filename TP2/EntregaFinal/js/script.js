@@ -17,19 +17,19 @@ const button_open_popover = document.querySelector("#show_popover");
 const button_close_popover = document.querySelector(".close_popover");
 const div_popover = document.querySelector("#id_popover");
 
-button_open_popover.addEventListener('click', ()=>{
-    div_popover.style.display = 'flex';
-})
-
-button_close_popover.addEventListener('click', ()=> {
-    div_popover.style.display = 'none';
-})
-
 /*mostrar un form u otro*/
+const register_button = document.querySelector('#register_button');
+
 const signin_form = document.querySelector('#signin_form');
 const login_form = document.querySelector('#login_form');
-const login_button = document.querySelector('.login_button');
-const signin_button = document.querySelector('.signin_button');
+const login_button = document.querySelector('#login_button');
+const signin_button = document.querySelector('#signin_button');
+
+register_button.addEventListener('click', ()=>{
+    signin_form.classList.toggle('invisible');
+    signin_form.classList.toggle('visible');
+}
+)
 
 login_button.addEventListener('click', (event) => {
     event.preventDefault(); // Evita el comportamiento predeterminado
@@ -46,4 +46,21 @@ signin_button.addEventListener('click', (event) => {
     signin_form.classList.remove("invisible");
     signin_form.classList.add("visible");
 });
+
+const login = document.querySelector("#log_in");
+const signin = document.querySelector("#sign_in");
+
+login.addEventListener('click', (event)=>{
+    event.preventDefault();
+    alert("Welcome user 12234");
+    login_form.classList.remove("visible");
+    login_form.classList.add("invisible");
+})
+
+signin.addEventListener('click', (event)=>{
+    event.preventDefault();
+    alert("Welcome user 12234");
+    signin_form.classList.remove("visible");
+    signin_form.classList.add("invisible");
+})
 
