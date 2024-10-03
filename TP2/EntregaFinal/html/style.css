@@ -12,7 +12,6 @@ button {
     font-size: 18px;
     border: 0;
     outline: 0;
-    font-weight: 600;
     cursor: pointer;
 }
 
@@ -67,7 +66,6 @@ button {
     padding: 8px;
     color: white;
     position: relative;
-    transition: all .5s;
 }
 
 .button2::before {
@@ -89,9 +87,28 @@ button {
     visibility: visible;
 }
 
-.button2:hover {
-    letter-spacing: 4px;
+
+
+
+
+
+
+.button3 {
+    font-family: var(--font_lalezar);
+    font-size: var(--size_m);
+    color: var(--background_500);
+    background-color: var(--primary_500);
+    padding: 4px 20px;
+    border-radius: 16px;
+    position: relative;
+    transition: all .5s;
 }
+
+.button3:hover {
+    border-radius: 4px;
+    box-shadow: 6px 6px var(--background_700);
+}
+
 
 
 
@@ -103,15 +120,67 @@ button {
     padding: 8px 28px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 24px;
     border-radius: 8px;
 }
 
 .social_media_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    position: relative;
     transition: all .3s;
 }
 
 .social_media_logo:hover {
-    transform: translateY(-4px);
+    transform: translateY(-4px) scale(1.1);
+}
+
+.social_media_logo span {
+    position: absolute;
+    display: none;
+    transition: all .2s;
+}
+
+.social_media_logo > span::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    bottom: -15%;
+    left: calc(50% - 4px);
+    z-index: -1;
+    background-color: var(--secondary_400);
+}
+
+.social_media_logo:hover > span {
+    transform: translateY(-120%);
+    background-color: var(--secondary_400);
+    color: var(--background_600);
+    display: block;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rating img {
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.rating img:hover {
+    transform: translateY(-4px) rotate(45deg);
 }
