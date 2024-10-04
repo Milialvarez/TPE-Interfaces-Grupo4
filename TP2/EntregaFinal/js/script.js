@@ -24,7 +24,14 @@ const signin_form = document.querySelector('#signin_form');
 const login_form = document.querySelector('#login_form');
 const login_button = document.querySelector('#login_button');
 const signin_button = document.querySelector('#signin_button');
-const body = document.querySelector(".body");
+const close_button = document.querySelector('#close_button');
+
+close_button.addEventListener('click', ()=>{
+    login_form.classList.add('invisible');
+    login_form.classList.remove('visible');
+    signin_form.classList.add('invisible');
+    signin_form.classList.remove('visible');
+})
 
 register_button.addEventListener('click', ()=>{
     login_form.classList.remove('visible');

@@ -45,6 +45,16 @@
     align-items: center;
 }
 
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
 #signin_form{
     top: 80%;
 }
@@ -100,15 +110,23 @@ label, .session_forms>h3{
     margin-right: 6px;
 }
 
-.logo_form img{
+
+.logo_form{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.logo_form_img img{
     width: 50px;
     height: 50px;
 }
 
-.logo_form{
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
+.close_button{
+    width: 25px;
+    height: 25px;
 }
 
 .session_options{
