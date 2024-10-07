@@ -69,7 +69,7 @@ signin_button.addEventListener('click', (event) => {
 const login = document.querySelector("#log_in");
 const signin = document.querySelector("#sign_in");
 const sesion_correcta = document.querySelector('#sesion_correcta');
-const home_button = document.querySelector('#home_button');
+const accept_button = document.querySelector('#accept_button');
 
 login.addEventListener('click', (event)=>{
     event.preventDefault();
@@ -79,7 +79,7 @@ login.addEventListener('click', (event)=>{
     sesion_correcta.classList.remove('invisible');
 })
 
-home_button.addEventListener('click', ()=>{
+accept_button.addEventListener('click', ()=>{
     sesion_correcta.classList.remove('visible');
     sesion_correcta.classList.add('invisible');
     document.body.classList.remove('blur');
