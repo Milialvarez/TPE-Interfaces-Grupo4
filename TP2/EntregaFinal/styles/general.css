@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lalezar&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
 
 :root {
     --primary_400: #80FF7C;
@@ -24,6 +24,7 @@
     --font_roboto: "Roboto", sans-serif;
     --font_condensed: "Roboto Condensed", sans-serif;
     --font_lalezar: "Lalezar", system-ui;
+    --font_title: "Days One", sans-serif;
     --size_xxxl: 40px;
     --size_xxl: 32px;
     --size_xl: 24px;
