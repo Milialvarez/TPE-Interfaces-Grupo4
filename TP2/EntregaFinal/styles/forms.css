@@ -30,21 +30,52 @@
     --facebook_color: #1877F2;
 }
 
+.blur::before {
+    content: '';
+    position: fixed; /* Cubre toda la ventana */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(35, 32, 43, 0.5); /* Fondo semi-transparente */
+    backdrop-filter: blur(5px); /* Desenfoque */
+    z-index: 1; /* Debajo del formulario */
+}
+
 .session_forms{
     display: flex;
     flex-direction: column;
 /*preguntar como hago para que quede fijo el form en el medio en ambos ejes, porque cuando agrando la pantalla se sube*/
     position: absolute;
     z-index: 2;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
     justify-content: center;
-    transform: translate(-50%, -50%);
     border-radius: 12px;
     padding: 12px;
     background-color: var(--background_400);
     align-items: center;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#signin_form{
+    top: 80%;
+}
+
+#login_form{
+    top: 50%;
+}
+
+#signin_form, #login_form{
+    left: 50%;
 }
 
 form{
@@ -57,6 +88,7 @@ input, .password_input{
     background-color: var(--background_300);
     border-radius: 8px;
     border: 2px solid var(--white_500);
+    outline: none;
 }
 
 input{
@@ -89,15 +121,25 @@ label, .session_forms>h3{
     margin-right: 6px;
 }
 
-.logo_form img{
+
+.logo_form{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.logo_form_img img{
     width: 50px;
     height: 50px;
 }
 
-.logo_form{
-    margin-top: 10px;
-    display: flex;
+#close_button{
+    width: 25px;
+    height: 25px;
 }
+
 .session_options{
     display: flex;
     margin-top: 30px;
@@ -213,3 +255,41 @@ h3, label{
     border: 3px solid var(--secondary_500);
     color: var(--secondary_500);
 }
+
+#sesion_correcta{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    top: 50%;
+    left: 50%;
+    background-color: var(--background_600);
+    border-radius: 12px;
+    border: 3px solid var(--white_300);
+    font-family: var(--font_condensed);
+    font-size: medium;
+    color: var(--white_200);
+    padding: 12px;
+}
+
+#sesion_correcta button{
+    margin-top: 20px;
+    width: fit-content;
+    padding: 4px;
+    border-radius: 8px;
+    border: 3px solid var(--accent);
+    color: var(--accent);
+    font-family: var(--font_roboto);
+    font-weight: bold;
+    font-size: medium;
+    cursor: pointer;
+}
+
+#sesion_correcta button:hover{
+    scale: 1.1;
+}
+

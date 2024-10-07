@@ -68,9 +68,11 @@
     </header>
 
     <div id="signin_form" class="session_forms invisible">
-        <div class="logo_form">
-            <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
-            <button type="button" class="close">X</button>
+        <div class="logo_form relative">
+            <div class="logo_form_img">
+                <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
+            </div>
+              <button class="close_button absolute" type="button"><img id="close_button" src="../iconos/close_button.png" alt="close"></button>
         </div>
         <div class="session_options">
             <button class="google_button">
@@ -120,9 +122,11 @@
     </div>
 
     <div id="login_form" class="session_forms invisible">
-        <div class="logo_form">
-            <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
-            <button type="button">X</button>
+        <div class="logo_form relative">
+            <div class="logo_form_img">
+                <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
+            </div>
+              <button id="login_close_button" class="absolute" type="button"><img id="close_button" src="../iconos/close_button.png" alt="close"></button>
         </div>
         <div class="session_options">
             <button class="google_button">
@@ -152,6 +156,15 @@
                 <button type="button" id="signin_button" class="unactive_button">Registrarse</button>
             </div>
         </form>
+    </div>
+
+    <div id="sesion_correcta" class="invisible">
+        <div class="logo_form_img">
+            <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
+        </div>
+        <h1>¡Bienvenido a Mega Zone Games!</h1>
+        <h2>Gracias por unirte a nuestra comunidad</h2>
+        <button id="home_button">Home</button>
     </div>
 
     <script src="../js/script.js"></script>

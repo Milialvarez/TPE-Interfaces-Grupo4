@@ -26,10 +26,27 @@ const signin_form = document.querySelector('#signin_form');
 const login_form = document.querySelector('#login_form');
 const login_button = document.querySelector('#login_button');
 const signin_button = document.querySelector('#signin_button');
+const signin_close_button = document.querySelector('.close_button');
+const login_close_button = document.querySelector('#login_close_button');
+
+signin_close_button.addEventListener('click', ()=>{
+    signin_form.classList.add('invisible');
+    signin_form.classList.remove('visible');
+    document.body.classList.remove('blur');
+})
+
+login_close_button.addEventListener('click', ()=>{
+    login_form.classList.add('invisible');
+    login_form.classList.remove('visible');
+    document.body.classList.remove('blur');
+})
 
 register_button.addEventListener('click', ()=>{
-    signin_form.classList.toggle('invisible');
-    signin_form.classList.toggle('visible');
+    document.body.classList.add('blur');
+    signin_form.classList.remove('invisible');
+    signin_form.classList.add('visible');
+    profile_menu.classList.remove('visible');
+    profile_menu.classList.add('invisible');
 }
 )
 
@@ -51,19 +68,29 @@ signin_button.addEventListener('click', (event) => {
 
 const login = document.querySelector("#log_in");
 const signin = document.querySelector("#sign_in");
+const sesion_correcta = document.querySelector('#sesion_correcta');
+const home_button = document.querySelector('#home_button');
 
 login.addEventListener('click', (event)=>{
     event.preventDefault();
-    alert("Welcome user 12234");
     login_form.classList.remove("visible");
     login_form.classList.add("invisible");
+    sesion_correcta.classList.add('visible');
+    sesion_correcta.classList.remove('invisible');
+})
+
+home_button.addEventListener('click', ()=>{
+    sesion_correcta.classList.remove('visible');
+    sesion_correcta.classList.add('invisible');
+    document.body.classList.remove('blur');
 })
 
 signin.addEventListener('click', (event)=>{
     event.preventDefault();
-    alert("Welcome user 12234");
     signin_form.classList.remove("visible");
     signin_form.classList.add("invisible");
+    sesion_correcta.classList.add('visible');
+    sesion_correcta.classList.remove('invisible');
 })
 
 /* CARRUSEL */

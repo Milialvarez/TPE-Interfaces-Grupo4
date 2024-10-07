@@ -87,10 +87,60 @@ main {
     border-radius: 8px;
 }
 
+.social_media_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: all .3s;
+}
+
+.social_media_logo:hover {
+    transform: translateY(-4px) scale(1.1);
+}
+
+.social_media_logo span {
+    position: absolute;
+    display: none;
+    transition: all .2s;
+}
+
+.social_media_logo > span::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    bottom: -15%;
+    left: calc(50% - 4px);
+    z-index: -1;
+    background-color: var(--secondary_400);
+}
+
+.social_media_logo:hover > span {
+    transform: translateY(-130%);
+    background-color: var(--secondary_400);
+    color: var(--background_600);
+    display: block;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
 .rating {
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+.rating img {
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.rating img:hover {
+    transform: translateY(-4px) rotate(45deg);
 }
 
 .media_content {
@@ -238,6 +288,13 @@ main {
     background-color: var(--primary_500);
     padding: 4px 20px;
     border-radius: 16px;
+    position: relative;
+    transition: all .5s;
+}
+
+.btn_send_comment:hover {
+    border-radius: 4px;
+    box-shadow: 6px 6px var(--background_700);
 }
 
 .comments_container {
@@ -284,6 +341,25 @@ main {
 .comment_actions button {
     color: var(--white_200);
     height: 16px;
+    position: relative;
+}
+
+.comment_actions button::before {
+    content: '';
+    position: absolute;
+    border-bottom: 1px solid white;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    padding: 0;
+    visibility: hidden;
+    transition: all .5s;
+}
+
+.comment_actions button:hover::before {
+    padding: 0 50%;
+    left: 0;
+    visibility: visible;
 }
 
 .actions_divider {
