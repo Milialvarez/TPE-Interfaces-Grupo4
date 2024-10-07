@@ -114,13 +114,14 @@ carousels.forEach((carousel) =>{ //itera sobre cada carrusel para aplicar la ló
             left: -cantidad_pixeles_movimiento,
             behavior: 'smooth'
         })
+        
         if(btn_der.style.display == "none"){
             btn_der.style.display = "block";
         }
 
         if(carousel_juegos.scrollLeft <= 0){ //scrollLeft: cantidad de píxeles que se movieron de manera horizontal
-            movimiento_pixeles_actual = carousel_juegos.clientWidth;
             btn_izq.style.display = "none";
+            movimiento_pixeles_actual = carousel_juegos.clientWidth;
         }
     })
 
@@ -132,16 +133,12 @@ carousels.forEach((carousel) =>{ //itera sobre cada carrusel para aplicar la ló
             behavior: 'smooth'
         })
 
-        if(btn_izq.style.display == "none"){
-            btn_izq.style.display = "block";
-        }
-
         if(movimiento_pixeles_actual >= cantidad_total_pixeles){
             cantidad_pixeles_movimiento = cantidad_total_pixeles - carousel_juegos.clientWidth;
             btn_der.style.display = "none";
         }
 
-        if(carousel_juegos.scrollLeft > 0){
+        if(carousel_juegos.scrollLeft >= 0){
             btn_izq.style.display = "block";
         }
     })

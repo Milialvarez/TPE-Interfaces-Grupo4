@@ -1,0 +1,156 @@
+/*CAROUSEL*/
+.carousel-general {
+    display: flex;
+    margin-top: 28px;
+    flex-direction: column;
+    padding: 10px;
+    white-space: nowrap;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+.carousel {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn_flecha_izq_carousel {
+    display: none;
+}
+
+.btn_flecha_derecha_carousel {
+    display: none;
+}
+
+.carousel_juegos {
+    display: flex;
+    margin: 12px;
+    width: 90%;
+    position: relative;
+    gap: 16px;
+    overflow-x: scroll;
+    /* Permite el desplazamiento horizontal */
+    overflow-y: hidden;
+    /* Desactiva el desplazamiento vertical */
+}
+
+.carousel-general h2 {
+    padding-left: 1%;
+    color: var(--white_200);
+    font-family: var(--font_roboto);
+    font-size: var(--size_xl);
+}
+
+/* CAROUSEL TENDENCY */
+
+.carousel_tendency h2 {
+    width: 100%;
+    text-align: start;
+    color: var(--white_200);
+    font-family: var(--font_roboto);
+    font-size: var(--size_xl);
+}
+
+.carousel_tendency {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 12px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.card,
+.carousel_tendency img,
+.img_and_title_card img {
+    width: 209px;
+    height: 118px;
+    border-radius: 16px;
+}
+
+.card {
+    position: relative;
+    cursor: pointer;
+}
+
+.logo_cards img {
+    width: 61px;
+    height: 29px;
+    position: absolute;
+    bottom: 75px;
+    right: 72.5%;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-family: var(--font_lalezar);
+    font-size: var(--size_m);
+    height: 19px;
+    background-color: var(--primary_600);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    position: absolute;
+    bottom: 0;
+    color: var(--white_200);
+}
+
+.card:hover .img_and_title_card {
+    opacity: 0.3;
+}
+
+.card:hover .title {
+    display: none;
+}
+
+.btn_play {
+    display: none;
+    justify-content: center;
+    margin-right: 40px;
+}
+
+.btn_play img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 30px;
+}
+
+.precio_juego,
+.carrito {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+}
+
+.precio_juego {
+    bottom: 0;
+    margin-left: 68%;
+    color: var(--white_200);
+    font-size: var(--size_xl);
+    font-family: var(--font_lalezar);
+}
+
+.carrito {
+    width: 28px;
+    height: 28px;
+    top: 10px;
+    right: 10px;
+    align-items: center;
+    border-radius: 14px;
+    border: 2px solid var(--primary_600);
+    background-color: var(--white_200);
+}
+
+.card:hover .precio_juego,
+.card:hover .carrito,
+.card:hover .btn_play {
+    display: flex;
+}
+
+.carrito img {
+    width: 22px;
+    height: 22px;
+    left: 2px;
+}
