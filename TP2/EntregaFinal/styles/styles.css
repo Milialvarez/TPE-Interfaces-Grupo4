@@ -1,242 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lalezar&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-:root {
-    --primary_400: #80FF7C;
-    --primary_500: #18B613;
-    --primary_600: #0F5B0D;
-    --secondary_400: #97FFEA;
-    --secondary_500: #12C8A3;
-    --secondary_700: #0E7662;
-    --background_600: #1D1A25;
-    --background_500: #23202B;
-    --background_400: #352D48;
-    --background_300: #62508D;
-    --accent: #EC6C04;
-    --white_200: #EDEDED;
-    --white_300: #D1D1D1;
-    --white_400: #B6B6B6;
-    --white_500: #919191;
-    --white_700: #555555;
-
-    --font_roboto: "Roboto", sans-serif;
-    --font_condensed: "Roboto Condensed", sans-serif;
-    --font_lalezar: "Lalezar", system-ui;
-    --size_xxxl: 40px;
-    --size_xxl: 32px;
-    --size_xl: 24px;
-    --size_l: 20px;
-    --size_m: 16px;
-    --size_s: 14px;
-    --size_xs: 12px;
+/*CAROUSEL*/
+.carousel-general{
+    display: flex;
+    margin-top: 28px;
+    flex-direction: column;
+    padding: 10px;
+    white-space: nowrap;
+    scrollbar-width: none;
+    scroll-behavior: smooth; 
 }
 
-* {
-    padding: 0;
-    margin: 0;
+.carousel{
+    display: flex;
+    flex-direction: row;
 }
 
-::-webkit-scrollbar {
+.btn_flecha_izq_carousel{
     display: none;
 }
-
-body {
-    background-color: var(--background_500);
-    height: 100vh;
-}
-
-button {
-    cursor: pointer;
-    background-color: transparent;
-    border: 0;
-}
-
-/*HEADER*/
-.search_input {
-    color: var(--white_700);
-    background-color: var(--white_200);
-    width: 268px;
-    height: 40px;
+.carousel_juegos{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 40px;
-    padding: 0 16px;
-}
-
-.search_input input {
-    background-color: transparent;
-    border: 0;
-    outline: none;
-    width: 100%;
-    height: 40px;
-}
-
-.right_options {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-}
-
-.search_input input::placeholder {
-    font-size: 16px;
-}
-
-.logo {
-    display: flex;
-    width: fit-content;
-    height: fit-content;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo h1 {
-    font-size: var(--size_xxxl);
-    font-family: var(--font_roboto);
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 38px;
-    background-color: var(--background_400);
-    color: var(--white_200);
-}
-
-/*MENÚ*/
-#btn_profile_menu {
-    border-radius: 50%;
-    padding: 4px;
-    border: 2px solid var(--white_200);
-}
-
-.container_btn_burger {
-    width: 419px;
-}
-
-#btn_burger_menu {
-    user-select: none;
-    display: flex;
-    justify-content: start;
-    color: var(--white_200);
-}
-
-#btn_burger_menu:hover {
-    transition: 300ms ease-in-out;
-}
-
-#profile_menu {
-    right: 0;
-}
-
-#burger_menu {
-    left: 0;
-}
-
-.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.invisible {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.menu {
-    background-color: var(--background_400);
-    position: absolute;
-    top: 84px;
-    z-index: 1;
-}
-
-.menu li {
-    display: flex;
-    margin-bottom: 20px;
-    margin-left: 16px;
-    margin-right: 16px;
-    gap: 8px;
-    list-style: none;
-    color: var(--white_200);
-    font-family: Arial, Helvetica, sans-serif;
-    justify-content: start;
-}
-
-.menu .nav_redes {
-    justify-content: space-around;
-    margin-top: 36px;
-}
-
-.nav_redes img{
-    height: 35px;
-    width: 32px;
-
-}
-#burger_menu img{
-    height: 32px;
-    width: 32;
-}
-
-#burger_menu li{
-    align-items: center;
-}
-
-/* FOOTER */
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    position: absolute;
-    margin-top: 100%;
-    left: 0;
-    background-color: var(--background_400);
-    padding-top: 32px;
-    gap: 72px;
-    padding-bottom: 8px;
-    color: var(--white_200);
-    font-family: var(--font_roboto);
-    font-size: var(--size_m);
-}
-
-.footer_container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 98px;
-}
-
-.footer_category {
-    display: flex;
-    gap: 12px;
-    flex-direction: column;
-    font-size: 16px;
-}
-
-footer h4 {
-    font-weight: normal;
-    opacity: 40%;
-}
-
-.footer_category h3 {
-    font-weight: normal;
-    text-transform: uppercase;
-}
-
-.icons {
-    display: flex;
+    margin: 20px;
+    width: 88%;
+    position: relative;
     gap: 16px;
-    justify-content: center;
+    overflow-x: scroll;  /* Permite el desplazamiento horizontal */
+    overflow-y: hidden;  /* Desactiva el desplazamiento vertical */
 }
 
-.icons img{
-    height: 38px;
-    width: 38;
+.carousel-general h2{
+    padding-left: 2%;
+    color: var(--white_200);
+    font-family: var(--font_roboto);
+    font-size: var(--size_xl);
 }
 
-/*CARRUSEL*/
+/* CAROUSEL TENDENCY */
 
 .carousel_tendency h2{
     width: 800px;
@@ -255,38 +53,22 @@ footer h4 {
     gap: 16px;
 }
 
-.carousel{
-    margin-top: 28px;
-    padding: 10px;
-}
-
-.carousel_juegos{
-    display: flex;
-    margin: 20px;
-    justify-content: center;
-    gap: 16px;
-}
-
-.carousel h2{
-    text-align:start;
-    padding-left: 6%;
-    color: var(--white_200);
-    font-family: var(--font_roboto);
-    font-size: var(--size_xl);
-}
-.card, .carousel_tendency img, .card img{
+.card, .carousel_tendency img, .img_and_title_card img{
     width: 209px;
     height: 118px;
     border-radius: 16px;
+}
+.card{
     position: relative;
     cursor: pointer;
 }
 
-.logo_cards{
+.logo_cards img{
     width: 61px;
     height: 29px;
     position: absolute;
-    bottom: 120px;
+    bottom: 75px;
+    right: 72.5%;
 }
 
 .title{
@@ -303,16 +85,8 @@ footer h4 {
     color: var(--white_200);
 }
 
-.card img{
-    width: 100%;
-}
-
 .card:hover .img_and_title_card{
     opacity: 0.3;
-}
-
-.card:hover .btn_play{
-    display: flex;
 }
 
 .card:hover .title{
@@ -358,7 +132,7 @@ footer h4 {
     background-color: var(--white_200);
 }
 
-.card:hover .precio_juego, .card:hover .carrito{
+.card:hover .precio_juego, .card:hover .carrito, .card:hover .btn_play{
     display: flex;
 }
 
@@ -368,31 +142,38 @@ footer h4 {
     left: 2px;
 }
 
-/*EFECTO BOTONES*/
-/* .btnfos-5 { 
-    display: flex;
-    justify-content: center;
-    margin: 50%;
-    width: 181px;
-    border-radius: 100%;
-    background-color: transparent;
-    height: 181px;
-    align-items: center;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-    outline: 1px solid;
-    outline-color: var(--secondary_400);
-    outline-offset: 0px;
-    text-shadow: none;
-    -webkit-transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-            transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-    outline-color: var(--secondary_400);
-    outline-offset: 0px;
-  }
-  
-  .btnfos-5:hover {
-    border: 1px solid;
-    box-shadow: inset 0 0 20px rgba(235, 243, 231, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
-    outline-offset: 15px;
-    outline-color: rgba(246, 247, 247, 0);
-  }
- */
+
+
+/* .carousel_juegos::after{
+    border-right: 16px;
+}
+
+.carousel_juegos::before{
+    border-radius: 16px;
+}
+
+.carousel_juegos::before, .carousel_juegos::after{
+    content: "";
+    position: absolute; 
+    width: 209px;                 
+    height: 118px;                    
+    z-index: 1; 
+} 
+
+.carousel_juegos::before{
+    left: 0;                             
+    background: linear-gradient(
+        to right, 
+        rgba(0, 0, 0, 0.5),  
+        rgba(0, 0, 0, 0)     
+    );
+}
+
+.carousel_juegos::after{
+    right: 0;                           
+    background: linear-gradient(
+        to left, 
+        rgba(0, 0, 0, 0.5),  
+        rgba(0, 0, 0, 0)   
+    );
+} */

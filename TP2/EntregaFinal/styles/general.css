@@ -79,6 +79,10 @@ button {
     gap: 32px;
 }
 
+a{
+    text-decoration: none;
+}
+
 .search_input input::placeholder {
     font-size: 16px;
 }
@@ -92,6 +96,7 @@ button {
 }
 
 .logo h1 {
+    color: var(--white_200);
     font-size: var(--size_xxxl);
     font-family: var(--font_roboto);
 }
