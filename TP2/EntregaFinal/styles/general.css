@@ -20,6 +20,7 @@
     --white_400: #B6B6B6;
     --white_500: #919191;
     --white_700: #555555;
+    --facebook_color: #1877F2;
 
     --font_roboto: "Roboto", sans-serif;
     --font_condensed: "Roboto Condensed", sans-serif;
@@ -34,16 +35,11 @@
     --size_xs: 12px;
 }
 
-* {
-    padding: 0;
-    margin: 0;
-}
-
 ::-webkit-scrollbar {
     display: none;
 }
 
-body{
+body {
     background-color: var(--background_500);
     height: 100vh;
     z-index: 1;
@@ -55,12 +51,20 @@ button {
     border: 0;
 }
 
-/*HEADER*/
+a {
+    text-decoration: none;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* HEADER */
+
 .search_input {
     color: var(--white_700);
     background-color: var(--white_200);
-    width: 268px;
-    height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,20 +80,6 @@ button {
     height: 40px;
 }
 
-.right_options {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-}
-
-a{
-    text-decoration: none;
-}
-
-.search_input input::placeholder {
-    font-size: 16px;
-}
-
 .logo {
     display: flex;
     width: fit-content;
@@ -98,9 +88,25 @@ a{
     align-items: center;
 }
 
+.right_options {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.search_input input::placeholder {
+    font-size: 16px;
+}
+
+.logo img {
+    width: 24px;
+    height: 24px;
+}
+
 .logo h1 {
+    display: none;
     color: var(--white_200);
-    font-size: var(--size_xxxl);
+    font-size: var(--size_l);
     font-family: var(--font_roboto);
 }
 
@@ -108,21 +114,15 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 38px;
+    padding: 18px;
     background-color: var(--background_400);
     color: var(--white_200);
 }
 
-
-/*MENÚ*/
-#btn_profile_menu {
-    border-radius: 50%;
-    padding: 4px;
-    border: 2px solid var(--white_200);
-}
+/* MENU */
 
 .container_btn_burger {
-    width: 419px;
+    width: fit-content;
 }
 
 #btn_burger_menu {
@@ -132,12 +132,9 @@ header {
     color: var(--white_200);
 }
 
-#btn_burger_menu:hover {
-    transition: 300ms ease-in-out;
-}
-
 #profile_menu {
     right: 0;
+    color: var(--white_200);
 }
 
 #burger_menu {
@@ -159,6 +156,7 @@ header {
     position: absolute;
     top: 84px;
     z-index: 1;
+    padding: 20px;
 }
 
 .menu li {
@@ -169,8 +167,21 @@ header {
     gap: 8px;
     list-style: none;
     color: var(--white_200);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font_roboto);
+    font-size: var(--size_m);
     justify-content: start;
+}
+
+.menu button {
+    font-size: var(--size_m);
+}
+
+.menu a {
+    color: var(--white_200);
+}
+
+.menu a:hover {
+    color: var(--primary_400);
 }
 
 .menu .nav_redes {
@@ -178,17 +189,17 @@ header {
     margin-top: 36px;
 }
 
-.nav_redes img{
+.nav_redes img {
     height: 35px;
     width: 32px;
-
 }
-#burger_menu img{
+
+#burger_menu img {
     height: 32px;
     width: 32;
 }
 
-#burger_menu li{
+#burger_menu li {
     align-items: center;
 }
 
@@ -208,13 +219,17 @@ footer {
     color: var(--white_200);
     font-family: var(--font_roboto);
     font-size: var(--size_m);
+    margin-top: 32px;
 }
 
 .footer_container {
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 98px;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .footer_category {
@@ -227,8 +242,6 @@ footer {
 footer h4 {
     font-weight: normal;
     opacity: 40%;
-
-
 }
 
 .footer_category h3 {
@@ -236,14 +249,49 @@ footer h4 {
     text-transform: uppercase;
 }
 
-
 .icons {
     display: flex;
     gap: 16px;
     justify-content: center;
 }
 
-.icons img{
+.icons img {
     height: 38px;
-    width: 38;
+    width: 38px;
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+    /*HEADER*/
+    .search_input {
+        width: 268px;
+        height: 40px;
+    }
+
+    .logo img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .logo h1 {
+        display: block;
+        font-size: var(--size_xxxl);
+    }
+
+    header {
+        padding: 18px 38px;
+    }
+
+
+    /*MENÚ*/
+    .container_btn_burger {
+        width: 419px;
+    }
+
+    /* FOOTER */
+    .footer_container {
+        justify-content: center;
+        gap: 98px;
+    }
 }

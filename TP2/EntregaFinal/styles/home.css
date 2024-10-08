@@ -1,69 +1,88 @@
-/*CAROUSEL*/
-.carousel-general{
+/* CAROUSELS */
+.general_carousel {
     display: flex;
     margin-top: 28px;
     flex-direction: column;
     padding: 10px;
     white-space: nowrap;
     scrollbar-width: none;
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
 
-.carousel{
+.carousel {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
-.btn_flecha_izq_carousel{
+.btn_left_arrow {
     display: none;
 }
-.carousel_juegos{
+
+.btn_right_arrow {
+    display: none;
+}
+
+.games_carousel {
     display: flex;
-    margin: 20px;
-    width: 88%;
+    margin: 12px;
+    width: 90%;
     position: relative;
     gap: 16px;
-    overflow-x: scroll;  /* Permite el desplazamiento horizontal */
-    overflow-y: hidden;  /* Desactiva el desplazamiento vertical */
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
-.carousel-general h2{
-    padding-left: 2%;
+.general_carousel h2 {
+    padding-left: 1%;
     color: var(--white_200);
     font-family: var(--font_roboto);
     font-size: var(--size_xl);
 }
 
-/* CAROUSEL TENDENCY */
+/* TRENDINGS CAROUSEL */
 
-.carousel_tendency h2{
-    width: 800px;
-    text-align: start;
-    color: var(--white_200);
-    font-family: var(--font_roboto);
-    font-size: var(--size_xl);
-}
-
-.carousel_tendency{
-    margin: 16px;
+.trendings {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    width: 900px;
-    margin-left: 20%;
+    flex-direction: column;
     gap: 16px;
 }
 
-.card, .carousel_tendency img, .img_and_title_card img{
+.trending_container h2 {
+    text-align: center;
+    color: var(--white_200);
+    font-family: var(--font_roboto);
+    font-size: var(--size_xl);
+}
+
+.trending_cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.trending_container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.card,
+.trending_container img,
+.img_and_title_card img {
     width: 209px;
     height: 118px;
     border-radius: 16px;
 }
-.card{
+
+.card {
     position: relative;
     cursor: pointer;
 }
 
-.logo_cards img{
+.logo_cards img {
     width: 61px;
     height: 29px;
     position: absolute;
@@ -71,7 +90,7 @@
     right: 72.5%;
 }
 
-.title{
+.title {
     width: 100%;
     text-align: center;
     font-family: var(--font_lalezar);
@@ -85,21 +104,21 @@
     color: var(--white_200);
 }
 
-.card:hover .img_and_title_card{
+.card:hover .img_and_title_card {
     opacity: 0.3;
 }
 
-.card:hover .title{
+.card:hover .title {
     display: none;
 }
 
-.btn_play{
+.btn_play {
     display: none;
     justify-content: center;
     margin-right: 40px;
 }
 
-.btn_play img{
+.btn_play img {
     width: 50px;
     height: 50px;
     cursor: pointer;
@@ -107,13 +126,14 @@
     bottom: 30px;
 }
 
-.precio_juego, .carrito{
+.game_price,
+.cart {
     display: none;
     cursor: pointer;
     position: absolute;
 }
 
-.precio_juego{
+.game_price {
     bottom: 0;
     margin-left: 68%;
     color: var(--white_200);
@@ -121,7 +141,7 @@
     font-family: var(--font_lalezar);
 }
 
-.carrito{
+.cart {
     width: 28px;
     height: 28px;
     top: 10px;
@@ -132,17 +152,21 @@
     background-color: var(--white_200);
 }
 
-.card:hover .precio_juego, .card:hover .carrito, .card:hover .btn_play{
+.card:hover .game_price,
+.card:hover .cart,
+.card:hover .btn_play {
     display: flex;
 }
 
-.carrito img{
+.cart img {
     width: 22px;
     height: 22px;
     left: 2px;
 }
 
-.loader{
+/* LOADING */
+
+.loader {
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.647);
@@ -157,7 +181,7 @@
     color: var(--white_200);
 }
 
-.loader_box{
+.loader_box {
     width: 35%;
     padding: 8px;
     border: 2px solid var(--accent);
@@ -169,18 +193,19 @@
     border-radius: 8px;
 }
 
-.loader_box h1, .loader_box h3{
+.loader_box h1,
+.loader_box h3 {
     color: var(--primary_400);
     font-size: var(--size_xl);
 }
 
-.loader_box h1{
+.loader_box h1 {
     font-family: var(--font_title);
     margin-bottom: 12px;
     margin-top: 8px;
 }
 
-.loading_bar{
+.loading_bar {
     position: relative;
     width: 80%;
     height: 30px;
@@ -200,8 +225,46 @@
     animation: loading 5s linear;
 }
 
-@keyframes loading{
-    100%{
+@keyframes loading {
+    100% {
         width: 100%;
     }
 }
+<<<<<<< HEAD:TP2/EntregaFinal/styles/styles.css
+=======
+
+/* DESKTOP */
+
+@media only screen and (min-width: 1024px) {
+    .carousel {
+        flex-direction: row;
+    }
+
+    .btn_right_arrow {
+        display: block;
+    }
+
+    .carousel_juegos {
+        display: flex;
+        margin: 20px;
+        width: 100%;
+    }
+
+    .trendings {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .trending_cards {
+        display: grid;
+        grid-template-columns: 25fr 25fr 25fr 25fr;
+        gap: 12px;
+    }
+
+    .trending_container h2 {
+        text-align: start;
+    }
+}
+>>>>>>> 03479f510d7e45afc88525c8f2988a6b5869723d:TP2/EntregaFinal/styles/home.css
