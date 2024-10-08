@@ -95,7 +95,7 @@ signin.addEventListener('click', (event)=>{
 
 /* CARRUSEL */
 
-let carousels = document.querySelectorAll('.carousel'); //selecciona todos los elementos con la clase carousel.
+let carousels = document.querySelectorAll('.carousel-general'); //selecciona todos los elementos con la clase carousel.
 
 carousels.forEach((carousel) =>{ //itera sobre cada carrusel para aplicar la lógica interna a c/u
     let btn_izq = carousel.querySelector('.btn_flecha_izq_carousel');
