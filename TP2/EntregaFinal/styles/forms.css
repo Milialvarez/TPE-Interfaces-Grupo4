@@ -145,8 +145,8 @@ label,
     height: 24px;
 }
 
-h3,
-label {
+.session_forms h3,
+.session_forms label {
     font-family: var(--font_condensed);
     font-size: var(--size_s);
 }
