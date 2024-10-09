@@ -30,6 +30,7 @@
     gap: 16px;
     overflow-x: scroll;
     overflow-y: hidden;
+    padding-left: 10px;
 }
 
 .general_carousel h2 {
@@ -69,99 +70,25 @@
     margin-top: 32px;
 }
 
-.card,
-.trending_container img,
-.img_and_title_card img {
-    width: 209px;
-    height: 118px;
-    border-radius: 16px;
-}
-
-.card {
-    position: relative;
-    cursor: pointer;
-}
-
-.logo_cards img {
-    width: 61px;
-    height: 29px;
-    position: absolute;
-    bottom: 75px;
-    right: 72.5%;
-}
-
-.title {
-    width: 100%;
-    text-align: center;
-    font-family: var(--font_lalezar);
-    font-size: var(--size_m);
-    height: 19px;
-    background-color: var(--primary_600);
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
-    position: absolute;
-    bottom: 0;
-    color: var(--white_200);
-}
-
-.card:hover .img_and_title_card {
-    opacity: 0.3;
-}
-
-.card:hover .title {
-    display: none;
-}
-
 .btn_play {
-    display: none;
-    justify-content: center;
-    margin-right: 40px;
+    opacity: 0;
+    transition: opacity .2s linear;
 }
 
-.btn_play img {
+.btn_play svg {
     width: 50px;
     height: 50px;
     cursor: pointer;
     position: absolute;
     bottom: 30px;
+    left: calc(50% - 25px);
+    color: var(--primary_400);
+    transition: all .5s;
 }
 
-.game_price,
-.cart {
-    display: none;
-    cursor: pointer;
-    position: absolute;
-}
-
-.game_price {
-    bottom: 0;
-    margin-left: 68%;
-    color: var(--white_200);
-    font-size: var(--size_xl);
-    font-family: var(--font_lalezar);
-}
-
-.cart {
-    width: 28px;
-    height: 28px;
-    top: 10px;
-    right: 10px;
-    align-items: center;
-    border-radius: 14px;
-    border: 2px solid var(--primary_600);
-    background-color: var(--white_200);
-}
-
-.card:hover .game_price,
-.card:hover .cart,
-.card:hover .btn_play {
-    display: flex;
-}
-
-.cart img {
-    width: 22px;
-    height: 22px;
-    left: 2px;
+.btn_play svg:hover {
+    color: var(--secondary_400);
+    transform: scale(1.1);
 }
 
 /* LOADING */

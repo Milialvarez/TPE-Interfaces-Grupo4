@@ -40,13 +40,26 @@ main {
 }
 
 .game {
+    position: relative;
     width: 100%;
     height: 622px;
-    background-color: var(--white_200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url(../imgs/game_image.jpeg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    opacity: 0.3;
 }
 
 .game_info {
@@ -135,7 +148,7 @@ main {
 
 .rating img {
     cursor: pointer;
-    transition: all .5s;
+    transition: transform .5s;
 }
 
 .rating img:hover {
@@ -182,29 +195,6 @@ main {
     position: absolute;
     left: calc(100% + 32px);
     top: 0;
-}
-
-.card {
-    width: 209px;
-    height: 118px;
-    position: relative;
-}
-
-.card img {
-    border-radius: 16px;
-    width: 100%;
-}
-
-.title {
-    width: 100%;
-    text-align: center;
-    height: 19px;
-    background-color: var(--primary_600);
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
-    position: absolute;
-    bottom: 0;
-    color: var(--white_200);
 }
 
 .publicity_container {
@@ -366,4 +356,21 @@ main {
     height: 3px;
     background-color: var(--secondary_400);
     border-radius: 100%;
+}
+
+.btn_play {
+    z-index: 1;
+}
+
+.btn_play svg {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    color: var(--primary_400);
+    transition: all .5s;
+}
+
+.btn_play svg:hover {
+    color: var(--secondary_400);
+    transform: scale(1.1);
 }

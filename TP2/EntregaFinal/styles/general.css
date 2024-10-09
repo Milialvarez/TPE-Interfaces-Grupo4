@@ -42,7 +42,6 @@
 body {
     background-color: var(--background_500);
     height: 100vh;
-    z-index: 1;
 }
 
 button {
@@ -170,6 +169,8 @@ header {
     font-family: var(--font_roboto);
     font-size: var(--size_m);
     justify-content: start;
+    width: fit-content;
+    cursor: pointer;
 }
 
 .menu button {
@@ -241,7 +242,14 @@ footer {
 
 footer h4 {
     font-weight: normal;
-    opacity: 40%;
+    opacity: 0.4;
+    width: fit-content;
+    transition: opacity .3s;
+}
+
+.footer_category h4:hover {
+    opacity: 0.7;
+    cursor: pointer;
 }
 
 .footer_category h3 {
@@ -258,11 +266,121 @@ footer h4 {
 .icons img {
     height: 38px;
     width: 38px;
+    cursor: pointer;
+    transition: transform .3s;
 }
 
+.icons img:hover {
+    transform: scale(1.1);
+}
+
+/* CARDS */
+
+.card,
+.trending_container img,
+.img_and_title_card img {
+    width: 209px;
+    height: 118px;
+    border-radius: 16px;
+}
+
+.img_and_title_card {
+    transition: opacity .2s linear;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font_lalezar);
+    font-size: var(--size_m);
+    font-weight: 800;
+    height: 24px;
+    background: linear-gradient(90deg, var(--primary_600) 0%, var(--primary_500) 50%, var(--primary_600) 100%);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    position: absolute;
+    bottom: 0;
+    color: var(--white_200);
+    opacity: 1;
+    transition: opacity .2s linear;
+}
+
+.logo_cards img {
+    width: 61px;
+    height: 29px;
+}
+
+.labels_cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: absolute;
+    top: 16px;
+    left: -10px;
+}
+
+.game_price,
+.cart {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+}
+
+.game_price {
+    bottom: 0;
+    margin-left: 68%;
+    color: var(--white_200);
+    font-size: var(--size_xl);
+    font-family: var(--font_lalezar);
+    display: block;
+    opacity: 0;
+    transition: opacity .2s linear;
+}
+
+.cart {
+    width: 28px;
+    height: 28px;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    border: 2px solid var(--primary_600);
+    background-color: var(--white_200);
+    opacity: 0;
+    transition: opacity .2s linear;
+}
+
+.cart img {
+    width: 22px;
+    height: 22px;
+    left: 2px;
+}
+
+.card {
+    position: relative;
+    cursor: pointer;
+}
+
+.card:hover .img_and_title_card {
+    opacity: 0.3;
+}
+
+.card:hover .title {
+    opacity: 0;
+}
+
+.card:hover .game_price,
+.card:hover .cart,
+.card:hover .btn_play {
+    opacity: 1;
+}
 
 @media only screen and (min-width: 1024px) {
-
     /*HEADER*/
     .search_input {
         width: 268px;
