@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/home.css">
     <link rel="stylesheet" href="../styles/general.css">
     <link rel="stylesheet" href="../styles/forms.css">
     <link rel="icon" href="../iconos/icono_joystick.png.ico">
@@ -32,7 +32,7 @@
             </div>
 
             <button>
-                <img src="../iconos/logo_carrito.svg" alt="">
+                <img src="../iconos/cart.svg" alt="">
             </button>
             <button id="btn_profile_menu">
                 <img src="../iconos/logo_user.svg" alt="">
@@ -40,7 +40,7 @@
 
             <nav id="profile_menu" class="menu invisible">
                 <ul>
-                    <li><a href=""></a>Mi perfil</li>
+                    <li><a href="#">Mi perfil</a></li>
                     <li><button id="register_button">Registrarse</button></li>
                 </ul>
             </nav>
@@ -69,96 +69,112 @@
         </nav>
     </header>
 
-    <!-- CARRUSEL TENDENCIAS -->
-    <div class="carousel_tendency">
-        <h2>Tendencias</h2>
-        <div class="card">
-            <div class="img_and_title_card">
-                <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
-                <div class="title">Subway Surfers</div>
-            </div>
-            <div class="logo_cards">
-                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
-            </div>
-            <div class="btn_play">
-                <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="img_and_title_card">
-                <img src="../imgs/papas_pizzeria.jpg" alt="papas_pizzeria">
-                <div class="title">Papas pizzeria</div>
-            </div>
-            <div class="carrito"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
-            <div class="precio_juego"> $38⁹⁹ </div>
-        </div>
-        <div class="card">
-            <div class="img_and_title_card">
-                <img src="../imgs/card_fire_and_water.avif" alt="card_fire_and_water">
-                <div class="title">Fire and water</div>
-            </div>
-            <div class="carrito"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
-            <div class="precio_juego"> $38⁹⁹ </div>
-        </div>
-        <div class="card">
-            <div class="img_and_title_card">
-                <a href="../html/game.html"><img src="../imgs/card-tom-and-jerry.jpg" alt="card-tom-and-jerry"></a>
-                <div class="title"> Tom and Jerry</div>
-            </div>
-            <div class="logo_cards">
-                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
-            </div>
-            <div class="btn_play">
-                <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="img_and_title_card">
-                <a href="../html/game.html"><img src="../imgs/card-sims-4.webp" alt="card-sims-4"></a>
-                <div class="title">Sims 4</div>
-            </div>
-            <div class="btn_play">
-                <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="img_and_title_card">
-                <img src="../imgs/card_solitario.png" alt="card_solitario">
-                <div class="title">Solitario</div>
-            </div>
-            <div class="logo_cards">
-                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
-            </div>
-            <div class="carrito"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
-            <div class="precio_juego"> $38⁹⁹ </div>
-        </div>
-        <div class="card">
-            <div class="img_and_title_card">
-                <img src="../imgs/card_bad_ice_cream.webp" alt="card_bad_ice_cream">
-                <div class="title">Bad ice cream</div>
-            </div>
-            <div class="carrito"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
-            <div class="precio_juego"> $38⁹⁹ </div>
-        </div>
-        <div class="card">
-            <div class="img_and_title_card">
-                <img src="../imgs/card_red_ball.webp" alt="card_red_ball">
-                <div class="title">Red ball 4</div>
-            </div>
-            <div class="logo_cards">
-                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
-            </div>
-            <div class="carrito"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
-            <div class="precio_juego"> $38⁹⁹ </div>
-        </div>
-    </div>
+    <!-- TRENDING SECTION -->
+    <section class="trending_container">
+        <article class="trendings">
+            <h2>Tendencias</h2>
 
-    <!-- CARRUSEL -->
-    <div class="carousel-general">
-        <h2>Porque te gusto Call of Duty</h2>
+            <div class="trending_cards">
+                <div class="card">
+                    <div class="img_and_title_card">
+                        <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
+                        <div class="title">Subway Surfers</div>
+                    </div>
+                    <div class="logo_cards">
+                        <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                    </div>
+                    <div class="btn_play">
+                        <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="img_and_title_card">
+                        <img src="../imgs/papas_pizzeria.jpg" alt="papas_pizzeria">
+                        <div class="title">Papas pizzeria</div>
+                    </div>
+                    <div class="cart"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
+                    <div class="game_price"> $38⁹⁹ </div>
+                </div>
+
+                <div class="card">
+                    <div class="img_and_title_card">
+                        <img src="../imgs/card_fire_and_water.avif" alt="card_fire_and_water">
+                        <div class="title">Fire and water</div>
+                    </div>
+                    <div class="cart"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
+                    <div class="game_price"> $38⁹⁹ </div>
+                </div>
+
+                <div class="card">
+                    <div class="img_and_title_card">
+                        <a href="../html/game.html"><img src="../imgs/card-tom-and-jerry.jpg" alt="card-tom-and-jerry"></a>
+                        <div class="title"> Tom and Jerry</div>
+                    </div>
+                    <div class="logo_cards">
+                        <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                    </div>
+                    <div class="btn_play">
+                        <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="img_and_title_card">
+                        <a href="../html/game.html"><img src="../imgs/card-sims-4.webp" alt="card-sims-4"></a>
+                        <div class="title">Sims 4</div>
+                    </div>
+                    <div class="btn_play">
+                        <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="img_and_title_card">
+                        <img src="../imgs/card_solitario.png" alt="card_solitario">
+                        <div class="title">Solitario</div>
+                    </div>
+                    <div class="logo_cards">
+                        <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                    </div>
+                    <div class="cart"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
+                    <div class="game_price"> $38⁹⁹ </div>
+                </div>
+
+                <div class="card">
+                    <div class="img_and_title_card">
+                        <img src="../imgs/card_bad_ice_cream.webp" alt="card_bad_ice_cream">
+                        <div class="title">Bad ice cream</div>
+                    </div>
+                    <div class="cart"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
+                    <div class="game_price"> $38⁹⁹ </div>
+                </div>
+
+                <div class="card">
+                    <div class="img_and_title_card">
+                        <img src="../imgs/card_red_ball.webp" alt="card_red_ball">
+                        <div class="title">Red ball 4</div>
+                    </div>
+                    <div class="logo_cards">
+                        <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                    </div>
+                    <div class="cart"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
+                    <div class="game_price"> $38⁹⁹ </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- CAROUSELS -->
+    <section class="general_carousel">
+        <h2>Recomendado para vos</h2>
+
         <div class="carousel">
-            <button class="btn_flecha_izq_carousel"><img src="../iconos/icono_flecha_izquierda.svg" alt="icono_fleca"></button>
-            <div class="carousel_juegos">
+            <button class="btn_left_arrow">
+                <img src="../iconos/icono_flecha_izquierda.svg" alt="icono_fleca">
+            </button>
+
+            <div class="games_carousel">
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
@@ -167,9 +183,10 @@
                     <div class="logo_cards">
                         <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
                     </div>
-                    <div class="carrito"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
-                    <div class="precio_juego"> $38⁹⁹ </div>
+                    <div class="cart"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
+                    <div class="game_price"> $38⁹⁹ </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_geometrydash.jpeg" alt="card_geometrydash">
@@ -178,17 +195,19 @@
                     <div class="logo_cards">
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
-                    <div class="carrito"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
-                    <div class="precio_juego"> $38⁹⁹ </div>
+                    <div class="cart"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
+                    <div class="game_price"> $38⁹⁹ </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_tetris.png" alt="card_tetris">
                         <div class="title">Tetris</div>
                     </div>
-                    <div class="carrito"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
-                    <div class="precio_juego"> $38⁹⁹ </div>
+                    <div class="cart"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
+                    <div class="game_price"> $38⁹⁹ </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_starCraft.jpeg" alt="card_starCraft">
@@ -201,6 +220,7 @@
                         <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-tom-and-jerry.jpg" alt="card-tom-and-jerry">
@@ -213,6 +233,7 @@
                         <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_ajedrez.jpeg" alt="card_ajedrez">
@@ -222,6 +243,7 @@
                         <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_ajedrez.jpeg" alt="card_ajedrez">
@@ -231,6 +253,7 @@
                         <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_ajedrez.jpeg" alt="card_ajedrez">
@@ -240,6 +263,7 @@
                         <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_ajedrez.jpeg" alt="card_ajedrez">
@@ -249,6 +273,7 @@
                         <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_ajedrez.jpeg" alt="card_ajedrez">
@@ -258,6 +283,7 @@
                         <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_ajedrez.jpeg" alt="card_ajedrez">
@@ -267,6 +293,7 @@
                         <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_ajedrez.jpeg" alt="card_ajedrez">
@@ -276,6 +303,7 @@
                         <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_ajedrez.jpeg" alt="card_ajedrez">
@@ -285,6 +313,7 @@
                         <a href="../html/game.html"><img src="../iconos/logo_play.svg" alt="logo_play"></a>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <a href="../html/game.html"><img src="../imgs/card_ajedrez.jpeg" alt="card_ajedrez"></a>
@@ -295,16 +324,22 @@
                     </div>
                 </div>
             </div>
-            <button class="btn_flecha_derecha_carousel"><img src="../iconos/icono_flecha_derecha.svg"
-                    alt="icono_fleca"></button>
-        </div>
-    </div>
 
-    <div class="carousel-general">
+            <button class="btn_right_arrow">
+                <img src="../iconos/icono_flecha_derecha.svg" alt="icono_fleca">
+            </button>
+        </div>
+    </section>
+
+    <section class="general_carousel">
         <h2>Acción</h2>
+
         <div class="carousel">
-            <button class="btn_flecha_izq_carousel"><img src="../iconos/icono_flecha_izquierda.svg" alt="icono_flecha"></button>
-            <div class="carousel_juegos">
+            <button class="btn_left_arrow">
+                <img src="../iconos/icono_flecha_izquierda.svg" alt="icono_flecha">
+            </button>
+
+            <div class="games_carousel">
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-horizon-chase.jpeg" alt="card-horizon-chase">
@@ -314,12 +349,14 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-lego-batman.jpeg" alt="card-lego-batman">
                         <div class="title">Lego batman 3</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-pac-man.webp" alt="card-pac-man">
@@ -329,12 +366,14 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-brawl-stars.jpg" alt="card-brawl-stars">
                         <div class="title">Brawl stars</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-moto-x3m.avif" alt="card-moto-x3m">
@@ -344,6 +383,7 @@
                         <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -353,6 +393,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -362,6 +403,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -371,6 +413,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -380,6 +423,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -389,6 +433,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -398,6 +443,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -407,6 +453,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -417,45 +464,57 @@
                     </div>
                 </div>
             </div>
-            <button class="btn_flecha_derecha_carousel"><img src="../iconos/icono_flecha_derecha.svg" alt="icono_flecha"></button>
-        </div>
-    </div>
 
-    <div class="carousel-general">
+            <button class="btn_right_arrow">
+                <img src="../iconos/icono_flecha_derecha.svg" alt="icono_flecha">
+            </button>
+        </div>
+    </section>
+
+    <section class="general_carousel">
         <h2>Deportes</h2>
+
         <div class="carousel">
-            <button class="btn_flecha_izq_carousel"><img src="../iconos/icono_flecha_izquierda.svg" alt="icono_flecha"></button>
-            <div class="carousel_juegos">
+            <button class="btn_left_arrow">
+                <img src="../iconos/icono_flecha_izquierda.svg" alt="icono_flecha">
+            </button>
+
+            <div class="games_carousel">
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-ping-pong.avif" alt="card-ping-pong">
                         <div class="title">Ping pong</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-ice-hockey.jpeg" alt="card-ice-hockey">
                         <div class="title">Ice hockey</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-voleibol.webp" alt="card-voleibol">
                         <div class="title">Cartoons voleibol</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-basquet.avif" alt="card-basquet">
                         <div class="title">Basquetball</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-mario-tenis.jpg" alt="card-mario-tenis">
                         <div class="title">Mario tenis</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -465,6 +524,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -474,6 +534,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -483,6 +544,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -492,6 +554,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -501,6 +564,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -510,6 +574,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -519,6 +584,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -528,6 +594,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -537,6 +604,7 @@
                         <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
@@ -547,87 +615,106 @@
                     </div>
                 </div>
             </div>
-            <button class="btn_flecha_derecha_carousel"><img src="../iconos/icono_flecha_derecha.svg" alt="icono_flecha"></button>
-        </div>
-    </div>
 
-    <div class="carousel-general">
+            <button class="btn_right_arrow">
+                <img src="../iconos/icono_flecha_derecha.svg" alt="icono_flecha">
+            </button>
+        </div>
+    </section>
+
+    <section class="general_carousel">
         <h2>Estrategia</h2>
+
         <div class="carousel">
-            <button class="btn_flecha_izq_carousel"><img src="../iconos/icono_flecha_izquierda.svg" alt="icono_flecha"></button>
-            <div class="carousel_juegos">
+            <button class="btn_left_arrow">
+                <img src="../iconos/icono_flecha_izquierda.svg" alt="icono_flecha">
+            </button>
+            
+            <div class="games_carousel">
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_ajedrez.jpeg" alt="card_ajedrez">
                         <div class="title">Ajedrez</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card_tetris.png" alt="card_tetris">
                         <div class="title">Tetris</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-pac-man.webp" alt="card-pac-man">
                         <div class="title">Pac-man</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-damas.png" alt="card-damas">
                         <div class="title">Damas</div>
                     </div>
                 </div>
+                
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-tom-and-jerry.jpg" alt="card-tom-and-jerry">
                         <div class="title">Tom and Jerry</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-batalla-naval.webp" alt="card-batalla-naval">
                         <div class="title">Batalla naval</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-batalla-naval.webp" alt="card-batalla-naval">
                         <div class="title">Batalla naval</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-batalla-naval.webp" alt="card-batalla-naval">
                         <div class="title">Batalla naval</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-batalla-naval.webp" alt="card-batalla-naval">
                         <div class="title">Batalla naval</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-batalla-naval.webp" alt="card-batalla-naval">
                         <div class="title">Batalla naval</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-batalla-naval.webp" alt="card-batalla-naval">
                         <div class="title">Batalla naval</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-batalla-naval.webp" alt="card-batalla-naval">
                         <div class="title">Batalla naval</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="img_and_title_card">
                         <img src="../imgs/card-batalla-naval.webp" alt="card-batalla-naval">
@@ -635,9 +722,12 @@
                     </div>
                 </div>
             </div>
-            <button class="btn_flecha_derecha_carousel"><img src="../iconos/icono_flecha_derecha.svg" alt="icono_flecha"></button>
+
+            <button class="btn_right_arrow">
+                <img src="../iconos/icono_flecha_derecha.svg" alt="icono_flecha">
+            </button>
         </div>
-    </div>
+    </section>
 
     <!-- FORMS -->
     <div id="signin_form" class="session_forms invisible">
@@ -645,48 +735,63 @@
             <div class="logo_form_img">
                 <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
             </div>
-              <button class="close_button absolute" type="button"><img id="close_button" src="../iconos/close_button.png" alt="close"></button>
+
+            <button class="close_button absolute" type="button">
+                <img id="close_button" src="../iconos/close_button.png" alt="close">
+            </button>
         </div>
+
         <div class="session_options">
             <button class="google_button">
                 <img src="../iconos/logo_google.png" alt="logo_google">
                 <h3>Continuar con Google</h3>
             </button>
+
             <button class="facebook_button">
                 <img src="../iconos/logo_facebook.png" alt="logo_facebook">
                 <h3>Continuar con Facebook</h3>
             </button>
         </div>
+
         <div class="separation">
             <p>━━━━━━━━━</p>
             <p>o</p>
             <p>━━━━━━━━━</p>
         </div>
+
         <h3>* Campos obligatorios</h3>
+
         <form id="form_signIn">
             <label for="">* Nombre y apellido</label>
-            <input type="text" placeholder="nombre y apellido">
+            <input type="text" placeholder="Nombre y apellido">
+
             <label for="">Nickname</label>
-            <input type="text" placeholder="nickname">
+            <input type="text" placeholder="Nickname">
+
             <label for="">* Edad</label>
-            <input type="number" placeholder="edad">
+            <input type="number" placeholder="Edad">
+
             <label for="">* Correo electrónico</label>
-            <input type="email" placeholder="email">
+            <input type="email" placeholder="Email">
+
             <label for="">* Contraseña</label>
             <div class="password_input">
-                <input type="password" placeholder="contraseña">
+                <input type="password" placeholder="Contraseña">
                 <img src="../iconos/visibility_off_icon.svg" alt="">
             </div>
+
             <label for="">* Repetir contraseña</label>
             <div class="password_input">
-                <input type="password" placeholder="repetir contraseña">
+                <input type="password" placeholder="Repetir contraseña">
                 <img src="../iconos/visibility_off_icon.svg" alt="">
             </div>
+
             <div class="captcha_button">
                 <input type="checkbox">
                 <p>No soy un robot</p>
                 <img src="../iconos/captcha_icon.png" alt="">
             </div>
+
             <div class="sendForm_buttons">
                 <button type="button" id="login_button" class="unactive_button">Ingresar</button>
                 <button type="submit" id="sign_in" class="active_button">Registrarse</button>
@@ -699,31 +804,40 @@
             <div class="logo_form_img">
                 <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
             </div>
-              <button id="login_close_button" class="absolute" type="button"><img id="close_button" src="../iconos/close_button.png" alt="close"></button>
+
+            <button id="login_close_button" class="absolute" type="button">
+                <img id="close_button" src="../iconos/close_button.png" alt="close">
+            </button>
         </div>
+
         <div class="session_options">
             <button class="google_button">
                 <img src="../iconos/logo_google.png" alt="logo_google">
                 <h3>Continuar con Google</h3>
             </button>
+
             <button class="facebook_button">
                 <img src="../iconos/logo_facebook.png" alt="logo_facebook">
                 <h3>Continuar con Facebook</h3>
             </button>
         </div>
+
         <div class="separation">
             <p>━━━━━━━━━</p>
             <p>o</p>
             <p>━━━━━━━━━</p>
         </div>
+
         <form id="form_logIn" action="">
             <label for="">Correo electrónico</label>
             <input type="email" placeholder="Correo electrónico">
+
             <label for="">Contraseña</label>
             <div class="password_input">
-                <input type="password" placeholder="contraseña">
+                <input type="password" placeholder="Contraseña">
                 <img src="../iconos/visibility_off_icon.svg" alt="">
             </div>
+
             <div class="sendForm_buttons">
                 <button type="button" id="log_in" class="active_button">Ingresar</button>
                 <button type="button" id="signin_button" class="unactive_button">Registrarse</button>
@@ -731,13 +845,15 @@
         </form>
     </div>
 
-    <div id="sesion_correcta" class="invisible">
+    <div id="correct_session" class="invisible">
         <div class="logo_form_img">
             <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
         </div>
+
         <h1>¡Bienvenido a Mega Games Zone!</h1>
         <h2>Gracias por unirte a nuestra comunidad</h2>
-        <button id="accept_button">aceptar</button>
+        
+        <button id="accept_button">Aceptar</button>
     </div>
 
     <!-- FOOTER -->
@@ -792,7 +908,9 @@
             <h3 id="percentaje">0%</h3>
         </div>
     </div>
+    
     <script src="../js/script.js"></script>
+    <script src="../js/loader.js"></script>
 </body>
 
 </html>

@@ -1,19 +1,18 @@
 .blur::before {
     content: '';
-    position: fixed; /* Cubre toda la ventana */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(35, 32, 43, 0.5); /* Fondo semi-transparente */
-    backdrop-filter: blur(5px); /* Desenfoque */
-    z-index: 1; /* Debajo del formulario */
+    background: rgba(35, 32, 43, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1;
 }
 
-.session_forms{
+.session_forms {
     display: flex;
     flex-direction: column;
-/*preguntar como hago para que quede fijo el form en el medio en ambos ejes, porque cuando agrando la pantalla se sube*/
     position: absolute;
     z-index: 2;
     transform: translate(-50%, -50%);
@@ -34,63 +33,65 @@
     right: 0px;
 }
 
-#signin_form{
+#signin_form {
     top: 80%;
 }
 
-#login_form{
+#login_form {
     top: 50%;
 }
 
-#signin_form, #login_form{
+#signin_form,
+#login_form {
     left: 50%;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-input, .password_input{
+input,
+.password_input {
     background-color: var(--background_300);
     border-radius: 8px;
     border: 2px solid var(--white_500);
     outline: none;
 }
 
-input{
+input {
     padding: 8px;
     justify-content: start;
     width: 189px;
     margin-top: 2px;
 }
 
-label{
+label {
     margin-top: 16px;
     margin-bottom: 2px;
 }
 
-label, .session_forms>h3{
+label,
+.session_forms>h3 {
     color: var(--white_300);
 }
 
-.password_input{
+.password_input {
     display: flex;
     align-items: center;
 }
 
-.password_input input{
+.password_input input {
     border-color: transparent;
     width: 155px;
 }
 
-.password_input img{
+.password_input img {
     margin-right: 6px;
 }
 
-
-.logo_form{
+.logo_form {
     margin-top: 5px;
     display: flex;
     align-items: center;
@@ -98,22 +99,22 @@ label, .session_forms>h3{
     justify-content: center;
 }
 
-.logo_form_img img{
+.logo_form_img img {
     width: 50px;
     height: 50px;
 }
 
-#close_button{
+#close_button {
     width: 25px;
     height: 25px;
 }
 
-.session_options{
+.session_options {
     display: flex;
     margin-top: 30px;
 }
 
-.session_options button{
+.session_options button {
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -122,43 +123,45 @@ label, .session_forms>h3{
     gap: 4px;
 }
 
-.session_options button h3{
+.session_options button h3 {
     margin-left: 4px;
-    font-family: var(--font_session);
+    font-family: var(--font_condensed);
+    font-weight: 400;
     font-size: var(--size_s);
 }
 
-.google_button{
+.google_button {
     background-color: rgb(255, 255, 255);
     color: black;
 }
 
-.facebook_button{
+.facebook_button {
     background-color: var(--facebook_color);
     color: var(--white_200);
 }
 
-.session_options img{
+.session_options img {
     width: 24px;
     height: 24px;
 }
 
-h3, label{
+h3,
+label {
     font-family: var(--font_condensed);
     font-size: var(--size_s);
 }
 
-.separation{
+.separation {
     display: flex;
     align-items: center;
 }
 
-.separation p{
+.separation p {
     margin: 4px;
     color: var(--white_300);
 }
 
-.captcha_button{
+.captcha_button {
     display: flex;
     background-color: var(--white_200);
     height: 42px;
@@ -170,23 +173,23 @@ h3, label{
     font-family: var(--font_roboto);
 }
 
-.captcha_button input{
+.captcha_button input {
     width: 20px;
 }
 
-.captcha_button img{
+.captcha_button img {
     width: 32px;
     height: 32px;
 }
 
-.sendForm_buttons{
+.sendForm_buttons {
     display: flex;
     gap: 40px;
     margin-top: 50px;
     margin-bottom: 12px;
 }
 
-.sendForm_buttons button{
+.sendForm_buttons button {
     border-radius: 16px;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -195,36 +198,36 @@ h3, label{
     font-size: var(--size_m);
 }
 
-.sendForm_buttons button:hover{
+.sendForm_buttons button:hover {
     scale: 1.1;
 }
 
-#profile_menu button{
+#profile_menu button {
     color: var(--white_200);
 }
 
-#profile_menu button:hover{
+#profile_menu button:hover {
     color: var(--primary_400);
 }
 
-.active_button{
+.active_button {
     background-color: var(--primary_500);
     color: var(--background_500);
 }
 
-.unactive_button{
+.unactive_button {
     background-color: transparent;
     border: 3px solid var(--secondary_400);
     color: var(--secondary_400);
     letter-spacing: 2px;
 }
 
-.unactive_button:hover{
+.unactive_button:hover {
     border: 3px solid var(--secondary_500);
     color: var(--secondary_500);
 }
 
-#sesion_correcta{
+#correct_session {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -244,7 +247,7 @@ h3, label{
     padding: 12px;
 }
 
-#sesion_correcta button{
+#correct_session button {
     margin-top: 20px;
     width: fit-content;
     padding: 4px;
@@ -257,7 +260,6 @@ h3, label{
     cursor: pointer;
 }
 
-#sesion_correcta button:hover{
+#correct_session button:hover {
     scale: 1.1;
 }
-

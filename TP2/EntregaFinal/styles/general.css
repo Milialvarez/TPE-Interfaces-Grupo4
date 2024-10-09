@@ -20,6 +20,7 @@
     --white_400: #B6B6B6;
     --white_500: #919191;
     --white_700: #555555;
+    --facebook_color: #1877F2;
 
     --font_roboto: "Roboto", sans-serif;
     --font_condensed: "Roboto Condensed", sans-serif;
@@ -59,7 +60,8 @@ a {
     margin: 0;
 }
 
-/*HEADER*/
+/* HEADER */
+
 .search_input {
     color: var(--white_700);
     background-color: var(--white_200);
@@ -69,7 +71,6 @@ a {
     border-radius: 40px;
     padding: 0 16px;
 }
-
 
 .search_input input {
     background-color: transparent;
@@ -118,12 +119,7 @@ header {
     color: var(--white_200);
 }
 
-/*MENÚ*/
-#btn_profile_menu {
-    border-radius: 50%;
-    padding: 4px;
-    border: 2px solid var(--white_200);
-}
+/* MENU */
 
 .container_btn_burger {
     width: fit-content;
@@ -136,12 +132,9 @@ header {
     color: var(--white_200);
 }
 
-#btn_burger_menu:hover {
-    transition: 300ms ease-in-out;
-}
-
 #profile_menu {
     right: 0;
+    color: var(--white_200);
 }
 
 #burger_menu {
@@ -163,6 +156,7 @@ header {
     position: absolute;
     top: 84px;
     z-index: 1;
+    padding: 20px;
 }
 
 .menu li {
@@ -173,8 +167,21 @@ header {
     gap: 8px;
     list-style: none;
     color: var(--white_200);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font_roboto);
+    font-size: var(--size_m);
     justify-content: start;
+}
+
+.menu button {
+    font-size: var(--size_m);
+}
+
+.menu a {
+    color: var(--white_200);
+}
+
+.menu a:hover {
+    color: var(--primary_400);
 }
 
 .menu .nav_redes {
@@ -185,7 +192,6 @@ header {
 .nav_redes img {
     height: 35px;
     width: 32px;
-
 }
 
 #burger_menu img {
@@ -213,6 +219,7 @@ footer {
     color: var(--white_200);
     font-family: var(--font_roboto);
     font-size: var(--size_m);
+    margin-top: 32px;
 }
 
 .footer_container {
