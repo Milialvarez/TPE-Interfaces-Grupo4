@@ -70,65 +70,6 @@
     margin-top: 32px;
 }
 
-.card,
-.trending_container img,
-.img_and_title_card img {
-    width: 209px;
-    height: 118px;
-    border-radius: 16px;
-}
-
-.card {
-    position: relative;
-    cursor: pointer;
-}
-
-.logo_cards img {
-    width: 61px;
-    height: 29px;
-}
-
-.labels_cards {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    position: absolute;
-    top: 16px;
-    left: -10px;
-}
-
-.title {
-    width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--font_lalezar);
-    font-size: var(--size_m);
-    font-weight: 800;
-    height: 24px;
-    background: linear-gradient(90deg, var(--primary_600) 0%, var(--primary_500) 50%, var(--primary_600) 100%);
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
-    position: absolute;
-    bottom: 0;
-    color: var(--white_200);
-    opacity: 1;
-    transition: opacity .2s linear;
-}
-
-.img_and_title_card {
-    transition: opacity .2s linear;
-}
-
-.card:hover .img_and_title_card {
-    opacity: 0.3;
-}
-
-.card:hover .title {
-    opacity: 0;
-}
-
 .btn_play {
     opacity: 0;
     transition: opacity .2s linear;
@@ -148,51 +89,6 @@
 .btn_play svg:hover {
     color: var(--secondary_400);
     transform: scale(1.1);
-}
-
-.game_price,
-.cart {
-    display: none;
-    cursor: pointer;
-    position: absolute;
-}
-
-.game_price {
-    bottom: 0;
-    margin-left: 68%;
-    color: var(--white_200);
-    font-size: var(--size_xl);
-    font-family: var(--font_lalezar);
-    display: block;
-    opacity: 0;
-    transition: opacity .2s linear;
-}
-
-.cart {
-    width: 28px;
-    height: 28px;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 14px;
-    border: 2px solid var(--primary_600);
-    background-color: var(--white_200);
-    opacity: 0;
-    transition: opacity .2s linear;
-}
-
-.card:hover .game_price,
-.card:hover .cart,
-.card:hover .btn_play {
-    opacity: 1;
-}
-
-.cart img {
-    width: 22px;
-    height: 22px;
-    left: 2px;
 }
 
 /* LOADING */

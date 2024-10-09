@@ -19,7 +19,9 @@
 
         <div class="logo">
             <img src="../iconos/logo_joystick.svg" alt="logo">
-            <a href="../html/home.html"><h1>MGZ</h1></a>
+            <a href="../html/home.html">
+                <h1>MGZ</h1>
+            </a>
         </div>
 
         <div class="right_options">
@@ -29,7 +31,7 @@
             </div>
 
             <button>
-                <img src="../iconos/logo_carrito.svg" alt="">
+                <img src="../iconos/cart.svg" alt="">
             </button>
             <button id="btn_profile_menu">
                 <img src="../iconos/logo_user.svg" alt="">
@@ -37,7 +39,7 @@
 
             <nav id="profile_menu" class="menu invisible">
                 <ul>
-                    <li><a href=""></a>Mi perfil</li>
+                    <li><a href="#">Mi perfil</a></li>
                     <li><button id="register_button">Registrarse</button></li>
                 </ul>
             </nav>
@@ -80,7 +82,16 @@
                         <img src="../iconos/flechitas_breadcrumb.svg" alt="" srcset="">
                         Tom vs Jerry
                     </div>
-                    <div class="game"></div>
+                    <div class="game">
+                        <a href="" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="game_info">
@@ -228,18 +239,49 @@
                     <h4>Juegos similares</h4>
                     
                     <div class="card">
-                        <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
-                        <div class="title">Subway Surfers</div>
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
+                            <div class="title">Subway Surfers</div>
+                        </div>
+    
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+    
+                        <div class="cart"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
+                        <div class="game_price"> $10⁹⁹ </div>
                     </div>
     
                     <div class="card">
-                        <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
-                        <div class="title">Subway Surfers</div>
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_geometrydash.jpeg" alt="card_geometrydash">
+                            <div class="title">Geometry dash</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+                        <div class="cart"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
+                        <div class="game_price"> $38⁹⁹ </div>
                     </div>
     
                     <div class="card">
-                        <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
-                        <div class="title">Subway Surfers</div>
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_tetris.png" alt="card_tetris">
+                            <div class="title">Tetris</div>
+                        </div>
+    
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+    
+                        <div class="cart"><img src="../iconos/logo_carrito.svg" alt="carrito"></div>
+                        <div class="game_price"> $49⁹⁹ </div>
                     </div>
                 </aside>
             </article>
