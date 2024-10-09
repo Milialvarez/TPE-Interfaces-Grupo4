@@ -275,13 +275,16 @@ footer h4 {
 }
 
 /* CARDS */
-
+.scaled {
+    transform: scale(0.8); 
+}
 .card,
 .trending_container img,
 .img_and_title_card img {
     width: 209px;
     height: 118px;
     border-radius: 16px;
+    transition: transform .5s;
 }
 
 .img_and_title_card {

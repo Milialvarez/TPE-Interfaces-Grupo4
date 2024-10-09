@@ -25,7 +25,7 @@
 .games_carousel {
     display: flex;
     margin: 12px;
-    width: 90%;
+    width: 100%;
     position: relative;
     gap: 16px;
     overflow-x: scroll;
@@ -34,7 +34,7 @@
 }
 
 .general_carousel h2 {
-    padding-left: 1%;
+    padding-left: 2%;
     color: var(--white_200);
     font-family: var(--font_roboto);
     font-size: var(--size_xl);
@@ -178,9 +178,6 @@
     z-index: 2;
 }
 
-
-
-
 .btn-comprar {
     height: 37px;
     width: 140px;
@@ -243,7 +240,6 @@
     .carousel_juegos {
         display: flex;
         margin: 20px;
-        width: 100%;
     }
 
     .trendings {
