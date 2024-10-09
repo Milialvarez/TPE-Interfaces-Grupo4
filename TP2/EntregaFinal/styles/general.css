@@ -42,7 +42,6 @@
 body {
     background-color: var(--background_500);
     height: 100vh;
-    z-index: 1;
 }
 
 button {
