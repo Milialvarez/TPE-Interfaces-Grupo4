@@ -21,7 +21,6 @@ carousels.forEach((carousel) => {
             })
         }
         let scroll = carousel_juegos.scrollLeft;
-       
         if (scroll > 0) {
             btn_izq.style.display = "block"; 
         } else {

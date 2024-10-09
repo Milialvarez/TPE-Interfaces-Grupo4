@@ -278,6 +278,7 @@ footer h4 {
 .scaled {
     transform: scale(0.8); 
 }
+
 .card,
 .trending_container img,
 .img_and_title_card img {

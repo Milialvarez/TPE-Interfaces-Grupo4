@@ -200,6 +200,7 @@ label,
     width: 130px;
     font-family: var(--font_lalezar);
     font-size: var(--size_m);
+    transition: scale .5s;
 }
 
 .sendForm_buttons button:hover {
