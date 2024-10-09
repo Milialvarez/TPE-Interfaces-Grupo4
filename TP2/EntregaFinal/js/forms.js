@@ -61,14 +61,6 @@ const signin = document.querySelector("#sign_in");
 const sesion_correcta = document.querySelector('#correct_session');
 const accept_button = document.querySelector('#accept_button');
 
-login.addEventListener('click', (event) => {
-    event.preventDefault();
-    login_form.classList.remove("visible");
-    login_form.classList.add("invisible");
-    sesion_correcta.classList.add('visible');
-    sesion_correcta.classList.remove('invisible');
-})
-
 accept_button.addEventListener('click', () => {
     sesion_correcta.classList.remove('visible');
     sesion_correcta.classList.add('invisible');
@@ -77,10 +69,36 @@ accept_button.addEventListener('click', () => {
     localStorage.setItem("session", true)
 })
 
-signin.addEventListener('click', (event) => {
+signin.addEventListener("click", function (event) {
     event.preventDefault();
-    signin_form.classList.remove("visible");
-    signin_form.classList.add("invisible");
-    sesion_correcta.classList.add('visible');
-    sesion_correcta.classList.remove('invisible');
-})
+
+    signin.classList.add("loading"); // clase para mostrar el spinner
+    signin.disabled = true; // Deshabilita el botón
+
+    // Después de 3 segundos mostramos cartel de bienvenida
+    setTimeout(() => {
+        signin.classList.remove("loading");
+        signin.disabled = false;
+        signin_form.classList.remove("visible");
+        signin_form.classList.add("invisible");
+        sesion_correcta.classList.add('visible');
+        sesion_correcta.classList.remove('invisible');
+    }, 3000);
+});
+
+login.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    login.classList.add("loading"); // clase para mostrar el spinner
+    login.disabled = true; // Deshabilita el botón
+
+    // Después de 3 segundos mostramos cartel de bienvenida
+    setTimeout(() => {
+        login.classList.remove("loading");
+        login.disabled = false;
+        login_form.classList.remove("visible");
+        login_form.classList.add("invisible");
+        sesion_correcta.classList.add('visible');
+        sesion_correcta.classList.remove('invisible');
+    }, 3000);
+});

@@ -243,7 +243,7 @@ label,
     justify-content: space-around;
     top: 50%;
     left: 50%;
-    background-color: var(--background_600);
+    background: linear-gradient(to bottom, #15131b, #62508D);
     border-radius: 12px;
     border: 3px solid var(--white_300);
     font-family: var(--font_condensed);
@@ -255,16 +255,44 @@ label,
 #correct_session button {
     margin-top: 20px;
     width: fit-content;
-    padding: 4px;
+    padding: 6px;
     border-radius: 8px;
-    border: 3px solid var(--accent);
-    color: var(--accent);
+    border: 3px solid var(--white_200);
+    background-color: var(--accent);
+    color: var(--white_200);
     font-family: var(--font_roboto);
     font-weight: bold;
     font-size: medium;
     cursor: pointer;
+    transition: all 0.2s;
 }
 
 #correct_session button:hover {
-    scale: 1.1;
+    scale: 1.2;
+    transform: translateY(-3px);
+    box-shadow: 0px 0px 15px rgba(218, 103, 9, 0.836);
+}
+  
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    display: none;
+    animation: spin 1s linear infinite;
+}
+
+.loading span {
+    display: none;
+}
+
+.loading .spinner{
+    display: inline-block;
+}
+
+/* Animación del spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
