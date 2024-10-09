@@ -169,6 +169,8 @@ header {
     font-family: var(--font_roboto);
     font-size: var(--size_m);
     justify-content: start;
+    width: fit-content;
+    cursor: pointer;
 }
 
 .menu button {

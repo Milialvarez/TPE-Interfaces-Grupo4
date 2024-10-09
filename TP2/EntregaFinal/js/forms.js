@@ -4,6 +4,10 @@ const div_popover = document.querySelector("#id_popover");
 
 const register_button = document.querySelector('#register_button');
 
+if (localStorage.getItem("session")) {
+    register_button.innerHTML = "Cerrar sesion"
+}
+
 const signin_form = document.querySelector('#signin_form');
 const login_form = document.querySelector('#login_form');
 const login_button = document.querySelector('#login_button');
@@ -24,11 +28,16 @@ login_close_button.addEventListener('click', () => {
 })
 
 register_button.addEventListener('click', () => {
-    document.body.classList.add('blur');
-    signin_form.classList.remove('invisible');
-    signin_form.classList.add('visible');
-    profile_menu.classList.remove('visible');
-    profile_menu.classList.add('invisible');
+    if (localStorage.getItem("session")) {
+        register_button.innerHTML = "Registrarse"
+        localStorage.clear()
+    } else {
+        document.body.classList.add('blur');
+        signin_form.classList.remove('invisible');
+        signin_form.classList.add('visible');
+        profile_menu.classList.remove('visible');
+        profile_menu.classList.add('invisible');
+    }
 })
 
 login_button.addEventListener('click', (event) => {
@@ -64,6 +73,8 @@ accept_button.addEventListener('click', () => {
     sesion_correcta.classList.remove('visible');
     sesion_correcta.classList.add('invisible');
     document.body.classList.remove('blur');
+    register_button.innerHTML = "Cerrar sesión"
+    localStorage.setItem("session", true)
 })
 
 signin.addEventListener('click', (event) => {

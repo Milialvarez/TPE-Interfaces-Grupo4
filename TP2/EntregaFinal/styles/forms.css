@@ -7,14 +7,14 @@
     height: 100%;
     background: rgba(35, 32, 43, 0.5);
     backdrop-filter: blur(5px);
-    z-index: 1;
+    z-index: 2;
 }
 
 .session_forms {
     display: flex;
     flex-direction: column;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     transform: translate(-50%, -50%);
     justify-content: center;
     border-radius: 12px;
@@ -52,19 +52,23 @@ form {
     align-items: center;
 }
 
-input,
+.session_forms input,
 .password_input {
     background-color: var(--background_300);
     border-radius: 8px;
     border: 2px solid var(--white_500);
     outline: none;
+    color: var(--white_200);
 }
 
-input {
+.session_forms input {
     padding: 8px;
-    justify-content: start;
     width: 189px;
     margin-top: 2px;
+}
+
+.session_forms input::placeholder {
+    color: #ededed61;
 }
 
 label {
@@ -231,7 +235,7 @@ label,
     display: flex;
     flex-direction: column;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     transform: translate(-50%, -50%);
     text-align: center;
     align-items: center;
