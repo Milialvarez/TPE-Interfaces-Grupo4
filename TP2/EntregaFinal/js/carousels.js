@@ -27,7 +27,7 @@ carousels.forEach((carousel) => {
             btn_izq.style.display = "none";
         }
 
-        if (scroll >= cantidad_total_pixeles) {
+        if (scroll >= cantidad_total_pixeles - 1) {
             btn_der.style.display = "none"; 
         } else {
             btn_der.style.display = "block"; 

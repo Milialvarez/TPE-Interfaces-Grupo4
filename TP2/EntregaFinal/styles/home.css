@@ -24,17 +24,15 @@
 
 .games_carousel {
     display: flex;
-    margin: 12px;
+    margin-top: 12px;
     width: 100%;
     position: relative;
     gap: 16px;
     overflow-x: scroll;
     overflow-y: hidden;
-    padding-left: 10px;
 }
 
 .general_carousel h2 {
-    padding-left: 2%;
     color: var(--white_200);
     font-family: var(--font_roboto);
     font-size: var(--size_xl);
@@ -178,13 +176,11 @@
         width: fit-content;
         display: flex;
         flex-direction: column;
-        gap: 16px;
     }
 
     .trending_cards {
         display: grid;
         grid-template-columns: 25fr 25fr 25fr 25fr;
-        gap: 12px;
     }
 
     .trending_container h2 {
