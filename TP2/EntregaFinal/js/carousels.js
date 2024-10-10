@@ -9,8 +9,12 @@ carousels.forEach((carousel) => {
     let cantidad_pixeles_movimiento = 1200;
     let cantidad_total_pixeles = cards.length * 209 - carousel_juegos.clientWidth;
 
+    function ItsMobileView() {
+        return window.innerWidth <= 768;
+    }
+
     carousel_juegos.addEventListener('scroll', () => {
-        if(carousel_juegos.id == 'recommended_carousel'){
+        if (carousel_juegos.id == 'recommended_carousel') {
             cards.forEach(card => {
                 card.classList.add('scaled');
             })
@@ -20,17 +24,22 @@ carousels.forEach((carousel) => {
                 })
             })
         }
-        let scroll = carousel_juegos.scrollLeft;
-        if (scroll > 0) {
-            btn_izq.style.display = "block"; 
-        } else {
+        if (ItsMobileView()) {
+            btn_der.style.display = "none";
             btn_izq.style.display = "none";
-        }
-
-        if (scroll >= cantidad_total_pixeles - 1) {
-            btn_der.style.display = "none"; 
         } else {
-            btn_der.style.display = "block"; 
+            let scroll = carousel_juegos.scrollLeft;
+            if (scroll > 0) {
+                btn_izq.style.display = "block";
+            } else {
+                btn_izq.style.display = "none";
+            }
+
+            if (scroll >= cantidad_total_pixeles - 1) {
+                btn_der.style.display = "none";
+            } else {
+                btn_der.style.display = "block";
+            }
         }
     });
 
