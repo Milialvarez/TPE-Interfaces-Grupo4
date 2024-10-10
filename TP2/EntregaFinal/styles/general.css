@@ -35,6 +35,11 @@
     --size_xs: 12px;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
@@ -52,11 +57,6 @@ button {
 
 a {
     text-decoration: none;
-}
-
-* {
-    padding: 0;
-    margin: 0;
 }
 
 /* HEADER */
@@ -94,8 +94,6 @@ a {
     align-items: center;
     gap: 32px;
 }
-
-
 
 .search_input input::placeholder {
     font-size: var(--size_xs);
@@ -157,7 +155,7 @@ header {
 .menu {
     background-color: var(--background_400);
     position: absolute;
-    top: 84px;
+    top: 70px;
     z-index: 1;
     padding: 20px;
 }
@@ -391,7 +389,6 @@ footer h4 {
 
 /* ADD TO CART */
 
-
 .card:hover .container-btn-comprar{
     display: flex;
 }
@@ -494,6 +491,10 @@ footer h4 {
 
 
     /*MENÚ*/
+    .menu{
+        top: 84px;
+    }
+
     .container_btn_burger {
         width: 419px;
     }
