@@ -163,8 +163,13 @@
         flex-direction: row;
     }
 
+    .btn_left_arrow{
+        margin-right: 10px;
+    }
+
     .btn_right_arrow {
         display: block;
+        margin-left: 10px;
     }
 
     .carousel_juegos {
