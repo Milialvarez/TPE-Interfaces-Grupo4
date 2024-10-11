@@ -6,7 +6,7 @@ carousels.forEach((carousel) => {
     let carousel_juegos = carousel.querySelector('.games_carousel');
     let cards = carousel.querySelectorAll('.card');
 
-    let cantidad_pixeles_movimiento = 1200;
+    let cantidad_pixeles_movimiento = 800;
     let cantidad_total_pixeles = cards.length * 209 - carousel_juegos.clientWidth;
 
     function ItsMobileView() {

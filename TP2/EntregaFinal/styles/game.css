@@ -358,11 +358,11 @@ main {
     border-radius: 100%;
 }
 
-.btn_play {
+.btn_run_game {
     z-index: 1;
 }
 
-.btn_play svg {
+.btn_run_game svg {
     width: 150px;
     height: 150px;
     cursor: pointer;
@@ -370,7 +370,7 @@ main {
     transition: all .5s;
 }
 
-.btn_play svg:hover {
+.btn_run_game svg:hover {
     color: var(--secondary_400);
     transform: scale(1.1);
 }
