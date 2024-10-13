@@ -1,3 +1,13 @@
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
 .blur::before {
     content: '';
     position: fixed;
@@ -13,93 +23,84 @@
 .session_forms {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    z-index: 3;
-    transform: translate(-50%, -50%);
-    justify-content: center;
-    border-radius: 12px;
-    padding: 12px;
-    background-color: var(--background_400);
     align-items: center;
-}
-
-.relative {
-    position: relative;
-}
-
-.absolute {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-}
-
-#signin_form {
-    top: 80%;
-}
-
-#login_form {
+    z-index: 3;
+    position: fixed;
+    transform: translate(-50%, -50%);
     top: 50%;
-}
-
-#signin_form,
-#login_form {
     left: 50%;
+    border-radius: 12px;
+    padding: 12px 28px;
+    background-color: var(--background_400);
+    color: var(--white_200);
+    box-shadow: 8px 8px 8px var(--background_600);
 }
 
-form {
+.session_forms form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 8px;
+    margin-top: 8px;
 }
 
-.session_forms input,
+.input {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 2px;
+}
+
+.combined_inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+}
+
+.combined_inputs .input:first-child {
+    width: 126px;
+}
+
+.combined_inputs .input:nth-child(2) {
+    width: 66px;
+}
+
+.input input,
 .password_input {
     background-color: var(--background_300);
     border-radius: 8px;
     border: 2px solid var(--white_500);
     outline: none;
     color: var(--white_200);
+    box-sizing: border-box;
+    width: 100%;
 }
 
-.session_forms input {
+.input input {
     padding: 8px;
-    width: 189px;
-    margin-top: 2px;
 }
 
-.session_forms input::placeholder {
+.input input::placeholder {
     color: #ededed61;
-}
-
-label {
-    margin-top: 16px;
-    margin-bottom: 2px;
-}
-
-label,
-.session_forms>h3 {
-    color: var(--white_300);
 }
 
 .password_input {
     display: flex;
     align-items: center;
+    padding-right: 8px;
 }
 
 .password_input input {
-    border-color: transparent;
-    width: 155px;
-}
-
-.password_input img {
-    margin-right: 6px;
+    border: 0;
 }
 
 .logo_form {
-    margin-top: 5px;
+    width: 100%;
+    margin-top: 4px;
     display: flex;
     align-items: center;
-    width: 100%;
     justify-content: center;
 }
 
@@ -108,35 +109,34 @@ label,
     height: 50px;
 }
 
-#close_button {
+.close_button img {
     width: 25px;
     height: 25px;
 }
 
 .session_options {
     display: flex;
-    margin-top: 30px;
+    margin-top: 4px;
+    gap: 8px;
 }
 
 .session_options button {
-    border-radius: 20px;
     display: flex;
     align-items: center;
-    margin: 10px;
-    padding: 8px;
     gap: 4px;
+    padding: 8px;
+    border-radius: 20px;
 }
 
 .session_options button h3 {
-    margin-left: 4px;
     font-family: var(--font_condensed);
-    font-weight: 400;
     font-size: var(--size_s);
+    font-weight: 400;
 }
 
 .google_button {
-    background-color: rgb(255, 255, 255);
-    color: black;
+    background-color: var(--white_200);
+    color: var(--background_700);
 }
 
 .facebook_button {
@@ -145,8 +145,8 @@ label,
 }
 
 .session_options img {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
 }
 
 .session_forms h3,
@@ -162,38 +162,20 @@ label,
 
 .separation p {
     margin: 4px;
-    color: var(--white_300);
 }
 
 .captcha_button {
+    width: 200px;
+    margin: 12px 0;
+}
+
+.send_form_buttons {
     display: flex;
-    background-color: var(--white_200);
-    height: 42px;
-    gap: 8px;
-    padding: 4px;
-    border-radius: 8px;
-    align-items: center;
-    margin-top: 30px;
-    font-family: var(--font_roboto);
+    gap: 12px;
+    margin: 4px 0;
 }
 
-.captcha_button input {
-    width: 20px;
-}
-
-.captcha_button img {
-    width: 32px;
-    height: 32px;
-}
-
-.sendForm_buttons {
-    display: flex;
-    gap: 40px;
-    margin-top: 50px;
-    margin-bottom: 12px;
-}
-
-.sendForm_buttons button {
+.send_form_buttons button {
     border-radius: 16px;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -203,16 +185,8 @@ label,
     transition: scale .5s;
 }
 
-.sendForm_buttons button:hover {
+.send_form_buttons button:hover {
     scale: 1.1;
-}
-
-#profile_menu button {
-    color: var(--white_200);
-}
-
-#profile_menu button:hover {
-    color: var(--primary_400);
 }
 
 .active_button {
@@ -222,20 +196,14 @@ label,
 
 .unactive_button {
     background-color: transparent;
-    border: 3px solid var(--secondary_400);
+    border: 2px solid var(--secondary_400);
     color: var(--secondary_400);
-    letter-spacing: 2px;
-}
-
-.unactive_button:hover {
-    border: 3px solid var(--secondary_500);
-    color: var(--secondary_500);
 }
 
 #correct_session {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     z-index: 3;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -243,33 +211,30 @@ label,
     justify-content: space-around;
     top: 50%;
     left: 50%;
-    background: linear-gradient(to bottom, #15131b, #62508D);
+    background: linear-gradient(to bottom, var(--background_500), var(--background_300));
     border-radius: 12px;
     border: 3px solid var(--white_300);
     font-family: var(--font_condensed);
-    font-size: medium;
     color: var(--white_200);
-    padding: 12px;
+    padding: 12px 24px;
 }
 
 #correct_session button {
     margin-top: 20px;
-    width: fit-content;
-    padding: 6px;
+    padding: 8px;
     border-radius: 8px;
     border: 3px solid var(--white_200);
     background-color: var(--accent);
     color: var(--white_200);
     font-family: var(--font_roboto);
     font-weight: bold;
-    font-size: medium;
+    font-size: var(--size_m);
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all .5s;
 }
 
 #correct_session button:hover {
     scale: 1.2;
-    transform: translateY(-3px);
     box-shadow: 0px 0px 15px rgba(218, 103, 9, 0.836);
 }
   
@@ -291,8 +256,12 @@ label,
     display: inline-block;
 }
 
-/* Animación del spinner */
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    
+    100% {
+        transform: rotate(360deg);
+    }
 }

@@ -25,8 +25,8 @@ function setRating(e) {
 
     } else {
         document.body.classList.add('blur')
-        signin_form.classList.remove('invisible')
-        signin_form.classList.add('visible')
+        register_form.classList.remove('invisible')
+        register_form.classList.add('visible')
         profile_menu.classList.remove('visible')
         profile_menu.classList.add('invisible')
     }

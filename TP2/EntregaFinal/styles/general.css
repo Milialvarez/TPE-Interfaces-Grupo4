@@ -179,11 +179,12 @@ header {
     font-size: var(--size_m);
 }
 
-.menu a {
+.menu a, .menu button {
     color: var(--white_200);
+    transition: color .5s;
 }
 
-.menu a:hover {
+.menu a:hover, .menu button:hover {
     color: var(--primary_400);
 }
 
@@ -279,7 +280,7 @@ footer h4 {
 /* CARDS */
 
 .scaled {
-    transform: scale(0.8); 
+    transform: scale(0.8);
 }
 
 .card,
@@ -366,11 +367,11 @@ footer h4 {
 
 /* ADD TO CART */
 
-.card:hover .container-btn-comprar{
+.card:hover .container_btn_comprar {
     opacity: 1;
 }
 
-.container-btn-comprar {
+.container_btn_comprar {
     color: var(--primary_600);
     position: absolute;
     top: 0;
@@ -382,13 +383,12 @@ footer h4 {
     align-items: center;
     opacity: 0;
     transition: opacity .3s;
-    z-index: 2;
 }
 
-.btn-comprar {
-    height: 37px;
-    width: 140px;
-    background-color:var(--primary_400);
+.btn_comprar {
+    height: 44px;
+    width: 120px;
+    background-color: var(--primary_400);
     border: 3px solid var(--primary_600);
     color: #eee;
     transition: .6s;
@@ -400,35 +400,34 @@ footer h4 {
     overflow: hidden;
 }
 
-.btn-comprar span {
+.btn_comprar span {
     color: var(--primary_600);
     transform: translateX(10px);
     transition: .5s ease-in-out;
 }
 
-.btn-comprar svg {
+.btn_comprar svg {
     fill: var(--primary_600);
     transform: translateX(-300px);
     transition: .6s ease-in-out;
-    z-index: 3;
     height: 20px;
 }
 
-.btn-comprar:hover {
+.btn_comprar:hover {
     width: 60px;
     background-color: var(--primary_400);
     cursor: pointer;
 }
 
-.btn-comprar:active{
+.btn_comprar:active {
     transform: scale(1.2);
 }
 
-.btn-comprar:hover svg {
+.btn_comprar:hover svg {
     transform: translateX(-5px);
 }
 
-.btn-comprar:hover span {
+.btn_comprar:hover span {
     transform: translateY(70px);
     font-size: .1rem;
 }
@@ -455,6 +454,7 @@ footer h4 {
 }
 
 @media only screen and (min-width: 1024px) {
+
     /*HEADER*/
     .search_input input {
         background-color: transparent;
@@ -489,7 +489,7 @@ footer h4 {
 
 
     /*MENÚ*/
-    .menu{
+    .menu {
         top: 84px;
     }
 

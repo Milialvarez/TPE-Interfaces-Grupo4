@@ -8,16 +8,16 @@ if (localStorage.getItem("session")) {
     register_button.innerHTML = "Cerrar sesion"
 }
 
-const signin_form = document.querySelector('#signin_form');
+const register_form = document.querySelector('#register_form');
 const login_form = document.querySelector('#login_form');
 const login_button = document.querySelector('#login_button');
 const signin_button = document.querySelector('#signin_button');
-const signin_close_button = document.querySelector('.close_button');
+const signin_close_button = document.querySelector('#register_close_button');
 const login_close_button = document.querySelector('#login_close_button');
 
 signin_close_button.addEventListener('click', () => {
-    signin_form.classList.add('invisible');
-    signin_form.classList.remove('visible');
+    register_form.classList.add('invisible');
+    register_form.classList.remove('visible');
     document.body.classList.remove('blur');
 })
 
@@ -33,8 +33,8 @@ register_button.addEventListener('click', () => {
         localStorage.clear()
     } else {
         document.body.classList.add('blur');
-        signin_form.classList.remove('invisible');
-        signin_form.classList.add('visible');
+        register_form.classList.remove('invisible');
+        register_form.classList.add('visible');
         profile_menu.classList.remove('visible');
         profile_menu.classList.add('invisible');
     }
@@ -42,8 +42,8 @@ register_button.addEventListener('click', () => {
 
 login_button.addEventListener('click', (event) => {
     event.preventDefault();
-    signin_form.classList.remove("visible");
-    signin_form.classList.add("invisible");
+    register_form.classList.remove("visible");
+    register_form.classList.add("invisible");
     login_form.classList.remove("invisible");
     login_form.classList.add("visible");
 });
@@ -52,12 +52,12 @@ signin_button.addEventListener('click', (event) => {
     event.preventDefault();
     login_form.classList.remove("visible");
     login_form.classList.add("invisible");
-    signin_form.classList.remove("invisible");
-    signin_form.classList.add("visible");
+    register_form.classList.remove("invisible");
+    register_form.classList.add("visible");
 });
 
 const login = document.querySelector("#log_in");
-const signin = document.querySelector("#sign_in");
+const signin = document.querySelector("#register");
 const sesion_correcta = document.querySelector('#correct_session');
 const accept_button = document.querySelector('#accept_button');
 
@@ -79,8 +79,8 @@ signin.addEventListener("click", function (event) {
     setTimeout(() => {
         signin.classList.remove("loading");
         signin.disabled = false;
-        signin_form.classList.remove("visible");
-        signin_form.classList.add("invisible");
+        register_form.classList.remove("visible");
+        register_form.classList.add("invisible");
         sesion_correcta.classList.add('visible');
         sesion_correcta.classList.remove('invisible');
     }, 3000);
