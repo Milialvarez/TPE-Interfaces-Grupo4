@@ -217,6 +217,7 @@
     font-family: var(--font_condensed);
     color: var(--white_200);
     padding: 12px 24px;
+    width: 80%;
 }
 
 #correct_session button {
@@ -263,5 +264,12 @@
     
     100% {
         transform: rotate(360deg);
+    }
+}
+
+
+@media only screen and (min-width: 1024px) {
+    #correct_session {
+        width: 20%;
     }
 }

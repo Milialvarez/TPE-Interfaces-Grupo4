@@ -23,6 +23,7 @@
 }
 
 .games_carousel {
+    padding: 0 8px;
     display: flex;
     margin-top: 12px;
     width: 100%;
@@ -135,7 +136,8 @@
 }
 
 .loader_box {
-    width: 35%;
+    width: 80%;
+    text-align: center;
     padding: 8px;
     border: 2px solid var(--accent);
     display: flex;
@@ -193,5 +195,9 @@
 
     .trending_container h2 {
         text-align: start;
+    }
+
+    .loader_box {
+        width: 35%;
     }
 }

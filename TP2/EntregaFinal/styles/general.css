@@ -387,12 +387,11 @@ footer h4 {
 
 .btn_comprar {
     height: 44px;
-    width: 120px;
+    width: 130px;
     background-color: var(--primary_400);
     border: 3px solid var(--primary_600);
-    color: #eee;
     transition: .6s;
-    font-size: 15px;
+    font-size: var(--size_s);
     border-radius: 50px;
     display: flex;
     justify-content: center;
