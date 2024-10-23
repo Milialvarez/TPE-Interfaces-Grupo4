@@ -60,21 +60,11 @@ class Game {
         }
     }
 
-    //OBTIENE POSICION ACTUAL DEL CURSOR
-    obtenerPosicionMouse(e) {
-        const rect = this.canvas.getBoundingClientRect();
-        
-        return {
-            x: e.clientX - rect.left,
-            y: e.clientY - rect.top
-        };
-    }
 
     //SE ACTIVA ANTE PRESIONES DEL MOUSE Y COMPRUEBA SI HAY UNA FICHA EN DICHA POSICION
     onMouseDown(e) {
-        const { x, y } = this.obtenerPosicionMouse(e);
+        const x = e.clientX, y = e.clientY
         const ficha = this.obtenerFicha(x, y);
-        console.log(ficha)
         if (ficha) {
             this.fichaSeleccionada = ficha;
             ficha.estaSeleccionada = true;
@@ -96,7 +86,7 @@ class Game {
     //PROMUEVE EL MOVIMIENTO DE UNA FICHA ANTE EL MOVIMIENTO DEL CURSOR
     onMouseMove(e) {
         if (this.fichaSeleccionada) {
-            const { x, y } = this.obtenerPosicionMouse(e);
+            const x = e.clientX, y = e.clientY
             // Mover la ficha seleccionada a la posición del cursor
             this.fichaSeleccionada.setPosicionX(x - this.fichaSeleccionada.getTamanio() / 2);
             this.fichaSeleccionada.setPosicionY(y - this.fichaSeleccionada.getTamanio() / 2);
