@@ -15,8 +15,9 @@ async function initGame() {
     try {
         const imagenTom = await loadImage("../imgs/ficha_tom.png")
         const imagenJerry = await loadImage("../imgs/ficha_jerry.png")
+        const imagenCasillero = await loadImage("../imgs/casillero.png")
 
-        let game = new Game(75, 50, 6, 8, 7, "nombre jugador 1", "nombre jugador 2", imagenTom, imagenJerry)
+        let game = new Game(75, 50, 6, 8, 7, "nombre jugador 1", "nombre jugador 2", imagenTom, imagenJerry, imagenCasillero)
         game.initialize()
         game.draw()
 

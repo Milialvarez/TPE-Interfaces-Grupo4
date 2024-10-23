@@ -1,5 +1,5 @@
 class Tablero {
-    constructor(ctx, cantColumnas, posicionX, posicionY, cantFilas, tamanioCasillero) {
+    constructor(ctx, cantColumnas, posicionX, posicionY, cantFilas, tamanioCasillero, imagenCasillero) {
         this.casilleros = [];
         this.ctx = ctx;
         this.cantColumnas = cantColumnas;
@@ -10,6 +10,19 @@ class Tablero {
         this.columna = 0
         this.tamanioCasillero = tamanioCasillero
         this.sePuedeAgregar = true;
+        this.imagenCasillero = imagenCasillero
+    }
+
+    getPosicionX(){
+        return this.posicionX;
+    }
+
+    getPosicionY(){
+        return this.posicionY;
+    }
+
+    getAncho(){
+        return this.tamanioCasillero * this.cantColumnas;
     }
 
     //INICIALIZA EL TABLERO Y LA CARGA DE IMAGENES
@@ -18,15 +31,15 @@ class Tablero {
             this.casilleros.push([])
         }
 
-        let imagen = new Image();
-        imagen.src = "../imgs/casillero.png";
-        imagen.onload = () => {
+        // let imagen = new Image();
+        // imagen.src = "../imgs/casillero.png";
+        // imagen.onload = () => {
             while (this.sePuedeAgregar) {
-                let casillero = new Casillero(this.ctx, false, this.tamanioCasillero, imagen, this.tamanioCasillero);
+                let casillero = new Casillero(this.ctx, false, this.tamanioCasillero, this.imagenCasillero, this.tamanioCasillero);
                 this.agregarCasillero(casillero);
             }
-            this.draw()
-        }
+        //     this.draw()
+        // }
     }
 
     //DIBUJA EL TABLERO

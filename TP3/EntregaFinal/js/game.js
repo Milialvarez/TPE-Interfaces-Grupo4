@@ -1,5 +1,5 @@
 class Game {
-    constructor(tamanioCasillero, tamanioFicha, xEnLinea, cantColumnas, cantFilas, jugador1, jugador2, fichaJugador1, fichaJugador2) {
+    constructor(tamanioCasillero, tamanioFicha, xEnLinea, cantColumnas, cantFilas, jugador1, jugador2, fichaJugador1, fichaJugador2, imagenCasillero) {
         this.tamanioCasillero = tamanioCasillero
         this.tamanioFicha = tamanioFicha
         this.xEnLinea = xEnLinea
@@ -18,6 +18,8 @@ class Game {
         this.fichas = [[], []]
         this.canvas
         this.fichaSeleccionada = null;
+        this.imagenCasillero = imagenCasillero
+        this.posicionAnterior
     }
 
     //CREA EL TABLERO Y LAS FICHAS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
@@ -28,8 +30,8 @@ class Game {
         this.canvasHeight = canvas.height
         this.tableroWidth = this.cantColumnas * this.tamanioCasillero
         this.tableroHeight = this.cantFilas * this.tamanioCasillero
-        this.tablero = new Tablero(this.ctx, this.cantColumnas, this.canvasWidth / 2 - this.tableroWidth / 2, this.canvasHeight / 2 - this.tableroHeight / 2, this.cantFilas, this.tamanioCasillero);
-
+        this.tablero = new Tablero(this.ctx, this.cantColumnas, this.canvasWidth / 2 - this.tableroWidth / 2, this.canvasHeight / 2 - this.tableroHeight / 2, this.cantFilas, this.tamanioCasillero, this.imagenCasillero);
+        this.tablero.initialize()
         for (let i = 0; i < this.fichas.length; i++) {
             for (let j = 0; j < (this.cantColumnas * this.cantFilas) / 2; j++) {
                 let ficha
@@ -51,7 +53,7 @@ class Game {
 
     //DIBUJA EL JUEGO
     draw() {
-        this.tablero.initialize()
+        this.tablero.draw()
 
         for (let i = 0; i < this.fichas.length; i++) {
             for (let j = 0; j < this.fichas[i].length; j++) {
@@ -66,6 +68,7 @@ class Game {
         const x = e.clientX, y = e.clientY
         const ficha = this.obtenerFicha(x, y);
         if (ficha) {
+            this.posicionAnterior = {x:ficha.getPosicionX(), y:ficha.getPosicionY()}
             this.fichaSeleccionada = ficha;
             ficha.estaSeleccionada = true;
         }
@@ -96,14 +99,27 @@ class Game {
     }
 
     //DESELECCIONA UNA FICHA A LA PAR DE QUE EL JUGADOR SUELTA EL MOUSE
-    onMouseUp() {
+    onMouseUp(e) {
         if (this.fichaSeleccionada) {
+            if(this.esPosicionValida(this.fichaSeleccionada.getPosicionX(), this.fichaSeleccionada.getPosicionY())){
+                console.log(2);
+            } else{
+                this.fichaSeleccionada.setPosicionX(this.posicionAnterior.x);
+                this.fichaSeleccionada.setPosicionY(this.posicionAnterior.y);
+                this.borrar();
+                this.draw();
+            }
             this.fichaSeleccionada = null;  // Deseleccionar la ficha
+            
         }
     }
 
     //BORRA TODO LO CONTENIDO POR EL CANVAS
     borrar() {
         this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
+    }
+
+    esPosicionValida(x, y){
+        return x > this.tablero.getPosicionX() && x < (this.tablero.getPosicionX() + this.tablero.getAncho()) && y < this.tablero.getPosicionY();
     }
 }
