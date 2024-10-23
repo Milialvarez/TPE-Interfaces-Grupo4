@@ -2,5 +2,5 @@ canvas{
     border: 2px solid black;
     background-image: url(../../../TP2/EntregaFinal/imgs/game_image.jpeg);
     background-size: cover;
-    box-shadow: -747px -622px rgba(0, 0, 0, 0.648) inset;
+    box-shadow: -747px -622px rgba(0, 0, 0, 0.75) inset;
 }

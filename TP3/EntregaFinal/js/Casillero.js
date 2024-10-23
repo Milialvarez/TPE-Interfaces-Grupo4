@@ -51,8 +51,8 @@ class Casillero {
     }
 
     draw() {
-        ctx.beginPath();
+        this.ctx.beginPath();
         this.ctx.drawImage(this.imagen, this.posicionX, this.posicionY, this.width, this.height);
-        ctx.closePath();
+        this.ctx.closePath();
     }
 }

@@ -21,7 +21,7 @@ class Tablero {
         imagen.src = "../imgs/casillero.png";
         imagen.onload = () => {
             while (this.sePuedeAgregar) {
-                let casillero = new Casillero(ctx, false, this.tamanioCasillero, imagen, this.tamanioCasillero);
+                let casillero = new Casillero(this.ctx, false, this.tamanioCasillero, imagen, this.tamanioCasillero);
                 this.agregarCasillero(casillero);
             }
             this.draw()

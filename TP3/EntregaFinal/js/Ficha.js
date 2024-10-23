@@ -1,16 +1,15 @@
 class Ficha {
-    constructor(ctx, width, imagen, posicionX, posicionY, jugador, height) {
+    constructor(ctx, tamanio, imagen, posicionX, posicionY, jugador) {
         this.ctx = ctx;
-        this.width = width;
-        this.height = height;
+        this.tamanio = tamanio;
         this.imagen = imagen;
         this.posicionX = posicionX;
         this.posicionY = posicionY;
         this.jugador = jugador;
     }
 
-    getWidth(){
-        return this.width;
+    getTamanio(){
+        return this.tamanio;
     }
 
     getHeight(){
@@ -33,8 +32,8 @@ class Ficha {
         return this.jugador;
     }
 
-    setWidth(width){
-        this.width = width;
+    setTamanio(tamanio){
+        this.tamanio = tamanio;
     }
 
     setHeight(height){
@@ -58,8 +57,8 @@ class Ficha {
     }
 
     draw() {
-        ctx.beginPath();
-        this.ctx.drawImage(this.imagen, this.posicionX, this.posicionY, this.width, this.height);
-        ctx.closePath();
+        this.ctx.beginPath();
+        this.ctx.drawImage(this.imagen, this.posicionX, this.posicionY, this.tamanio, this.tamanio);
+        this.ctx.closePath();
     }
 }
