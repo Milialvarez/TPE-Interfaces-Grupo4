@@ -1,23 +1,34 @@
 class Tablero {
-    constructor(ctx, color, cantColumnas, posicionX, posicionY, cantFilas) {
-        this.casilleros = [[]];
+    constructor(ctx, cantColumnas, posicionX, posicionY, cantFilas, tamanioCasillero) {
+        this.casilleros = [];
         this.ctx = ctx;
-        this.color = color;
-        this.fila = 0;
-        this.columna = 0;
         this.cantColumnas = cantColumnas;
         this.cantFilas = cantFilas;
         this.posicionX = posicionX;
         this.posicionY = posicionY;
+        this.fila = 0
+        this.columna = 0
+        this.tamanioCasillero = tamanioCasillero
+        this.sePuedeAgregar = true;
+    }
+
+    initialize() {
+        for (let i = 0; i < this.cantFilas; i++) {
+            this.casilleros.push([])
+        }
+
+        let imagen = new Image();
+        imagen.src = "../imgs/casillero.png";
+        imagen.onload = () => {
+            while (this.sePuedeAgregar) {
+                let casillero = new Casillero(ctx, false, this.tamanioCasillero, imagen, this.tamanioCasillero);
+                this.agregarCasillero(casillero);
+            }
+            this.draw()
+        }
     }
 
     draw() {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.rect(this.posicionX, this.posicionY, this.cantColumnas * 60 + 10, this.cantFilas * 60 + 10);
-        ctx.fill();
-        ctx.closePath();
-
         for (const fila of this.casilleros) {
             for (const casilla of fila) {
                 casilla.draw();
@@ -26,28 +37,30 @@ class Tablero {
     }
 
     agregarCasillero(casillero) {
-        if( this.fila + 1 == this.cantFilas && this.columna == this.cantColumnas ){
-            return;
+        if (this.fila == this.cantFilas - 1 && this.columna == this.cantColumnas) {
+            this.sePuedeAgregar = false
+            return
         }
-        if(this.columna >= this.cantColumnas) {
-            this.fila++;
-            this.casilleros[this.fila] = []
+
+        if (this.columna == this.cantColumnas) {
+            this.fila++
             this.columna = 0
         }
 
-        if (this.columna == 0) {
-            casillero.posicionX = (this.columna + 1) * casillero.radio + this.posicionX +10
+        if (this.columna == 0 && this.fila == 0) {
+            casillero.setPosicionX(this.posicionX)
+            casillero.setPosicionY(this.posicionY)
         } else {
-            casillero.posicionX = this.casilleros[this.fila][this.columna - 1].posicionX + casillero.radio * 2 +10
+            if (this.columna == 0) {
+                casillero.setPosicionX(this.posicionX)
+                casillero.setPosicionY(this.posicionY + (this.tamanioCasillero * this.fila))
+            } else {
+                let casilleroAux = this.casilleros[this.fila][this.columna - 1]
+                casillero.setPosicionX(casilleroAux.getPosicionX() + this.tamanioCasillero)
+                casillero.setPosicionY(casilleroAux.getPosicionY())
+            }
         }
         
-        if (this.fila == 0) {
-            casillero.posicionY = (this.fila + 1) * casillero.radio + this.posicionY +10
-        }
-         else {
-            casillero.posicionY = this.casilleros[this.fila - 1][this.columna].posicionY + casillero.radio * 2 +10
-        }
-
         this.casilleros[this.fila].push(casillero);
         this.columna++
     }
