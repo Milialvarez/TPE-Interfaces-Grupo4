@@ -16,10 +16,12 @@ class Game {
         this.tableroHeight
         this.tablero
         this.fichas = [[], []]
+        this.canvas
+        this.fichaSeleccionada = null;
     }
 
     initialize() {
-        let canvas = document.querySelector("#canvas")
+        this.canvas = document.querySelector("#canvas")
         this.ctx = canvas.getContext('2d')
         this.canvasWidth = canvas.width
         this.canvasHeight = canvas.height
@@ -40,15 +42,71 @@ class Game {
                 this.fichas[i].push(ficha)
             }
         }
+
+        this.canvas.addEventListener('mousedown', (e) => this.onMouseDown(e));
+        this.canvas.addEventListener('mousemove', (e) => this.onMouseMove(e));
+        this.canvas.addEventListener('mouseup', () => this.onMouseUp());
     }
 
     draw() {
         this.tablero.initialize()
-        
+
         for (let i = 0; i < this.fichas.length; i++) {
             for (let j = 0; j < this.fichas[i].length; j++) {
                 this.fichas[i][j].draw()
             }
         }
+    }
+
+
+    obtenerPosicionMouse(e) {
+        const rect = this.canvas.getBoundingClientRect();
+        
+        return {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        };
+    }
+
+    onMouseDown(e) {
+        const { x, y } = this.obtenerPosicionMouse(e);
+        const ficha = this.obtenerFicha(x, y);
+        console.log(ficha)
+        if (ficha) {
+            this.fichaSeleccionada = ficha;
+            ficha.estaSeleccionada = true;
+        }
+    }
+
+    obtenerFicha(x, y){
+        for (let i = 0; i < this.fichas.length; i++) {
+            for (let j = 0; j < this.fichas[i].length; j++) {
+                if(this.fichas[i][j].getPosicionX() < x && (this.fichas[i][j].getPosicionX() + this.fichas[i][j].getTamanio()) > x && this.fichas[i][j].getPosicionY() < y && (this.fichas[i][j].getPosicionY() + this.fichas[i][j].getTamanio()) > y){
+                    return this.fichas[i][j];
+                }
+            }
+        }
+        return null;
+    }
+
+    onMouseMove(e) {
+        if (this.fichaSeleccionada) {
+            const { x, y } = this.obtenerPosicionMouse(e);
+            // Mover la ficha seleccionada a la posición del cursor
+            this.fichaSeleccionada.setPosicionX(x - this.fichaSeleccionada.getTamanio() / 2);
+            this.fichaSeleccionada.setPosicionY(y - this.fichaSeleccionada.getTamanio() / 2);
+            this.borrar();
+            this.draw();  // Redibujar el tablero con la ficha movida
+        }
+    }
+
+    onMouseUp() {
+        if (this.fichaSeleccionada) {
+            this.fichaSeleccionada = null;  // Deseleccionar la ficha
+        }
+    }
+
+    borrar() {
+        this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
     }
 }

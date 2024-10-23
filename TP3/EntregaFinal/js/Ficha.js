@@ -36,6 +36,10 @@ class Ficha {
         this.tamanio = tamanio;
     }
 
+    getTamanio(){
+        return this.tamanio;
+    }
+
     setHeight(height){
         this.height = height;
     }
@@ -61,4 +65,5 @@ class Ficha {
         this.ctx.drawImage(this.imagen, this.posicionX, this.posicionY, this.tamanio, this.tamanio);
         this.ctx.closePath();
     }
+
 }
