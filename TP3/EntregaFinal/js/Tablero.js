@@ -12,6 +12,7 @@ class Tablero {
         this.sePuedeAgregar = true;
     }
 
+    //INICIALIZA EL TABLERO Y LA CARGA DE IMAGENES
     initialize() {
         for (let i = 0; i < this.cantFilas; i++) {
             this.casilleros.push([])
@@ -28,6 +29,7 @@ class Tablero {
         }
     }
 
+    //DIBUJA EL TABLERO
     draw() {
         for (const fila of this.casilleros) {
             for (const casilla of fila) {
@@ -36,6 +38,7 @@ class Tablero {
         }
     }
 
+    //AGREGA CASILLEROS EVALUANDO DIFERENTES CASOS
     agregarCasillero(casillero) {
         if (this.fila == this.cantFilas - 1 && this.columna == this.cantColumnas) {
             this.sePuedeAgregar = false

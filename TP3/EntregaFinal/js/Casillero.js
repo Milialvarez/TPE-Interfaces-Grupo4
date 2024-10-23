@@ -9,6 +9,7 @@ class Casillero {
         this.height = height;
     }
 
+    //GETTERS Y SETTERS DE UN CASILLERO
     getVacio(){
         return this.vacio;
     }

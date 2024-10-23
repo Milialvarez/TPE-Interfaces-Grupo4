@@ -20,6 +20,7 @@ class Game {
         this.fichaSeleccionada = null;
     }
 
+    //CREA EL TABLERO Y LAS FICHAS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
     initialize() {
         this.canvas = document.querySelector("#canvas")
         this.ctx = canvas.getContext('2d')
@@ -48,6 +49,7 @@ class Game {
         this.canvas.addEventListener('mouseup', () => this.onMouseUp());
     }
 
+    //DIBUJA EL JUEGO
     draw() {
         this.tablero.initialize()
 
@@ -58,7 +60,7 @@ class Game {
         }
     }
 
-
+    //OBTIENE POSICION ACTUAL DEL CURSOR
     obtenerPosicionMouse(e) {
         const rect = this.canvas.getBoundingClientRect();
         
@@ -68,6 +70,7 @@ class Game {
         };
     }
 
+    //SE ACTIVA ANTE PRESIONES DEL MOUSE Y COMPRUEBA SI HAY UNA FICHA EN DICHA POSICION
     onMouseDown(e) {
         const { x, y } = this.obtenerPosicionMouse(e);
         const ficha = this.obtenerFicha(x, y);
@@ -78,6 +81,7 @@ class Game {
         }
     }
 
+    //COMPRUEBA SI HAY UNA FICHA EN DETERMINADA POSICION
     obtenerFicha(x, y){
         for (let i = 0; i < this.fichas.length; i++) {
             for (let j = 0; j < this.fichas[i].length; j++) {
@@ -89,6 +93,7 @@ class Game {
         return null;
     }
 
+    //PROMUEVE EL MOVIMIENTO DE UNA FICHA ANTE EL MOVIMIENTO DEL CURSOR
     onMouseMove(e) {
         if (this.fichaSeleccionada) {
             const { x, y } = this.obtenerPosicionMouse(e);
@@ -100,12 +105,14 @@ class Game {
         }
     }
 
+    //DESELECCIONA UNA FICHA A LA PAR DE QUE EL JUGADOR SUELTA EL MOUSE
     onMouseUp() {
         if (this.fichaSeleccionada) {
             this.fichaSeleccionada = null;  // Deseleccionar la ficha
         }
     }
 
+    //BORRA TODO LO CONTENIDO POR EL CANVAS
     borrar() {
         this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
     }

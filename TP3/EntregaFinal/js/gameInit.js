@@ -1,5 +1,6 @@
 "use strict"
 
+//FUNCIÓN PROMESA DE CARGA DE IMAGENES GENERAL
 function loadImage(src) {
     return new Promise((resolve, reject) => {
         const img = new Image()
@@ -9,6 +10,7 @@ function loadImage(src) {
     })
 }
 
+//FUNCIÓN ASÍNCRONA DE CONFIGURACIÓN E INICIALIZACIÓN DEL JUEGO
 async function initGame() {
     try {
         const imagenTom = await loadImage("../imgs/ficha_tom.png")

@@ -8,6 +8,7 @@ class Ficha {
         this.jugador = jugador;
     }
 
+    //GETTERS Y SETTERS DE UNA FICHA
     getTamanio(){
         return this.tamanio;
     }
@@ -60,6 +61,7 @@ class Ficha {
         this.jugador = jugador;
     }
 
+    //METODO QUE DIBUJA A UNA FICHA
     draw() {
         this.ctx.beginPath();
         this.ctx.drawImage(this.imagen, this.posicionX, this.posicionY, this.tamanio, this.tamanio);
