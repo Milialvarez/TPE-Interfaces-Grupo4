@@ -13,11 +13,11 @@ function loadImage(src) {
 //FUNCIÓN ASÍNCRONA DE CONFIGURACIÓN E INICIALIZACIÓN DEL JUEGO
 async function initGame() {
     try {
-        const imagenTom = await loadImage("../imgs/ficha_tom.png")
-        const imagenJerry = await loadImage("../imgs/ficha_jerry.png")
-        const imagenCasillero = await loadImage("../imgs/casillero.png")
+        const tomChipImage = await loadImage("../imgs/ficha_tom.png")
+        const jerryChipImage = await loadImage("../imgs/ficha_jerry.png")
+        const lockerImage = await loadImage("../imgs/casillero.png")
 
-        let game = new Game(75, 50, 6, 8, 7, "nombre jugador 1", "nombre jugador 2", imagenTom, imagenJerry, imagenCasillero)
+        let game = new Game(75, 50, 6, 8, 7, "nombre jugador 1", "nombre jugador 2", tomChipImage, jerryChipImage, lockerImage)
         game.initialize()
         game.draw()
 
