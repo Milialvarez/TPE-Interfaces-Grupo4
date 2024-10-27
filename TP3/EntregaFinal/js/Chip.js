@@ -6,15 +6,11 @@ class Chip {
         this.x = x;
         this.y = y;
         this.player = player;
-    }
+     }
 
     //GETTERS Y SETTERS DE UNA FICHA
     getSize() {
         return this.size;
-    }
-
-    getHeight() {
-        return this.height;
     }
 
     getImage() {
@@ -39,10 +35,6 @@ class Chip {
 
     getSize() {
         return this.size;
-    }
-
-    setHeight(height) {
-        this.height = height;
     }
 
     setImage(image) {

@@ -20,7 +20,9 @@ class Game {
         this.selectedChip = null;
         this.lockerImage = lockerImage
         this.initPosition
+        this.hints = [];
     }
+
 
     //CREA EL BOARD Y LAS CHIPS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
     initialize() {
@@ -48,18 +50,18 @@ class Game {
 
         this.canvas.addEventListener('mousedown', (e) => this.onMouseDown(e));
         this.canvas.addEventListener('mousemove', (e) => this.onMouseMove(e));
-        this.canvas.addEventListener('mouseup', () => this.onMouseUp());
+        this.canvas.addEventListener('mouseup', (e) => this.onMouseUp(e));
+        // this.canvas.addEventListener('mouseup', (e) => this.insertChip(e));
     }
 
     //DIBUJA EL JUEGO
     draw() {
-        this.board.draw()
-
         for (let i = 0; i < this.chips.length; i++) {
             for (let j = 0; j < this.chips[i].length; j++) {
                 this.chips[i][j].draw()
             }
         }
+        this.board.draw()
     }
 
     //SE ACTIVA ANTE PRESIONES DEL MOUSE Y COMPRUEBA SI HAY UNA CHIP EN DICHA POSICION
@@ -97,20 +99,27 @@ class Game {
             // Mover la chip seleccionada a la posición del cursor
             this.selectedChip.setX(x - this.selectedChip.getSize() / 2);
             this.selectedChip.setY(y - this.selectedChip.getSize() / 2);
-            this.borrar();
-            this.draw();  // Redibujar el board con la chip movida
+            this.delete();
+            this.draw();
+            this.drawHints(); // Redibujar el board con la chip movida
         }
     }
 
     //DESELECCIONA UNA CHIP A LA PAR DE QUE EL JUGADOR SUELTA EL MOUSE
     onMouseUp(e) {
         if (this.selectedChip) {
-            if (this.isValidPosition(this.selectedChip.getX(), this.selectedChip.getY())) {
-                console.log(2);
+            const x = e.clientX, y = e.clientY
+            if (this.isValidPosition(x, y) != -1) {
+                if (this.board.emptyLocker(this.isValidPosition(x, y) + 1) != null) {
+                    let locker = this.board.emptyLocker(this.isValidPosition(x, y) + 1)
+                    this.insertChip(this.selectedChip, locker);
+                    this.delete()
+                    this.draw()
+                }
             } else {
                 this.selectedChip.setX(this.initPosition.x);
                 this.selectedChip.setY(this.initPosition.y);
-                this.borrar();
+                this.delete();
                 this.draw();
             }
             this.selectedChip = null;  // Deseleccionar la chip
@@ -118,11 +127,35 @@ class Game {
     }
 
     //BORRA TODO LO CONTENIDO POR EL CANVAS
-    borrar() {
+    delete() {
         this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
     }
 
     isValidPosition(x, y) {
-        return x > this.board.getX() && x < (this.board.getX() + this.board.getWidth()) && y < this.board.getY();
+        for (let index = 0; index < this.hints.length; index++) {
+            if ((this.hints[index].getX() - this.hints[index].getRadius()) < x && (this.hints[index].getX() + this.hints[index].getRadius()) > x &&
+                (this.hints[index].getY() - this.hints[index].getRadius()) < y && (this.hints[index].getY() + this.hints[index].getRadius()) > y) {
+                return index;
+            }
+        }
+        return -1;
+    }
+
+    drawHints() {
+        let posY = 20;
+        for (let index = 0; index < this.nColumns; index++) {
+            let posX = this.board.getLockerSizeByColumn(index) + this.lockerSize / 2;
+            this.hints[index] = new Hint(this.ctx, this.chipSize / 2, 'rgba(0,0,0,1)', posX, posY);
+            this.hints[index].draw();
+        }
+    }
+
+    insertChip(chip, locker){
+        let posX = locker.getX() - (locker.getWidth() / 2 + chip.getSize() / 2);
+        let posY = locker.getY() + (locker.getWidth() / 2 - chip.getSize() / 2);
+        chip.setY(posY);
+        chip.setX(posX);
+        locker.setChip(chip);
     }
 }
+

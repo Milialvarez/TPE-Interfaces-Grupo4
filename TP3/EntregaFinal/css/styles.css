@@ -4,3 +4,8 @@ canvas{
     background-size: cover;
     box-shadow: -747px -622px rgba(0, 0, 0, 0.75) inset;
 }
+
+.ficha{
+    position:  absolute;
+    transition: top 0.8s ease-in; 
+}

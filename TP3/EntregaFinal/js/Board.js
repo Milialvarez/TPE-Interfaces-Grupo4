@@ -11,6 +11,15 @@ class Board {
         this.lockerSize = lockerSize
         this.canAdd = true;
         this.lockerImage = lockerImage
+        this.canvas
+    }
+
+    getNumberColumms(){
+        return this.nColumns;
+    }
+
+    getNumberRows(){
+        return this.nRows;
     }
 
     getX() {
@@ -74,5 +83,18 @@ class Board {
 
         this.lockers[this.row].push(locker);
         this.column++
+    }
+
+    getLockerSizeByColumn(column){
+        return this.lockers[0][column].getX();
+    }
+
+    emptyLocker(column){
+        for(let index = this.nRows-1; index >= 0; index--){
+            if(this.lockers[index][column].getEmpty()){
+                return this.lockers[index][column];
+            }
+        }
+        return null;
     }
 }
