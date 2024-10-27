@@ -65,7 +65,9 @@ class Game {
     //SE ACTIVA ANTE PRESIONES DEL MOUSE Y COMPRUEBA SI HAY UNA CHIP EN DICHA POSICION
     onMouseDown(e) {
         const x = e.clientX, y = e.clientY
-        const chip = this.getChip(x, y);
+        let selectedChips = this.getChip(x, y);
+        // const chip = this.getChip(x, y);
+        const chip = selectedChips[selectedChips.length - 1];
         if (chip) {
             this.initPosition = { x: chip.getX(), y: chip.getY() }
             this.selectedChip = chip;
@@ -75,14 +77,17 @@ class Game {
 
     //COMPRUEBA SI HAY UNA CHIP EN DETERMINADA POSICION
     getChip(x, y) {
+        let selectedChips = []
         for (let i = 0; i < this.chips.length; i++) {
             for (let j = 0; j < this.chips[i].length; j++) {
-                if (this.chips[i][j].getX() < x && (this.chips[i][j].getX() + this.chips[i][j].getSize()) > x && this.chips[i][j].getY() < y && (this.chips[i][j].getY() + this.chips[i][j].getSize()) > y) {
-                    return this.chips[i][j];
+                // if (this.chips[i][j].getX() < x && (this.chips[i][j].getX() + this.chips[i][j].getSize()) > x && this.chips[i][j].getY() < y && (this.chips[i][j].getY() + this.chips[i][j].getSize()) > y) {
+                if (this.chips[i][j].coordinatesAreInChip(x, y)) {
+                    // return this.chips[i][j];
+                    selectedChips.push(this.chips[i][j])
                 }
             }
         }
-        return null;
+        return selectedChips;
     }
 
     //PROMUEVE EL MOVIMIENTO DE UNA CHIP ANTE EL MOVIMIENTO DEL CURSOR

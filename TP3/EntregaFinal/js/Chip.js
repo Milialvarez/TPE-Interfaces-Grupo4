@@ -68,4 +68,7 @@ class Chip {
         this.ctx.closePath();
     }
 
+    coordinatesAreInChip(x, y) {
+        return this.getX() < x && (this.getX() + this.getSize()) > x && this.getY() < y && (this.getY() + this.getSize()) > y
+    }
 }
