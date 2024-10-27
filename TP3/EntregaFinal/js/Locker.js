@@ -50,6 +50,14 @@ class Locker {
         return this.height;
     }
 
+    getEmpty(){
+        return this.chip == null;
+    }
+
+    setEmpty(chip){
+        this.chip = chip;
+    }
+
     draw() {
         this.ctx.beginPath();
         this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
