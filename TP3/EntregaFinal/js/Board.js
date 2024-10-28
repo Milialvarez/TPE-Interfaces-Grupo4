@@ -14,11 +14,11 @@ class Board {
         this.canvas
     }
 
-    getNumberColumms(){
+    getNumberColumms() {
         return this.nColumns;
     }
 
-    getNumberRows(){
+    getNumberRows() {
         return this.nRows;
     }
 
@@ -85,13 +85,13 @@ class Board {
         this.column++
     }
 
-    getLockerSizeByColumn(column){
+    getLockerSizeByColumn(column) {
         return this.lockers[0][column].getX();
     }
 
-    emptyLocker(column){
-        for(let index = this.nRows-1; index >= 0; index--){
-            if(this.lockers[index][column].getEmpty()){
+    emptyLocker(column) {
+        for (let index = this.nRows - 1; index >= 0; index--) {
+            if (this.lockers[index][column].getEmpty()) {
                 return this.lockers[index][column];
             }
         }

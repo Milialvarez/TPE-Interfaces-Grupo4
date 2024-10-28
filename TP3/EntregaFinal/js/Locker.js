@@ -53,8 +53,12 @@ class Locker {
     getEmpty(){
         return this.chip == null;
     }
+    
+    getChip(){
+        return this.chip
+    }
 
-    setEmpty(chip){
+    setChip(chip){
         this.chip = chip;
     }
 

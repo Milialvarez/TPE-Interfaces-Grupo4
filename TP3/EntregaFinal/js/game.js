@@ -21,8 +21,9 @@ class Game {
         this.lockerImage = lockerImage
         this.initPosition
         this.hints = [];
+        this.start = null
+        this.fallingChip = null
     }
-
 
     //CREA EL BOARD Y LAS CHIPS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
     initialize() {
@@ -32,7 +33,7 @@ class Game {
         this.canvasHeight = canvas.height
         this.boardWidth = this.nColumns * this.lockerSize
         this.boardHeight = this.nRows * this.lockerSize
-        this.board = new Board(this.ctx, this.nColumns, this.canvasWidth / 2 - this.boardWidth / 2, this.canvasHeight / 2 - this.boardHeight / 2, this.nRows, this.lockerSize, this.lockerImage);
+        this.board = new Board(this.ctx, this.nColumns, this.canvasWidth / 2 - this.boardWidth / 2, this.canvasHeight - this.boardHeight, this.nRows, this.lockerSize, this.lockerImage);
         this.board.initialize()
         for (let i = 0; i < this.chips.length; i++) {
             for (let j = 0; j < (this.nColumns * this.nRows) / 2; j++) {
@@ -51,7 +52,6 @@ class Game {
         this.canvas.addEventListener('mousedown', (e) => this.onMouseDown(e));
         this.canvas.addEventListener('mousemove', (e) => this.onMouseMove(e));
         this.canvas.addEventListener('mouseup', (e) => this.onMouseUp(e));
-        // this.canvas.addEventListener('mouseup', (e) => this.insertChip(e));
     }
 
     //DIBUJA EL JUEGO
@@ -68,7 +68,6 @@ class Game {
     onMouseDown(e) {
         const x = e.clientX, y = e.clientY
         let selectedChips = this.getChip(x, y);
-        // const chip = this.getChip(x, y);
         const chip = selectedChips[selectedChips.length - 1];
         if (chip) {
             this.initPosition = { x: chip.getX(), y: chip.getY() }
@@ -82,9 +81,7 @@ class Game {
         let selectedChips = []
         for (let i = 0; i < this.chips.length; i++) {
             for (let j = 0; j < this.chips[i].length; j++) {
-                // if (this.chips[i][j].getX() < x && (this.chips[i][j].getX() + this.chips[i][j].getSize()) > x && this.chips[i][j].getY() < y && (this.chips[i][j].getY() + this.chips[i][j].getSize()) > y) {
                 if (this.chips[i][j].coordinatesAreInChip(x, y)) {
-                    // return this.chips[i][j];
                     selectedChips.push(this.chips[i][j])
                 }
             }
@@ -112,9 +109,8 @@ class Game {
             if (this.isValidPosition(x, y) != -1) {
                 if (this.board.emptyLocker(this.isValidPosition(x, y) + 1) != null) {
                     let locker = this.board.emptyLocker(this.isValidPosition(x, y) + 1)
-                    this.insertChip(this.selectedChip, locker);
-                    this.delete()
-                    this.draw()
+                    this.fallingChip = this.selectedChip
+                    requestAnimationFrame((timestamp) => {this.animateFall(locker, timestamp)})
                 }
             } else {
                 this.selectedChip.setX(this.initPosition.x);
@@ -123,6 +119,23 @@ class Game {
                 this.draw();
             }
             this.selectedChip = null;  // Deseleccionar la chip
+        }
+    }
+
+    animateFall(locker) {
+        let lockerPosY = locker.getY() + (locker.getWidth() / 2 - this.fallingChip.getSize() / 2)
+
+        this.fallingChip.setY(this.fallingChip.getY() + 10)
+        this.delete();
+        this.draw();
+
+        if (this.fallingChip.getY() < lockerPosY) {
+            requestAnimationFrame(() => {this.animateFall(locker)})
+        } else {
+            this.insertChip(this.fallingChip, locker);
+            this.delete();
+            this.draw();
+            this.fallingChip = null
         }
     }
 
@@ -150,7 +163,7 @@ class Game {
         }
     }
 
-    insertChip(chip, locker){
+    insertChip(chip, locker) {
         let posX = locker.getX() - (locker.getWidth() / 2 + chip.getSize() / 2);
         let posY = locker.getY() + (locker.getWidth() / 2 - chip.getSize() / 2);
         chip.setY(posY);
@@ -158,4 +171,3 @@ class Game {
         locker.setChip(chip);
     }
 }
-
