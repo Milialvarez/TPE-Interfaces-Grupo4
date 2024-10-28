@@ -1,17 +1,18 @@
-class Hint{
-    constructor(ctx, radius, color, posX, posY){
+class Hint {
+    constructor(ctx, img, posX, posY, width, height) {
         this.ctx = ctx;
-        this.radius = radius;
-        this.color = color;
+        this.img = img
         this.posX = posX;
         this.posY = posY
+        this.width = width
+        this.height = height
     }
 
-    getX(){
+    getX() {
         return this.posX
     }
 
-    getY(){
+    getY() {
         return this.posY
     }
 
@@ -22,9 +23,9 @@ class Hint{
         this.ctx.closePath();
     }
 
-    getRadius(){
+    getRadius() {
         return this.radius;
     }
 
-    
+
 }
