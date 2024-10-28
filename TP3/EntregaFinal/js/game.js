@@ -23,6 +23,8 @@ class Game {
         this.hints = [];
         this.start = null
         this.fallingChip = null
+        this.gravity = 10
+        this.rebound = true
     }
 
     //CREA EL BOARD Y LAS CHIPS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
@@ -129,20 +131,44 @@ class Game {
         }
     }
 
-    animateFall(locker){
+    //MUESTRA ANIMACION DE CAIDA CUANDO SE SUELTA LA CHIP
+    animateFall(locker) {
         let lockerPosY = locker.getY() + (locker.getWidth() / 2 - this.fallingChip.getSize() / 2)
 
-        this.fallingChip.setY(this.fallingChip.getY() + 10)
+        this.fallingChip.setY(this.fallingChip.getY() + this.gravity)
         this.delete();
         this.draw();
 
         if (this.fallingChip.getY() < lockerPosY) {
             requestAnimationFrame(() => {this.animateFall(locker)})
         } else {
-            this.insertChip(this.fallingChip, locker);
-            this.delete();
-            this.draw();
-            this.fallingChip = null
+            if (this.rebound) {
+                requestAnimationFrame(() => {this.animateRebound(locker)})
+            } else {
+                this.insertChip(this.fallingChip, locker);
+                this.delete();
+                this.draw();
+                this.fallingChip = null
+                this.rebound = true
+                this.gravity = 10
+            }
+        }
+    }
+
+    animateRebound(locker) {
+        let lockerPosY = locker.getY() + (locker.getWidth() / 2 - this.fallingChip.getSize() / 2)
+        this.gravity = -5
+
+        this.fallingChip.setY(this.fallingChip.getY() + this.gravity)
+        this.delete();
+        this.draw();
+
+        if (this.fallingChip.getY() >= lockerPosY - 20) {
+            requestAnimationFrame(() => {this.animateRebound(locker)})
+        } else {
+            this.gravity = 7
+            this.rebound = false
+            requestAnimationFrame(() => {this.animateFall(locker)})
         }
     }
 
