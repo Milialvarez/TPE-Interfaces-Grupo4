@@ -104,10 +104,11 @@ class Game {
     onMouseUp(e) {
         if (this.selectedChip) {
             const x = e.clientX, y = e.clientY
-            if (this.isValidPosition(x, y) != -1) {
-                if (this.board.emptyLocker(this.isValidPosition(x, y) + 1) != null) {
-                    let locker = this.board.emptyLocker(this.isValidPosition(x, y) + 1)
-                    this.insertChip(this.selectedChip, locker);
+            let columna = this.isValidPosition(x, y);
+            if (columna != -1) {
+                if (this.board.emptyLocker(columna + 1) != null) {
+                    let locker = this.board.emptyLocker(columna + 1)
+                    this.insertChip(this.selectedChip, locker, columna);
                     this.delete()
                     this.draw()
                 }
@@ -145,7 +146,7 @@ class Game {
         }
     }
 
-    insertChip(chip, locker){
+    insertChip(chip, locker, columna){
         let posX = locker.getX() - (locker.getWidth() / 2 + chip.getSize() / 2);
         let posY = locker.getY() + (locker.getWidth() / 2 - chip.getSize() / 2);
         chip.setY(posY);

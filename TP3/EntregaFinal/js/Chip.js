@@ -59,5 +59,4 @@ class Chip {
         this.ctx.drawImage(this.image, this.x, this.y, this.size, this.size);
         this.ctx.closePath();
     }
-
 }
