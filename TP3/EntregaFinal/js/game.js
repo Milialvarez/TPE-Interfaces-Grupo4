@@ -104,7 +104,7 @@ class Game {
         }
     }
 
-    //DESELECCIONA UNA CHIP A LA PAR DE QUE EL JUGADOR SUELTA EL MOUSE
+    //DESELECCIONA UNA CHIP A LA PAR DE QUE EL JUGADOR SUELTA EL MOUSE Y SE OBTIENE LA COLUMNA Y LOCKER DONDE COLOCAR LA FICHA SELECCIONADA
     onMouseUp(e) {
         if (this.selectedChip) {
             const x = e.clientX, y = e.clientY
@@ -155,6 +155,8 @@ class Game {
         }
     }
 
+
+    //ANIMACION QUE PERMITE QUE LA FICHA HAGA EFECTO REBOTE
     animateRebound(locker) {
         let lockerPosY = locker.getY() + (locker.getWidth() / 2 - this.fallingChip.getSize() / 2)
         this.gravity = -5
@@ -177,6 +179,7 @@ class Game {
         this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
     }
 
+    //CHEQUEA DADAS POSICIONES X E Y SI SE ENCUENTRA EL MOUSE SOBRE UN HINT
     isValidPosition(x, y) {
         for (let index = 0; index < this.hints.length; index++) {
             if ((this.hints[index].getX() - this.hints[index].getRadius()) < x && (this.hints[index].getX() + this.hints[index].getRadius()) > x &&
@@ -187,6 +190,7 @@ class Game {
         return -1;
     }
 
+    //DIBUJA LOS HINTS CUANDO SE MUEVE UNA FICHA
     drawHints() {
         let posY = 30;
         for (let index = 0; index < this.nColumns; index++) {
@@ -196,6 +200,7 @@ class Game {
         }
     }
 
+    //INSERTA UNA FICHA AL DEJARLA CAER EN EL LOCKER CORRESPONDIENTE
     insertChip(chip, locker) {
         let posX = locker.getX() + (locker.getWidth() - chip.getSize()) / 2;
         let posY = locker.getY() + (locker.getWidth() / 2 - chip.getSize() / 2);
