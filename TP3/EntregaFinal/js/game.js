@@ -106,11 +106,18 @@ class Game {
     onMouseUp(e) {
         if (this.selectedChip) {
             const x = e.clientX, y = e.clientY
-            if (this.isValidPosition(x, y) != -1) {
-                if (this.board.emptyLocker(this.isValidPosition(x, y) + 1) != null) {
-                    let locker = this.board.emptyLocker(this.isValidPosition(x, y) + 1)
-                    this.fallingChip = this.selectedChip
-                    requestAnimationFrame((timestamp) => {this.animateFall(locker, timestamp)})
+            if (this.isValidPosition(x, y) >=0) {
+                let locker; let currentColumn = this.isValidPosition(x, y)
+                if (this.board.emptyLocker(currentColumn) != null) {
+                        locker = this.board.emptyLocker(currentColumn);
+                        this.fallingChip = this.selectedChip
+                        requestAnimationFrame((timestamp) => {this.animateFall(locker, timestamp)})
+                } else{
+                    console.log()
+                    this.selectedChip.setX(this.initPosition.x);
+                    this.selectedChip.setY(this.initPosition.y);
+                    this.delete();
+                    this.draw();
                 }
             } else {
                 this.selectedChip.setX(this.initPosition.x);
@@ -122,7 +129,7 @@ class Game {
         }
     }
 
-    animateFall(locker) {
+    animateFall(locker){
         let lockerPosY = locker.getY() + (locker.getWidth() / 2 - this.fallingChip.getSize() / 2)
 
         this.fallingChip.setY(this.fallingChip.getY() + 10)
@@ -164,7 +171,7 @@ class Game {
     }
 
     insertChip(chip, locker) {
-        let posX = locker.getX() - (locker.getWidth() / 2 + chip.getSize() / 2);
+        let posX = locker.getX() + (locker.getWidth() - chip.getSize()) / 2;
         let posY = locker.getY() + (locker.getWidth() / 2 - chip.getSize() / 2);
         chip.setY(posY);
         chip.setX(posX);
