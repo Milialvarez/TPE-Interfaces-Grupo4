@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
     <title>Document</title>
 </head>
+
 <body>
+    <div class="countdown">
+        <div id="minutes"></div>
+        <div id="minutes"></div>
+        <div id="seconds"></div>
+    </div>
+    <div class="resultado">
+        <h3>¡SIN TIEMPO!</h3>
+        <h3>EMPATE</h3>
+        <button class="accept">Aceptar</button>
+    </div>
     <canvas id="canvas" width="747" height="622"></canvas>
+
     <script src="../js/Chip.js"></script>
     <script src="../js/Hint.js"></script>
     <script src="../js/Locker.js"></script>
@@ -15,4 +28,5 @@
     <script src="../js/Game.js"></script>
     <script src="../js/gameInit.js"></script>
 </body>
+
 </html>

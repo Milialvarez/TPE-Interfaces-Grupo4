@@ -20,6 +20,7 @@ async function initGame() {
         let game = new Game(75, 50, 6, 8, 7, "nombre jugador 1", "nombre jugador 2", tomChipImage, jerryChipImage, lockerImage)
         game.initialize()
         game.draw()
+        game.cuentaRegresiva()
 
     } catch (error) {
         console.error("Error al cargar las imágenes: ", error);
@@ -27,3 +28,4 @@ async function initGame() {
 }
 
 initGame()
+

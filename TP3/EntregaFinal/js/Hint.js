@@ -24,7 +24,5 @@ class Hint{
 
     getRadius(){
         return this.radius;
-    }
-
-    
+    }   
 }

@@ -21,8 +21,11 @@ class Game {
         this.lockerImage = lockerImage
         this.initPosition
         this.hints = [];
+        this.start = null
+        this.fallingChip = null
+        this.gravity = 10
+        this.rebound = true
     }
-
 
     //CREA EL BOARD Y LAS CHIPS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
     initialize() {
@@ -32,16 +35,16 @@ class Game {
         this.canvasHeight = canvas.height
         this.boardWidth = this.nColumns * this.lockerSize
         this.boardHeight = this.nRows * this.lockerSize
-        this.board = new Board(this.ctx, this.nColumns, this.canvasWidth / 2 - this.boardWidth / 2, this.canvasHeight / 2 - this.boardHeight / 2, this.nRows, this.lockerSize, this.lockerImage);
+        this.board = new Board(this.ctx, this.nColumns, this.canvasWidth / 2 - this.boardWidth / 2, this.canvasHeight - this.boardHeight, this.nRows, this.lockerSize, this.lockerImage);
         this.board.initialize()
         for (let i = 0; i < this.chips.length; i++) {
             for (let j = 0; j < (this.nColumns * this.nRows) / 2; j++) {
                 let chip
 
                 if (i == 0) {
-                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer1, 10, j * (this.chipSize / 3) + 10, this.player1, this.chipSize)
+                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer1, 10, j * (this.chipSize / 3) + 100, this.player1, this.chipSize)
                 } else if (i == 1) {
-                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer2, this.canvasWidth - this.chipSize - 10, j * (this.chipSize / 3) + 10, this.player2, this.chipSize)
+                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer2, this.canvasWidth - this.chipSize - 10, j * (this.chipSize / 3) + 100, this.player2, this.chipSize)
                 }
 
                 this.chips[i].push(chip)
@@ -51,7 +54,6 @@ class Game {
         this.canvas.addEventListener('mousedown', (e) => this.onMouseDown(e));
         this.canvas.addEventListener('mousemove', (e) => this.onMouseMove(e));
         this.canvas.addEventListener('mouseup', (e) => this.onMouseUp(e));
-        // this.canvas.addEventListener('mouseup', (e) => this.insertChip(e));
     }
 
     //DIBUJA EL JUEGO
@@ -67,7 +69,8 @@ class Game {
     //SE ACTIVA ANTE PRESIONES DEL MOUSE Y COMPRUEBA SI HAY UNA CHIP EN DICHA POSICION
     onMouseDown(e) {
         const x = e.clientX, y = e.clientY
-        const chip = this.getChip(x, y);
+        let selectedChips = this.getChip(x, y);
+        const chip = selectedChips[selectedChips.length - 1];
         if (chip) {
             this.initPosition = { x: chip.getX(), y: chip.getY() }
             this.selectedChip = chip;
@@ -77,14 +80,15 @@ class Game {
 
     //COMPRUEBA SI HAY UNA CHIP EN DETERMINADA POSICION
     getChip(x, y) {
+        let selectedChips = []
         for (let i = 0; i < this.chips.length; i++) {
             for (let j = 0; j < this.chips[i].length; j++) {
-                if (this.chips[i][j].getX() < x && (this.chips[i][j].getX() + this.chips[i][j].getSize()) > x && this.chips[i][j].getY() < y && (this.chips[i][j].getY() + this.chips[i][j].getSize()) > y) {
-                    return this.chips[i][j];
+                if (this.chips[i][j].coordinatesAreInChip(x, y)) {
+                    selectedChips.push(this.chips[i][j])
                 }
             }
         }
-        return null;
+        return selectedChips;
     }
 
     //PROMUEVE EL MOVIMIENTO DE UNA CHIP ANTE EL MOVIMIENTO DEL CURSOR
@@ -104,13 +108,18 @@ class Game {
     onMouseUp(e) {
         if (this.selectedChip) {
             const x = e.clientX, y = e.clientY
-            let columna = this.isValidPosition(x, y);
-            if (columna != -1) {
-                if (this.board.emptyLocker(columna + 1) != null) {
-                    let locker = this.board.emptyLocker(columna + 1)
-                    this.insertChip(this.selectedChip, locker, columna);
-                    this.delete()
-                    this.draw()
+            if (this.isValidPosition(x, y) >= 0) {
+                let locker; let currentColumn = this.isValidPosition(x, y)
+                if (this.board.emptyLocker(currentColumn) != null) {
+                    locker = this.board.emptyLocker(currentColumn);
+                    this.fallingChip = this.selectedChip
+                    requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
+                } else {
+                    console.log()
+                    this.selectedChip.setX(this.initPosition.x);
+                    this.selectedChip.setY(this.initPosition.y);
+                    this.delete();
+                    this.draw();
                 }
             } else {
                 this.selectedChip.setX(this.initPosition.x);
@@ -119,6 +128,47 @@ class Game {
                 this.draw();
             }
             this.selectedChip = null;  // Deseleccionar la chip
+        }
+    }
+
+    //MUESTRA ANIMACION DE CAIDA CUANDO SE SUELTA LA CHIP
+    animateFall(locker) {
+        let lockerPosY = locker.getY() + (locker.getWidth() / 2 - this.fallingChip.getSize() / 2)
+
+        this.fallingChip.setY(this.fallingChip.getY() + this.gravity)
+        this.delete();
+        this.draw();
+
+        if (this.fallingChip.getY() < lockerPosY) {
+            requestAnimationFrame(() => { this.animateFall(locker) })
+        } else {
+            if (this.rebound) {
+                requestAnimationFrame(() => { this.animateRebound(locker) })
+            } else {
+                this.insertChip(this.fallingChip, locker);
+                this.delete();
+                this.draw();
+                this.fallingChip = null
+                this.rebound = true
+                this.gravity = 10
+            }
+        }
+    }
+
+    animateRebound(locker) {
+        let lockerPosY = locker.getY() + (locker.getWidth() / 2 - this.fallingChip.getSize() / 2)
+        this.gravity = -5
+
+        this.fallingChip.setY(this.fallingChip.getY() + this.gravity)
+        this.delete();
+        this.draw();
+
+        if (this.fallingChip.getY() >= lockerPosY - 20) {
+            requestAnimationFrame(() => { this.animateRebound(locker) })
+        } else {
+            this.gravity = 7
+            this.rebound = false
+            requestAnimationFrame(() => { this.animateFall(locker) })
         }
     }
 
@@ -146,12 +196,48 @@ class Game {
         }
     }
 
-    insertChip(chip, locker, columna){
-        let posX = locker.getX() - (locker.getWidth() / 2 + chip.getSize() / 2);
+    insertChip(chip, locker) {
+
+        let posX = locker.getX() + (locker.getWidth() / 2 - chip.getSize() / 2);
         let posY = locker.getY() + (locker.getWidth() / 2 - chip.getSize() / 2);
         chip.setY(posY);
         chip.setX(posX);
         locker.setChip(chip);
     }
-}
 
+    cuentaRegresiva() {
+        let seconds = document.querySelector('#seconds');
+        let minutes = document.querySelector('#minutes');
+        let msPorSegundo = 59;
+        let msPorMinuto = 4;
+        let intervalo;
+
+        intervalo = setInterval(() => {
+            minutes.innerText = msPorMinuto + ":";
+            seconds.innerText = msPorSegundo;
+            msPorSegundo--;
+            if (msPorSegundo == -1) {
+                msPorSegundo = 59;
+                msPorMinuto--;
+            }
+            if (msPorMinuto == 0 && msPorSegundo == 0) {
+                this.tieForTime();
+                clearInterval(intervalo)
+            }
+        }, 1000)
+    }
+
+    tieForTime() {
+        let accept = document.querySelector('.accept');
+        let cartel = document.querySelector('.resultado');
+        cartel.classList.add('visible');
+        //no permitir agarrar otra ficha
+        //que se corte el juego
+
+        accept.addEventListener("click", () => {
+            cartel.classList.remove('visible');
+        })
+    }
+
+    
+}
