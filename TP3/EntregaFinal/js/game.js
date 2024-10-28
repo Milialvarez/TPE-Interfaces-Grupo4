@@ -188,7 +188,7 @@ class Game {
     }
 
     drawHints() {
-        let posY = 20;
+        let posY = 30;
         for (let index = 0; index < this.nColumns; index++) {
             let posX = this.board.getLockerSizeByColumn(index) + this.lockerSize / 2;
             this.hints[index] = new Hint(this.ctx, this.chipSize / 2, 'rgba(0,0,0,1)', posX, posY);
