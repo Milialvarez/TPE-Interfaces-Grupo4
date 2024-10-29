@@ -43,9 +43,9 @@ class Game {
                 let chip
 
                 if (i == 0) {
-                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer1, 10, j * (this.chipSize / 3) + 10, this.player1, this.chipSize)
+                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer1, 10, j * (this.chipSize / 3) + 100, this.player1, this.chipSize)
                 } else if (i == 1) {
-                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer2, this.canvasWidth - this.chipSize - 10, j * (this.chipSize / 3) + 10, this.player2, this.chipSize)
+                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer2, this.canvasWidth - this.chipSize - 10, j * (this.chipSize / 3) + 100, this.player2, this.chipSize)
                 }
 
                 this.chips[i].push(chip)
@@ -121,7 +121,7 @@ class Game {
     onMouseUp(e) {
         if (this.selectedChip) {
             const x = e.clientX, y = e.clientY
-
+            
             if (this.isValidPosition(x, y) >= 0) {
                 let currentColumn = this.isValidPosition(x, y)
 
@@ -214,10 +214,47 @@ class Game {
 
     //INSERTA UNA FICHA AL DEJARLA CAER EN EL LOCKER CORRESPONDIENTE
     insertChip(chip, locker) {
-        let posX = locker.getX() + (locker.getWidth() - chip.getSize()) / 2;
+
+        let posX = locker.getX() + (locker.getWidth() / 2 - chip.getSize() / 2);
         let posY = locker.getY() + (locker.getWidth() / 2 - chip.getSize() / 2);
         chip.setY(posY);
         chip.setX(posX);
         locker.setChip(chip);
     }
+
+    cuentaRegresiva() {
+        let seconds = document.querySelector('#seconds');
+        let minutes = document.querySelector('#minutes');
+        let msPorSegundo = 59;
+        let msPorMinuto = 4;
+        let intervalo;
+
+        intervalo = setInterval(() => {
+            minutes.innerText = msPorMinuto + ":";
+            seconds.innerText = msPorSegundo;
+            msPorSegundo--;
+            if (msPorSegundo == -1) {
+                msPorSegundo = 59;
+                msPorMinuto--;
+            }
+            if (msPorMinuto == 0 && msPorSegundo == 0) {
+                this.tieForTime();
+                clearInterval(intervalo)
+            }
+        }, 1000)
+    }
+
+    tieForTime() {
+        let accept = document.querySelector('.accept');
+        let cartel = document.querySelector('.resultado');
+        cartel.classList.add('visible');
+        //no permitir agarrar otra ficha
+        //que se corte el juego
+
+        accept.addEventListener("click", () => {
+            cartel.classList.remove('visible');
+        })
+    }
+
+    
 }

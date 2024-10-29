@@ -3,9 +3,44 @@ canvas{
     background-image: url(../../../TP2/EntregaFinal/imgs/game_image.jpeg);
     background-size: cover;
     box-shadow: -747px -622px rgba(0, 0, 0, 0.75) inset;
+    position: relative;
 }
+
 
 .ficha{
     position:  absolute;
     transition: top 0.8s ease-in; 
 }
+
+.countdown{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    gap: 1px;
+    border: 1px solid black;
+    width: 100px;
+    height: 45px;
+    top: 35px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    left: 40%;
+}
+
+.resultado{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid black;
+    flex-direction: column;
+    width: 100px;
+    height: 100px;
+    padding: 15px;
+}
+
+.visible{
+    display: flex;
+}
+
