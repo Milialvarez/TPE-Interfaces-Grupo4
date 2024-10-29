@@ -1,5 +1,5 @@
 class Game {
-    constructor(lockerSize, chipSize, xInLine, nColumns, nRows, player1, player2, chipPlayer1, chipPlayer2, lockerImage) {
+    constructor(lockerSize, chipSize, xInLine, nColumns, nRows, player1, player2, chipPlayer1, chipPlayer2, lockerImage, hintImage) {
         this.lockerSize = lockerSize
         this.chipSize = chipSize
         this.xInLine = xInLine
@@ -20,10 +20,11 @@ class Game {
         this.selectedChip = null;
         this.lockerImage = lockerImage
         this.initPosition
-        this.hints = [];
+        this.hintImage = hintImage
+        this.hint = null;
         this.start = null
         this.fallingChip = null
-        this.gravity = 10
+        this.gravity = 12
         this.rebound = true
     }
 
@@ -93,14 +94,26 @@ class Game {
 
     //PROMUEVE EL MOVIMIENTO DE UNA CHIP ANTE EL MOVIMIENTO DEL CURSOR
     onMouseMove(e) {
-        if (this.selectedChip) {
-            const x = e.clientX, y = e.clientY
+        if (!this.selectedChip) {
+            return
+        }
+
+        const x = e.clientX, y = e.clientY
+        let lockerIndex = this.isValidPosition(x, y)
+
+        if (lockerIndex < 0) {
             // Mover la chip seleccionada a la posición del cursor
             this.selectedChip.setX(x - this.selectedChip.getSize() / 2);
             this.selectedChip.setY(y - this.selectedChip.getSize() / 2);
             this.delete();
             this.draw();
-            this.drawHints(); // Redibujar el board con la chip movida
+        } else {
+            let locker = this.board.emptyLocker(lockerIndex);
+            this.selectedChip.setX(locker.getX() + (locker.getWidth() - this.selectedChip.getSize()) / 2);
+            this.selectedChip.setY((this.board.getY() / 2) - (this.selectedChip.getSize() / 2));
+            this.delete();
+            this.draw();
+            this.drawHints(locker)
         }
     }
 
@@ -108,15 +121,20 @@ class Game {
     onMouseUp(e) {
         if (this.selectedChip) {
             const x = e.clientX, y = e.clientY
+            
             if (this.isValidPosition(x, y) >= 0) {
-                let locker; let currentColumn = this.isValidPosition(x, y)
+                let currentColumn = this.isValidPosition(x, y)
+
                 if (this.board.emptyLocker(currentColumn) != null) {
+<<<<<<< HEAD
                     this.tableroLleno();
                     locker = this.board.emptyLocker(currentColumn);
+=======
+                    let locker = this.board.emptyLocker(currentColumn);
+>>>>>>> 3aa6ea3e8abd57d01283238da416fa9915021201
                     this.fallingChip = this.selectedChip
                     requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
                 } else {
-                    console.log()
                     this.selectedChip.setX(this.initPosition.x);
                     this.selectedChip.setY(this.initPosition.y);
                     this.delete();
@@ -128,6 +146,7 @@ class Game {
                 this.delete();
                 this.draw();
             }
+
             this.selectedChip = null;  // Deseleccionar la chip
         }
     }
@@ -151,11 +170,10 @@ class Game {
                 this.draw();
                 this.fallingChip = null
                 this.rebound = true
-                this.gravity = 10
+                this.gravity = 12
             }
         }
     }
-
 
     //ANIMACION QUE PERMITE QUE LA FICHA HAGA EFECTO REBOTE
     animateRebound(locker) {
@@ -180,25 +198,23 @@ class Game {
         this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
     }
 
-    //CHEQUEA DADAS POSICIONES X E Y SI SE ENCUENTRA EL MOUSE SOBRE UN HINT
+    //CHEQUEA DADAS POSICIONES X E Y Y DEVUELVE LA COLUMNA EN LA QUE SE SOLTÓ
     isValidPosition(x, y) {
-        for (let index = 0; index < this.hints.length; index++) {
-            if ((this.hints[index].getX() - this.hints[index].getRadius()) < x && (this.hints[index].getX() + this.hints[index].getRadius()) > x &&
-                (this.hints[index].getY() - this.hints[index].getRadius()) < y && (this.hints[index].getY() + this.hints[index].getRadius()) > y) {
-                return index;
-            }
+        if (x >= this.board.getX() && x <= this.board.getX() + this.board.getWidth() && y <= this.board.getY()) {
+            return Math.floor(x / 75) - 1
         }
+
         return -1;
     }
 
     //DIBUJA LOS HINTS CUANDO SE MUEVE UNA FICHA
-    drawHints() {
-        let posY = 30;
-        for (let index = 0; index < this.nColumns; index++) {
-            let posX = this.board.getLockerSizeByColumn(index) + this.lockerSize / 2;
-            this.hints[index] = new Hint(this.ctx, this.chipSize / 2, 'rgba(0,0,0,1)', posX, posY);
-            this.hints[index].draw();
+    drawHints(locker) {
+        if (this.hint == null) {
+            this.hint = new Hint(this.ctx, this.hintImage, 0, this.board.getY() - 20, 30, 15)
         }
+
+        this.hint.setX(locker.getX() + (locker.getWidth() - 30) / 2)
+        this.hint.draw()
     }
 
     //INSERTA UNA FICHA AL DEJARLA CAER EN EL LOCKER CORRESPONDIENTE
