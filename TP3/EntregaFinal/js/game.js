@@ -239,12 +239,12 @@ class Game {
     countdown() {
         let seconds = document.querySelector('#seconds');
         let minutes = document.querySelector('#minutes');
-        let msPorSegundo = 59;
-        let msPorMinuto = 4;
+        let msPorSegundo = 5;
+        let msPorMinuto = 0;
         let intervalo;
 
         intervalo = setInterval(() => {
-            minutes.innerText = msPorMinuto + ":";
+            minutes.innerText = msPorMinuto;
             seconds.innerText = msPorSegundo;
             msPorSegundo--;
             if (msPorSegundo == -1) {
