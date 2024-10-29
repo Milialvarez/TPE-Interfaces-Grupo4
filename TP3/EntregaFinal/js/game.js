@@ -26,6 +26,7 @@ class Game {
         this.hint = null;
         this.start = null
         this.fallingChip = null
+        this.lastChip = null
         this.gravity = 12
         this.rebound = true
     }
@@ -78,7 +79,12 @@ class Game {
         if (chip && this.fallingChip == null) {
             this.initPosition = { x: chip.getX(), y: chip.getY() }
             this.selectedChip = chip;
-            chip.estaSeleccionada = true;
+            if(this.lastChip !=null  && this.chequearTurno() == false){
+                this.showTurnsAlert();
+                this.selectedChip = null;
+            } else{
+                chip.estaSeleccionada = true;
+            }
         }
     }
 
@@ -100,7 +106,13 @@ class Game {
         if (!this.selectedChip) {
             return
         }
-
+        if(this.lastChip !=null){
+            if(!this.chequearTurno()){
+                this.showTurnsAlert();
+                this.selectedChip = null;
+                return;
+            }
+        }
         const x = e.clientX, y = e.clientY
         const lockerIndex = this.isValidPosition(x, y)
 
@@ -129,7 +141,17 @@ class Game {
 
     //DESELECCIONA UNA CHIP A LA PAR DE QUE EL JUGADOR SUELTA EL MOUSE Y SE OBTIENE LA COLUMNA Y LOCKER DONDE COLOCAR LA FICHA SELECCIONADA
     onMouseUp(e) {
-        if (this.selectedChip) {
+        if(this.lastChip !=null && this.selectedChip !=null){
+            if(this.chequearTurno() == false){
+                this.selectedChip.setX(this.initPosition.x);
+                this.selectedChip.setY(this.initPosition.y);
+                this.delete();
+                this.draw();
+                return;
+            }
+        }
+        
+        if (this.selectedChip !=null) {
             const x = e.clientX, y = e.clientY
             const lockerIndex = this.isValidPosition(x, y)
 
@@ -139,6 +161,7 @@ class Game {
                     let locker = this.board.emptyLocker(lockerIndex);
                     this.fallingChip = this.selectedChip
                     requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
+                    this.lastChip = this.selectedChip
                 } else {
                     this.selectedChip.setX(this.initPosition.x);
                     this.selectedChip.setY(this.initPosition.y);
@@ -151,7 +174,6 @@ class Game {
                 this.delete();
                 this.draw();
             }
-
             this.selectedChip = null;  // Deseleccionar la chip
         }
     }
@@ -237,6 +259,7 @@ class Game {
 
     // CRONOMETRO
     countdown() {
+        let countdown = document.querySelector('.countdown');
         let seconds = document.querySelector('#seconds');
         let minutes = document.querySelector('#minutes');
         let msPorSegundo = 5;
@@ -253,6 +276,7 @@ class Game {
             }
             if (msPorMinuto == 0 && msPorSegundo == 0) {
                 this.tieForTime();
+                countdown.classList.add('invisible');
                 clearInterval(intervalo)
             }
         }, 1000)
@@ -268,21 +292,57 @@ class Game {
         //que se corte el juego
 
         accept.addEventListener("click", () => {
-            cartel.classList.remove('visible');
+            cartel.classList.remove('visible')
+            this.reiniciarJuego();
         })
     }
 
     // LÓGICA DE EMPATE POR TABLERO LLENO
     tableroLleno() {
+        let countdown = document.querySelector('.countdown');
         let accept = document.querySelector('.accept');
         let cartel = document.querySelector('.resultado_empate_tablero_lleno');
         if (this.board.casillerosCompletos()) {
+            this.reiniciarJuego();
             cartel.classList.remove('invisible');
             cartel.classList.add('visible');
 
             accept.addEventListener("click", () => {
+                countdown.classList.add('invisible');
                 cartel.classList.remove('visible');
+                this.reiniciarJuego();
             })
         }
+    }
+
+    chequearTurno(){
+        let currentPlayer = this.selectedChip.getPlayer();
+        let lastPlayer = this.lastChip.getPlayer();
+        if(currentPlayer == lastPlayer){
+            return false;
+        } else{
+            return true;
+        }
+    }
+
+    showTurnsAlert(){
+        let alert = document.querySelector('#turn_alert');
+        alert.classList.remove('invisible');
+
+        let seconds = 0;
+        const interval = setInterval(() => {
+            seconds += 1;
+            if (seconds === 3) {
+                alert.classList.add('invisible');
+                clearInterval(interval); // Detiene el contador
+            }
+        }, 1000);
+    }
+
+    //por qué no funciona? ver como hacer
+    reiniciarJuego(){
+        this.delete();
+        this.initialize();
+        this.game.draw()
     }
 }

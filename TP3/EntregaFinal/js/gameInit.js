@@ -7,8 +7,17 @@ option_button.addEventListener('click', () => {
     const selectForm = document.getElementById('choose_inline');
     const optionChosen = selectForm.value;
     let option = String(optionChosen);
-    const playerOneName = formData.get('player1');
-    const playerTwoName = formData.get('player2');
+    let playerOneName = formData.get('player1');
+    let playerTwoName = formData.get('player2');
+
+    if(playerOneName === "" && playerTwoName === ""){
+        playerOneName = "player 1";
+        playerTwoName = "player 2";
+    } else if (playerOneName === ""){
+        playerOneName = "player 1";
+    } else if(playerTwoName === ""){
+        playerTwoName = "player 2";
+    }
 
     const intro_page = document.getElementById('intro_page');
     intro_page.classList.add('invisible');

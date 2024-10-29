@@ -25,6 +25,10 @@
         <button class="accept">Aceptar</button>
     </div>
 
+    <div id="turn_alert" class="invisible">
+        <h1>¡NO ES TU TURNO!</h1>
+    </div>
+
     <div id="intro_page">
         <h1>Tom VS Jerry: batallando por la casa</h1>
         <h2>Elige la granularidad del juego:</h2>
@@ -38,11 +42,11 @@
             <div id="player-inputs">
                 <div class="player_container">
                     <label for="">Nombre jugador 1:</label>
-                    <input type="text" placeholder="Tom" name="player1">
+                    <input type="text" required placeholder="Tom" name="player1">
                 </div>
                 <div class="player_container">
                     <label for="">Nombre jugador 2</label>
-                    <input type="text" placeholder="Jerry" name="player2">
+                    <input type="text" required placeholder="Jerry" name="player2">
                 </div>
             </div>
             <button id="option_button" type="button">Jugar</button>

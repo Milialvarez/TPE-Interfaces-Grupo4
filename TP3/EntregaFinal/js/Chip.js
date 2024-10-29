@@ -25,7 +25,7 @@ class Chip {
         return this.y;
     }
 
-    getPlayer() {
+    getPlayer(){
         return this.player;
     }
 
