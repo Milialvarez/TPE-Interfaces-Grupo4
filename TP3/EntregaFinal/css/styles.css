@@ -1,4 +1,4 @@
-canvas{
+canvas {
     border: 2px solid black;
     background-image: url(../../../TP2/EntregaFinal/imgs/game_image.jpeg);
     background-size: cover;
@@ -6,12 +6,7 @@ canvas{
     position: relative;
 }
 
-
-.ficha{
-    transition: top 0.8s ease-in; 
-}
-
-.countdown{
+.countdown {
     display: flex;
     gap: 1px;
     border: 1px solid black;
@@ -23,14 +18,18 @@ canvas{
     left: 25%;
 }
 
-.countdown, .resultado_empate_tiempo, .resultado_empate_tablero_lleno{
+.countdown,
+.resultado_empate_tiempo,
+.resultado_empate_tablero_lleno {
+    z-index: 1;
     justify-content: center;
     text-align: center;
     align-items: center;
-    position:  absolute;
+    position: absolute;
 }
 
-.resultado_empate_tiempo, .resultado_empate_tablero_lleno{
+.resultado_empate_tiempo,
+.resultado_empate_tablero_lleno {
     display: none;
     border: 2px solid black;
     flex-direction: column;
@@ -39,7 +38,6 @@ canvas{
     padding: 15px;
 }
 
-.visible{
+.visible {
     display: flex;
 }
-

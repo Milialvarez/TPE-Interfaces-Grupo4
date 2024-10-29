@@ -121,7 +121,7 @@ class Game {
     onMouseUp(e) {
         if (this.selectedChip) {
             const x = e.clientX, y = e.clientY
-            
+
             if (this.isValidPosition(x, y) >= 0) {
                 let currentColumn = this.isValidPosition(x, y)
 
