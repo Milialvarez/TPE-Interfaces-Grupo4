@@ -31,6 +31,7 @@ class Game {
     //CREA EL BOARD Y LAS CHIPS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
     initialize() {
         this.canvas = document.querySelector("#canvas")
+        this.canvas.classList.remove('invisible');
         this.ctx = canvas.getContext('2d')
         this.canvasWidth = canvas.width
         this.canvasHeight = canvas.height
@@ -126,12 +127,7 @@ class Game {
                 let currentColumn = this.isValidPosition(x, y)
 
                 if (this.board.emptyLocker(currentColumn) != null) {
-<<<<<<< HEAD
-                    this.tableroLleno();
-                    locker = this.board.emptyLocker(currentColumn);
-=======
                     let locker = this.board.emptyLocker(currentColumn);
->>>>>>> 3aa6ea3e8abd57d01283238da416fa9915021201
                     this.fallingChip = this.selectedChip
                     requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
                 } else {
@@ -255,6 +251,7 @@ class Game {
     tieForTime() {
         let accept = document.querySelector('.accept');
         let cartel = document.querySelector('.resultado_empate_tiempo');
+        cartel.classList.remove('invisible');
         cartel.classList.add('visible');
         //no permitir agarrar otra ficha
         //que se corte el juego
@@ -269,6 +266,7 @@ class Game {
         let accept = document.querySelector('.accept');
         let cartel = document.querySelector('.resultado_empate_tablero_lleno');
         if (this.board.casillerosCompletos()) {
+            cartel.classList.remove('invisible');
             cartel.classList.add('visible');
             //no permitir agarrar otra ficha
             //que se corte el juego

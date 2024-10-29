@@ -9,29 +9,53 @@
 </head>
 
 <body>
-    <div class="countdown">
+    <div class="countdown invisible">
         <div id="minutes"></div>
         <div id="minutes"></div>
         <div id="seconds"></div>
     </div>
-    <div class="resultado_empate_tiempo">
+    <div class="resultado_empate_tiempo invisible">
         <h3>¡SIN TIEMPO!</h3>
         <h3>EMPATE</h3>
         <button class="accept">Aceptar</button>
     </div>
-    <div class="resultado_empate_tablero_lleno">
+    <div class="resultado_empate_tablero_lleno invisible">
         <h3>¡TABLERO LLENO!</h3>
         <h3>EMPATE</h3>
         <button class="accept">Aceptar</button>
     </div>
-    <canvas id="canvas" width="747" height="622"></canvas>
+
+    <div id="intro_page">
+        <h1>Tom VS Jerry: batallando por la casa</h1>
+        <h2>Elige la granularidad del juego:</h2>
+        <form id="option_form" action="">
+            <select id="choose_inline" name="choose_inline">
+                <option value="opcion4">4 en linea</option>
+                <option value="opcion5">5 en linea</option>
+                <option value="opcion6">6 en linea</option>
+                <option value="opcion7">7 en linea</option>
+            </select>
+            <div id="player-inputs">
+                <div class="player_container">
+                <label for="">Nombre jugador 1:</label>
+                <input type="text" placeholder="Tom" name="player1">
+            </div>
+            <div class="player_container">
+                <label for="">Nombre jugador 2</label>
+                <input type="text" placeholder="Jerry" name="player2">
+            </div>
+        </div>
+            <button id="option_button" type="button">Jugar</button>
+        </form>
+    </div>
+    <canvas class="invisible" id="canvas" width="747" height="622"></canvas>
 
     <script src="../js/Chip.js"></script>
     <script src="../js/Hint.js"></script>
     <script src="../js/Locker.js"></script>
     <script src="../js/Board.js"></script>
-    <script src="../js/Game.js"></script>
     <script src="../js/gameInit.js"></script>
+    <script src="../js/Game.js"></script>
 </body>
 
 </html>
