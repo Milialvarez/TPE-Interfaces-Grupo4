@@ -1,31 +1,32 @@
 class Hint {
-    constructor(ctx, img, posX, posY, width, height) {
+    constructor(ctx, image, x, y, width, height) {
         this.ctx = ctx;
-        this.img = img
-        this.posX = posX;
-        this.posY = posY
+        this.image = image
+        this.x = x;
+        this.y = y
         this.width = width
         this.height = height
     }
 
     getX() {
-        return this.posX
+        return this.x
     }
 
     getY() {
-        return this.posY
+        return this.y
+    }
+
+    setX(x) {
+        this.x = x;
+    }
+
+    setY(y) {
+        this.y = y;
     }
 
     draw() {
         this.ctx.beginPath();
-        this.ctx.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI);
-        this.ctx.stroke();
+        this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height, );
         this.ctx.closePath();
     }
-
-    getRadius() {
-        return this.radius;
-    }
-
-
 }
