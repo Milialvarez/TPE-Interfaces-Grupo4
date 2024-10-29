@@ -122,13 +122,12 @@ class Game {
     onMouseUp(e) {
         if (this.selectedChip) {
             const x = e.clientX, y = e.clientY
+            const lockerIndex = this.isValidPosition(x, y)
 
-            if (this.isValidPosition(x, y) >= 0) {
-                let currentColumn = this.isValidPosition(x, y)
-
-                if (this.board.emptyLocker(currentColumn) != null) {
+            if (lockerIndex >= 0) {
+                if (this.board.emptyLocker(lockerIndex) != null) {
                     this.tableroLleno();
-                    let locker = this.board.emptyLocker(currentColumn);
+                    let locker = this.board.emptyLocker(lockerIndex);
                     this.fallingChip = this.selectedChip
                     requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
                 } else {
@@ -197,8 +196,8 @@ class Game {
 
     //CHEQUEA DADAS POSICIONES X E Y Y DEVUELVE LA COLUMNA EN LA QUE SE SOLTÓ
     isValidPosition(x, y) {
-        if (x >= this.board.getX() && x <= this.board.getX() + this.board.getWidth() && y <= this.board.getY()) {
-            return Math.floor(x / 75) - 1
+        if (x >= this.board.getX() && x < this.board.getX() + this.board.getWidth() && y <= this.board.getY()) {
+            return Math.floor((x - this.board.getX()) / this.lockerSize)
         }
 
         return -1;
