@@ -1,5 +1,5 @@
 class Game {
-    constructor(lockerSize, chipSize, xInLine, nColumns, nRows, player1, player2, chipPlayer1, chipPlayer2, lockerImage, hintImage) {
+    constructor(lockerSize, chipSize, xInLine, nColumns, nRows, player1, player2, chipPlayer1, chipPlayer2, lockerImage, hintAllowedImage, hintProhibitedImage) {
         this.lockerSize = lockerSize
         this.chipSize = chipSize
         this.xInLine = xInLine
@@ -20,7 +20,9 @@ class Game {
         this.selectedChip = null;
         this.lockerImage = lockerImage
         this.initPosition
-        this.hintImage = hintImage
+        this.hintAllowedImage = hintAllowedImage
+        this.hintProhibitedImage = hintProhibitedImage
+        this.hintImage = hintAllowedImage
         this.hint = null;
         this.start = null
         this.fallingChip = null
@@ -100,7 +102,7 @@ class Game {
         }
 
         const x = e.clientX, y = e.clientY
-        let lockerIndex = this.isValidPosition(x, y)
+        const lockerIndex = this.isValidPosition(x, y)
 
         if (lockerIndex < 0) {
             // Mover la chip seleccionada a la posición del cursor
@@ -109,12 +111,19 @@ class Game {
             this.delete();
             this.draw();
         } else {
-            let locker = this.board.emptyLocker(lockerIndex);
-            this.selectedChip.setX(locker.getX() + (locker.getWidth() - this.selectedChip.getSize()) / 2);
-            this.selectedChip.setY((this.board.getY() / 2) - (this.selectedChip.getSize() / 2));
+            const lockerX = (lockerIndex * this.lockerSize) + this.board.getX()
+            this.selectedChip.setX(lockerX + (this.lockerSize - this.selectedChip.getSize()) / 2);
+            this.selectedChip.setY(this.board.getY() - (this.selectedChip.getSize() * 2));
             this.delete();
             this.draw();
-            this.drawHints(locker)
+
+            if (this.board.emptyLocker(lockerIndex) == null) {
+                this.hintImage = this.hintProhibitedImage
+            } else {
+                this.hintImage = this.hintAllowedImage
+            }
+
+            this.drawHint(lockerX)
         }
     }
 
@@ -204,25 +213,27 @@ class Game {
     }
 
     //DIBUJA LOS HINTS CUANDO SE MUEVE UNA FICHA
-    drawHints(locker) {
+    drawHint(lockerX) {
         if (this.hint == null) {
-            this.hint = new Hint(this.ctx, this.hintImage, 0, this.board.getY() - 20, 30, 15)
+            this.hint = new Hint(this.ctx)
         }
 
-        this.hint.setX(locker.getX() + (locker.getWidth() - 30) / 2)
+        this.hint.setY(this.board.getY() - this.hintImage.height - 10)
+        this.hint.setWidth(this.hintImage.width)
+        this.hint.setHeight(this.hintImage.height)
+        this.hint.setImage(this.hintImage)
+        this.hint.setX(lockerX + (this.lockerSize - this.hint.getWidth()) / 2)
         this.hint.draw()
     }
 
     //INSERTA UNA FICHA AL DEJARLA CAER EN EL LOCKER CORRESPONDIENTE
     insertChip(chip, locker) {
-
-        let posX = locker.getX() + (locker.getWidth() / 2 - chip.getSize() / 2);
-        let posY = locker.getY() + (locker.getWidth() / 2 - chip.getSize() / 2);
+        let posX = locker.getX() + (this.lockerSize / 2 - this.chipSize / 2);
+        let posY = locker.getY() + (this.lockerSize / 2 - this.chipSize / 2);
         chip.setY(posY);
         chip.setX(posX);
         locker.setChip(chip);
     }
-
 
     // CRONOMETRO
     countdown() {
