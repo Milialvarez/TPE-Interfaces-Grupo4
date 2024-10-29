@@ -46,9 +46,9 @@ class Game {
                 let chip
 
                 if (i == 0) {
-                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer1, 10, j * (this.chipSize / 3) + 100, this.player1)
+                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer1, 10, this.canvasHeight - this.chipSize - (j * (this.chipSize / 3) + 10), this.player1)
                 } else if (i == 1) {
-                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer2, this.canvasWidth - this.chipSize - 10, j * (this.chipSize / 3) + 100, this.player2)
+                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer2, this.canvasWidth - this.chipSize - 10, this.canvasHeight - this.chipSize - (j * (this.chipSize / 3) + 10), this.player2)
                 }
 
                 this.chips[i].push(chip)
