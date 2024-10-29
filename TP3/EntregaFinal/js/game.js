@@ -259,10 +259,11 @@ class Game {
 
     // CRONOMETRO
     countdown() {
+        let countdown = document.querySelector('.countdown');
         let seconds = document.querySelector('#seconds');
         let minutes = document.querySelector('#minutes');
-        let msPorSegundo = 59;
-        let msPorMinuto = 4;
+        let msPorSegundo = 10;
+        let msPorMinuto = 0;
         let intervalo;
 
         intervalo = setInterval(() => {
@@ -275,6 +276,7 @@ class Game {
             }
             if (msPorMinuto == 0 && msPorSegundo == 0) {
                 this.tieForTime();
+                countdown.classList.add('invisible');
                 clearInterval(intervalo)
             }
         }, 1000)
@@ -290,20 +292,25 @@ class Game {
         //que se corte el juego
 
         accept.addEventListener("click", () => {
-            cartel.classList.remove('visible');
+            cartel.classList.remove('visible')
+            this.reiniciarJuego();
         })
     }
 
     // LÓGICA DE EMPATE POR TABLERO LLENO
     tableroLleno() {
+        let countdown = document.querySelector('.countdown');
         let accept = document.querySelector('.accept');
         let cartel = document.querySelector('.resultado_empate_tablero_lleno');
         if (this.board.casillerosCompletos()) {
+            this.reiniciarJuego();
             cartel.classList.remove('invisible');
             cartel.classList.add('visible');
 
             accept.addEventListener("click", () => {
+                countdown.classList.add('invisible');
                 cartel.classList.remove('visible');
+                this.reiniciarJuego();
             })
         }
     }
@@ -330,5 +337,12 @@ class Game {
                 clearInterval(interval); // Detiene el contador
             }
         }, 1000);
+    }
+
+    //por qué no funciona? ver como hacer
+    reiniciarJuego(){
+        this.delete();
+        this.initialize();
+        this.game.draw()
     }
 }
