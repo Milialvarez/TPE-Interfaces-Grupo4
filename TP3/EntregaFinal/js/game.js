@@ -126,12 +126,8 @@ class Game {
                 let currentColumn = this.isValidPosition(x, y)
 
                 if (this.board.emptyLocker(currentColumn) != null) {
-<<<<<<< HEAD
                     this.tableroLleno();
-                    locker = this.board.emptyLocker(currentColumn);
-=======
                     let locker = this.board.emptyLocker(currentColumn);
->>>>>>> 3aa6ea3e8abd57d01283238da416fa9915021201
                     this.fallingChip = this.selectedChip
                     requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
                 } else {
@@ -270,8 +266,6 @@ class Game {
         let cartel = document.querySelector('.resultado_empate_tablero_lleno');
         if (this.board.casillerosCompletos()) {
             cartel.classList.add('visible');
-            //no permitir agarrar otra ficha
-            //que se corte el juego
 
             accept.addEventListener("click", () => {
                 cartel.classList.remove('visible');
