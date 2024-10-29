@@ -46,9 +46,9 @@ class Game {
                 let chip
 
                 if (i == 0) {
-                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer1, 10, j * (this.chipSize / 3) + 100, this.player1, this.chipSize)
+                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer1, 10, j * (this.chipSize / 3) + 100, this.player1)
                 } else if (i == 1) {
-                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer2, this.canvasWidth - this.chipSize - 10, j * (this.chipSize / 3) + 100, this.player2, this.chipSize)
+                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer2, this.canvasWidth - this.chipSize - 10, j * (this.chipSize / 3) + 100, this.player2)
                 }
 
                 this.chips[i].push(chip)
@@ -75,7 +75,7 @@ class Game {
         const x = e.clientX, y = e.clientY
         let selectedChips = this.getChip(x, y);
         const chip = selectedChips[selectedChips.length - 1];
-        if (chip) {
+        if (chip && this.fallingChip == null) {
             this.initPosition = { x: chip.getX(), y: chip.getY() }
             this.selectedChip = chip;
             chip.estaSeleccionada = true;
