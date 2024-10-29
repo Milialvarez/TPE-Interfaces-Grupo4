@@ -24,8 +24,10 @@ class Game {
         this.hint = null;
         this.start = null
         this.fallingChip = null
+        this.lastChip = null
         this.gravity = 12
         this.rebound = true
+        this.turnoCompletado = true;
     }
 
     //CREA EL BOARD Y LAS CHIPS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
@@ -98,7 +100,14 @@ class Game {
         if (!this.selectedChip) {
             return
         }
-
+        if(this.lastChip !=null && this.turnoCompletado){
+            if(!this.chequearTurno()){
+                this.showTurnsAlert();
+                this.selectedChip = null;
+                return;
+            }
+        }
+        this.turnoCompletado = false;
         const x = e.clientX, y = e.clientY
         let lockerIndex = this.isValidPosition(x, y)
 
@@ -120,7 +129,16 @@ class Game {
 
     //DESELECCIONA UNA CHIP A LA PAR DE QUE EL JUGADOR SUELTA EL MOUSE Y SE OBTIENE LA COLUMNA Y LOCKER DONDE COLOCAR LA FICHA SELECCIONADA
     onMouseUp(e) {
-        if (this.selectedChip) {
+        if(this.lastChip !=null && this.selectedChip !=null){
+            if(!this.chequearTurno()){
+                this.selectedChip.setX(this.initPosition.x);
+                this.selectedChip.setY(this.initPosition.y);
+                this.delete();
+                this.draw();
+                return;
+            }
+        }
+        if (this.selectedChip !=null) {
             const x = e.clientX, y = e.clientY
 
             if (this.isValidPosition(x, y) >= 0) {
@@ -131,19 +149,21 @@ class Game {
                     let locker = this.board.emptyLocker(currentColumn);
                     this.fallingChip = this.selectedChip
                     requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
+                    this.lastChip = this.selectedChip
                 } else {
+                    this.turnoCompletado = false;
                     this.selectedChip.setX(this.initPosition.x);
                     this.selectedChip.setY(this.initPosition.y);
                     this.delete();
                     this.draw();
                 }
             } else {
+                this.turnoCompletado = false;
                 this.selectedChip.setX(this.initPosition.x);
                 this.selectedChip.setY(this.initPosition.y);
                 this.delete();
                 this.draw();
             }
-
             this.selectedChip = null;  // Deseleccionar la chip
         }
     }
@@ -161,6 +181,7 @@ class Game {
         } else {
             if (this.rebound) {
                 requestAnimationFrame(() => { this.animateRebound(locker) })
+                this.turnoCompletado = true;
             } else {
                 this.insertChip(this.fallingChip, locker);
                 this.delete();
@@ -274,5 +295,29 @@ class Game {
                 cartel.classList.remove('visible');
             })
         }
+    }
+
+    chequearTurno(){
+        let currentPlayer = this.selectedChip.getPlayer();
+        let lastPlayer = this.lastChip.getPlayer();
+        if(currentPlayer == lastPlayer){
+            return false;
+        } else{
+            return true;
+        }
+    }
+
+    showTurnsAlert(){
+        let alert = document.querySelector('#turn_alert');
+        alert.classList.remove('invisible');
+
+        let seconds = 0;
+        const interval = setInterval(() => {
+            seconds += 1;
+            if (seconds === 3) {
+                alert.classList.add('invisible');
+                clearInterval(interval); // Detiene el contador
+            }
+        }, 1000);
     }
 }
