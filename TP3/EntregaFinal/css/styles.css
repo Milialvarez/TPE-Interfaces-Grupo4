@@ -6,12 +6,7 @@ canvas, #intro_page{
     position: relative;
 }
 
-
-.ficha{
-    transition: top 0.8s ease-in; 
-}
-
-.countdown{
+.countdown {
     display: flex;
     gap: 1px;
     border: 1px solid black;
@@ -23,14 +18,18 @@ canvas, #intro_page{
     left: 25%;
 }
 
-.countdown, .resultado_empate_tiempo, .resultado_empate_tablero_lleno{
+.countdown,
+.resultado_empate_tiempo,
+.resultado_empate_tablero_lleno {
+    z-index: 1;
     justify-content: center;
     text-align: center;
     align-items: center;
-    position:  absolute;
+    position: absolute;
 }
 
-.resultado_empate_tiempo, .resultado_empate_tablero_lleno{
+.resultado_empate_tiempo,
+.resultado_empate_tablero_lleno {
     display: none;
     border: 2px solid black;
     flex-direction: column;
@@ -39,8 +38,9 @@ canvas, #intro_page{
     padding: 15px;
 }
 
-.visible{
+.visible {
     display: flex;
+<<<<<<< HEAD
 }
 
 .invisible{
@@ -114,3 +114,6 @@ canvas, #intro_page{
 
 
 
+=======
+}
+>>>>>>> 0adfd29861b3e572ec3c5504e7f7b2872bc27b24

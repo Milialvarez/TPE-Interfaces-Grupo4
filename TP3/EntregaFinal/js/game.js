@@ -122,11 +122,12 @@ class Game {
     onMouseUp(e) {
         if (this.selectedChip) {
             const x = e.clientX, y = e.clientY
-            
+
             if (this.isValidPosition(x, y) >= 0) {
                 let currentColumn = this.isValidPosition(x, y)
 
                 if (this.board.emptyLocker(currentColumn) != null) {
+                    this.tableroLleno();
                     let locker = this.board.emptyLocker(currentColumn);
                     this.fallingChip = this.selectedChip
                     requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
@@ -268,8 +269,6 @@ class Game {
         if (this.board.casillerosCompletos()) {
             cartel.classList.remove('invisible');
             cartel.classList.add('visible');
-            //no permitir agarrar otra ficha
-            //que se corte el juego
 
             accept.addEventListener("click", () => {
                 cartel.classList.remove('visible');

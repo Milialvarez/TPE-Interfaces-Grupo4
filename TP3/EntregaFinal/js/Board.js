@@ -107,11 +107,10 @@ class Board {
             for (let j = 0; j < this.lockers[index].length; j++) {
                 if(this.lockers[index][j].getEmpty() != true){
                     cantidad++;
-                    console.log(cantidad)
                 }
             }
         }
-        if(cantidad == this.lockerSize - 1){
+        if(cantidad == tamanio - 1){
             return true;
         }
         return false;
