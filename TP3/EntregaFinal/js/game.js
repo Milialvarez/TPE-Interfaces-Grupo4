@@ -1,5 +1,5 @@
 class Game {
-    constructor(lockerSize, chipSize, xInLine, nColumns, nRows, player1, player2, chipPlayer1, chipPlayer2, lockerImage, hintImage) {
+    constructor(lockerSize, chipSize, xInLine, nColumns, nRows, player1, player2, chipPlayer1, chipPlayer2, lockerImage, hintAllowedImage, hintProhibitedImage) {
         this.lockerSize = lockerSize
         this.chipSize = chipSize
         this.xInLine = xInLine
@@ -20,14 +20,15 @@ class Game {
         this.selectedChip = null;
         this.lockerImage = lockerImage
         this.initPosition
-        this.hintImage = hintImage
+        this.hintAllowedImage = hintAllowedImage
+        this.hintProhibitedImage = hintProhibitedImage
+        this.hintImage = hintAllowedImage
         this.hint = null;
         this.start = null
         this.fallingChip = null
         this.lastChip = null
         this.gravity = 12
         this.rebound = true
-        this.turnoCompletado = true;
     }
 
     //CREA EL BOARD Y LAS CHIPS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
@@ -46,9 +47,9 @@ class Game {
                 let chip
 
                 if (i == 0) {
-                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer1, 10, j * (this.chipSize / 3) + 100, this.player1, this.chipSize)
+                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer1, 10, this.canvasHeight - this.chipSize - (j * (this.chipSize / 3) + 10), this.player1)
                 } else if (i == 1) {
-                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer2, this.canvasWidth - this.chipSize - 10, j * (this.chipSize / 3) + 100, this.player2, this.chipSize)
+                    chip = new Chip(this.ctx, this.chipSize, this.chipPlayer2, this.canvasWidth - this.chipSize - 10, this.canvasHeight - this.chipSize - (j * (this.chipSize / 3) + 10), this.player2)
                 }
 
                 this.chips[i].push(chip)
@@ -75,10 +76,15 @@ class Game {
         const x = e.clientX, y = e.clientY
         let selectedChips = this.getChip(x, y);
         const chip = selectedChips[selectedChips.length - 1];
-        if (chip) {
+        if (chip && this.fallingChip == null) {
             this.initPosition = { x: chip.getX(), y: chip.getY() }
             this.selectedChip = chip;
-            chip.estaSeleccionada = true;
+            if(this.lastChip !=null  && this.chequearTurno() == false){
+                this.showTurnsAlert();
+                this.selectedChip = null;
+            } else{
+                chip.estaSeleccionada = true;
+            }
         }
     }
 
@@ -100,16 +106,15 @@ class Game {
         if (!this.selectedChip) {
             return
         }
-        if(this.lastChip !=null && this.turnoCompletado){
+        if(this.lastChip !=null){
             if(!this.chequearTurno()){
                 this.showTurnsAlert();
                 this.selectedChip = null;
                 return;
             }
         }
-        this.turnoCompletado = false;
         const x = e.clientX, y = e.clientY
-        let lockerIndex = this.isValidPosition(x, y)
+        const lockerIndex = this.isValidPosition(x, y)
 
         if (lockerIndex < 0) {
             // Mover la chip seleccionada a la posición del cursor
@@ -118,19 +123,26 @@ class Game {
             this.delete();
             this.draw();
         } else {
-            let locker = this.board.emptyLocker(lockerIndex);
-            this.selectedChip.setX(locker.getX() + (locker.getWidth() - this.selectedChip.getSize()) / 2);
-            this.selectedChip.setY((this.board.getY() / 2) - (this.selectedChip.getSize() / 2));
+            const lockerX = (lockerIndex * this.lockerSize) + this.board.getX()
+            this.selectedChip.setX(lockerX + (this.lockerSize - this.selectedChip.getSize()) / 2);
+            this.selectedChip.setY(this.board.getY() - (this.selectedChip.getSize() * 2));
             this.delete();
             this.draw();
-            this.drawHints(locker)
+
+            if (this.board.emptyLocker(lockerIndex) == null) {
+                this.hintImage = this.hintProhibitedImage
+            } else {
+                this.hintImage = this.hintAllowedImage
+            }
+
+            this.drawHint(lockerX)
         }
     }
 
     //DESELECCIONA UNA CHIP A LA PAR DE QUE EL JUGADOR SUELTA EL MOUSE Y SE OBTIENE LA COLUMNA Y LOCKER DONDE COLOCAR LA FICHA SELECCIONADA
     onMouseUp(e) {
         if(this.lastChip !=null && this.selectedChip !=null){
-            if(!this.chequearTurno()){
+            if(this.chequearTurno() == false){
                 this.selectedChip.setX(this.initPosition.x);
                 this.selectedChip.setY(this.initPosition.y);
                 this.delete();
@@ -138,27 +150,25 @@ class Game {
                 return;
             }
         }
+        
         if (this.selectedChip !=null) {
             const x = e.clientX, y = e.clientY
+            const lockerIndex = this.isValidPosition(x, y)
 
-            if (this.isValidPosition(x, y) >= 0) {
-                let currentColumn = this.isValidPosition(x, y)
-
-                if (this.board.emptyLocker(currentColumn) != null) {
+            if (lockerIndex >= 0) {
+                if (this.board.emptyLocker(lockerIndex) != null) {
                     this.tableroLleno();
-                    let locker = this.board.emptyLocker(currentColumn);
+                    let locker = this.board.emptyLocker(lockerIndex);
                     this.fallingChip = this.selectedChip
                     requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
                     this.lastChip = this.selectedChip
                 } else {
-                    this.turnoCompletado = false;
                     this.selectedChip.setX(this.initPosition.x);
                     this.selectedChip.setY(this.initPosition.y);
                     this.delete();
                     this.draw();
                 }
             } else {
-                this.turnoCompletado = false;
                 this.selectedChip.setX(this.initPosition.x);
                 this.selectedChip.setY(this.initPosition.y);
                 this.delete();
@@ -181,7 +191,6 @@ class Game {
         } else {
             if (this.rebound) {
                 requestAnimationFrame(() => { this.animateRebound(locker) })
-                this.turnoCompletado = true;
             } else {
                 this.insertChip(this.fallingChip, locker);
                 this.delete();
@@ -218,33 +227,35 @@ class Game {
 
     //CHEQUEA DADAS POSICIONES X E Y Y DEVUELVE LA COLUMNA EN LA QUE SE SOLTÓ
     isValidPosition(x, y) {
-        if (x >= this.board.getX() && x <= this.board.getX() + this.board.getWidth() && y <= this.board.getY()) {
-            return Math.floor(x / 75) - 1
+        if (x >= this.board.getX() && x < this.board.getX() + this.board.getWidth() && y <= this.board.getY()) {
+            return Math.floor((x - this.board.getX()) / this.lockerSize)
         }
 
         return -1;
     }
 
     //DIBUJA LOS HINTS CUANDO SE MUEVE UNA FICHA
-    drawHints(locker) {
+    drawHint(lockerX) {
         if (this.hint == null) {
-            this.hint = new Hint(this.ctx, this.hintImage, 0, this.board.getY() - 20, 30, 15)
+            this.hint = new Hint(this.ctx)
         }
 
-        this.hint.setX(locker.getX() + (locker.getWidth() - 30) / 2)
+        this.hint.setY(this.board.getY() - this.hintImage.height - 10)
+        this.hint.setWidth(this.hintImage.width)
+        this.hint.setHeight(this.hintImage.height)
+        this.hint.setImage(this.hintImage)
+        this.hint.setX(lockerX + (this.lockerSize - this.hint.getWidth()) / 2)
         this.hint.draw()
     }
 
     //INSERTA UNA FICHA AL DEJARLA CAER EN EL LOCKER CORRESPONDIENTE
     insertChip(chip, locker) {
-
-        let posX = locker.getX() + (locker.getWidth() / 2 - chip.getSize() / 2);
-        let posY = locker.getY() + (locker.getWidth() / 2 - chip.getSize() / 2);
+        let posX = locker.getX() + (this.lockerSize / 2 - this.chipSize / 2);
+        let posY = locker.getY() + (this.lockerSize / 2 - this.chipSize / 2);
         chip.setY(posY);
         chip.setX(posX);
         locker.setChip(chip);
     }
-
 
     // CRONOMETRO
     countdown() {

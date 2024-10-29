@@ -30,6 +30,7 @@ function loadImage(src) {
 async function initGame(option, playerOneName, playerTwoName) {
     try {
         const hintImage = await loadImage("../imgs/hint.png")
+        const hintProhibitedImage = await loadImage("../imgs/hint_prohibited.png")
         const tomChipImage = await loadImage("../imgs/ficha_tom.png")
         const jerryChipImage = await loadImage("../imgs/ficha_jerry.png")
         const lockerImage = await loadImage("../imgs/casillero.png")
@@ -49,7 +50,7 @@ async function initGame(option, playerOneName, playerTwoName) {
         let countdown = document.querySelector(".countdown");
         countdown.classList.remove('invisible');
 
-        let game = new Game(lockerSize, chipSize, xInLine, nColumns, nRows, playerOneName, playerTwoName, tomChipImage, jerryChipImage, lockerImage, hintImage)
+        let game = new Game(lockerSize, chipSize, xInLine, nColumns, nRows, playerOneName, playerTwoName, tomChipImage, jerryChipImage, lockerImage, hintImage, hintProhibitedImage)
         game.initialize()
         game.draw()
         game.countdown()
