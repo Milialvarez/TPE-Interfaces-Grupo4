@@ -111,6 +111,7 @@ class Game {
             if (this.isValidPosition(x, y) >= 0) {
                 let locker; let currentColumn = this.isValidPosition(x, y)
                 if (this.board.emptyLocker(currentColumn) != null) {
+                    this.tableroLleno();
                     locker = this.board.emptyLocker(currentColumn);
                     this.fallingChip = this.selectedChip
                     requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
@@ -210,7 +211,9 @@ class Game {
         locker.setChip(chip);
     }
 
-    cuentaRegresiva() {
+
+    // CRONOMETRO
+    countdown() {
         let seconds = document.querySelector('#seconds');
         let minutes = document.querySelector('#minutes');
         let msPorSegundo = 59;
@@ -232,9 +235,10 @@ class Game {
         }, 1000)
     }
 
+    // LÓGICA DE EMPATE POR TIEMPO LÍMITE
     tieForTime() {
         let accept = document.querySelector('.accept');
-        let cartel = document.querySelector('.resultado');
+        let cartel = document.querySelector('.resultado_empate_tiempo');
         cartel.classList.add('visible');
         //no permitir agarrar otra ficha
         //que se corte el juego
@@ -244,5 +248,18 @@ class Game {
         })
     }
 
-    
+    // LÓGICA DE EMPATE POR TABLERO LLENO
+    tableroLleno() {
+        let accept = document.querySelector('.accept');
+        let cartel = document.querySelector('.resultado_empate_tablero_lleno');
+        if (this.board.casillerosCompletos()) {
+            cartel.classList.add('visible');
+            //no permitir agarrar otra ficha
+            //que se corte el juego
+
+            accept.addEventListener("click", () => {
+                cartel.classList.remove('visible');
+            })
+        }
+    }
 }

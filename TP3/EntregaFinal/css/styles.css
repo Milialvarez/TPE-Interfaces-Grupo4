@@ -8,16 +8,11 @@ canvas{
 
 
 .ficha{
-    position:  absolute;
     transition: top 0.8s ease-in; 
 }
 
 .countdown{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: absolute;
     gap: 1px;
     border: 1px solid black;
     width: 100px;
@@ -25,14 +20,18 @@ canvas{
     top: 35px;
     font-family: 'Courier New', Courier, monospace;
     font-size: x-large;
-    left: 40%;
+    left: 25%;
 }
 
-.resultado{
-    display: none;
-    align-items: center;
+.countdown, .resultado_empate_tiempo, .resultado_empate_tablero_lleno{
     justify-content: center;
     text-align: center;
+    align-items: center;
+    position:  absolute;
+}
+
+.resultado_empate_tiempo, .resultado_empate_tablero_lleno{
+    display: none;
     border: 2px solid black;
     flex-direction: column;
     width: 100px;

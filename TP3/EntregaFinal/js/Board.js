@@ -97,4 +97,23 @@ class Board {
         }
         return null;
     }
+
+    casillerosCompletos(){
+        let cantidad = 0;
+        let tamanio = this.nColumns * this.nRows
+        console.log(this.lockerSize)
+        console.log(this.lockers.length)
+        for (let index = 0; index < this.lockers.length; index++) {
+            for (let j = 0; j < this.lockers[index].length; j++) {
+                if(this.lockers[index][j].getEmpty() != true){
+                    cantidad++;
+                    console.log(cantidad)
+                }
+            }
+        }
+        if(cantidad == this.lockerSize - 1){
+            return true;
+        }
+        return false;
+    }
 }
