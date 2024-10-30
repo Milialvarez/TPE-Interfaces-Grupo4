@@ -6,47 +6,43 @@ class Chip {
         this.x = x;
         this.y = y;
         this.player = player;
-     }
+    }
 
     //GETTERS Y SETTERS DE UNA FICHA
     getSize() {
         return this.size;
     }
 
-    getImage() {
-        return this.image;
-    }
-
-    getX() {
-        return this.x;
-    }
-
-    getY() {
-        return this.y;
-    }
-
-    getPlayer(){
-        return this.player;
-    }
-
     setSize(size) {
         this.size = size;
     }
 
-    getSize() {
-        return this.size;
+    getImage() {
+        return this.image;
     }
 
     setImage(image) {
         this.image = image;
     }
 
+    getX() {
+        return this.x;
+    }
+
     setX(x) {
         this.x = x;
     }
 
+    getY() {
+        return this.y;
+    }
+
     setY(y) {
         this.y = y;
+    }
+
+    getPlayer() {
+        return this.player;
     }
 
     setPlayer(player) {

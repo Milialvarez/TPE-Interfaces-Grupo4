@@ -30,6 +30,7 @@ class Game {
         this.gravity = 12
         this.rebound = true
         this.hintSize = hintSize
+        this.intervalCount
     }
 
     //CREA EL BOARD Y LAS CHIPS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
@@ -41,7 +42,7 @@ class Game {
         this.canvasHeight = canvas.height
         this.boardWidth = this.nColumns * this.lockerSize
         this.boardHeight = this.nRows * this.lockerSize
-        this.board = new Board(this.ctx, this.nColumns, this.canvasWidth / 2 - this.boardWidth / 2, this.canvasHeight - this.boardHeight, this.nRows, this.lockerSize, this.lockerImage);
+        this.board = new Board(this.ctx, this.xInLine, this.nColumns, this.canvasWidth / 2 - this.boardWidth / 2, this.canvasHeight - this.boardHeight, this.nRows, this.lockerSize, this.lockerImage);
         this.board.initialize()
         this.chips = [[], []]
         for (let i = 0; i < this.chips.length; i++) {
@@ -61,6 +62,8 @@ class Game {
         this.canvas.addEventListener('mousedown', (e) => this.onMouseDown(e));
         this.canvas.addEventListener('mousemove', (e) => this.onMouseMove(e));
         this.canvas.addEventListener('mouseup', (e) => this.onMouseUp(e));
+        this.lastChip = null
+        this.stopCountdown()
         this.countdown()
     }
 
@@ -159,8 +162,7 @@ class Game {
             const lockerIndex = this.isValidPosition(x, y)
 
             if (lockerIndex >= 0) {
-                if (this.board.emptyLocker(lockerIndex) != null) {
-                    this.tieForFullBoard();
+                if (this.board.emptyLocker(lockerIndex) != null) {                    
                     let locker = this.board.emptyLocker(lockerIndex);
                     this.fallingChip = this.selectedChip
                     requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
@@ -264,6 +266,13 @@ class Game {
         chip.setY(posY);
         chip.setX(posX);
         locker.setChip(chip);
+
+        if (this.board.checkWinner(locker)) {
+            alert("GANADOR: " + chip.getPlayer() + ", FELICIDADES!")
+            this.restartGame()
+        }
+
+        this.tieForFullBoard();
     }
 
     // CRONOMETRO DEL JUEGO
@@ -272,12 +281,12 @@ class Game {
         countdown.classList.remove('invisible');
         let secondsContainer = document.querySelector('#seconds');
         let minutesContainer = document.querySelector('#minutes');
-        let seconds = 5;
-        let minutes = 0;
+        let seconds = 0;
+        let minutes = 5;
 
         this.drawTime(minutesContainer, secondsContainer, seconds, minutes)
 
-        let interval = setInterval(() => {
+        this.intervalCount = setInterval(() => {
             seconds--;
 
             if (seconds == -1) {
@@ -288,11 +297,14 @@ class Game {
             if (minutes == 0 && seconds == 0) {
                 this.tieForTime();
                 countdown.classList.add('invisible');
-                clearInterval(interval)
             }
 
             this.drawTime(minutesContainer, secondsContainer, seconds, minutes)
         }, 1000)
+    }
+
+    stopCountdown() {
+        clearInterval(this.intervalCount)
     }
 
     drawTime(minutesContainer, secondsContainer, seconds, minutes) {
@@ -326,16 +338,14 @@ class Game {
 
     // LÓGICA DE EMPATE POR TABLERO LLENO
     tieForFullBoard() {
-        let countdown = document.querySelector('.countdown');
         let accept = document.querySelector('.accept');
         let cartel = document.querySelector('.full_board_tie');
-        if (this.board.casillerosCompletos()) {
-            this.restartGame();
+
+        if (this.board.fullLockers()) {
             cartel.classList.remove('invisible');
             cartel.classList.add('visible');
 
             accept.addEventListener("click", () => {
-                countdown.classList.add('invisible');
                 cartel.classList.remove('visible');
                 this.restartGame();
             })
@@ -368,9 +378,8 @@ class Game {
 
     // RESETEA TODOS LOS VALORES DEL JUEGO
     restartGame() {
-        const intro_page = document.getElementById('intro_page');
-        intro_page.classList.remove('invisible');
-        this.canvas.classList.add("invisible")
+        this.initialize();
         this.delete();
+        this.draw()
     }
 }

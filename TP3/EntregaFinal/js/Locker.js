@@ -53,18 +53,14 @@ class Locker {
     getEmpty(){
         return this.chip == null;
     }
-    
-    getChip(){
-        return this.chip
-    }
-
-    setChip(chip){
-        this.chip = chip;
-    }
 
     draw() {
         this.ctx.beginPath();
         this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
         this.ctx.closePath();
+    }
+
+    equals(locker) {
+        return this.getX() == locker.getX() && this.getY() == locker.getY()
     }
 }

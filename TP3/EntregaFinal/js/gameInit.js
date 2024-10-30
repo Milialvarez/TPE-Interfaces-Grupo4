@@ -1,7 +1,9 @@
 "use strict"
 
 const option_button = document.getElementById('option_button');
-option_button.addEventListener('click', () => {
+option_button.addEventListener('click', getGameConfig)
+
+function getGameConfig() {
     const option_form = document.getElementById('option_form');
     const formData = new FormData(option_form);
     const selectForm = document.getElementById('choose_inline');
@@ -23,7 +25,7 @@ option_button.addEventListener('click', () => {
     intro_page.classList.add('invisible');
 
     initGame(option, playerOneName, playerTwoName);
-})
+}
 
 //FUNCIÓN PROMESA DE CARGA DE IMAGENES GENERAL
 function loadImage(src) {
