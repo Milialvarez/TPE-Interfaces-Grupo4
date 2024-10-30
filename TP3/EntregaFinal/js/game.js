@@ -60,6 +60,7 @@ class Game {
         this.canvas.addEventListener('mousedown', (e) => this.onMouseDown(e));
         this.canvas.addEventListener('mousemove', (e) => this.onMouseMove(e));
         this.canvas.addEventListener('mouseup', (e) => this.onMouseUp(e));
+        this.countdown()
     }
 
     //DIBUJA EL JUEGO
@@ -158,7 +159,7 @@ class Game {
 
             if (lockerIndex >= 0) {
                 if (this.board.emptyLocker(lockerIndex) != null) {
-                    this.fullBoard();
+                    this.tieForFullBoard();
                     let locker = this.board.emptyLocker(lockerIndex);
                     this.fallingChip = this.selectedChip
                     requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
@@ -258,29 +259,47 @@ class Game {
         locker.setChip(chip);
     }
 
-    // CRONOMETRO
+    // CRONOMETRO DEL JUEGO
     countdown() {
         let countdown = document.querySelector('.countdown');
-        let seconds = document.querySelector('#seconds');
-        let minutes = document.querySelector('#minutes');
-        let msPorSegundo = 5;
-        let msPorMinuto = 0;
-        let intervalo;
+        countdown.classList.remove('invisible');
+        let secondsContainer = document.querySelector('#seconds');
+        let minutesContainer = document.querySelector('#minutes');
+        let seconds = 0;
+        let minutes = 5;
 
-        intervalo = setInterval(() => {
-            minutes.innerText = msPorMinuto;
-            seconds.innerText = msPorSegundo;
-            msPorSegundo--;
-            if (msPorSegundo == -1) {
-                msPorSegundo = 59;
-                msPorMinuto--;
+        this.drawTime(minutesContainer, secondsContainer, seconds, minutes)
+
+        let interval = setInterval(() => {
+            seconds--;
+
+            if (seconds == -1) {
+                seconds = 59;
+                minutes--;
             }
-            if (msPorMinuto == 0 && msPorSegundo == 0) {
+
+            if (minutes == 0 && seconds == 0) {
                 this.tieForTime();
                 countdown.classList.add('invisible');
-                clearInterval(intervalo)
+                clearInterval(interval)
             }
+
+            this.drawTime(minutesContainer, secondsContainer, seconds, minutes)
         }, 1000)
+    }
+
+    drawTime(minutesContainer, secondsContainer, seconds, minutes) {
+        if (minutes <= 9) {
+            minutesContainer.innerHTML = '0' + minutes;
+        } else {
+            minutesContainer.innerHTML = minutes;
+        }
+
+        if (seconds <= 9) {
+            secondsContainer.innerHTML = '0' + seconds;
+        } else {
+            secondsContainer.innerHTML = seconds;
+        }
     }
 
     // LÓGICA DE EMPATE POR TIEMPO LÍMITE
@@ -299,7 +318,7 @@ class Game {
     }
 
     // LÓGICA DE EMPATE POR TABLERO LLENO
-    fullBoard() {
+    tieForFullBoard() {
         let countdown = document.querySelector('.countdown');
         let accept = document.querySelector('.accept');
         let cartel = document.querySelector('.resultado_empate_tablero_lleno');

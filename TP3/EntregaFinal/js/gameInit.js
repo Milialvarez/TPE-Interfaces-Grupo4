@@ -62,7 +62,6 @@ async function initGame(option, playerOneName, playerTwoName) {
         let game = new Game(lockerSize, chipSize, xInLine, nColumns, nRows, playerOneName, playerTwoName, tomChipImage, jerryChipImage, lockerImage, hintImage, hintProhibitedImage)
         game.initialize()
         game.draw()
-        game.countdown()
 
     } catch (error) {
         console.error("Error al cargar las imágenes: ", error);

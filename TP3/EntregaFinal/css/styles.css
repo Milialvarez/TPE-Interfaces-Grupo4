@@ -1,18 +1,15 @@
 canvas,
 #intro_page {
-    border: 2px solid black;
     background-image: url(../../../TP2/EntregaFinal/imgs/game_image.jpeg);
     background-size: cover;
     box-shadow: -747px -622px rgba(0, 0, 0, 0.75) inset;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .countdown {
     display: flex;
     gap: 1px;
-    border: 1px solid black;
+    border: 3px solid black;
+    background-color: white;
     width: 100px;
     height: 45px;
     position: absolute;
