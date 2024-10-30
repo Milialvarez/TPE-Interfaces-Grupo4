@@ -305,7 +305,7 @@ class Game {
     // LÓGICA DE EMPATE POR TIEMPO LÍMITE
     tieForTime() {
         let accept = document.querySelector('.accept');
-        let cartel = document.querySelector('.resultado_empate_tiempo');
+        let cartel = document.querySelector('.time_tie');
         cartel.classList.remove('invisible');
         cartel.classList.add('visible');
         //no permitir agarrar otra ficha
@@ -321,7 +321,7 @@ class Game {
     tieForFullBoard() {
         let countdown = document.querySelector('.countdown');
         let accept = document.querySelector('.accept');
-        let cartel = document.querySelector('.resultado_empate_tablero_lleno');
+        let cartel = document.querySelector('.full_board_tie');
         if (this.board.casillerosCompletos()) {
             this.restartGame();
             cartel.classList.remove('invisible');
