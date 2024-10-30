@@ -68,4 +68,3 @@ async function initGame(option, playerOneName, playerTwoName) {
         console.error("Error al cargar las imágenes: ", error);
     }
 }
-
