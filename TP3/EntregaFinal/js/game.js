@@ -1,5 +1,5 @@
 class Game {
-    constructor(lockerSize, chipSize, xInLine, nColumns, nRows, player1, player2, chipPlayer1, chipPlayer2, lockerImage, hintAllowedImage, hintProhibitedImage) {
+    constructor(lockerSize, chipSize, hintSize, xInLine, nColumns, nRows, player1, player2, chipPlayer1, chipPlayer2, lockerImage, hintAllowedImage, hintProhibitedImage) {
         this.lockerSize = lockerSize
         this.chipSize = chipSize
         this.xInLine = xInLine
@@ -29,6 +29,7 @@ class Game {
         this.lastChip = null
         this.gravity = 12
         this.rebound = true
+        this.hintSize = hintSize
     }
 
     //CREA EL BOARD Y LAS CHIPS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
@@ -242,9 +243,15 @@ class Game {
             this.hint = new Hint(this.ctx)
         }
 
-        this.hint.setY(this.board.getY() - this.hintImage.height - 10)
-        this.hint.setWidth(this.hintImage.width)
-        this.hint.setHeight(this.hintImage.height)
+        this.hint.setY(this.board.getY() - this.hintSize - 10)
+        this.hint.setWidth(this.hintSize)
+
+        if (this.hintImage.width > this.hintImage.height) {
+            this.hint.setHeight(this.hintSize / 2)
+        } else {
+            this.hint.setHeight(this.hintSize)
+        }
+
         this.hint.setImage(this.hintImage)
         this.hint.setX(lockerX + (this.lockerSize - this.hint.getWidth()) / 2)
         this.hint.draw()

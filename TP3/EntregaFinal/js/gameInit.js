@@ -10,12 +10,12 @@ option_button.addEventListener('click', () => {
     let playerOneName = formData.get('player1');
     let playerTwoName = formData.get('player2');
 
-    if(playerOneName === "" && playerTwoName === ""){
+    if (playerOneName === "" && playerTwoName === "") {
         playerOneName = "player 1";
         playerTwoName = "player 2";
-    } else if (playerOneName === ""){
+    } else if (playerOneName === "") {
         playerOneName = "player 1";
-    } else if(playerTwoName === ""){
+    } else if (playerTwoName === "") {
         playerTwoName = "player 2";
     }
 
@@ -44,22 +44,27 @@ async function initGame(option, playerOneName, playerTwoName) {
         const jerryChipImage = await loadImage("../imgs/ficha_jerry.png")
         const lockerImage = await loadImage("../imgs/casillero.png")
 
-        let lockerSize, chipSize, xInLine, nColumns, nRows;
+        let lockerSize, chipSize, hintSize, xInLine, nColumns, nRows;
 
-        if(option == "opcion4"){
-            lockerSize = 75; chipSize = 50; xInLine = 4; nColumns = 7; nRows = 6;
-        } else if(option == "opcion5"){
-            lockerSize = 65; chipSize = 43; xInLine = 5; nColumns = 8; nRows = 7;
-        } else if(option == "opcion6"){
-            lockerSize = 58; chipSize = 39; xInLine = 6; nColumns = 9; nRows = 8;
-        } else if(option == "opcion7"){
-            lockerSize = 52; chipSize = 35; xInLine = 7; nColumns = 10; nRows = 9;
+        switch (option) {
+            case "opcion5":
+                lockerSize = 65; hintSize = 24; chipSize = 43; xInLine = 5; nColumns = 8; nRows = 7;
+                break;
+            case "opcion6":
+                lockerSize = 58; hintSize = 22; chipSize = 39; xInLine = 6; nColumns = 9; nRows = 8;
+                break;
+            case "opcion7":
+                lockerSize = 52; hintSize = 20; chipSize = 35; xInLine = 7; nColumns = 10; nRows = 9;
+                break;
+            default:
+                lockerSize = 75; hintSize = 30; chipSize = 50; xInLine = 4; nColumns = 7; nRows = 6;
+                break;
         }
 
         let countdown = document.querySelector(".countdown");
         countdown.classList.remove('invisible');
 
-        let game = new Game(lockerSize, chipSize, xInLine, nColumns, nRows, playerOneName, playerTwoName, tomChipImage, jerryChipImage, lockerImage, hintImage, hintProhibitedImage)
+        let game = new Game(lockerSize, chipSize, hintSize, xInLine, nColumns, nRows, playerOneName, playerTwoName, tomChipImage, jerryChipImage, lockerImage, hintImage, hintProhibitedImage)
         game.initialize()
         game.draw()
 
