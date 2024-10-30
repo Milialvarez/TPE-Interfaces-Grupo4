@@ -15,7 +15,7 @@ class Game {
         this.boardWidth
         this.boardHeight
         this.board
-        this.chips = [[], []]
+        this.chips
         this.canvas
         this.selectedChip = null;
         this.lockerImage = lockerImage
@@ -42,6 +42,7 @@ class Game {
         this.boardHeight = this.nRows * this.lockerSize
         this.board = new Board(this.ctx, this.nColumns, this.canvasWidth / 2 - this.boardWidth / 2, this.canvasHeight - this.boardHeight, this.nRows, this.lockerSize, this.lockerImage);
         this.board.initialize()
+        this.chips = [[], []]
         for (let i = 0; i < this.chips.length; i++) {
             for (let j = 0; j < (this.nColumns * this.nRows) / 2; j++) {
                 let chip
@@ -79,10 +80,10 @@ class Game {
         if (chip && this.fallingChip == null) {
             this.initPosition = { x: chip.getX(), y: chip.getY() }
             this.selectedChip = chip;
-            if(this.lastChip !=null  && this.chequearTurno() == false){
+            if (this.lastChip != null && this.checkTurn() == false) {
                 this.showTurnsAlert();
                 this.selectedChip = null;
-            } else{
+            } else {
                 chip.estaSeleccionada = true;
             }
         }
@@ -106,8 +107,8 @@ class Game {
         if (!this.selectedChip) {
             return
         }
-        if(this.lastChip !=null){
-            if(!this.chequearTurno()){
+        if (this.lastChip != null) {
+            if (!this.checkTurn()) {
                 this.showTurnsAlert();
                 this.selectedChip = null;
                 return;
@@ -141,8 +142,8 @@ class Game {
 
     //DESELECCIONA UNA CHIP A LA PAR DE QUE EL JUGADOR SUELTA EL MOUSE Y SE OBTIENE LA COLUMNA Y LOCKER DONDE COLOCAR LA FICHA SELECCIONADA
     onMouseUp(e) {
-        if(this.lastChip !=null && this.selectedChip !=null){
-            if(this.chequearTurno() == false){
+        if (this.lastChip != null && this.selectedChip != null) {
+            if (this.checkTurn() == false) {
                 this.selectedChip.setX(this.initPosition.x);
                 this.selectedChip.setY(this.initPosition.y);
                 this.delete();
@@ -150,14 +151,14 @@ class Game {
                 return;
             }
         }
-        
-        if (this.selectedChip !=null) {
+
+        if (this.selectedChip != null) {
             const x = e.clientX, y = e.clientY
             const lockerIndex = this.isValidPosition(x, y)
 
             if (lockerIndex >= 0) {
                 if (this.board.emptyLocker(lockerIndex) != null) {
-                    this.tableroLleno();
+                    this.fullBoard();
                     let locker = this.board.emptyLocker(lockerIndex);
                     this.fallingChip = this.selectedChip
                     requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
@@ -293,39 +294,39 @@ class Game {
 
         accept.addEventListener("click", () => {
             cartel.classList.remove('visible')
-            this.reiniciarJuego();
+            this.restartGame();
         })
     }
 
     // LÓGICA DE EMPATE POR TABLERO LLENO
-    tableroLleno() {
+    fullBoard() {
         let countdown = document.querySelector('.countdown');
         let accept = document.querySelector('.accept');
         let cartel = document.querySelector('.resultado_empate_tablero_lleno');
         if (this.board.casillerosCompletos()) {
-            this.reiniciarJuego();
+            this.restartGame();
             cartel.classList.remove('invisible');
             cartel.classList.add('visible');
 
             accept.addEventListener("click", () => {
                 countdown.classList.add('invisible');
                 cartel.classList.remove('visible');
-                this.reiniciarJuego();
+                this.restartGame();
             })
         }
     }
 
-    chequearTurno(){
+    checkTurn() {
         let currentPlayer = this.selectedChip.getPlayer();
         let lastPlayer = this.lastChip.getPlayer();
-        if(currentPlayer == lastPlayer){
+        if (currentPlayer == lastPlayer) {
             return false;
-        } else{
+        } else {
             return true;
         }
     }
 
-    showTurnsAlert(){
+    showTurnsAlert() {
         let alert = document.querySelector('#turn_alert');
         alert.classList.remove('invisible');
 
@@ -339,10 +340,10 @@ class Game {
         }, 1000);
     }
 
-    //por qué no funciona? ver como hacer
-    reiniciarJuego(){
-        this.delete();
+    // RESETEA TODOS LOS VALORES DEL JUEGO
+    restartGame() {
         this.initialize();
-        this.game.draw()
+        this.delete();
+        this.draw()
     }
 }
