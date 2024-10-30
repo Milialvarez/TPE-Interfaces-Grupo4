@@ -272,8 +272,8 @@ class Game {
         countdown.classList.remove('invisible');
         let secondsContainer = document.querySelector('#seconds');
         let minutesContainer = document.querySelector('#minutes');
-        let seconds = 0;
-        let minutes = 5;
+        let seconds = 5;
+        let minutes = 0;
 
         this.drawTime(minutesContainer, secondsContainer, seconds, minutes)
 
@@ -368,8 +368,9 @@ class Game {
 
     // RESETEA TODOS LOS VALORES DEL JUEGO
     restartGame() {
-        this.initialize();
+        const intro_page = document.getElementById('intro_page');
+        intro_page.classList.remove('invisible');
+        this.canvas.classList.add("invisible")
         this.delete();
-        this.draw()
     }
 }
