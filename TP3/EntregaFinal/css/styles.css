@@ -145,17 +145,16 @@ canvas,
 }
 
 #turn_alert{
-    width: 120;
-    height: 80;
+    width: 200px;
+    box-sizing: border-box;
+    text-align: center;
     padding: 6px;
     background-color: chocolate;
     color: black;
-    margin-left: 220px;
-    position: absolute;
     border: 2px solid black;
     font-size: medium;
     z-index: 2;
+    position: absolute;
+    left: calc(50% - 100px);
+    top: 20px;
 }
-
-
-
