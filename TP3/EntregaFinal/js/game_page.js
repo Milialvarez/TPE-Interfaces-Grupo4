@@ -35,6 +35,27 @@ function setRating(e) {
 const option_button = document.getElementById('option_button');
 option_button.addEventListener('click', getGameConfig)
 
+let form = document.querySelector('.form');
+let title = document.querySelector('#title');
+
+const button_ready = document.getElementById('button_ready');
+button_ready.addEventListener('click', (event) => {
+    event.preventDefault();
+    form.classList.add('invisible');
+    title.classList.add('visible');
+    option_button.classList.add('visible');
+    button_game.classList.add('visible');
+})
+
+const button_game = document.getElementById('button_game'); 
+button_game.addEventListener('click', () => {
+    form.classList.add('visible');
+    title.classList.add('invisible');
+    option_button.classList.add('invisible');
+    button_game.classList.add('invisible');
+})
+
+
 let selectedCharacterTom = 1;
 let selectedCharacterJerry = 1;
 
