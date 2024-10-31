@@ -285,8 +285,7 @@ class Game {
         locker.setChip(chip);
 
         if (this.board.checkWinner(locker)) {
-            alert("GANADOR: " + chip.getPlayer() + ", FELICIDADES!")
-            this.restartGame()
+            this.showWinner(chip.getPlayer())
             return
         }
 
@@ -402,6 +401,24 @@ class Game {
                 clearInterval(interval); // Detiene el contador
             }
         }, 1000);
+    }
+
+    showWinner(player) {
+        let accept = document.querySelector('.accept');
+        let cartel = document.querySelector('.tie');
+        let cause = document.querySelector('#cause');
+        let result = document.querySelector('#result');
+
+        result.innerHTML = "¡Felicidades!";
+        cause.innerHTML = "Ganador: " + player;
+
+        cartel.classList.remove('invisible');
+        cartel.classList.add('visible');
+
+        accept.addEventListener("click", () => {
+            cartel.classList.remove('visible')
+            this.restartGame();
+        })
     }
 
     // RESETEA TODOS LOS VALORES DEL JUEGO
