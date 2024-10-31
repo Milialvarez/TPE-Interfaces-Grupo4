@@ -1,5 +1,5 @@
 class Board {
-    constructor(ctx, nColumns, x, y, nRows, lockerSize, lockerImage) {
+    constructor(ctx, xInLine, nColumns, x, y, nRows, lockerSize, lockerImage) {
         this.lockers = [];
         this.ctx = ctx;
         this.nColumns = nColumns;
@@ -12,6 +12,7 @@ class Board {
         this.canAdd = true;
         this.lockerImage = lockerImage
         this.canvas
+        this.xInLine = xInLine
     }
 
     getNumberColumms() {
@@ -98,19 +99,240 @@ class Board {
         return null;
     }
 
-    casillerosCompletos(){
-        let cantidad = 0;
-        let tamanio = this.nColumns * this.nRows
+    fullLockers() {
+        let quantity = 0;
+        let size = this.nColumns * this.nRows
+
         for (let index = 0; index < this.lockers.length; index++) {
             for (let j = 0; j < this.lockers[index].length; j++) {
-                if(this.lockers[index][j].getEmpty() != true){
-                    cantidad++;
+                if (this.lockers[index][j].getEmpty() != true) {
+                    quantity++;
                 }
             }
         }
-        if(cantidad == tamanio - 1){
+
+        if (quantity == size) {
             return true;
         }
+
         return false;
+    }
+
+    // MANEJA LOGICA PARA DETECTAR GANADOR
+    checkWinner(initLocker) {
+        let player = initLocker.getChip().getPlayer()
+        let count = 1
+        let indexes = this.getLockerIndex(initLocker)
+
+        count += this.countRight(indexes.row, indexes.col + 1, player)
+        count += this.countLeft(indexes.row, indexes.col - 1, player)
+
+        if (count >= this.xInLine) {
+            return true
+        }
+
+        count = 1
+        count += this.countDown(indexes.row + 1, indexes.col, player)
+
+        if (count >= this.xInLine) {
+            return true
+        }
+
+        count = 1
+        count += this.countDiagonalUpRight(indexes.row - 1, indexes.col + 1, player)
+        count += this.countDiagonalDownLeft(indexes.row + 1, indexes.col - 1, player)
+
+        if (count >= this.xInLine) {
+            return true
+        }
+
+        count = 1
+        count += this.countDiagonalUpLeft(indexes.row - 1, indexes.col - 1, player)
+        count += this.countDiagonalDownRight(indexes.row + 1, indexes.col + 1, player)
+
+        if (count >= this.xInLine) {
+            return true
+        }
+
+        return false
+    }
+
+    // CUENTA FICHAS DEL MISMO JUGADOR DESDE UN CASILLERO PARA LA DERECHA
+    countRight(row, col, player) {
+        let count = 0, foundDifferent = false
+
+        while (col < this.nColumns && !foundDifferent) {
+            let chip = this.lockers[row][col].getChip()
+
+            if (chip != null) {
+                if (chip.getPlayer() == player) {
+                    count++
+                } else {
+                    foundDifferent = true
+                }
+            } else {
+                foundDifferent = true
+            }
+
+            col++
+        }
+
+        return count
+    }
+
+    // CUENTA FICHAS DEL MISMO JUGADOR DESDE UN CASILLERO PARA LA IZQUIERDA
+    countLeft(row, col, player) {
+        let count = 0, foundDifferent = false
+
+        while (col >= 0 && !foundDifferent) {
+            let chip = this.lockers[row][col].getChip()
+
+            if (chip != null) {
+                if (chip.getPlayer() == player) {
+                    count++
+                } else {
+                    foundDifferent = true
+                }
+            } else {
+                foundDifferent = true
+            }
+
+            col--
+        }
+
+        return count
+    }
+
+    // CUENTA FICHAS DEL MISMO JUGADOR DESDE UN CASILLERO PARA ABAJO
+    countDown(row, col, player) {
+        let count = 0, foundDifferent = false
+
+        while (row < this.nRows && !foundDifferent) {
+            let chip = this.lockers[row][col].getChip()
+
+            if (chip != null) {
+                if (chip.getPlayer() == player) {
+                    count++
+                } else {
+                    foundDifferent = true
+                }
+            } else {
+                foundDifferent = true
+            }
+
+            row++
+        }
+
+        return count
+    }
+
+    // CUENTA FICHAS DEL MISMO JUGADOR DESDE UN CASILLERO POR LA DIAGONAL ARRIBA Y DERECHA
+    countDiagonalUpRight(row, col, player) {
+        let count = 0, foundDifferent = false
+
+        while (row >= 0 && col < this.nColumns && !foundDifferent) {
+            let chip = this.lockers[row][col].getChip()
+
+            if (chip != null) {
+                if (chip.getPlayer() == player) {
+                    count++
+                } else {
+                    foundDifferent = true
+                }
+            } else {
+                foundDifferent = true
+            }
+
+            row--
+            col++
+        }
+
+        return count
+    }
+
+    // CUENTA FICHAS DEL MISMO JUGADOR DESDE UN CASILLERO POR LA DIAGONAL ABAJO E IZQUIERDA
+    countDiagonalDownLeft(row, col, player) {
+        let count = 0, foundDifferent = false
+
+        while (row < this.nRows && col >= 0 && !foundDifferent) {
+            let chip = this.lockers[row][col].getChip()
+
+            if (chip != null) {
+                if (chip.getPlayer() == player) {
+                    count++
+                } else {
+                    foundDifferent = true
+                }
+            } else {
+                foundDifferent = true
+            }
+
+            row++
+            col--
+        }
+
+        return count
+    }
+
+    // CUENTA FICHAS DEL MISMO JUGADOR DESDE UN CASILLERO POR LA DIAGONAL ARRIBA E IZQUIERDA
+    countDiagonalUpLeft(row, col, player) {
+        let count = 0, foundDifferent = false
+
+        while (row >= 0 && col >= 0 && !foundDifferent) {
+            let chip = this.lockers[row][col].getChip()
+
+            if (chip != null) {
+                if (chip.getPlayer() == player) {
+                    count++
+                } else {
+                    foundDifferent = true
+                }
+            } else {
+                foundDifferent = true
+            }
+
+            row--
+            col--
+        }
+
+        return count
+    }
+
+    // CUENTA FICHAS DEL MISMO JUGADOR DESDE UN CASILLERO POR LA DIAGONAL ABAJO Y DERECHA
+    countDiagonalDownRight(row, col, player) {
+        let count = 0, foundDifferent = false
+
+        while (row < this.nRows && col < this.nColumns && !foundDifferent) {
+            let chip = this.lockers[row][col].getChip()
+
+            if (chip != null) {
+                if (chip.getPlayer() == player) {
+                    count++
+                } else {
+                    foundDifferent = true
+                }
+            } else {
+                foundDifferent = true
+            }
+
+            row++
+            col++
+        }
+
+        return count
+    }
+
+    // OBTIENE LA POSICION DE UN CASILLERO DENTRO DE LA MATRIZ
+    getLockerIndex(locker) {
+        for (let i = 0; i < this.lockers.length; i++) {
+            for (let j = 0; j < this.lockers[i].length; j++) {
+                if (this.lockers[i][j].equals(locker)) {
+                    return {
+                        row: i,
+                        col: j
+                    }
+                }
+            }
+        }
     }
 }

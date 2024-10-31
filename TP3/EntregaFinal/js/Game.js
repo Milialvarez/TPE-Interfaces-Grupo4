@@ -1,5 +1,5 @@
 class Game {
-    constructor(lockerSize, chipSize, xInLine, nColumns, nRows, player1, player2, chipPlayer1, chipPlayer2, lockerImage, hintAllowedImage, hintProhibitedImage) {
+    constructor(lockerSize, chipSize, hintSize, xInLine, nColumns, nRows, player1, player2, chipPlayer1, chipPlayer2, lockerImage, hintAllowedImage, hintProhibitedImage) {
         this.lockerSize = lockerSize
         this.chipSize = chipSize
         this.xInLine = xInLine
@@ -15,7 +15,7 @@ class Game {
         this.boardWidth
         this.boardHeight
         this.board
-        this.chips = [[], []]
+        this.chips
         this.canvas
         this.selectedChip = null;
         this.lockerImage = lockerImage
@@ -29,6 +29,8 @@ class Game {
         this.lastChip = null
         this.gravity = 12
         this.rebound = true
+        this.hintSize = hintSize
+        this.intervalCount
     }
 
     //CREA EL BOARD Y LAS CHIPS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
@@ -40,8 +42,9 @@ class Game {
         this.canvasHeight = canvas.height
         this.boardWidth = this.nColumns * this.lockerSize
         this.boardHeight = this.nRows * this.lockerSize
-        this.board = new Board(this.ctx, this.nColumns, this.canvasWidth / 2 - this.boardWidth / 2, this.canvasHeight - this.boardHeight, this.nRows, this.lockerSize, this.lockerImage);
+        this.board = new Board(this.ctx, this.xInLine, this.nColumns, this.canvasWidth / 2 - this.boardWidth / 2, this.canvasHeight - this.boardHeight, this.nRows, this.lockerSize, this.lockerImage);
         this.board.initialize()
+        this.chips = [[], []]
         for (let i = 0; i < this.chips.length; i++) {
             for (let j = 0; j < (this.nColumns * this.nRows) / 2; j++) {
                 let chip
@@ -59,6 +62,9 @@ class Game {
         this.canvas.addEventListener('mousedown', (e) => this.onMouseDown(e));
         this.canvas.addEventListener('mousemove', (e) => this.onMouseMove(e));
         this.canvas.addEventListener('mouseup', (e) => this.onMouseUp(e));
+        this.lastChip = null
+        this.stopCountdown()
+        this.countdown()
     }
 
     //DIBUJA EL JUEGO
@@ -76,13 +82,16 @@ class Game {
         const x = e.clientX, y = e.clientY
         let selectedChips = this.getChip(x, y);
         const chip = selectedChips[selectedChips.length - 1];
+        if (chip.getUsed()) {
+            return;
+        }
         if (chip && this.fallingChip == null) {
             this.initPosition = { x: chip.getX(), y: chip.getY() }
             this.selectedChip = chip;
-            if(this.lastChip !=null  && this.chequearTurno() == false){
+            if (this.lastChip != null && this.checkTurn() == false) {
                 this.showTurnsAlert();
                 this.selectedChip = null;
-            } else{
+            } else {
                 chip.estaSeleccionada = true;
             }
         }
@@ -106,8 +115,8 @@ class Game {
         if (!this.selectedChip) {
             return
         }
-        if(this.lastChip !=null){
-            if(!this.chequearTurno()){
+        if (this.lastChip != null) {
+            if (!this.checkTurn()) {
                 this.showTurnsAlert();
                 this.selectedChip = null;
                 return;
@@ -141,8 +150,8 @@ class Game {
 
     //DESELECCIONA UNA CHIP A LA PAR DE QUE EL JUGADOR SUELTA EL MOUSE Y SE OBTIENE LA COLUMNA Y LOCKER DONDE COLOCAR LA FICHA SELECCIONADA
     onMouseUp(e) {
-        if(this.lastChip !=null && this.selectedChip !=null){
-            if(this.chequearTurno() == false){
+        if (this.lastChip != null && this.selectedChip != null) {
+            if (this.checkTurn() == false) {
                 this.selectedChip.setX(this.initPosition.x);
                 this.selectedChip.setY(this.initPosition.y);
                 this.delete();
@@ -150,18 +159,18 @@ class Game {
                 return;
             }
         }
-        
-        if (this.selectedChip !=null) {
+
+        if (this.selectedChip != null) {
             const x = e.clientX, y = e.clientY
             const lockerIndex = this.isValidPosition(x, y)
 
             if (lockerIndex >= 0) {
                 if (this.board.emptyLocker(lockerIndex) != null) {
-                    this.tableroLleno();
                     let locker = this.board.emptyLocker(lockerIndex);
                     this.fallingChip = this.selectedChip
                     requestAnimationFrame((timestamp) => { this.animateFall(locker, timestamp) })
                     this.lastChip = this.selectedChip
+                    this.selectedChip.setUsed(true);
                 } else {
                     this.selectedChip.setX(this.initPosition.x);
                     this.selectedChip.setY(this.initPosition.y);
@@ -240,9 +249,15 @@ class Game {
             this.hint = new Hint(this.ctx)
         }
 
-        this.hint.setY(this.board.getY() - this.hintImage.height - 10)
-        this.hint.setWidth(this.hintImage.width)
-        this.hint.setHeight(this.hintImage.height)
+        this.hint.setY(this.board.getY() - this.hintSize - 10)
+        this.hint.setWidth(this.hintSize)
+
+        if (this.hintImage.width > this.hintImage.height) {
+            this.hint.setHeight(this.hintSize / 2)
+        } else {
+            this.hint.setHeight(this.hintSize)
+        }
+
         this.hint.setImage(this.hintImage)
         this.hint.setX(lockerX + (this.lockerSize - this.hint.getWidth()) / 2)
         this.hint.draw()
@@ -255,76 +270,114 @@ class Game {
         chip.setY(posY);
         chip.setX(posX);
         locker.setChip(chip);
+
+        if (this.board.checkWinner(locker)) {
+            alert("GANADOR: " + chip.getPlayer() + ", FELICIDADES!")
+            this.restartGame()
+        }
+
+        this.tieForFullBoard();
     }
 
-    // CRONOMETRO
+    // CRONOMETRO DEL JUEGO
     countdown() {
         let countdown = document.querySelector('.countdown');
-        let seconds = document.querySelector('#seconds');
-        let minutes = document.querySelector('#minutes');
-        let msPorSegundo = 59;
-        let msPorMinuto = 4;
-        let intervalo;
+        countdown.classList.remove('invisible');
+        let secondsContainer = document.querySelector('#seconds');
+        let minutesContainer = document.querySelector('#minutes');
+        let seconds = 0;
+        let minutes = 5;
 
-        intervalo = setInterval(() => {
-            minutes.innerText = msPorMinuto;
-            seconds.innerText = msPorSegundo;
-            msPorSegundo--;
-            if (msPorSegundo == -1) {
-                msPorSegundo = 59;
-                msPorMinuto--;
+        this.drawTime(minutesContainer, secondsContainer, seconds, minutes)
+
+        this.intervalCount = setInterval(() => {
+            seconds--;
+
+            if (seconds == -1) {
+                seconds = 59;
+                minutes--;
             }
-            if (msPorMinuto == 0 && msPorSegundo == 0) {
+
+            if (minutes == 0 && seconds == 0) {
+                console.log(5)
                 this.tieForTime();
+                this.stopCountdown()
                 countdown.classList.add('invisible');
-                clearInterval(intervalo)
             }
+
+            this.drawTime(minutesContainer, secondsContainer, seconds, minutes)
         }, 1000)
+    }
+
+    stopCountdown() {
+        clearInterval(this.intervalCount)
+    }
+
+    drawTime(minutesContainer, secondsContainer, seconds, minutes) {
+        if (minutes <= 9) {
+            minutesContainer.innerHTML = '0' + minutes;
+        } else {
+            minutesContainer.innerHTML = minutes;
+        }
+
+        if (seconds <= 9) {
+            secondsContainer.innerHTML = '0' + seconds;
+        } else {
+            secondsContainer.innerHTML = seconds;
+        }
     }
 
     // LÓGICA DE EMPATE POR TIEMPO LÍMITE
     tieForTime() {
         let accept = document.querySelector('.accept');
-        let cartel = document.querySelector('.resultado_empate_tiempo');
+        let cartel = document.querySelector('.tie');
+        let cause = document.querySelector('#cause');
+        let result = document.querySelector('#result');
+
+        result.innerHTML = "Empate";
+        cause.innerHTML = "¡Sin tiempo!";
+
         cartel.classList.remove('invisible');
         cartel.classList.add('visible');
-        //no permitir agarrar otra ficha
-        //que se corte el juego
 
         accept.addEventListener("click", () => {
             cartel.classList.remove('visible')
-            this.reiniciarJuego();
+            this.restartGame();
         })
     }
 
     // LÓGICA DE EMPATE POR TABLERO LLENO
-    tableroLleno() {
-        let countdown = document.querySelector('.countdown');
+    tieForFullBoard() {
         let accept = document.querySelector('.accept');
-        let cartel = document.querySelector('.resultado_empate_tablero_lleno');
-        if (this.board.casillerosCompletos()) {
-            this.reiniciarJuego();
+        let cartel = document.querySelector('.tie');
+        let cause = document.querySelector('#cause');
+        let result = document.querySelector('#result');
+
+        if (this.board.fullLockers()) {
+
+            result.innerHTML = "Empate";
+            cause.innerHTML = "¡Tablero lleno!";
             cartel.classList.remove('invisible');
             cartel.classList.add('visible');
 
             accept.addEventListener("click", () => {
                 cartel.classList.remove('visible');
-                this.reiniciarJuego();
+                this.restartGame();
             })
         }
     }
 
-    chequearTurno(){
+    checkTurn() {
         let currentPlayer = this.selectedChip.getPlayer();
         let lastPlayer = this.lastChip.getPlayer();
-        if(currentPlayer == lastPlayer){
+        if (currentPlayer == lastPlayer) {
             return false;
-        } else{
+        } else {
             return true;
         }
     }
 
-    showTurnsAlert(){
+    showTurnsAlert() {
         let alert = document.querySelector('#turn_alert');
         alert.classList.remove('invisible');
 
@@ -338,10 +391,10 @@ class Game {
         }, 1000);
     }
 
-    //por qué no funciona? ver como hacer
-    reiniciarJuego(){
-        this.delete();
+    // RESETEA TODOS LOS VALORES DEL JUEGO
+    restartGame() {
         this.initialize();
-        this.game.draw()
+        this.delete();
+        this.draw()
     }
 }
