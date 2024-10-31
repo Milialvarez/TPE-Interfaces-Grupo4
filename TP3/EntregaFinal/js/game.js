@@ -262,8 +262,8 @@ class Game {
         let countdown = document.querySelector('.countdown');
         let seconds = document.querySelector('#seconds');
         let minutes = document.querySelector('#minutes');
-        let msPorSegundo = 5;
-        let msPorMinuto = 0;
+        let msPorSegundo = 59;
+        let msPorMinuto = 4;
         let intervalo;
 
         intervalo = setInterval(() => {
@@ -308,7 +308,6 @@ class Game {
             cartel.classList.add('visible');
 
             accept.addEventListener("click", () => {
-                countdown.classList.add('invisible');
                 cartel.classList.remove('visible');
                 this.reiniciarJuego();
             })
