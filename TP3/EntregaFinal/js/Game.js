@@ -69,7 +69,6 @@ class Game {
         this.canvas.addEventListener('mousemove', (e) => this.onMouseMove(e));
         this.canvas.addEventListener('mouseup', (e) => this.onMouseUp(e));
         this.lastChip = null
-        this.stopCountdown()
         this.countdown()
     }
 
@@ -306,7 +305,6 @@ class Game {
             }
 
             if (minutes == 0 && seconds == 0) {
-                console.log(5)
                 this.tieForTime();
                 this.stopCountdown()
                 countdown.classList.add('invisible');
@@ -400,8 +398,21 @@ class Game {
 
     // RESETEA TODOS LOS VALORES DEL JUEGO
     restartGame() {
-        this.initialize();
+        this.board = null
+        this.chips = [[], []]
+
+        let restart_container = document.querySelector('.restart-container');
+        restart_container.classList.add('invisible');
+
+        this.lastChip = null
+
         this.delete();
-        this.draw()
+        this.stopCountdown()
+
+        this.canvas.classList.add("invisible")
+        let countdown = document.querySelector('.countdown');
+        countdown.classList.add('invisible');
+        const intro_page = document.getElementById('intro_page');
+        intro_page.classList.remove('invisible');
     }
 }
