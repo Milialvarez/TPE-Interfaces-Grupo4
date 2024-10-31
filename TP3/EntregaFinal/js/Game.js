@@ -144,3 +144,11 @@ async function initGame(option, playerOneName, playerTwoName, characterTom, char
         console.error("Error al cargar las imágenes: ", error);
     }
 }
+
+let btnRunGame = document.querySelector("#btn_run_game")
+btnRunGame.addEventListener("click", runGame)
+
+function runGame() {
+    btnRunGame.classList.add("invisible")
+    document.querySelector("#intro_page").classList.remove("invisible")
+}
