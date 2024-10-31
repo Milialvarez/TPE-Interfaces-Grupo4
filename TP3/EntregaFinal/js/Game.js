@@ -17,6 +17,7 @@ class Game {
         this.board
         this.chips
         this.canvas
+        this.canvasOffset
         this.selectedChip = null;
         this.lockerImage = lockerImage
         this.initPosition
@@ -70,6 +71,7 @@ class Game {
         this.canvas.addEventListener('mouseup', (e) => this.onMouseUp(e));
         this.lastChip = null
         this.countdown()
+        this.canvasOffset = this.canvas.getBoundingClientRect()
     }
 
     //DIBUJA EL JUEGO
@@ -79,7 +81,10 @@ class Game {
                 this.chips[i][j].draw()
             }
         }
-        this.board.draw()
+        
+        if (this.board != null) {
+            this.board.draw()
+        }
     }
 
     //SE ACTIVA ANTE PRESIONES DEL MOUSE Y COMPRUEBA SI HAY UNA CHIP EN DICHA POSICION
@@ -108,7 +113,7 @@ class Game {
         let selectedChips = []
         for (let i = 0; i < this.chips.length; i++) {
             for (let j = 0; j < this.chips[i].length; j++) {
-                if (this.chips[i][j].coordinatesAreInChip(x, y)) {
+                if (this.chips[i][j].coordinatesAreInChip(x - this.canvasOffset.x, y - this.canvasOffset.y)) {
                     selectedChips.push(this.chips[i][j])
                 }
             }
@@ -128,7 +133,7 @@ class Game {
                 return;
             }
         }
-        const x = e.clientX, y = e.clientY
+        const x = e.clientX - this.canvasOffset.x, y = e.clientY - this.canvasOffset.y
         const lockerIndex = this.isValidPosition(x, y)
 
         if (lockerIndex < 0) {
@@ -167,7 +172,7 @@ class Game {
         }
 
         if (this.selectedChip != null) {
-            const x = e.clientX, y = e.clientY
+            const x = e.clientX - this.canvasOffset.x, y = e.clientY - this.canvasOffset.y
             const lockerIndex = this.isValidPosition(x, y)
 
             if (lockerIndex >= 0) {
@@ -280,6 +285,7 @@ class Game {
         if (this.board.checkWinner(locker)) {
             alert("GANADOR: " + chip.getPlayer() + ", FELICIDADES!")
             this.restartGame()
+            return
         }
 
         this.tieForFullBoard();

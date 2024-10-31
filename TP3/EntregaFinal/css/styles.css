@@ -25,8 +25,8 @@ canvas,
     font-family: 'Courier New', Courier, monospace;
     font-size: x-large;
     position: absolute;
-    left: calc(100% - 100px);
-    top: 0;
+    left: calc(100% - 100px - 5px);
+    top: 5px;
 }
 
 .countdown,
@@ -163,6 +163,8 @@ canvas,
     background-color: aqua;
     color: black;
     position: absolute;
+    left: 5px;
+    top: 5px;
     z-index: 1;
     width: 20px;
     height: 20px;
