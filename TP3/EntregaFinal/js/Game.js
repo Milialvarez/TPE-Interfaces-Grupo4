@@ -86,12 +86,13 @@ class Game {
     //SE ACTIVA ANTE PRESIONES DEL MOUSE Y COMPRUEBA SI HAY UNA CHIP EN DICHA POSICION
     onMouseDown(e) {
         const x = e.clientX, y = e.clientY
-        let selectedChips = this.getChip(x, y);
-        const chip = selectedChips[selectedChips.length - 1];
-        if (chip.getUsed()) {
-            return;
-        }
+        const chip = this.getChip(x, y);
+
         if (chip && this.fallingChip == null) {
+            if (chip.getUsed()) {
+                return;
+            }
+
             this.initPosition = { x: chip.getX(), y: chip.getY() }
             this.selectedChip = chip;
             if (this.lastChip != null && this.checkTurn() == false) {
@@ -113,7 +114,7 @@ class Game {
                 }
             }
         }
-        return selectedChips;
+        return selectedChips[selectedChips.length - 1];
     }
 
     //PROMUEVE EL MOVIMIENTO DE UNA CHIP ANTE EL MOVIMIENTO DEL CURSOR
