@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="../styles/general.css">
+    <link rel="stylesheet" href="../styles/forms.css">
+    <link rel="icon" href="../iconos/icono_joystick.png.ico">
+    <title>Mega Games Zone</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container_btn_burger">
+            <button id="btn_burger_menu">
+                <img src="../iconos/logo_menu_haburguesa.svg" alt="">
+            </button>
+        </div>
+
+        <div class="logo">
+            <a href="../html/home.html"><img src="../iconos/logo_joystick.svg" alt="logo"></a>
+            <a href="../html/home.html">
+                <h1>MGZ</h1>
+            </a>
+        </div>
+
+        <div class="right_options">
+            <div class="search_input">
+                <input type="text" placeholder="¿Qué quieres jugar hoy?"></input>
+                <img src="../iconos/logo_buscador.svg" alt="logo_buscador" fill="currentColor">
+            </div>
+
+            <button>
+                <img src="../iconos/cart.svg" alt="">
+            </button>
+            <button id="btn_profile_menu">
+                <img src="../iconos/logo_user.svg" alt="">
+            </button>
+
+            <nav id="profile_menu" class="menu invisible">
+                <ul>
+                    <li><a href="#">Mi perfil</a></li>
+                    <li><button id="register_button">Registrarse</button></li>
+                </ul>
+            </nav>
+        </div>
+
+        <nav id="burger_menu" class="menu invisible">
+            <ul>
+                <li><img src="../iconos/logo_home.png" alt="logo_home"><a href="home.html">Home</a></li>
+                <li> <img src="../iconos/logo_tendencias.png" alt="logo_tendencias">Tendencias</li>
+                <li><img src="../iconos/logo_accion.png" alt="">Acción</li>
+                <li><img src="../iconos/logo_deportes.png" alt="">Deportes</li>
+                <li><img src="../iconos/logo_romance.png" alt="">Romance</li>
+                <li><img src="../iconos/logo_cocina.png" alt="">Cocina</li>
+                <li><img src="../iconos/logo_estrategia.png" alt="">Estrategia</li>
+                <li><img src="../iconos/logo_moda.png" alt="">Moda</li>
+                <li><img src="../iconos/logo_clasicos.png" alt="">Clásicos</li>
+                <li><img src="../iconos/logo_multijugador.png" alt="">Multi jugador</li>
+                <li><img src="../iconos/logo_carreras.png" alt="">Carreras</li>
+                <li><img src="../iconos/logo_aventura.png" alt="">Aventuras</li>
+                <li class="nav_redes">
+                    <img src="../iconos/logo_twitter.png" alt="logo_twitter">
+                    <img src="../iconos/logo_instagram.png" alt="logo_instagram">
+                    <img src="../iconos/logo_facebook.png" alt="logo_facebook">
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- TRENDING SECTION -->
+        <section class="trending_container">
+            <article class="trendings">
+                <h2>Tendencias</h2>
+
+                <div class="trending_cards">
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_subwaySurfers.webp" alt="card_subwaySurfers">
+                            <div class="title">Subway Surfers</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                            <div class="logo_cards">
+                                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_papas_pizzeria.jpg" alt="papas_pizzeria">
+                            <div class="title">Papa's pizzeria</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_fire_and_water.avif" alt="card_fire_and_water">
+                            <div class="title">Fireboy and watergirl 1</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                            <div class="logo_cards">
+                                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="game_price"> $17⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <a href="../html/game.html"><img src="../imgs/card-tom-and-jerry.jpg"
+                                    alt="card-tom-and-jerry"></a>
+                            <div class="title">Tom vs Jerry</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                            <div class="logo_cards">
+                                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-sims-4.webp" alt="card-sims-4">
+                            <div class="title"> The Sims 4</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                            <div class="logo_cards">
+                                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_solitario.png" alt="card_solitario">
+                            <div class="title">Solitario</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_bad_ice_cream.webp" alt="card_bad_ice_cream">
+                            <div class="title">Bad ice cream</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                            <div class="logo_cards">
+                                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $21⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_red_ball.webp" alt="card_red_ball">
+                            <div class="title">Red ball 4</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- CAROUSELS -->
+        <section class="general_carousel">
+            <h2>Recomendado para vos</h2>
+
+            <div class="carousel">
+                <button class="btn_left_arrow">
+                    <img src="../iconos/icono_flecha_izquierda.svg" alt="icono_fleca">
+                </button>
+
+                <div class="games_carousel" id="recommended_carousel">
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_among_us.jpg" alt="card_subwaySurfers">
+                            <div class="title">Among Us</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $10⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_starCraft.jpeg" alt="card_starCraft">
+                            <div class="title">Star Craft</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_geometrydash.jpeg" alt="card_geometrydash">
+                            <div class="title">Geometry dash</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $38⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_golf_orbit.avif" alt="card-tom-and-jerry">
+                            <div class="title">Golf orbit</div>
+                        </div>
+
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_stick_vs_zombies.jpg" alt="card_ajedrez">
+                            <div class="title">Stick Vs Zombies</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_tetris.png" alt="card_tetris">
+                            <div class="title">Tetris</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $49⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_sonic_the_hedgehog.jpg" alt="card_ajedrez">
+                            <div class="title">Sonic the Hedgehog</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_fifa_21.jpeg" alt="card_ajedrez">
+                            <div class="title">The Fifa 21</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_elle_dressup.jpg" alt="card_ajedrez">
+                            <div class="title">Elle Dress Up</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_cgfc_24.avif" alt="card_ajedrez">
+                            <div class="title">CGFC 24</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_slither.io.jpg" alt="card_ajedrez">
+                            <div class="title">Slither.io</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_isi_dress_up.jpg" alt="card_ajedrez">
+                            <div class="title">Isi Dress up</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_papa's_cupcakeria.avif" alt="card_ajedrez">
+                            <div class="title">Papa's Cupcakeria</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <a href="../html/game.html"><img src="../imgs/card_penguin_diner.webp"
+                                    alt="card_ajedrez"></a>
+                            <div class="title">Penguin diner</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <button class="btn_right_arrow">
+                    <img src="../iconos/icono_flecha_derecha.svg" alt="icono_fleca">
+                </button>
+            </div>
+        </section>
+
+        <section class="general_carousel">
+            <h2>Acción</h2>
+
+            <div class="carousel">
+                <button class="btn_left_arrow">
+                    <img src="../iconos/icono_flecha_izquierda.svg" alt="icono_flecha">
+                </button>
+
+                <div class="games_carousel">
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-horizon-chase.jpeg" alt="card-horizon-chase">
+                            <div class="title">Horizon chase</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $3⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-lego-batman.jpeg" alt="card-lego-batman">
+                            <div class="title">Lego batman 3</div>
+                        </div>
+
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-pac-man.webp" alt="card-pac-man">
+                            <div class="title">Pac-man</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $10⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-brawl-stars.jpg" alt="card-brawl-stars">
+                            <div class="title">Brawl stars</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-moto-x3m.avif" alt="card-moto-x3m">
+                            <div class="title">Moto X3M</div>
+                        </div>
+                        <div class="logo_cards">
+                            <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-fifa-24.jpg" alt="card-fifa-24">
+                            <div class="title">Fifa 24</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $16⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_fireboy_watergirl_2.webp" alt="card-fifa-24">
+                            <div class="title">Fireboy and Watergirl 2</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_jump_jousts_2.webp" alt="card-fifa-24">
+                            <div class="title">Jump Jousts 2</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $10⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_sonic3_and_knuckles.webp" alt="card-fifa-24">
+                            <div class="title">Sonic 3 and Knuckles</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $7⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_stick_war.jpg" alt="card-fifa-24">
+                            <div class="title">Stick War Infinity Duel</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_fireboy_watergirl_5.avif" alt="card-fifa-24">
+                            <div class="title">Fireboy and Watergirl 5</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $9⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_mortal_kombat.webp" alt="card-fifa-24">
+                            <div class="title">Mortal Kombat</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $14⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_super_mario_odissey.avif" alt="card-fifa-24">
+                            <div class="title">Super Mario Odissey</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $5⁹⁹ </div>
+                    </div>
+                </div>
+
+                <button class="btn_right_arrow">
+                    <img src="../iconos/icono_flecha_derecha.svg" alt="icono_flecha">
+                </button>
+            </div>
+        </section>
+
+        <section class="general_carousel">
+            <h2>Deportes</h2>
+
+            <div class="carousel">
+                <button class="btn_left_arrow">
+                    <img src="../iconos/icono_flecha_izquierda.svg" alt="icono_flecha">
+                </button>
+
+                <div class="games_carousel">
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-ping-pong.avif" alt="card-ping-pong">
+                            <div class="title">Ping pong</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-ice-hockey.jpeg" alt="card-ice-hockey">
+                            <div class="title">Ice hockey</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-voleibol.webp" alt="card-voleibol">
+                            <div class="title">Cartoons voleibol</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-basquet.avif" alt="card-basquet">
+                            <div class="title">Basquetball Stars</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-mario-tenis.jpg" alt="card-mario-tenis">
+                            <div class="title">Mario tenis</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_crazy_tennis.webp" alt="card-fifa-24">
+                            <div class="title">Crazy Tenis</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $18⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_car_ball_io.avif" alt="card-fifa-24">
+                            <div class="title">Car Ball IO</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $11⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_flipper_basketball.jpg" alt="card-fifa-24">
+                            <div class="title">Flipper Basketball</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_hoop_world.avif" alt="card-fifa-24">
+                            <div class="title">Hoop World</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $2⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_penalty_shooters2.avif" alt="card-fifa-24">
+                            <div class="title">Penalty Shooters 2</div>
+                        </div>
+
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_tap_tap_shots.avif" alt="card-fifa-24">
+                            <div class="title">Tap Tap Shots</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $19⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_toon_cup18.png" alt="card-fifa-24">
+                            <div class="title">Toon Cup 18</div>
+                        </div>
+
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_new_soccer_2018.jpg" alt="card-fifa-24">
+                            <div class="title">New Soccer 2018</div>
+                        </div>
+
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_soccer_random.avif" alt="card-fifa-24">
+                            <div class="title">Soccer Random</div>
+                        </div>
+
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_soccer_bros.avif" alt="card-fifa-24">
+                            <div class="title">Soccer Bros</div>
+                        </div>
+
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <button class="btn_right_arrow">
+                    <img src="../iconos/icono_flecha_derecha.svg" alt="icono_flecha">
+                </button>
+            </div>
+        </section>
+
+        <section class="general_carousel">
+            <h2>Estrategia</h2>
+
+            <div class="carousel">
+                <button class="btn_left_arrow">
+                    <img src="../iconos/icono_flecha_izquierda.svg" alt="icono_flecha">
+                </button>
+
+                <div class="games_carousel">
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_ajedrez.jpeg" alt="card_ajedrez">
+                            <div class="title">Ajedrez</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_tetris.png" alt="card_tetris">
+                            <div class="title">Tetris</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-pac-man.webp" alt="card-pac-man">
+                            <div class="title">Pac-man</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-damas.png" alt="card-damas">
+                            <div class="title">Damas</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-tom-and-jerry.jpg" alt="card-tom-and-jerry">
+                            <div class="title">Tom vs Jerry</div>
+                        </div>
+                        
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                            <div class="logo_cards">
+                                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_batalla_naval.jpg" alt="card-batalla-naval">
+                            <div class="title">Combate naval</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_ludo_hero.avif" alt="card-batalla-naval">
+                            <div class="title">Ludo Hero</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_paper_io2.webp" alt="card-batalla-naval">
+                            <div class="title">Paper Io 2</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $10⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_bomb_it7.webp" alt="card-batalla-naval">
+                            <div class="title">Bomb It 7</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_draculaura_dressup.webp" alt="card-batalla-naval">
+                            <div class="title">Draculaura Dress Up</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_monopoly.jpg" alt="card-batalla-naval">
+                            <div class="title">Monopoly</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_dynamons8.webp" alt="card-batalla-naval">
+                            <div class="title">Dynamons 8</div>
+                        </div>
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                        </div>
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="game_price"> $13⁹⁹ </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_plants_vs_zombies.jpg" alt="card-batalla-naval">
+                            <div class="title">Plants Vs Zombies</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_scaping_the_prison.avif" alt="card-batalla-naval">
+                            <div class="title">Scaping the Prison</div>
+                        </div>
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <button class="btn_right_arrow">
+                    <img src="../iconos/icono_flecha_derecha.svg" alt="icono_flecha">
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- FORMS -->
+    <div id="register_form" class="session_forms invisible">
+        <div class="logo_form relative">
+            <div class="logo_form_img">
+                <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
+            </div>
+
+            <button id="register_close_button" class="close_button absolute" type="button">
+                <img src="../iconos/close_button.png" alt="close">
+            </button>
+        </div>
+
+        <div class="session_options">
+            <button class="google_button">
+                <img src="../iconos/logo_google.png" alt="logo_google">
+                <h3>Continuar con Google</h3>
+            </button>
+
+            <button class="facebook_button">
+                <img src="../iconos/logo_facebook.png" alt="logo_facebook">
+                <h3>Continuar con Facebook</h3>
+            </button>
+        </div>
+
+        <div class="separation">
+            <p>━━━━━━━━━</p>
+            <p>o</p>
+            <p>━━━━━━━━━</p>
+        </div>
+
+        <h3>Campos obligatorios *</h3>
+
+        <form id="form_register">
+            <div class="input">
+                <label for="">Nombre y apellido *</label>
+                <input type="text" placeholder="Nombre y apellido">
+            </div>
+
+            <div class="combined_inputs">
+                <div class="input">
+                    <label for="">Nickname</label>
+                    <input type="text" placeholder="Nickname">
+                </div>
+
+                <div class="input">
+                    <label for="">Edad *</label>
+                    <input type="number" placeholder="Edad">
+                </div>
+            </div>
+
+            <div class="input">
+                <label for="">Correo electrónico *</label>
+                <input type="email" placeholder="Email">
+            </div>
+
+            <div class="input">
+                <label for="">Contraseña *</label>
+                <div class="password_input">
+                    <input type="password" placeholder="Contraseña">
+                    <img src="../iconos/visibility_off_icon.svg" alt="Eye">
+                </div>
+            </div>
+
+            <div class="input">
+                <label for="">Repetir contraseña *</label>
+                <div class="password_input">
+                    <input type="password" placeholder="Repetir contraseña">
+                    <img src="../iconos/visibility_off_icon.svg" alt="Eye">
+                </div>
+            </div>
+
+            <img class="captcha_button" src="../imgs/captcha.png" alt="">
+
+            <div class="send_form_buttons">
+                <button type="button" id="login_button" class="unactive_button">Ingresar</button>
+                <button type="button" id="register" class="active_button">
+                    <span>Registrarse</span>
+                    <div class="spinner"></div>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div id="login_form" class="session_forms invisible">
+        <div class="logo_form relative">
+            <div class="logo_form_img">
+                <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
+            </div>
+
+            <button id="login_close_button" class="absolute close_button" type="button">
+                <img src="../iconos/close_button.png" alt="close">
+            </button>
+        </div>
+
+        <div class="session_options">
+            <button class="google_button">
+                <img src="../iconos/logo_google.png" alt="logo_google">
+                <h3>Continuar con Google</h3>
+            </button>
+
+            <button class="facebook_button">
+                <img src="../iconos/logo_facebook.png" alt="logo_facebook">
+                <h3>Continuar con Facebook</h3>
+            </button>
+        </div>
+
+        <div class="separation">
+            <p>━━━━━━━━━</p>
+            <p>o</p>
+            <p>━━━━━━━━━</p>
+        </div>
+
+        <form id="form_log_in">
+            <div class="input">
+                <label for="">Correo electrónico</label>
+                <input type="email" placeholder="Correo electrónico">
+            </div>
+
+            <div class="input">
+                <label for="">Contraseña</label>
+                <div class="password_input">
+                    <input type="password" placeholder="Contraseña">
+                    <img src="../iconos/visibility_off_icon.svg" alt="">
+                </div>
+            </div>
+
+            <div class="send_form_buttons">
+                <button type="button" id="log_in" class="active_button">
+                    <span>Ingresar</span>
+                    <div class="spinner"></div>
+                </button>
+                <button type="button" id="signin_button" class="unactive_button">Registrarse</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="correct_session" class="invisible">
+        <div class="logo_form_img">
+            <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
+        </div>
+
+        <h1>¡Bienvenido a Mega Games Zone!</h1>
+        <h2>Gracias por unirte a nuestra comunidad</h2>
+
+        <button id="accept_button">Aceptar</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer_container">
+            <div class="footer_category">
+                <h3>SOBRE NOSOTROS</h3>
+                <h4>Contáctanos</h4>
+                <h4>Sobre nosotros</h4>
+                <h4>Equipo</h4>
+            </div>
+            <div class="footer_category">
+                <h3>AYUDA</h3>
+                <h4>FAQ</h4>
+                <h4>Soporte</h4>
+            </div>
+            <div class="footer_category">
+                <h3>ÚNETE</h3>
+                <h4>Registrate</h4>
+            </div>
+            <div class="footer_category">
+                <h3>MÁS</h3>
+                <h4>Apps similares</h4>
+                <h4>Chart images</h4>
+            </div>
+            <div class="footer_category">
+                <h3>CATEGORIAS</h3>
+                <h4>Estrategia</h4>
+                <h4>Acción</h4>
+                <h4>Terror</h4>
+            </div>
+            <div class="footer_category">
+                <h3>REDES SOCIALES</h3>
+                <div class="icons">
+                    <img src="../iconos/logo_twitter.png" alt="logo_twitter">
+                    <img src="../iconos/logo_instagram.png" alt="logo_instagram">
+                    <img src="../iconos/logo_facebook.png" alt="logo_facebook">
+                </div>
+            </div>
+        </div>
+        <h4>2024, August | All rights reserved | Terms, conditions and Privacy Policy | Updated September, 2024</h4>
+    </footer>
+
+    <!-- LOADING -->
+    <div class="loader" id="loader_container">
+        <div class="loader_box">
+            <div class="logo_form_img">
+                <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
+            </div>
+            <h1>Bienvenido a Mega Games Zone</h1>
+            <section class="dots_container">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </section>
+            <h3 id="percentaje">0%</h3>
+        </div>
+    </div>
+
+    <script src="../js/forms.js"></script>
+    <script src="../js/carousels.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/loader.js"></script>
+</body>
+
+</html>

@@ -4,85 +4,594 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <title>Document</title>
+    <title>Mega Games Zone</title>
+    <link rel="icon" href="../iconos/icono_joystick.png.ico">
+    <link rel="stylesheet" href="../styles/general.css">
+    <link rel="stylesheet" href="../styles/game.css">
+    <link rel="stylesheet" href="../styles/game_content.css">
+    <link rel="stylesheet" href="../styles/forms.css">
 </head>
 
 <body>
+    <header>
+        <div class="container_btn_burger">
+            <button id="btn_burger_menu">
+                <img src="../iconos/logo_menu_haburguesa.svg" alt="">
+            </button>
+        </div>
 
-    <section class="game">
-        <div class="restart-container invisible" >
-            <button id="restart"><img src="../imgs/logo_restart.png" alt="logo_restart"></button>
+        <div class="logo">
+            <a href="../html/home.html"><img src="../iconos/logo_joystick.svg" alt="logo"></a>
+            <a href="../html/home.html">
+                <h1>MGZ</h1>
+            </a>
         </div>
-        
-        <div class="countdown invisible">
-            <div id="minutes"></div>
-            <div>:</div>
-            <div id="seconds"></div>
+
+        <div class="right_options">
+            <div class="search_input">
+                <input type="text" placeholder="¿Qué quieres jugar hoy?"></input>
+                <img src="../iconos/logo_buscador.svg" alt="logo_buscador" fill="currentColor">
+            </div>
+
+            <button>
+                <img src="../iconos/cart.svg" alt="">
+            </button>
+            <button id="btn_profile_menu">
+                <img src="../iconos/logo_user.svg" alt="">
+            </button>
+
+            <nav id="profile_menu" class="menu invisible">
+                <ul>
+                    <li><a href="#">Mi perfil</a></li>
+                    <li><button id="register_button">Registrarse</button></li>
+                </ul>
+            </nav>
         </div>
-    
-        <div class="tie invisible">
-            <h3 id="cause"></h3>
-            <h3 id="result"></h3>
-            <button class="accept">Aceptar</button>
-        </div>
-    
-        <div id="turn_alert" class="invisible">
-            <h1>¡NO ES TU TURNO!</h1>
-        </div>
-    
-        <div id="intro_page">
-            <h1>Tom VS Jerry: Batallando por la casa</h1>
-            <h2>Elige la granularidad del juego:</h2>
-    
-            <form id="option_form" action="">
-                <select id="choose_inline" name="choose_inline">
-                    <option value="opcion4">4 en linea</option>
-                    <option value="opcion5">5 en linea</option>
-                    <option value="opcion6">6 en linea</option>
-                    <option value="opcion7">7 en linea</option>
-                </select>
-    
-                <div id="player-inputs">
-                    <div class="player_container">
-                        <label for="">Nombre jugador 1:</label>
-                        <input type="text" required placeholder="Tom" name="player1">
+
+        <nav id="burger_menu" class="menu invisible">
+            <ul>
+                <li><img src="../iconos/logo_home.png" alt="logo_home"><a href="home.html">Home</a></li>
+                <li><img src="../iconos/logo_tendencias.png" alt="logo_tendencias">Tendencias</li>
+                <li><img src="../iconos/logo_accion.png" alt="">Acción</li>
+                <li><img src="../iconos/logo_deportes.png" alt="">Deportes</li>
+                <li><img src="../iconos/logo_romance.png" alt="">Romance</li>
+                <li><img src="../iconos/logo_cocina.png" alt="">Cocina</li>
+                <li><img src="../iconos/logo_estrategia.png" alt="">Estrategia</li>
+                <li><img src="../iconos/logo_moda.png" alt="">Moda</li>
+                <li><img src="../iconos/logo_clasicos.png" alt="">Clásicos</li>
+                <li><img src="../iconos/logo_multijugador.png" alt="">Multi jugador</li>
+                <li><img src="../iconos/logo_carreras.png" alt="">Carreras</li>
+                <li><img src="../iconos/logo_aventura.png" alt="">Aventuras</li>
+                <li class="nav_redes">
+                    <img src="../iconos/logo_twitter.png" alt="logo_twitter">
+                    <img src="../iconos/logo_instagram.png" alt="logo_instagram">
+                    <img src="../iconos/logo_facebook.png" alt="logo_facebook">
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="main_container">
+            <article class="content">
+                <div class="game_container">
+                    <div class="breadcrumb">
+                        Tendencias
+                        <img src="../iconos/flechitas_breadcrumb.svg" alt="" srcset="">
+                        Tom vs Jerry
                     </div>
-                    <div class="player_container">
-                        <label for="">Nombre jugador 2</label>
-                        <input type="text" required placeholder="Jerry" name="player2">
+
+                    <div class="game">
+                        <div class="restart-container invisible">
+                            <button id="restart"><img src="../imgs/game/logo_restart.png" alt="logo_restart"></button>
+                        </div>
+
+                        <div class="countdown invisible">
+                            <div id="minutes"></div>
+                            <div>:</div>
+                            <div id="seconds"></div>
+                        </div>
+
+                        <div class="tie invisible">
+                            <h3 id="cause"></h3>
+                            <h3 id="result"></h3>
+                            <button class="accept">Aceptar</button>
+                        </div>
+
+                        <div id="turn_alert" class="invisible">
+                            <h1>¡NO ES TU TURNO!</h1>
+                        </div>
+
+                        <div id="intro_page">
+                            <h1>Tom VS Jerry: Batallando por la casa</h1>
+                            <h2>Elige la granularidad del juego:</h2>
+
+                            <form id="option_form" action="">
+                                <select id="choose_inline" name="choose_inline">
+                                    <option value="opcion4">4 en linea</option>
+                                    <option value="opcion5">5 en linea</option>
+                                    <option value="opcion6">6 en linea</option>
+                                    <option value="opcion7">7 en linea</option>
+                                </select>
+
+                                <div id="player-inputs">
+                                    <div class="player_container">
+                                        <label for="">Nombre jugador 1:</label>
+                                        <input type="text" required placeholder="Tom" name="player1">
+                                    </div>
+                                    <div class="player_container">
+                                        <label for="">Nombre jugador 2</label>
+                                        <input type="text" required placeholder="Jerry" name="player2">
+                                    </div>
+                                </div>
+                                <div>
+                                    <h1>Jugador 1: elige tu caracter</h1>
+                                    <div class="characters_container">
+                                        <button class="image-button_tom" onclick="selectCharacterTom(event, 1)">
+                                            <img src="../imgs/game/ficha_tom.png" alt="">
+                                        </button>
+                                        <button class="image-button_tom" onclick="selectCharacterTom(event, 2)">
+                                            <img src="../imgs/game/ficha_tom_face_2.png" alt="">
+                                        </button>
+                                        <button class="image-button_tom" onclick="selectCharacterTom(event, 3)">
+                                            <img src="../imgs/game/ficha_tom_face_3.png" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h1>Jugador 2: elige tu caracter</h1>
+                                    <div class="characters_container">
+                                        <button class="image-button_jerry" onclick="selectCharacterJerry(event, 1)">
+                                            <img src="../imgs/game/ficha_jerry.png" alt="">
+                                        </button>
+                                        <button class="image-button_jerry" onclick="selectCharacterJerry(event, 2)">
+                                            <img src="../imgs/game/ficha_jerry_face_2.png" alt="">
+                                        </button>
+                                        <button class="image-button_jerry" onclick="selectCharacterJerry(event, 3)">
+                                            <img src="../imgs/game/ficha_jerry_face_3.png" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                                <button id="option_button" type="button">Jugar</button>
+                            </form>
+                        </div>
+
+                        <canvas class="invisible" id="canvas" width="747" height="622"></canvas>
+                        <!-- <button class="btn_run_game">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </button> -->
                     </div>
                 </div>
-                <div>
-                    <h1>Jugador 1: elige tu caracter</h1>
-                    <div class="characters_container">
-                        <button class="image-button_tom" onclick="selectCharacterTom(event, 1)" ><img src="../imgs/ficha_tom.png" alt=""></button>
-                        <button class="image-button_tom" onclick="selectCharacterTom(event, 2)"><img src="../imgs/ficha_tom_face_2.png" alt=""></button>
-                        <button class="image-button_tom" onclick="selectCharacterTom(event, 3)"><img src="../imgs/ficha_tom_face_3.png" alt=""></button>
+
+                <div class="game_info">
+                    <h2>Tom vs Jerry</h2>
+
+                    <p>
+                        En esta nueva aventura, Tom y Jerry se enfrentan otra vez.
+                        Con el objetivo de terminar sus disputas en la casa decidieron jugar un 4 en línea.
+                        Para esto, cada uno necesita un representante.
+                    </p>
+
+                    <p>
+                        Juega con un amigo y elige a uno de los personajes.
+                        Para comenzar deja caer una de tus fichas en cualquiera de los casilleros,
+                        la misma se deslizará hasta el fondo. Tu compañero hará lo mismo.
+                        Ganará el primero que logre poner 4 de sus fichas en una línea recta, pudiendo ser la misma
+                        vertical,
+                        horizontal o diagonal. Si ninguno de los jugadores lo consigue, el juego acabará en empate.
+                    </p>
+
+                    <p class="game_devs">
+                        Desarrolladores: Álvarez Milagros, Bellinzona Ana, Bravo Facundo (MGZ Commpany)
+                        Publicación: septiembre de 2024
+                    </p>
+
+                    <div class="game_options">
+                        <div class="share">
+                            <button class="social_media_logo">
+                                <span>Instagram</span>
+                                <img src="../iconos/logo_instagram_mono.svg" alt="Instagram">
+                            </button>
+                            <button class="social_media_logo">
+                                <span>Twitter</span>
+                                <img src="../iconos/logo_twitter_mono.svg" alt="Twitter">
+                            </button>
+                            <button class="social_media_logo">
+                                <span>Facebook</span>
+                                <img src="../iconos/logo_facebook_mono.svg" alt="Facebook">
+                            </button>
+                            <button class="social_media_logo">
+                                <span>Mail</span>
+                                <img src="../iconos/logo_mail.svg" alt="Mail">
+                            </button>
+                            <button class="social_media_logo">
+                                <span>Whatsapp</span>
+                                <img src="../iconos/logo_whatsapp.svg" alt="Whatsapp">
+                            </button>
+                        </div>
+
+                        <div class="rating">
+                            <img src="../iconos/logo_estrella_vacia.svg" id="star-1" class="star" alt="Star">
+                            <img src="../iconos/logo_estrella_vacia.svg" id="star-2" class="star" alt="Star">
+                            <img src="../iconos/logo_estrella_vacia.svg" id="star-3" class="star" alt="Star">
+                            <img src="../iconos/logo_estrella_vacia.svg" id="star-4" class="star" alt="Star">
+                            <img src="../iconos/logo_estrella_vacia.svg" id="star-5" class="star" alt="Star">
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <h1>Jugador 2: elige tu caracter</h1>
-                    <div class="characters_container">
-                        <button class="image-button_jerry" onclick="selectCharacterJerry(event, 1)"><img src="../imgs/ficha_jerry.png" alt=""></button>
-                        <button class="image-button_jerry" onclick="selectCharacterJerry(event, 2)"><img src="../imgs/ficha_jerry_face_2.png" alt=""></button>
-                        <button class="image-button_jerry" onclick="selectCharacterJerry(event, 3)"><img src="../imgs/ficha_jerry_face_3.png" alt=""></button>
+
+                <div class="media_content">
+                    <h3>Contenido Multimedia</h3>
+
+                    <div class="media_files">
+                        <div class="media"><img src="../imgs/media_file_1.png" alt="Media 1"></div>
+                        <div class="media"><img src="../imgs/media_file_2.png" alt="Media 2"></div>
+                        <div class="media"><img src="../imgs/media_file_3.png" alt="Media 3"></div>
                     </div>
                 </div>
-                <button id="option_button" type="button">Jugar</button>
-            </form>
+
+                <div class="comments_section">
+                    <div class="comments_info">
+                        <img src="../iconos/logo_comment.svg" alt="Comentarios">
+                        <h3>Comentarios</h3>
+                    </div>
+
+                    <div class="input_container">
+                        <img src="../imgs/people_1.png" alt="Profile picture" class="profile_picture">
+
+                        <form class="form_comment">
+                            <textarea placeholder="¿Qué te pareció el juego? Escribe aquí tu comentario" re
+                                class="input_comment" required></textarea>
+                            <button class="btn_send_comment">Enviar</button>
+                        </form>
+                    </div>
+
+                    <div class="comments_container">
+                        <div class="comment">
+                            <img src="../imgs/people_2.png" alt="Profile picture" class="profile_picture">
+
+                            <div class="comment_content">
+                                <p>Me gustó mucho, tengo 30 años y estos juegos nunca me aburren!</p>
+                                <div class="comment_info">
+                                    <p>hace 45 min</p>
+
+                                    <div class="comment_actions">
+                                        <button>
+                                            <img src="../iconos/logo_like.svg" alt="Like">
+                                        </button>
+                                        <div class="actions_divider"></div>
+                                        <button>Responder</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment">
+                            <img src="../imgs/people_3.png" alt="Profile picture" class="profile_picture">
+
+                            <div class="comment_content">
+                                <p>Muy buen juego, amo Tom y Jerry</p>
+                                <div class="comment_info">
+                                    <p>hace 1 día</p>
+
+                                    <div class="comment_actions">
+                                        <button>
+                                            <img src="../iconos/logo_like.svg" alt="Like">
+                                        </button>
+                                        <div class="actions_divider"></div>
+                                        <button>Responder</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment">
+                            <img src="../imgs/people_4.png" alt="Profile picture" class="profile_picture">
+
+                            <div class="comment_content">
+                                <p>Podría mejorar, por qué no se come el perro al perdedor?</p>
+                                <div class="comment_info">
+                                    <p>hace 3 semanas</p>
+
+                                    <div class="comment_actions">
+                                        <button>
+                                            <img src="../iconos/logo_like.svg" alt="Like">
+                                        </button>
+                                        <div class="actions_divider"></div>
+                                        <button>Responder</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="recommended_games">
+                    <h4>Juegos similares</h4>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card-sims-4.webp" alt="card-sims-4">
+                            <div class="title"> The Sims 4</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                            <div class="logo_cards">
+                                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_solitario.png" alt="card_solitario">
+                            <div class="title">Solitario</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <a href="../html/game.html" class="btn_play">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 0C11.1875 0 0 11.1875 0 25C0 38.8125 11.1875 50 25 50C38.8125 50 50 38.8125 50 25C50 11.1875 38.8125 0 25 0ZM20 36.25V13.75L35 25L20 36.25Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <div class="img_and_title_card">
+                            <img src="../imgs/card_bad_ice_cream.webp" alt="card_bad_ice_cream">
+                            <div class="title">Bad ice cream</div>
+                        </div>
+
+                        <div class="labels_cards">
+                            <div class="logo_cards">
+                                <img src="../iconos/icono_card_compra.svg" alt="icono_card_compra">
+                            </div>
+                            <div class="logo_cards">
+                                <img src="../iconos/logo_tendencias_card.svg" alt="logo_tendencias_card">
+                            </div>
+                        </div>
+
+                        <div class="container_btn_comprar">
+                            <button class="btn_comprar">
+                                <span>Agregar al carrito</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e8eaed">
+                                    <path
+                                        d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="game_price">$21⁹⁹</div>
+                    </div>
+
+                </aside>
+            </article>
+        </section>
+    </main>
+
+    <!-- FORMS -->
+    <div id="register_form" class="session_forms invisible">
+        <div class="logo_form relative">
+            <div class="logo_form_img">
+                <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
+            </div>
+
+            <button id="register_close_button" class="close_button absolute" type="button">
+                <img src="../iconos/close_button.png" alt="close">
+            </button>
         </div>
 
-        <canvas class="invisible" id="canvas" width="747" height="622"></canvas>
-    </section>
+        <div class="session_options">
+            <button class="google_button">
+                <img src="../iconos/logo_google.png" alt="logo_google">
+                <h3>Continuar con Google</h3>
+            </button>
 
+            <button class="facebook_button">
+                <img src="../iconos/logo_facebook.png" alt="logo_facebook">
+                <h3>Continuar con Facebook</h3>
+            </button>
+        </div>
 
-    <script src="../js/Chip.js"></script>
-    <script src="../js/Hint.js"></script>
-    <script src="../js/Locker.js"></script>
-    <script src="../js/Board.js"></script>
-    <script src="../js/Game.js"></script>
-    <script src="../js/gameInit.js"></script>
+        <div class="separation">
+            <p>━━━━━━━━━</p>
+            <p>o</p>
+            <p>━━━━━━━━━</p>
+        </div>
+
+        <h3>Campos obligatorios *</h3>
+
+        <form id="form_register">
+            <div class="input">
+                <label for="">Nombre y apellido *</label>
+                <input type="text" placeholder="Nombre y apellido">
+            </div>
+
+            <div class="combined_inputs">
+                <div class="input">
+                    <label for="">Nickname</label>
+                    <input type="text" placeholder="Nickname">
+                </div>
+
+                <div class="input">
+                    <label for="">Edad *</label>
+                    <input type="number" placeholder="Edad">
+                </div>
+            </div>
+
+            <div class="input">
+                <label for="">Correo electrónico *</label>
+                <input type="email" placeholder="Email">
+            </div>
+
+            <div class="input">
+                <label for="">Contraseña *</label>
+                <div class="password_input">
+                    <input type="password" placeholder="Contraseña">
+                    <img src="../iconos/visibility_off_icon.svg" alt="Eye">
+                </div>
+            </div>
+
+            <div class="input">
+                <label for="">Repetir contraseña *</label>
+                <div class="password_input">
+                    <input type="password" placeholder="Repetir contraseña">
+                    <img src="../iconos/visibility_off_icon.svg" alt="Eye">
+                </div>
+            </div>
+
+            <img class="captcha_button" src="../imgs/captcha.png" alt="">
+
+            <div class="send_form_buttons">
+                <button type="button" id="login_button" class="unactive_button">Ingresar</button>
+                <button type="button" id="register" class="active_button">
+                    <span>Registrarse</span>
+                    <div class="spinner"></div>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div id="login_form" class="session_forms invisible">
+        <div class="logo_form relative">
+            <div class="logo_form_img">
+                <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
+            </div>
+
+            <button id="login_close_button" class="absolute close_button" type="button">
+                <img src="../iconos/close_button.png" alt="close">
+            </button>
+        </div>
+
+        <div class="session_options">
+            <button class="google_button">
+                <img src="../iconos/logo_google.png" alt="logo_google">
+                <h3>Continuar con Google</h3>
+            </button>
+
+            <button class="facebook_button">
+                <img src="../iconos/logo_facebook.png" alt="logo_facebook">
+                <h3>Continuar con Facebook</h3>
+            </button>
+        </div>
+
+        <div class="separation">
+            <p>━━━━━━━━━</p>
+            <p>o</p>
+            <p>━━━━━━━━━</p>
+        </div>
+
+        <form id="form_log_in">
+            <div class="input">
+                <label for="">Correo electrónico</label>
+                <input type="email" placeholder="Correo electrónico">
+            </div>
+
+            <div class="input">
+                <label for="">Contraseña</label>
+                <div class="password_input">
+                    <input type="password" placeholder="Contraseña">
+                    <img src="../iconos/visibility_off_icon.svg" alt="">
+                </div>
+            </div>
+
+            <div class="send_form_buttons">
+                <button type="button" id="log_in" class="active_button">
+                    <span>Ingresar</span>
+                    <div class="spinner"></div>
+                </button>
+                <button type="button" id="signin_button" class="unactive_button">Registrarse</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="correct_session" class="invisible">
+        <div class="logo_form_img">
+            <img src="../iconos/logo_joystick.svg" alt="logo_MGZ">
+        </div>
+
+        <h1>¡Bienvenido a Mega Games Zone!</h1>
+        <h2>Gracias por unirte a nuestra comunidad</h2>
+
+        <button id="accept_button">Aceptar</button>
+    </div>
+
+    <footer>
+        <div class="footer_container">
+            <div class="footer_category">
+                <h3>SOBRE NOSOTROS</h3>
+                <h4>Contáctanos</h4>
+                <h4>Sobre nosotros</h4>
+                <h4>Equipo</h4>
+            </div>
+            <div class="footer_category">
+                <h3>AYUDA</h3>
+                <h4>FAQ</h4>
+                <h4>Soporte</h4>
+            </div>
+            <div class="footer_category">
+                <h3>ÚNETE</h3>
+                <h4>Registrate</h4>
+            </div>
+            <div class="footer_category">
+                <h3>MÁS</h3>
+                <h4>Apps similares</h4>
+                <h4>Chart images</h4>
+            </div>
+            <div class="footer_category">
+                <h3>CATEGORIAS</h3>
+                <h4>Estrategia</h4>
+                <h4>Acción</h4>
+                <h4>Terror</h4>
+            </div>
+            <div class="footer_category">
+                <h3>REDES SOCIALES</h3>
+                <div class="icons">
+                    <img src="../iconos/logo_twitter.png" alt="logo_twitter">
+                    <img src="../iconos/logo_instagram.png" alt="logo_instagram">
+                    <img src="../iconos/logo_facebook.png" alt="logo_facebook">
+                </div>
+            </div>
+        </div>
+        <h4>2024, August | All rights reserved | Terms, conditions and Privacy Policy | Updated September, 2024</h4>
+    </footer>
+
+    <script src="../js/game/Chip.js"></script>
+    <script src="../js/game/Hint.js"></script>
+    <script src="../js/game/Locker.js"></script>
+    <script src="../js/game/Board.js"></script>
+    <script src="../js/game/Game.js"></script>
+    <script src="../js/forms.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/game.js"></script>
 </body>
 
 </html>
