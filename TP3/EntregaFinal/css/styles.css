@@ -39,7 +39,7 @@ canvas,
     position: absolute;
 }
 
-.tie{
+.tie {
     background-color: rgba(225, 74, 19);
     box-sizing: border-box;
     display: none;
@@ -107,7 +107,8 @@ canvas,
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#option_button, .accept{
+#option_button,
+.accept {
     cursor: pointer;
     border: 3px solid rgb(0, 0, 0);
     background-color: rgba(225, 74, 19, 0.951);
@@ -121,11 +122,12 @@ canvas,
     transition: all 0.3s ease, transform 0.3s ease;
 }
 
-#option_button{
+#option_button {
     font-size: 25px;
 }
 
-#option_button:hover, .accept:hover{
+#option_button:hover,
+.accept:hover {
     scale: 1.1;
     box-shadow: 0px 4px 10px rgba(255, 153, 0, 0.793);
 }
@@ -138,11 +140,11 @@ canvas,
     color: black;
 }
 
-#option_form label{
+#option_form label {
     color: white;
 }
 
-#turn_alert{
+#turn_alert {
     width: 200px;
     box-sizing: border-box;
     text-align: center;
@@ -166,17 +168,17 @@ canvas,
     height: 20px;
 }
 
-#restart img{
+#restart img {
     width: 20px;
-    height: 20px;
+    height: 23px;
 }
 
-.characters_container{
+.characters_container {
     display: flex;
     gap: 10px;
 }
 
-.characters_container img{
+.characters_container img {
     width: 20px;
     height: 20px;
 }
