@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <div class="restart-container invisible" >
+        <button id="restart"><img src="../imgs/logo_restart.png" alt="logo_restart"></button>
+    </div>
     <section class="game">
         <div class="countdown invisible">
             <div id="minutes"></div>
@@ -47,6 +50,22 @@
                     <div class="player_container">
                         <label for="">Nombre jugador 2</label>
                         <input type="text" required placeholder="Jerry" name="player2">
+                    </div>
+                </div>
+                <div>
+                    <h1>Jugador 1: elige tu caracter</h1>
+                    <div class="characters_container">
+                        <button class="image-button_tom" onclick="selectCharacterTom(event, 1)" ><img src="../imgs/ficha_tom.png" alt=""></button>
+                        <button class="image-button_tom" onclick="selectCharacterTom(event, 2)"><img src="../imgs/ficha_tom_face_2.png" alt=""></button>
+                        <button class="image-button_tom" onclick="selectCharacterTom(event, 3)"><img src="../imgs/ficha_tom_face_3.png" alt=""></button>
+                    </div>
+                </div>
+                <div>
+                    <h1>Jugador 2: elige tu caracter</h1>
+                    <div class="characters_container">
+                        <button class="image-button_jerry" onclick="selectCharacterJerry(event, 1)"><img src="../imgs/ficha_jerry.png" alt=""></button>
+                        <button class="image-button_jerry" onclick="selectCharacterJerry(event, 2)"><img src="../imgs/ficha_jerry_face_2.png" alt=""></button>
+                        <button class="image-button_jerry" onclick="selectCharacterJerry(event, 3)"><img src="../imgs/ficha_jerry_face_3.png" alt=""></button>
                     </div>
                 </div>
                 <button id="option_button" type="button">Jugar</button>

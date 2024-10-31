@@ -156,3 +156,27 @@ canvas,
     left: calc(50% - 100px);
     top: 20px;
 }
+
+.restart-container {
+    background-color: aqua;
+    color: black;
+    position: absolute;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+}
+
+#restart img{
+    width: 20px;
+    height: 20px;
+}
+
+.characters_container{
+    display: flex;
+    gap: 10px;
+}
+
+.characters_container img{
+    width: 20px;
+    height: 20px;
+}

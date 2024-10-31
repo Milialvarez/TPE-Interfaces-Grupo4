@@ -59,6 +59,12 @@ class Game {
             }
         }
 
+        let restart_container = document.querySelector('.restart-container');
+        restart_container.classList.remove('invisible');
+
+        let btn_restart = document.querySelector('#restart');
+        btn_restart.addEventListener('click', (e)=>this.restartGame());
+
         this.canvas.addEventListener('mousedown', (e) => this.onMouseDown(e));
         this.canvas.addEventListener('mousemove', (e) => this.onMouseMove(e));
         this.canvas.addEventListener('mouseup', (e) => this.onMouseUp(e));

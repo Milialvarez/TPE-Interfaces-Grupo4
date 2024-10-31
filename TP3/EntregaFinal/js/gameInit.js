@@ -3,6 +3,27 @@
 const option_button = document.getElementById('option_button');
 option_button.addEventListener('click', getGameConfig)
 
+let selectedCharacterTom = 1;
+let selectedCharacterJerry = 1;
+
+function selectCharacterTom(event, index) {
+    event.preventDefault();
+  // Eliminar la clase 'selected' de todos los botones
+  const buttons = document.querySelectorAll('.image-button_tom');
+
+  // Guardar el índice del personaje seleccionado
+  selectedCharacterTom = index;
+}
+
+function selectCharacterJerry(event, index) {
+    event.preventDefault();
+    // Eliminar la clase 'selected' de todos los botones
+    const buttons = document.querySelectorAll('.image-button_jerry');
+  
+    // Guardar el índice del personaje seleccionado
+    selectedCharacterJerry = index;
+  }
+
 function getGameConfig() {
     const option_form = document.getElementById('option_form');
     const formData = new FormData(option_form);
@@ -24,7 +45,7 @@ function getGameConfig() {
     const intro_page = document.getElementById('intro_page');
     intro_page.classList.add('invisible');
 
-    initGame(option, playerOneName, playerTwoName);
+    initGame(option, playerOneName, playerTwoName, selectedCharacterTom, selectedCharacterJerry);
 }
 
 //FUNCIÓN PROMESA DE CARGA DE IMAGENES GENERAL
@@ -38,13 +59,30 @@ function loadImage(src) {
 }
 
 //FUNCIÓN ASÍNCRONA DE CONFIGURACIÓN E INICIALIZACIÓN DEL JUEGO
-async function initGame(option, playerOneName, playerTwoName) {
+async function initGame(option, playerOneName, playerTwoName, characterTom, characterJerry) {
+
     try {
         const hintImage = await loadImage("../imgs/hint.png")
         const hintProhibitedImage = await loadImage("../imgs/hint_prohibited.png")
-        const tomChipImage = await loadImage("../imgs/ficha_tom.png")
-        const jerryChipImage = await loadImage("../imgs/ficha_jerry.png")
         const lockerImage = await loadImage("../imgs/casillero.png")
+        let tomChipImage;
+    let jerryChipImage;
+
+    if(characterTom == 1){
+        tomChipImage = await loadImage("../imgs/ficha_tom.png")
+    } else if(characterTom == 2){
+        tomChipImage = await loadImage("../imgs/ficha_tom_face_2.png")
+    } else if(characterTom == 3){
+        tomChipImage = await loadImage("../imgs/ficha_tom_face_3.png")
+    }
+
+    if(characterJerry == 1){
+        jerryChipImage = await loadImage("../imgs/ficha_jerry.png")
+    } else if(characterJerry == 2){
+        jerryChipImage = await loadImage("../imgs/ficha_jerry_face_2.png")
+    } else if(characterJerry == 3){
+        jerryChipImage = await loadImage("../imgs/ficha_jerry_face_3.png")
+    }
 
         let lockerSize, chipSize, hintSize, xInLine, nColumns, nRows;
 
