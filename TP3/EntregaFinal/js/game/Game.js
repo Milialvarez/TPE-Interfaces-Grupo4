@@ -329,7 +329,7 @@ class Game {
     //MUESTRA CARTEL DE SEGURO QUE QUIERE REINICIAR EL JUEGO
     showAlertRestartGame(){
         this.stopCountdown();
-        let cartel = document.querySelector('.restart_container');
+        let cartel = document.querySelector('.restart_alert_container');
         cartel.classList.remove('invisible');
 
         let accept = document.querySelector('#accept_btn');
