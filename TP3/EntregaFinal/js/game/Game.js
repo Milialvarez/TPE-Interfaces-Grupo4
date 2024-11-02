@@ -99,6 +99,8 @@ class Game {
                 return;
             }
 
+            this.canvas.style.cursor = "pointer"
+
             this.initPosition = { x: chip.getX(), y: chip.getY() }
             this.selectedChip = chip;
             if (this.lastChip != null && this.checkTurn() == false) {
@@ -163,6 +165,7 @@ class Game {
 
     //DESELECCIONA UNA CHIP A LA PAR DE QUE EL JUGADOR SUELTA EL MOUSE Y SE OBTIENE LA COLUMNA Y LOCKER DONDE COLOCAR LA FICHA SELECCIONADA
     onMouseUp(e) {
+        this.canvas.style.cursor = "default"
         if (this.lastChip != null && this.selectedChip != null) {
             if (this.checkTurn() == false) {
                 this.selectedChip.setX(this.initPosition.x);
