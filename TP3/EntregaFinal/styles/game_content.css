@@ -245,6 +245,12 @@ canvas,
 .characters_container img {
     width: 40px;
     height: 40px;
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+.character_selected {
+    transform: scale(.8);
 }
 
 .visible {

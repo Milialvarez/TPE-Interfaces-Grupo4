@@ -44,34 +44,54 @@ button_ready.addEventListener('click', (event) => {
     form.classList.add('invisible');
     intro.classList.add('visible');
     intro.classList.remove('invisible');
-    
 })
 
 const button_game = document.getElementById('button_game'); 
 button_game.addEventListener('click', () => {
     form.classList.add('visible');
     intro.classList.add('invisible');
-
     form.classList.remove('invisible');
-})
+    const buttonsTom = document.querySelectorAll('.image_button_tom');
+    buttonsTom.forEach(button => {
+        button.addEventListener("click", selectCharacterTom)
+    })
 
+    const buttonsJerry = document.querySelectorAll('.image_button_jerry');
+    buttonsJerry.forEach(button => {
+        button.addEventListener("click", selectCharacterJerry)
+    })
+})
 
 let selectedCharacterTom = 1;
 let selectedCharacterJerry = 1;
 
-function selectCharacterTom(event, index) {
-    event.preventDefault();
-    // Eliminar la clase 'selected' de todos los botones
-    const buttons = document.querySelectorAll('.image-button_tom');
+function selectCharacterTom(e) {
+    e.preventDefault();
+    let id = e.target.id
+    let index = id.split("_")[1]
+    // Eliminar la clase 'character_selected' de todos los botones
+    const buttons = document.querySelectorAll('.image_button_tom');
+    buttons.forEach(button => {
+        button.classList.remove("character_selected")
+    })
+
+    document.getElementById(id).classList.add("character_selected")
 
     // Guardar el índice del personaje seleccionado
     selectedCharacterTom = index;
 }
 
-function selectCharacterJerry(event, index) {
-    event.preventDefault();
+function selectCharacterJerry(e) {
+    e.preventDefault();
+    let id = e.target.id
+    let index = id.split("_")[1]
     // Eliminar la clase 'selected' de todos los botones
-    const buttons = document.querySelectorAll('.image-button_jerry');
+    const buttons = document.querySelectorAll('.image_button_jerry');
+    buttons.forEach(button => {
+        button.classList.remove("character_selected")
+    })
+    
+    document.getElementById(id).classList.add("character_selected")
 
     // Guardar el índice del personaje seleccionado
     selectedCharacterJerry = index;

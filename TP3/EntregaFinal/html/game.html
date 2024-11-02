@@ -124,7 +124,6 @@
                                         <option value="opcion7">7 en linea</option>
                                     </select>
 
-
                                     <div id="player-inputs">
                                         <div class="player_container">
                                             <label for="">Nombre jugador 1:</label>
@@ -135,37 +134,27 @@
                                             <input type="text" required placeholder="Jerry" name="player2">
                                         </div>
                                     </div>
+
                                     <div class="characters">
                                         <div class="character">
-                                        <h1>Jugador 1: elige tu caracter</h1>
-                                        <div class="characters_container">
-                                            <button class="image-button_tom" onclick="selectCharacterTom(event, 1)">
-                                                <img src="../imgs/game/ficha_tom.png" alt="">
-                                            </button>
-                                            <button class="image-button_tom" onclick="selectCharacterTom(event, 2)">
-                                                <img src="../imgs/game/ficha_tom_face_2.png" alt="">
-                                            </button>
-                                            <button class="image-button_tom" onclick="selectCharacterTom(event, 3)">
-                                                <img src="../imgs/game/ficha_tom_face_3.png" alt="">
-                                            </button>
+                                            <h1>Jugador 1: elige tu caracter</h1>
+                                            <div class="characters_container">
+                                                <img src="../imgs/game/ficha_tom.png" alt="Ficha Tom 1" class="image_button_tom" id="tom_1">
+                                                <img src="../imgs/game/ficha_tom_face_2.png" alt="Ficha Tom 2" class="image_button_tom" id="tom_2">
+                                                <img src="../imgs/game/ficha_tom_face_3.png" alt="Ficha Tom 3" class="image_button_tom" id="tom_3">
+                                            </div>
+                                        </div>
+
+                                        <div class="character">
+                                            <h1>Jugador 2: elige tu caracter</h1>
+                                            <div class="characters_container">
+                                                <img src="../imgs/game/ficha_jerry.png" alt="Ficha Jerry 1" class="image_button_jerry" id="jerry_1">
+                                                <img src="../imgs/game/ficha_jerry_face_2.png" alt="Ficha Jerry 2" class="image_button_jerry" id="jerry_2">
+                                                <img src="../imgs/game/ficha_jerry_face_3.png" alt="Ficha Jerry 3" class="image_button_jerry" id="jerry_3">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="character">
-                                        <h1>Jugador 2: elige tu caracter</h1>
-                                        <div class="characters_container">
-                                            <button class="image-button_jerry" onclick="selectCharacterJerry(event, 1)">
-                                                <img src="../imgs/game/ficha_jerry.png" alt="">
-                                            </button>
-                                            <button class="image-button_jerry" onclick="selectCharacterJerry(event, 2)">
-                                                <img src="../imgs/game/ficha_jerry_face_2.png" alt="">
-                                            </button>
-                                            <button class="image-button_jerry" onclick="selectCharacterJerry(event, 3)">
-                                                <img src="../imgs/game/ficha_jerry_face_3.png" alt="">
-                                            </button>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    
+
                                     <button id="button_ready">Listo</button>
                                 </form>
                             </div>
