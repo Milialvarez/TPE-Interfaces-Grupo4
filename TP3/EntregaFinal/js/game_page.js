@@ -5,6 +5,7 @@ stars.forEach(s => {
     s.addEventListener("click", setRating)
 })
 
+
 function setRating(e) {
     if (localStorage.getItem("session")) {
         stars.forEach(s => {
@@ -38,6 +39,7 @@ option_button.addEventListener('click', getGameConfig)
 let intro = document.querySelector('.intro');
 let form = document.querySelector('.form');
 
+//MUESTRA EL INICIO AL JUEGO
 const button_ready = document.getElementById('button_ready');
 button_ready.addEventListener('click', (event) => {
     event.preventDefault();
@@ -46,6 +48,7 @@ button_ready.addEventListener('click', (event) => {
     intro.classList.remove('invisible');
 })
 
+//PERMITE LA CONFIGURACIÓN DEL JUEGO Y SELECCIÓN DE FICHAS
 const button_game = document.getElementById('button_game'); 
 button_game.addEventListener('click', () => {
     form.classList.add('visible');
@@ -65,11 +68,11 @@ button_game.addEventListener('click', () => {
 let selectedCharacterTom = 1;
 let selectedCharacterJerry = 1;
 
+//PERMITE VERIFICAR LA IMAGEN SELECCIONADA PARA LA FICHA DE TOM
 function selectCharacterTom(e) {
     e.preventDefault();
     let id = e.target.id
     let index = id.split("_")[1]
-    // Eliminar la clase 'character_selected' de todos los botones
     const buttons = document.querySelectorAll('.image_button_tom');
     buttons.forEach(button => {
         button.classList.remove("character_selected")
@@ -77,15 +80,14 @@ function selectCharacterTom(e) {
 
     document.getElementById(id).classList.add("character_selected")
 
-    // Guardar el índice del personaje seleccionado
     selectedCharacterTom = index;
 }
 
+//PERMITE VERIFICAR LA IMAGEN SELECCIONADA PARA LA FICHA DE JERRY
 function selectCharacterJerry(e) {
     e.preventDefault();
     let id = e.target.id
     let index = id.split("_")[1]
-    // Eliminar la clase 'selected' de todos los botones
     const buttons = document.querySelectorAll('.image_button_jerry');
     buttons.forEach(button => {
         button.classList.remove("character_selected")
@@ -93,10 +95,10 @@ function selectCharacterJerry(e) {
     
     document.getElementById(id).classList.add("character_selected")
 
-    // Guardar el índice del personaje seleccionado
     selectedCharacterJerry = index;
 }
 
+//OBTIENE LA CONFIGURACIÓN DEL JUEGO Y LLAMA AL MÉTODO QUE LO INICIALIZA
 function getGameConfig() {
     const option_form = document.getElementById('option_form');
     const formData = new FormData(option_form);
@@ -189,6 +191,7 @@ async function initGame(option, playerOneName, playerTwoName, characterTom, char
 let btnRunGame = document.querySelector("#btn_run_game")
 btnRunGame.addEventListener("click", runGame)
 
+//MUESTRA EL BOTÓN DE PLAY
 function runGame() {
     btnRunGame.classList.add("invisible")
     document.querySelector("#intro_page").classList.remove("invisible")

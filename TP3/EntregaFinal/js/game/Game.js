@@ -328,6 +328,7 @@ class Game {
         clearInterval(this.intervalCount)
     }
 
+    //DIBUJA LOS MINUTOS Y SEGUNDOS DEL TEMPORIZADOR
     drawTime(minutesContainer, secondsContainer, seconds, minutes) {
         if (minutes <= 9) {
             minutesContainer.innerHTML = '0' + minutes;
@@ -384,6 +385,7 @@ class Game {
         }
     }
 
+    //VALIDA QUE SEA EL TURNO DE UN JUGADOR
     checkTurn() {
         let currentPlayer = this.selectedChip.getPlayer();
         let lastPlayer = this.lastChip.getPlayer();
@@ -394,6 +396,7 @@ class Game {
         }
     }
 
+    //MUESTRA CARTEL DE NO ES TU TURNO
     showTurnsAlert() {
         let alert = document.querySelector('#turn_alert');
         alert.classList.remove('invisible');
@@ -408,11 +411,13 @@ class Game {
         }, 1000);
     }
 
+    //ESCONDE CARTEL DE TIEMPO
     hideCountDown(){
         let countdown = document.querySelector('.countdown');
         countdown.classList.add('invisible');
     }
 
+    //MUESTRA CARTEL DE GANADOR
     showWinner(player) {
         let accept = document.querySelector('.accept');
         let cartel = document.querySelector('.tie');

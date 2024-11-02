@@ -44,6 +44,7 @@ class Hint {
         this.image = image
     }
 
+    //DIBUJA EL HINT
     draw() {
         this.ctx.beginPath();
         this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);

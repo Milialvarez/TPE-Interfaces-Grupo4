@@ -86,10 +86,12 @@ class Board {
         this.column++
     }
 
+    //OBTIENE LA POSICION X DE UN LOCKER DADA LA COLUMNA A LA QUE PERTENECE
     getLockerSizeByColumn(column) {
         return this.lockers[0][column].getX();
     }
 
+    //DEVUELVE EL LOCKER VACÍO DE UNA COLUMNA DESDE MÁS ABAJO
     emptyLocker(column) {
         for (let index = this.nRows - 1; index >= 0; index--) {
             if (this.lockers[index][column].getEmpty()) {
@@ -99,6 +101,7 @@ class Board {
         return null;
     }
 
+    //VALIDA QUE TODOS LOS LOCKERS ESTÁN LLENOS
     fullLockers() {
         let quantity = 0;
         let size = this.nColumns * this.nRows
