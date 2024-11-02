@@ -40,11 +40,25 @@ canvas,
     position: absolute;
 }
 
-.tie {
+.tie{
     background-color: rgba(225, 74, 19);
     box-sizing: border-box;
     display: none;
     flex-direction: column;
+    width: 300px;
+    padding: 15px;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: 40%;
+    border: 3px solid black;
+}
+
+.restart_container{
+    z-index: 2;
+    background-color: rgba(225, 74, 19);
+    box-sizing: border-box;
+    flex-direction: column;
+    display: flex;
     width: 300px;
     padding: 15px;
     position: absolute;

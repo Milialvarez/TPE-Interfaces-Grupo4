@@ -32,6 +32,8 @@ class Game {
         this.rebound = true
         this.hintSize = hintSize
         this.intervalCount
+        this.currentMin;
+        this.currentSec;
     }
 
     //CREA EL BOARD Y LAS CHIPS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
@@ -64,13 +66,13 @@ class Game {
         restart_container.classList.remove('invisible');
 
         let btn_restart = document.querySelector('#restart');
-        btn_restart.addEventListener('click', (e)=>this.restartGame());
+        btn_restart.addEventListener('click', (e)=>this.showAlertRestartGame());
 
         this.canvas.addEventListener('mousedown', (e) => this.onMouseDown(e));
         this.canvas.addEventListener('mousemove', (e) => this.onMouseMove(e));
         this.canvas.addEventListener('mouseup', (e) => this.onMouseUp(e));
         this.lastChip = null
-        this.countdown()
+        this.countdown(5, 0)
         this.getCanvasOffset()
         window.addEventListener("resize", () => this.getCanvasOffset())
         window.addEventListener("scroll", () => this.getCanvasOffset())
@@ -296,50 +298,77 @@ class Game {
     }
 
     // CRONOMETRO DEL JUEGO
-    countdown() {
+    countdown(min, sec) {
         let countdown = document.querySelector('.countdown');
         countdown.classList.remove('invisible');
         let secondsContainer = document.querySelector('#seconds');
         let minutesContainer = document.querySelector('#minutes');
-        let seconds = 0;
-        let minutes = 5;
+        this.currentSec = sec;
+        this.currentMin = min;
 
-        this.drawTime(minutesContainer, secondsContainer, seconds, minutes)
+        this.drawTime(minutesContainer, secondsContainer)
 
         this.intervalCount = setInterval(() => {
-            seconds--;
+            this.currentSec--;
 
-            if (seconds == -1) {
-                seconds = 59;
-                minutes--;
+            if (this.currentSec == -1) {
+                this.currentSec = 59;
+                this.currentMin--;
             }
 
-            if (minutes == 0 && seconds == 0) {
+            if (this.currentMin == 0 && this.currentSec == 0) {
                 this.tieForTime();
                 this.stopCountdown()
                 countdown.classList.add('invisible');
             }
 
-            this.drawTime(minutesContainer, secondsContainer, seconds, minutes)
+            this.drawTime(minutesContainer, secondsContainer)
         }, 1000)
     }
 
+    //MUESTRA CARTEL DE SEGURO QUE QUIERE REINICIAR EL JUEGO
+    showAlertRestartGame(){
+        this.stopCountdown();
+        let cartel = document.querySelector('.restart_container');
+        cartel.classList.remove('invisible');
+
+        let accept = document.querySelector('#accept_btn');
+        let cancel = document.querySelector('#cancel_btn');
+
+        accept.addEventListener('click', (e)=>{
+            cartel.classList.add('invisible');
+            this.restartGame();
+        })
+
+        cancel.addEventListener('click', ()=>{
+            cartel.classList.add('invisible');
+            this.continueCountDown();
+        })
+    }
+
+    //PARA EL CRONOMETRO
     stopCountdown() {
         clearInterval(this.intervalCount)
     }
 
+    //PERMITE CONTINUAR EL CRONOMETRO DESDE DONDE QUEDÓ
+    continueCountDown(){
+        clearInterval(this.intervalCount);
+        this.countdown(this.currentMin, this.currentSec)
+    }
+
     //DIBUJA LOS MINUTOS Y SEGUNDOS DEL TEMPORIZADOR
-    drawTime(minutesContainer, secondsContainer, seconds, minutes) {
-        if (minutes <= 9) {
-            minutesContainer.innerHTML = '0' + minutes;
+    drawTime(minutesContainer, secondsContainer) {
+        if (this.currentMin <= 9) {
+            minutesContainer.innerHTML = '0' + this.currentMin;
         } else {
-            minutesContainer.innerHTML = minutes;
+            minutesContainer.innerHTML = this.currentMin;
         }
 
-        if (seconds <= 9) {
-            secondsContainer.innerHTML = '0' + seconds;
+        if (this.currentSec <= 9) {
+            secondsContainer.innerHTML = '0' + this.currentSec;
         } else {
-            secondsContainer.innerHTML = seconds;
+            secondsContainer.innerHTML = this.currentSec;
         }
     }
 
@@ -462,4 +491,5 @@ class Game {
     getCanvasOffset() {
         this.canvasOffset = this.canvas.getBoundingClientRect()
     }
+
 }
