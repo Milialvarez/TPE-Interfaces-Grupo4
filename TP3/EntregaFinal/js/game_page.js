@@ -35,32 +35,23 @@ function setRating(e) {
 const option_button = document.getElementById('option_button');
 option_button.addEventListener('click', getGameConfig)
 
+let intro = document.querySelector('.intro');
 let form = document.querySelector('.form');
-let title = document.querySelector('#title');
 
 const button_ready = document.getElementById('button_ready');
 button_ready.addEventListener('click', (event) => {
     event.preventDefault();
     form.classList.add('invisible');
-
-    title.classList.add('visible');
-    option_button.classList.add('visible');
-    button_game.classList.add('visible');
-
-    title.classList.remove('invisible');
-    option_button.classList.remove('invisible');
-    button_game.classList.remove('invisible');
+    intro.classList.add('visible');
+    intro.classList.remove('invisible');
+    
 })
 
 const button_game = document.getElementById('button_game'); 
 button_game.addEventListener('click', () => {
     form.classList.add('visible');
+    intro.classList.add('invisible');
 
-    title.classList.add('invisible');
-    option_button.classList.add('invisible');
-    button_game.classList.add('invisible');
-
-    
     form.classList.remove('invisible');
 })
 

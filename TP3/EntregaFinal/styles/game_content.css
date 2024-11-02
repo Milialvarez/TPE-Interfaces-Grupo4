@@ -52,13 +52,18 @@ canvas,
 }
 
 #intro_page {
-    display: flex;
     width: 747px;
     height: 622px;
     justify-content: center;
-    flex-direction: column;
-    gap: 20px;
     text-align: center;
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
 
 #intro_page h1,
@@ -169,7 +174,7 @@ canvas,
 }
 
 #option_button:hover,
-.accept:hover {
+.accept:hover, #button_game:hover, #button_ready:hover {
     scale: 1.1;
     box-shadow: 0px 4px 10px rgba(255, 153, 0, 0.793);
 }
@@ -202,19 +207,15 @@ canvas,
 }
 
 .restart-container {
-    background-color: aqua;
-    color: black;
     position: absolute;
     left: 5px;
     top: 5px;
     z-index: 1;
-    width: 20px;
-    height: 20px;
 }
 
 #restart img {
-    width: 20px;
-    height: 23px;
+    width: 40px;
+    height: 40px;
 }
 
 .characters{
@@ -278,8 +279,7 @@ option {
     font-size: 1rem;
 }
 
-/* Cambia el color de las opciones cuando se seleccionan */
 select option:checked {
-    background-color: #FFD700; /* Fondo dorado para la opción seleccionada */
-    color: #000; /* Texto en negro */
+    background-color: #FFD700;
+    color: #000;
 }
