@@ -42,17 +42,26 @@ const button_ready = document.getElementById('button_ready');
 button_ready.addEventListener('click', (event) => {
     event.preventDefault();
     form.classList.add('invisible');
+
     title.classList.add('visible');
     option_button.classList.add('visible');
     button_game.classList.add('visible');
+
+    title.classList.remove('invisible');
+    option_button.classList.remove('invisible');
+    button_game.classList.remove('invisible');
 })
 
 const button_game = document.getElementById('button_game'); 
 button_game.addEventListener('click', () => {
     form.classList.add('visible');
+
     title.classList.add('invisible');
     option_button.classList.add('invisible');
     button_game.classList.add('invisible');
+
+    
+    form.classList.remove('invisible');
 })
 
 

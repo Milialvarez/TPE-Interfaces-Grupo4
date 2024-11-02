@@ -105,11 +105,6 @@ canvas,
     flex-direction: column;
 }
 
-/* .granularity{
-    display: none;
-    flex-direction: column;
-} */
-
 #player-inputs {
     margin-top: 90px;
     display: flex;
@@ -228,7 +223,6 @@ canvas,
 }
 
 .character{
-    display: flex;
     flex-direction: column;
     padding: 30px;
     gap: 2px;
@@ -260,7 +254,6 @@ canvas,
     display: none;
 }
 
-/* Estilo general del select */
 select {
     appearance: none;
     padding: 10px;
@@ -275,12 +268,10 @@ select {
     width: 100px;
 }
 
-/* Personalizar el icono de la flecha de dropdown */
 select::-ms-expand {
     display: none;
 }
 
-/* Estilos de las opciones */
 option {
     background-color: rgb(255, 157, 0);
     color: #FFFFFF; /* Texto blanco */
