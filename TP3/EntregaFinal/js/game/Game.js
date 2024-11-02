@@ -348,6 +348,7 @@ class Game {
         let cartel = document.querySelector('.tie');
         let cause = document.querySelector('#cause');
         let result = document.querySelector('#result');
+        this.hideCountDown();
 
         result.innerHTML = "Empate";
         cause.innerHTML = "¡Sin tiempo!";
@@ -369,6 +370,7 @@ class Game {
         let result = document.querySelector('#result');
 
         if (this.board.fullLockers()) {
+            this.hideCountDown();
 
             result.innerHTML = "Empate";
             cause.innerHTML = "¡Tablero lleno!";
@@ -406,11 +408,17 @@ class Game {
         }, 1000);
     }
 
+    hideCountDown(){
+        let countdown = document.querySelector('.countdown');
+        countdown.classList.add('invisible');
+    }
+
     showWinner(player) {
         let accept = document.querySelector('.accept');
         let cartel = document.querySelector('.tie');
         let cause = document.querySelector('#cause');
         let result = document.querySelector('#result');
+        this.hideCountDown();
 
         result.innerHTML = "¡Felicidades!";
         cause.innerHTML = "Ganador: " + player;
@@ -432,14 +440,16 @@ class Game {
         let restart_container = document.querySelector('.restart-container');
         restart_container.classList.add('invisible');
 
+        let tie = document.querySelector('.tie');
+        tie.classList.add('invisible');
+
         this.lastChip = null
 
         this.delete();
         this.stopCountdown()
 
         this.canvas.classList.add("invisible")
-        let countdown = document.querySelector('.countdown');
-        countdown.classList.add('invisible');
+        this.hideCountDown();
         const intro_page = document.getElementById('intro_page');
         intro_page.classList.remove('invisible');
     }

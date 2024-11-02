@@ -49,6 +49,12 @@ canvas,
     position: absolute;
     left: calc(50% - 150px);
     top: 40%;
+    border: 3px solid black;
+}
+
+.tie button{
+    margin-top: 10px;
+    background-color: rgb(223, 131, 10);
 }
 
 #intro_page {
