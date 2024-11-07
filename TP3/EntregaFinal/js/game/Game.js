@@ -32,6 +32,8 @@ class Game {
         this.rebound = true
         this.hintSize = hintSize
         this.intervalCount
+        this.currentMin;
+        this.currentSec;
     }
 
     //CREA EL BOARD Y LAS CHIPS PARA CADA JUGADOR, DEFINE EVENTOS DEL CANVAS
@@ -64,13 +66,13 @@ class Game {
         restart_container.classList.remove('invisible');
 
         let btn_restart = document.querySelector('#restart');
-        btn_restart.addEventListener('click', (e)=>this.restartGame());
+        btn_restart.addEventListener('click', (e)=>this.showAlertRestartGame());
 
         this.canvas.addEventListener('mousedown', (e) => this.onMouseDown(e));
         this.canvas.addEventListener('mousemove', (e) => this.onMouseMove(e));
         this.canvas.addEventListener('mouseup', (e) => this.onMouseUp(e));
         this.lastChip = null
-        this.countdown()
+        this.countdown(5, 0)
         this.getCanvasOffset()
         window.addEventListener("resize", () => this.getCanvasOffset())
         window.addEventListener("scroll", () => this.getCanvasOffset())
@@ -98,6 +100,8 @@ class Game {
             if (chip.getUsed()) {
                 return;
             }
+
+            this.canvas.style.cursor = "pointer"
 
             this.initPosition = { x: chip.getX(), y: chip.getY() }
             this.selectedChip = chip;
@@ -163,6 +167,7 @@ class Game {
 
     //DESELECCIONA UNA CHIP A LA PAR DE QUE EL JUGADOR SUELTA EL MOUSE Y SE OBTIENE LA COLUMNA Y LOCKER DONDE COLOCAR LA FICHA SELECCIONADA
     onMouseUp(e) {
+        this.canvas.style.cursor = "default"
         if (this.lastChip != null && this.selectedChip != null) {
             if (this.checkTurn() == false) {
                 this.selectedChip.setX(this.initPosition.x);
@@ -293,49 +298,77 @@ class Game {
     }
 
     // CRONOMETRO DEL JUEGO
-    countdown() {
+    countdown(min, sec) {
         let countdown = document.querySelector('.countdown');
         countdown.classList.remove('invisible');
         let secondsContainer = document.querySelector('#seconds');
         let minutesContainer = document.querySelector('#minutes');
-        let seconds = 0;
-        let minutes = 5;
+        this.currentSec = sec;
+        this.currentMin = min;
 
-        this.drawTime(minutesContainer, secondsContainer, seconds, minutes)
+        this.drawTime(minutesContainer, secondsContainer)
 
         this.intervalCount = setInterval(() => {
-            seconds--;
+            this.currentSec--;
 
-            if (seconds == -1) {
-                seconds = 59;
-                minutes--;
+            if (this.currentSec == -1) {
+                this.currentSec = 59;
+                this.currentMin--;
             }
 
-            if (minutes == 0 && seconds == 0) {
+            if (this.currentMin == 0 && this.currentSec == 0) {
                 this.tieForTime();
                 this.stopCountdown()
                 countdown.classList.add('invisible');
             }
 
-            this.drawTime(minutesContainer, secondsContainer, seconds, minutes)
+            this.drawTime(minutesContainer, secondsContainer)
         }, 1000)
     }
 
+    //MUESTRA CARTEL DE SEGURO QUE QUIERE REINICIAR EL JUEGO
+    showAlertRestartGame(){
+        this.stopCountdown();
+        let cartel = document.querySelector('.restart_alert_container');
+        cartel.classList.remove('invisible');
+
+        let accept = document.querySelector('#accept_btn');
+        let cancel = document.querySelector('#cancel_btn');
+
+        accept.addEventListener('click', (e)=>{
+            cartel.classList.add('invisible');
+            this.restartGame();
+        })
+
+        cancel.addEventListener('click', ()=>{
+            cartel.classList.add('invisible');
+            this.continueCountDown();
+        })
+    }
+
+    //PARA EL CRONOMETRO
     stopCountdown() {
         clearInterval(this.intervalCount)
     }
 
-    drawTime(minutesContainer, secondsContainer, seconds, minutes) {
-        if (minutes <= 9) {
-            minutesContainer.innerHTML = '0' + minutes;
+    //PERMITE CONTINUAR EL CRONOMETRO DESDE DONDE QUEDÓ
+    continueCountDown(){
+        clearInterval(this.intervalCount);
+        this.countdown(this.currentMin, this.currentSec)
+    }
+
+    //DIBUJA LOS MINUTOS Y SEGUNDOS DEL TEMPORIZADOR
+    drawTime(minutesContainer, secondsContainer) {
+        if (this.currentMin <= 9) {
+            minutesContainer.innerHTML = '0' + this.currentMin;
         } else {
-            minutesContainer.innerHTML = minutes;
+            minutesContainer.innerHTML = this.currentMin;
         }
 
-        if (seconds <= 9) {
-            secondsContainer.innerHTML = '0' + seconds;
+        if (this.currentSec <= 9) {
+            secondsContainer.innerHTML = '0' + this.currentSec;
         } else {
-            secondsContainer.innerHTML = seconds;
+            secondsContainer.innerHTML = this.currentSec;
         }
     }
 
@@ -345,6 +378,7 @@ class Game {
         let cartel = document.querySelector('.tie');
         let cause = document.querySelector('#cause');
         let result = document.querySelector('#result');
+        this.hideCountDown();
 
         result.innerHTML = "Empate";
         cause.innerHTML = "¡Sin tiempo!";
@@ -366,6 +400,7 @@ class Game {
         let result = document.querySelector('#result');
 
         if (this.board.fullLockers()) {
+            this.hideCountDown();
 
             result.innerHTML = "Empate";
             cause.innerHTML = "¡Tablero lleno!";
@@ -379,6 +414,7 @@ class Game {
         }
     }
 
+    //VALIDA QUE SEA EL TURNO DE UN JUGADOR
     checkTurn() {
         let currentPlayer = this.selectedChip.getPlayer();
         let lastPlayer = this.lastChip.getPlayer();
@@ -389,6 +425,7 @@ class Game {
         }
     }
 
+    //MUESTRA CARTEL DE NO ES TU TURNO
     showTurnsAlert() {
         let alert = document.querySelector('#turn_alert');
         alert.classList.remove('invisible');
@@ -403,11 +440,19 @@ class Game {
         }, 1000);
     }
 
+    //ESCONDE CARTEL DE TIEMPO
+    hideCountDown(){
+        let countdown = document.querySelector('.countdown');
+        countdown.classList.add('invisible');
+    }
+
+    //MUESTRA CARTEL DE GANADOR
     showWinner(player) {
         let accept = document.querySelector('.accept');
         let cartel = document.querySelector('.tie');
         let cause = document.querySelector('#cause');
         let result = document.querySelector('#result');
+        this.hideCountDown();
 
         result.innerHTML = "¡Felicidades!";
         cause.innerHTML = "Ganador: " + player;
@@ -429,14 +474,16 @@ class Game {
         let restart_container = document.querySelector('.restart-container');
         restart_container.classList.add('invisible');
 
+        let tie = document.querySelector('.tie');
+        tie.classList.add('invisible');
+
         this.lastChip = null
 
         this.delete();
         this.stopCountdown()
 
         this.canvas.classList.add("invisible")
-        let countdown = document.querySelector('.countdown');
-        countdown.classList.add('invisible');
+        this.hideCountDown();
         const intro_page = document.getElementById('intro_page');
         intro_page.classList.remove('invisible');
     }
@@ -444,4 +491,5 @@ class Game {
     getCanvasOffset() {
         this.canvasOffset = this.canvas.getBoundingClientRect()
     }
+
 }

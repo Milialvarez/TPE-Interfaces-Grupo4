@@ -6,6 +6,7 @@ canvas,
     position: absolute;
     left: 0;
     top: 0;
+    z-index: 0;
 }
 
 #intro_page{
@@ -32,14 +33,14 @@ canvas,
 .countdown,
 .tie {
     user-select: none;
-    z-index: 1;
+    z-index: 2;
     justify-content: center;
     text-align: center;
     align-items: center;
     position: absolute;
 }
 
-.tie {
+.tie{
     background-color: rgba(225, 74, 19);
     box-sizing: border-box;
     display: none;
@@ -49,29 +50,61 @@ canvas,
     position: absolute;
     left: calc(50% - 150px);
     top: 40%;
+    border: 3px solid black;
+}
+
+.restart_alert_container{
+    z-index: 2;
+    background-color: rgb(88, 3, 111);
+    box-sizing: border-box;
+    flex-direction: column;
+    display: flex;
+    width: 300px;
+    padding: 15px;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: 40%;
+    border: 3px solid black;
+    text-align: center;
+    color: #06f04c;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+}
+
+.tie button{
+    margin-top: 10px;
+    background-color: rgb(223, 131, 10);
 }
 
 #intro_page {
-    display: flex;
     width: 747px;
     height: 622px;
     justify-content: center;
-    flex-direction: column;
-    gap: 20px;
     text-align: center;
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
 
 #intro_page h1,
 #intro_page h2 {
     font-family: "Alegreya", serif;
     font-optical-sizing: auto;
-    font-size: x-large;
     font-weight: 500;
+}
+
+#title h2{
+    font-size: x-large;
 }
 
 #title h1{
     font-family: Arial, sans-serif;
-    font-size: xx-large;
+    font-size: 50px;
     font-weight: bold;
     color: #FF0000; /* Color rojo brillante del texto */
     text-transform: uppercase;
@@ -86,8 +119,12 @@ canvas,
 
 #title h1 span {
     color: white;
-    font-size: large;
+    font-size: 25px;
     text-shadow: none;
+}
+
+#title{
+    margin-bottom: 16px;
 }
 
 #subtitle {
@@ -104,11 +141,6 @@ canvas,
     display: none;
     flex-direction: column;
 }
-
-/* .granularity{
-    display: none;
-    flex-direction: column;
-} */
 
 #player-inputs {
     margin-top: 90px;
@@ -174,7 +206,7 @@ canvas,
 }
 
 #option_button:hover,
-.accept:hover {
+.accept:hover, #button_game:hover, #button_ready:hover {
     scale: 1.1;
     box-shadow: 0px 4px 10px rgba(255, 153, 0, 0.793);
 }
@@ -207,19 +239,15 @@ canvas,
 }
 
 .restart-container {
-    background-color: aqua;
-    color: black;
     position: absolute;
     left: 5px;
     top: 5px;
     z-index: 1;
-    width: 20px;
-    height: 20px;
 }
 
 #restart img {
-    width: 20px;
-    height: 23px;
+    width: 40px;
+    height: 40px;
 }
 
 .characters{
@@ -228,7 +256,6 @@ canvas,
 }
 
 .character{
-    display: flex;
     flex-direction: column;
     padding: 30px;
     gap: 2px;
@@ -250,6 +277,12 @@ canvas,
 .characters_container img {
     width: 40px;
     height: 40px;
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+.character_selected {
+    transform: scale(.8);
 }
 
 .visible {
@@ -260,7 +293,6 @@ canvas,
     display: none;
 }
 
-/* Estilo general del select */
 select {
     appearance: none;
     padding: 10px;
@@ -275,20 +307,56 @@ select {
     width: 100px;
 }
 
-/* Personalizar el icono de la flecha de dropdown */
 select::-ms-expand {
     display: none;
 }
 
-/* Estilos de las opciones */
 option {
     background-color: rgb(255, 157, 0);
     color: #FFFFFF; /* Texto blanco */
     font-size: 1rem;
 }
 
-/* Cambia el color de las opciones cuando se seleccionan */
 select option:checked {
-    background-color: #FFD700; /* Fondo dorado para la opción seleccionada */
-    color: #000; /* Texto en negro */
+    background-color: #FFD700;
+    color: #000;
+}
+
+#restart_btn_container{
+    margin-top: 16px;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+#restart_btn_container button{
+    border-radius: 16px;
+    cursor: pointer;
+    padding: 8px;
+    font-size: medium;
+}
+
+
+#cancel_btn{
+    border: 2px solid #06f04c5e;
+    background-color: #000000;
+    color: #06f04c;
+    box-shadow: 0 4px 10px rgba(19, 234, 76, 0.4);
+}
+
+#accept_btn{
+    border: 2px solid black;
+    background-color: #06f04c;
+    color: black;
+    box-shadow: 0 4px 10px rgba(19, 234, 76, 0.4);
+}
+
+#accept_btn:hover{
+    scale: 1.1;
+    box-shadow: 0 8px 20px rgba(29, 235, 108, 0.6); 
+}
+
+#cancel_btn:hover{
+    scale: 1.1;
+    box-shadow: 0 8px 20px rgba(29, 235, 108, 0.6); 
 }

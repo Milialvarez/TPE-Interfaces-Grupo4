@@ -5,6 +5,7 @@ stars.forEach(s => {
     s.addEventListener("click", setRating)
 })
 
+
 function setRating(e) {
     if (localStorage.getItem("session")) {
         stars.forEach(s => {
@@ -35,48 +36,69 @@ function setRating(e) {
 const option_button = document.getElementById('option_button');
 option_button.addEventListener('click', getGameConfig)
 
+let intro = document.querySelector('.intro');
 let form = document.querySelector('.form');
-let title = document.querySelector('#title');
 
+//MUESTRA EL INICIO AL JUEGO
 const button_ready = document.getElementById('button_ready');
 button_ready.addEventListener('click', (event) => {
     event.preventDefault();
     form.classList.add('invisible');
-    title.classList.add('visible');
-    option_button.classList.add('visible');
-    button_game.classList.add('visible');
+    intro.classList.add('visible');
+    intro.classList.remove('invisible');
 })
 
+//PERMITE LA CONFIGURACIÓN DEL JUEGO Y SELECCIÓN DE FICHAS
 const button_game = document.getElementById('button_game'); 
 button_game.addEventListener('click', () => {
     form.classList.add('visible');
-    title.classList.add('invisible');
-    option_button.classList.add('invisible');
-    button_game.classList.add('invisible');
-})
+    intro.classList.add('invisible');
+    form.classList.remove('invisible');
+    const buttonsTom = document.querySelectorAll('.image_button_tom');
+    buttonsTom.forEach(button => {
+        button.addEventListener("click", selectCharacterTom)
+    })
 
+    const buttonsJerry = document.querySelectorAll('.image_button_jerry');
+    buttonsJerry.forEach(button => {
+        button.addEventListener("click", selectCharacterJerry)
+    })
+})
 
 let selectedCharacterTom = 1;
 let selectedCharacterJerry = 1;
 
-function selectCharacterTom(event, index) {
-    event.preventDefault();
-    // Eliminar la clase 'selected' de todos los botones
-    const buttons = document.querySelectorAll('.image-button_tom');
+//PERMITE VERIFICAR LA IMAGEN SELECCIONADA PARA LA FICHA DE TOM
+function selectCharacterTom(e) {
+    e.preventDefault();
+    let id = e.target.id
+    let index = id.split("_")[1]
+    const buttons = document.querySelectorAll('.image_button_tom');
+    buttons.forEach(button => {
+        button.classList.remove("character_selected")
+    })
 
-    // Guardar el índice del personaje seleccionado
+    document.getElementById(id).classList.add("character_selected")
+
     selectedCharacterTom = index;
 }
 
-function selectCharacterJerry(event, index) {
-    event.preventDefault();
-    // Eliminar la clase 'selected' de todos los botones
-    const buttons = document.querySelectorAll('.image-button_jerry');
+//PERMITE VERIFICAR LA IMAGEN SELECCIONADA PARA LA FICHA DE JERRY
+function selectCharacterJerry(e) {
+    e.preventDefault();
+    let id = e.target.id
+    let index = id.split("_")[1]
+    const buttons = document.querySelectorAll('.image_button_jerry');
+    buttons.forEach(button => {
+        button.classList.remove("character_selected")
+    })
+    
+    document.getElementById(id).classList.add("character_selected")
 
-    // Guardar el índice del personaje seleccionado
     selectedCharacterJerry = index;
 }
 
+//OBTIENE LA CONFIGURACIÓN DEL JUEGO Y LLAMA AL MÉTODO QUE LO INICIALIZA
 function getGameConfig() {
     const option_form = document.getElementById('option_form');
     const formData = new FormData(option_form);
@@ -169,6 +191,7 @@ async function initGame(option, playerOneName, playerTwoName, characterTom, char
 let btnRunGame = document.querySelector("#btn_run_game")
 btnRunGame.addEventListener("click", runGame)
 
+//MUESTRA EL BOTÓN DE PLAY
 function runGame() {
     btnRunGame.classList.add("invisible")
     document.querySelector("#intro_page").classList.remove("invisible")

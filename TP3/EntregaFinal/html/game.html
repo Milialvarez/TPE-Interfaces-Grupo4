@@ -83,7 +83,15 @@
 
                     <div class="game">
                         <div class="restart-container invisible">
-                            <button id="restart"><img src="../imgs/game/logo_restart.png" alt="logo_restart"></button>
+                            <button id="restart"><img src="../imgs/logo_restart.png" alt="logo_restart"></button>
+                        </div>
+
+                        <div class="restart_alert_container invisible">
+                            <h3 id="restart_alert">¿Estás seguro de que quieres reiniciar el juego?</h3>
+                            <div id="restart_btn_container">
+                                <button id="accept_btn">Aceptar</button>
+                                <button id="cancel_btn">Cancelar</button>
+                            </div>
                         </div>
 
                         <div class="countdown invisible">
@@ -103,9 +111,13 @@
                         </div>
 
                         <div id="intro_page" class="invisible">
-                            <div id="title">
-                                <h1>Tom <span>VS</span> Jerry</h1>
-                                <h2 id="subtitle">Batallando por la casa</h2>
+                            <div class="intro">
+                                <div id="title">
+                                    <h1>Tom <span>VS</span> Jerry</h1>
+                                    <h2 id="subtitle">Batallando por la casa</h2>
+                                </div>
+                                <button id="option_button" type="button">Jugar</button>
+                                <button id="button_game">Tu juego</button>
                             </div>
 
                             <div class="form">
@@ -120,7 +132,6 @@
                                         <option value="opcion7">7 en linea</option>
                                     </select>
 
-
                                     <div id="player-inputs">
                                         <div class="player_container">
                                             <label for="">Nombre jugador 1:</label>
@@ -131,42 +142,30 @@
                                             <input type="text" required placeholder="Jerry" name="player2">
                                         </div>
                                     </div>
+
                                     <div class="characters">
                                         <div class="character">
-                                        <h1>Jugador 1: elige tu caracter</h1>
-                                        <div class="characters_container">
-                                            <button class="image-button_tom" onclick="selectCharacterTom(event, 1)">
-                                                <img src="../imgs/game/ficha_tom.png" alt="">
-                                            </button>
-                                            <button class="image-button_tom" onclick="selectCharacterTom(event, 2)">
-                                                <img src="../imgs/game/ficha_tom_face_2.png" alt="">
-                                            </button>
-                                            <button class="image-button_tom" onclick="selectCharacterTom(event, 3)">
-                                                <img src="../imgs/game/ficha_tom_face_3.png" alt="">
-                                            </button>
+                                            <h1>Jugador 1: elige tu caracter</h1>
+                                            <div class="characters_container">
+                                                <img src="../imgs/game/ficha_tom.png" alt="Ficha Tom 1" class="image_button_tom" id="tom_1">
+                                                <img src="../imgs/game/ficha_tom_face_2.png" alt="Ficha Tom 2" class="image_button_tom" id="tom_2">
+                                                <img src="../imgs/game/ficha_tom_face_3.png" alt="Ficha Tom 3" class="image_button_tom" id="tom_3">
+                                            </div>
+                                        </div>
+
+                                        <div class="character">
+                                            <h1>Jugador 2: elige tu caracter</h1>
+                                            <div class="characters_container">
+                                                <img src="../imgs/game/ficha_jerry.png" alt="Ficha Jerry 1" class="image_button_jerry" id="jerry_1">
+                                                <img src="../imgs/game/ficha_jerry_face_2.png" alt="Ficha Jerry 2" class="image_button_jerry" id="jerry_2">
+                                                <img src="../imgs/game/ficha_jerry_face_3.png" alt="Ficha Jerry 3" class="image_button_jerry" id="jerry_3">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="character">
-                                        <h1>Jugador 2: elige tu caracter</h1>
-                                        <div class="characters_container">
-                                            <button class="image-button_jerry" onclick="selectCharacterJerry(event, 1)">
-                                                <img src="../imgs/game/ficha_jerry.png" alt="">
-                                            </button>
-                                            <button class="image-button_jerry" onclick="selectCharacterJerry(event, 2)">
-                                                <img src="../imgs/game/ficha_jerry_face_2.png" alt="">
-                                            </button>
-                                            <button class="image-button_jerry" onclick="selectCharacterJerry(event, 3)">
-                                                <img src="../imgs/game/ficha_jerry_face_3.png" alt="">
-                                            </button>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    
+
                                     <button id="button_ready">Listo</button>
                                 </form>
                             </div>
-                            <button id="option_button" type="button">Jugar</button>
-                            <button id="button_game">Tu juego</button>
                         </div>
 
                         <canvas class="invisible" id="canvas" width="747" height="622"></canvas>
@@ -192,12 +191,13 @@
                     </p>
 
                     <p>
-                        Juega con un amigo y elige a uno de los personajes.
-                        Para comenzar deja caer una de tus fichas en cualquiera de los casilleros,
+                        Juega con un amigo y elige a uno de los personajes en la sección "Tu juego" y la cantidad de fichas
+                        que deberán poner en línea para ganar.
+                        Para comenzar deja caer una de tus fichas en cualquiera de los casilleros válidos
                         la misma se deslizará hasta el fondo. Tu compañero hará lo mismo.
-                        Ganará el primero que logre poner 4 de sus fichas en una línea recta, pudiendo ser la misma
-                        vertical,
-                        horizontal o diagonal. Si ninguno de los jugadores lo consigue, el juego acabará en empate.
+                        Ganará el primero que logre poner la cantidad preestablecida de sus fichas en una línea recta,
+                        pudiendo ser la misma vertical, horizontal o diagonal. Si ninguno de los jugadores lo consigue, 
+                        el juego acabará en empate, al igual que si el tiempo se agota antes de que uno gane.
                     </p>
 
                     <p class="game_devs">
@@ -243,9 +243,9 @@
                     <h3>Contenido Multimedia</h3>
 
                     <div class="media_files">
-                        <div class="media"><img src="../imgs/media_file_1.png" alt="Media 1"></div>
-                        <div class="media"><img src="../imgs/media_file_2.png" alt="Media 2"></div>
-                        <div class="media"><img src="../imgs/media_file_3.png" alt="Media 3"></div>
+                        <div class="media"><img src="../imgs/new_media3.png" alt="Media 1"></div>
+                        <div class="media"><img src="../imgs/new_media.png" alt="Media 2"></div>
+                        <div class="media"><img src="../imgs/new_media2.png" alt="Media 3"></div>
                     </div>
                 </div>
 

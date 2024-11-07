@@ -65,6 +65,7 @@ class Chip {
         this.ctx.closePath();
     }
 
+    //BOOLEAN QUE DETERMINA SI UNA POSICION X E Y PROVISTA POR EL CURSOR ESTÁ SOBRE UNA FICHA
     coordinatesAreInChip(x, y) {
         return this.getX() < x && (this.getX() + this.getSize()) > x && this.getY() < y && (this.getY() + this.getSize()) > y
     }
