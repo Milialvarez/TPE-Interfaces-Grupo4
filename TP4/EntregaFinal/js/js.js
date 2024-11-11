@@ -1,14 +1,14 @@
-// "use strict"
+"use strict"
 
-// window.addEventListener("resize", setHeightMainPage)
+window.addEventListener("resize", setHeightMainPage)
 
-// setHeightMainPage()
+setHeightMainPage()
 
-// function setHeightMainPage() {
-//     const windowWidth = window.innerWidth
+function setHeightMainPage() {
+    const windowWidth = window.innerWidth
 
-//     let first = windowWidth * 894 / 1280
-//     let second = windowWidth * 960 / 1280
+    let first = windowWidth * 894 / 1280
+    let second = windowWidth * 960 / 1280
 
-//     document.querySelector(".main_page").style.height = first + second + "px"
-// }
+    document.querySelector(".main_page").style.height = first + second + "px"
+}
