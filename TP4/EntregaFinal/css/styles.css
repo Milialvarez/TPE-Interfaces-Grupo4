@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: white;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    height: 103px;
+    background: linear-gradient(180deg, #00D1D5 0%, rgba(0, 209, 213, 0.12) 87.91%, rgba(1, 208, 213, 0) 100%);
+    align-items: center;
+    padding: 0 108px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+header button{
+    background-color: transparent;
+    height: fit-content;
+    border: none;
+}
+
+.primary_btn{
+    background-color: rgba(131, 194, 82, 1);
+    border: 8px solid white;
+    border-radius: 111px;
+    min-width: 200px;
+    height: 50px;
+    box-shadow: 4px 5px 0px 0px rgba(2, 24, 126, 1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 18.9px;
+    letter-spacing: 0.11em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    text-transform: uppercase;
+}
+
+.main_page{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: url(../img/background_page.svg), url(../img/background_curve.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top, bottom;
+    background-size: 100% auto;
+}
+
+.burger_container{
+    width: 216px;
+    display: flex;
+    justify-content: left;
+}
+
+.logo_img{
+    width: 550px;
+    height: 320px;
+    transform: translateY(110px);
+}
