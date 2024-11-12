@@ -78,6 +78,12 @@ header button {
     justify-content: left;
 }
 
+main{
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+}
+
 .logo_img {
     width: 550px;
     height: 320px;
