@@ -14,8 +14,6 @@ function setHeightMainPage() {
 
 }
 
-}
-
 const munequitos = document.getElementById('munequitos');
 
 document.addEventListener('mousemove', (e) => {

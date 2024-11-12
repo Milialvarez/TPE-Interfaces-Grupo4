@@ -108,19 +108,40 @@
 
 .news_section_container {
     background: linear-gradient(180deg, #FFFFFF 0%, #ADF8FD 47.09%, #EDFDFF 88.29%, #FFFFFF 107.02%);
-    background-image: url(../img/grass_news_section.svg);
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: 100%;
+    max-height: 1566px;
+}
+
+.news_section_container #grass_image{
+    margin-left: 0px;
+    z-index: 1;
 }
 
 
 .characters_and_form_container {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     justify-items: left;
-    height: 1296px;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+}
+
+#company_logo {
+    width: 231px;
+    height: 145px;
+    top: 13264px;
+    left: 100px;
+    gap: 0px;
+    opacity: 0px;
+
+}
+
+#left_cloud {
+    width: 387px;
+    height: 181px;
+    top: 13434px;
+    gap: 0px;
+    opacity: 0px;
+    margin-top: 21px;
+    margin-left: -6px;
 }
 
 .input_button_container {
@@ -138,7 +159,6 @@
     padding: 28px;
     border: 9px solid white;
     border-right: 4.5px solid white;
-    ;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     outline: none;
@@ -193,50 +213,31 @@
     text-decoration-skip-ink: none;
 }
 
-#big_cloud,
-#left_cloud {
-    z-index: 2;
-}
-
-#little_cloud {
-    width: 265px;
-    height: 124px;
-    opacity: 1;
-    z-index: 3;
-}
-
-#big_cloud {
-    width: 387px;
-    height: 181px;
-    opacity: 1;
-}
-
-#left_cloud {
-    width: 387px;
-    height: 181px;
-    opacity: 1;
-
-}
-
 #number2 {
     width: 218px;
     height: 420px;
+    z-index: 2;
 }
 
 #number3 {
     width: 210px;
     height: 488px;
+    bottom: 0;
+    z-index: 2;
 }
 
 #number7 {
     width: 249px;
     height: 745px;
+    z-index: 2;
+    margin-bottom: -50px;
 }
 
-#gifs_container{
+#gifs_container {
     display: flex;
-    width: 100%;
     max-height: 800px;
-    gap: 20px;
-    bottom: 0;
+    gap: 30px;
+    margin-left: 100px;
+    margin-bottom: -350px;
+    align-items: end;
 }
