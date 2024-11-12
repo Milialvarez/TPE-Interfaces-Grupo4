@@ -181,7 +181,7 @@ header button {
     background: #5E5E5D;
     gap: 30px;
     padding-bottom: 34px;
-    top: 950vh;
+    top: 1200vh;
 }
 
 .plataforms img,
@@ -249,6 +249,7 @@ header button {
     padding-top: 40%;
     padding-left: 115px;
     flex-direction: column;
+    top: 850vh;
 }
 
 .section_video h1 {
@@ -266,6 +267,7 @@ header button {
     justify-content: center;
     align-items: center;
     width: fit-content;
+    animation: video 4s ease-in-out;
 }
 
 #btn_play {
@@ -281,6 +283,7 @@ header button {
     position: absolute;
     left: 53%;
     top: 15%;
+    animation: character 1s ease-in;
 }
 
 .character_and_video{
@@ -290,24 +293,20 @@ header button {
 }
 
 @keyframes video {
-    0% {
-        opacity: 0;
-        transform: scale(0.25);
+    from {
+        transform: translateX(-100px);
+      }
+      to {
+        transform: unset;
+      }
+}
+
+@keyframes character {
+    00% {
+        transform: translateX(50px);
     }
 
     100% {
-        opacity: 1;
-        transform: scale(1);
+        transform: unset;
     }
 }
-
-/* @keyframes character {
-    0%{
-        opacity: 0.5;
-        transform: scale(0.50);
-    }
-    100%{
-        opacity: 1;
-        transform: scale(1);
-    }
-} */
