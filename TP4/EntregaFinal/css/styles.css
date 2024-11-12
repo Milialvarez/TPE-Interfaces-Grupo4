@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     display: none;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background-color: white;
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -25,16 +25,16 @@ header{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
 }
 
-header button{
+header button {
     background-color: transparent;
     height: fit-content;
     border: none;
 }
 
-.primary_btn{
+.primary_btn {
     background-color: rgba(131, 194, 82, 1);
     border: 8px solid white;
     border-radius: 111px;
@@ -56,8 +56,8 @@ header button{
     text-transform: uppercase;
 }
 
-.main_page{
-    position: absolute;
+.main_page {
+    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;
@@ -67,14 +67,20 @@ header button{
     background-size: 100% auto;
 }
 
-.burger_container{
+.burger_container {
     width: 216px;
     display: flex;
     justify-content: left;
 }
 
-.logo_img{
+.logo_img {
     width: 550px;
     height: 320px;
     transform: translateY(110px);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
 }
