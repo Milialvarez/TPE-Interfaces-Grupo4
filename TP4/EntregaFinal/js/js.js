@@ -15,18 +15,56 @@ function setHeightMainPage() {
 
 window.addEventListener("scroll", getScroll)
 
-function getScroll(e) {
-    const scrollY = window.scrollY
-    document.querySelector("#header").classList.toggle("small", window.scrollY > 150)
+const character1 = document.querySelector(".character_1")
+const character2 = document.querySelector(".character_2")
+const character3 = document.querySelector(".character_3")
 
-    if (scrollY >= 150) {
-        document.querySelector(".logo_img").style.width = "150px"
-        document.querySelector(".logo_img").style.height = "86px"
-        document.querySelector(".logo_img").style.transform = "unset"
-    } else {
-        document.querySelector(".logo_img").style.width = "550px"
-        document.querySelector(".logo_img").style.height = "320px"
-        document.querySelector(".logo_img").style.transform = "translateY(110px)"
-        document.querySelector("#header").style.background = ""
-    }
+const tree1 = document.querySelector(".tree_left")
+const tree2 = document.querySelector(".tree_right_1")
+const tree3 = document.querySelector(".tree_right_2")
+
+const rock1 = document.querySelector(".rock_left")
+const rock2 = document.querySelector(".rock_right_1")
+const rock3 = document.querySelector(".rock_right_2")
+const rock4 = document.querySelector(".rock_right_3")
+
+const bush1 = document.querySelector(".bush_left_1")
+const bush2 = document.querySelector(".bush_left_2")
+const bush3 = document.querySelector(".bush_right_1")
+const bush4 = document.querySelector(".bush_right_2")
+
+const shadows = document.querySelectorAll(".shadow")
+
+function getScroll() {
+    const y = window.scrollY
+
+    document.querySelector("#header").classList.toggle("small", y > 120)
+
+    character1.style.top = 480 - y * 0.4 + "px"
+    character2.style.top = 400 - y * 0.7 + "px"
+    character3.style.top = 350 - y * 0.3 + "px"
+
+    tree1.style.top = -1 - y * 0.1 + "px"
+    tree1.style.left = -153 - y * 0.15 + "px"
+    tree2.style.top = 106.71 - y * 0.1 + "px"
+    tree2.style.right = -35.24 - y * 0.15 + "px"
+    tree3.style.top = 278.38 - y * 0.2 + "px"
+    tree3.style.right = -79 - y * 0.1 + "px"
+    rock1.style.top = 793.37 - y * 0.15 + "px"
+    rock2.style.top = 737.5 - y * 0.1 + "px"
+    rock3.style.top = 786.64 - y * 0.2 + "px"
+    rock4.style.top = 737.5 - y * 0.15 + "px"
+    bush1.style.top = 717.97 - y * 0.12 + "px"
+    bush2.style.top = 821.65 - y * 0.3 + "px"
+    bush3.style.right = 60.35 - y * 0.2 + "px"
+    bush4.style.right = -45.34 - y * 0.15 + "px"
+
+    const maxY = 600
+  
+    const shadowAlpha = Math.max(0, 0.4 - (Math.min(y, maxY) / maxY) * 0.4)
+
+    shadows.forEach(shadow => {
+        shadow.style.background = `rgba(68, 104, 63, ${shadowAlpha})`
+        shadow.style.boxShadow = `0 0 10px 10px rgba(68, 104, 63, ${shadowAlpha})`
+    })
 }
