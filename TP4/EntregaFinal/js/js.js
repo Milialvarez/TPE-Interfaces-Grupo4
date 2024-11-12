@@ -12,3 +12,15 @@ function setHeightMainPage() {
 
     document.querySelector(".main_page").style.height = first + second + "px"
 }
+
+const munequitos = document.getElementById('munequitos');
+
+document.addEventListener('mousemove', (e) => {
+  const mouseX = e.clientX;
+
+  // Calcula la dirección opuesta al cursor
+  const offsetX = (window.innerWidth / 2 - mouseX) / 10;
+
+  // Aplica el desplazamiento a la imagen
+  munequitos.style.transform = `translate(${offsetX}px)`;
+});
