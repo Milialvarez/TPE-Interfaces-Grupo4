@@ -108,6 +108,7 @@
 
 .news_section_container {
     background: linear-gradient(180deg, #FFFFFF 0%, #ADF8FD 47.09%, #EDFDFF 88.29%, #FFFFFF 107.02%);
+    height: 1566px;
 }
 
 
@@ -234,4 +235,12 @@
     width: 100%;
     max-height: 800px;
     gap: 20px;
+    bottom: 0;
+}
+
+#grass_image{
+    width: fit-content;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
 }
