@@ -34,8 +34,19 @@
 
 .dowload_section {
     background-image: url(../img/background_dowload_section.svg);
+    background-repeat: no-repeat;
     justify-items: center;
     color: white;
+}
+
+.dowload_section img{
+    margin-top: -72px;
+    width: 1280px;
+    height: 787px;
+}
+
+#info_container{
+    justify-items: center;
 }
 
 .dowload_section h1 {
