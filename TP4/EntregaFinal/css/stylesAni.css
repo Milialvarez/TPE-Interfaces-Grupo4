@@ -247,7 +247,7 @@ header button {
     background-size: 100% auto;
     height: 3000px;
     padding-top: 40%;
-    padding-left: 150px;
+    padding-left: 115px;
     flex-direction: column;
 }
 
@@ -259,7 +259,6 @@ header button {
     color: #ffffff;
     width: 802px;
     height: 171px;
-
 }
 
 .container_video{
@@ -277,12 +276,11 @@ header button {
     position: absolute;
 }
 
-
 .character_video{
     display: flex;
     position: absolute;
-    /* left: 55%;
-    top: 18%; */
+    left: 53%;
+    top: 15%;
 }
 
 .character_and_video{
