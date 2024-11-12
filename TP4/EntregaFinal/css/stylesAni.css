@@ -91,7 +91,7 @@ header button {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    gap: 50vh;
+    gap: 40vh;
 }
 
 .description {
@@ -114,13 +114,19 @@ header button {
     line-height: 18.9px;
 }
 
+.title_friends{
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+
 .amigos_diversion {
     display: flex;
     position: absolute;
     flex-direction: column;
-    margin: 200px 89px;
+    width: 100%;
+    margin: 200px 0;
     font-family: Lato;
-    gap: 40px;
 }
 
 .amigos_diversion h1 {
@@ -165,7 +171,7 @@ header button {
 
 /* ................. */
 
-footer {
+.footer {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -178,14 +184,15 @@ footer {
     top: 950vh;
 }
 
-.plataforms img, .container_description_social_media{
+.plataforms img,
+.container_description_social_media {
     margin-left: 120px;
 }
 
-.container_description_social_media{
+.container_description_social_media {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     justify-content: center;
     width: fit-content;
 }
@@ -199,16 +206,17 @@ footer {
     height: 361px;
 }
 
-.social_media{
+.social_media {
     display: flex;
     flex-direction: row;
     background-color: black;
     border-radius: 10px;
     height: 46px;
     width: 250px;
+    gap: 5px;
 }
 
-.social_media img{
+.social_media img {
     width: 50px;
     height: 46px;
 }
@@ -237,51 +245,50 @@ footer {
     background-repeat: no-repeat;
     background-position: top;
     background-size: 100% auto;
-    padding-top: 20%;
-    height: 100vh;
-    top: 100%;
-    
-    justify-content: center;
-    align-items: center;
-}
-
-
-.content {
-    display: flex;
+    height: 3000px;
+    padding-top: 40%;
+    padding-left: 150px;
     flex-direction: column;
 }
 
-.content h1 {
+.section_video h1 {
     font-family: Lato;
     font-size: 60px;
+    font-weight: 600;
     line-height: 56.7px;
-    text-align: left;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     width: 802px;
+    height: 171px;
+
 }
 
-.video {
+.container_video{
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: video 10s both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    width: fit-content;
 }
 
 #btn_play {
+    display: flex;
     background-color: transparent;
     border: none;
     cursor: pointer;
     position: absolute;
-    z-index: 1;
 }
 
-.character_video {
+
+.character_video{
     display: flex;
     position: absolute;
-    right: 10%;
-    top: 40%;
+    /* left: 55%;
+    top: 18%; */
+}
+
+.character_and_video{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
 }
 
 @keyframes video {
