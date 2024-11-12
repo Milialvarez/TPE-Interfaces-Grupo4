@@ -188,3 +188,50 @@
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
+
+#big_cloud,
+#left_cloud {
+    z-index: 2;
+}
+
+#little_cloud {
+    width: 265px;
+    height: 124px;
+    opacity: 1;
+    z-index: 3;
+}
+
+#big_cloud {
+    width: 387px;
+    height: 181px;
+    opacity: 1;
+}
+
+#left_cloud {
+    width: 387px;
+    height: 181px;
+    opacity: 1;
+
+}
+
+#number2 {
+    width: 218px;
+    height: 420px;
+}
+
+#number3 {
+    width: 210px;
+    height: 488px;
+}
+
+#number7 {
+    width: 249px;
+    height: 745px;
+}
+
+#gifs_container{
+    display: flex;
+    width: 100%;
+    max-height: 800px;
+    gap: 20px;
+}
