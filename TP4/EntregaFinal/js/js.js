@@ -18,6 +18,8 @@ window.addEventListener("scroll", getScroll)
 const character1 = document.querySelector(".character_1")
 const character2 = document.querySelector(".character_2")
 const character3 = document.querySelector(".character_3")
+const character4 = document.querySelector(".character_4")
+const character5 = document.querySelector(".character_5")
 
 const tree1 = document.querySelector(".tree_left")
 const tree2 = document.querySelector(".tree_right_1")
@@ -32,6 +34,8 @@ const bush1 = document.querySelector(".bush_left_1")
 const bush2 = document.querySelector(".bush_left_2")
 const bush3 = document.querySelector(".bush_right_1")
 const bush4 = document.querySelector(".bush_right_2")
+
+const appExample = document.querySelector(".app_example")
 
 const shadows = document.querySelectorAll(".shadow")
 
@@ -58,6 +62,10 @@ function getScroll() {
     bush2.style.top = 821.65 - y * 0.3 + "px"
     bush3.style.right = 60.35 - y * 0.2 + "px"
     bush4.style.right = -45.34 - y * 0.15 + "px"
+
+    character4.style.top = 1550.76 - y * 0.1 + "px"
+    character5.style.top = 867 - y * 0.2 + "px"
+    appExample.style.left = 50 + y * 0.2 + "px"
 
     const maxY = 600
   
