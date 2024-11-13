@@ -316,17 +316,32 @@ main {
     background-color: rgba(27, 95, 153, 1);
     padding: 29px;
     z-index: 13;
-}
-
-.hidden {
-    display: none;
+    overflow-x: hidden;
 }
 
 .app_example {
+    position: absolute;
     border-radius: 77px;
-    width: 100%;
-    height: 100%;
+    width: 518.38px;
+    height: 266.35px;
+    top: 29px;
     z-index: 14;
+}
+
+.app_example:first-child {
+    left: 29px;
+}
+
+.app_example:nth-child(2) {
+    left: 577.38px;
+}
+
+.app_example:nth-child(3) {
+    left: 1125.76px;
+}
+
+.app_example:nth-child(4) {
+    left: 1674.14px;
 }
 
 @keyframes entryTop {
