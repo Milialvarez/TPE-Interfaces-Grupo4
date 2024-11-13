@@ -420,17 +420,32 @@ main {
 }
 
 .cloud {
-    opacity: .5;
+    width: 387px;
+    position: absolute;
+    animation: clouds infinite linear;
 }
 
 .cloud:first-child {
-    width: 387px;
+    top: 370px;
+    transform: translateX(1280px);
+    animation-duration: 30s;
 }
 
 .cloud:nth-child(2) {
     width: 265px;
+    top: 327px;
+    transform: translateX(1380px);
+    animation-duration: 40s;
 }
 
 .cloud:nth-child(3) {
-    width: 387px;
+    top: 629px;
+    transform: translateX(1400px);
+    animation-duration: 35s;
+}
+
+@keyframes clouds {
+    100% {
+        transform: translateX(-400px);
+    }
 }
