@@ -36,7 +36,7 @@ header button {
     border: none;
 }
 
-.primary_btn {
+.primary_btn{
     background-color: rgba(131, 194, 82, 1);
     border: 8px solid white;
     border-radius: 111px;
@@ -56,6 +56,35 @@ header button {
     letter-spacing: 0.11em;
     text-transform: uppercase;
     box-sizing: content-box;
+}
+
+.primary_btn img{
+    display: none;
+}
+
+.primary_btn:hover{
+    animation: button_animation 1s;
+    background-color: white;
+    color: rgba(131, 194, 82, 1);
+    border: 8px solid rgba(131, 194, 82, 1);
+}
+
+.primary_btn:hover img{
+    display: flex;
+}
+
+
+@keyframes button_animation {
+    0%{
+        background-color: rgba(131, 194, 82, 1);
+        color: white;
+        border: 8px solid white;
+    }
+    100%{
+        background-color: white;
+        color: rgba(131, 194, 82, 1);
+        border: 8px solid rgba(131, 194, 82, 1);
+    }
 }
 
 .main_page {
