@@ -17,7 +17,7 @@ nav {
     position: fixed;
     margin-top: 32px;
     width: 15%;
-    z-index: 1000000;
+    z-index: 3;
     padding: 10px 0;
 }
 nav ul {
@@ -29,7 +29,7 @@ nav ul {
 }
 nav ul li {
     opacity: 0;
-    background: linear-gradient(to left, rgba(173, 216, 230, 0.2), rgba(100, 149, 237, 0.5), rgba(70, 130, 180, 0.8), rgba(25, 25, 112, 1));
+    background: linear-gradient(to right, rgb(255, 166, 0), rgba(215, 146, 16, 0.907), rgba(194, 128, 6, 0.66), rgba(168, 117, 23, 0.534));
     text-transform: uppercase;
     animation: showNav 0.5s ease forwards; 
     padding: 8px 12px;
@@ -270,7 +270,7 @@ nav ul li:nth-child(5){
     opacity: 0px;
 
 }
-
+/* 
 #left_cloud {
     width: 387px;
     height: 181px;
@@ -300,7 +300,7 @@ nav ul li:nth-child(5){
 
 .cloud {
     opacity: 0.5;
-}
+} */
 
 .input_button_container {
     margin-top: 32px;
