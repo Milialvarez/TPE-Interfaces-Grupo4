@@ -63,10 +63,8 @@ header button {
 }
 
 .primary_btn:hover{
-    animation: button_animation 1s;
-    background-color: white;
-    color: rgba(131, 194, 82, 1);
-    border: 8px solid rgba(131, 194, 82, 1);
+    animation: button_animation 4s ease;
+    animation-fill-mode: both;
 }
 
 .primary_btn:hover img{
@@ -79,6 +77,13 @@ header button {
         background-color: rgba(131, 194, 82, 1);
         color: white;
         border: 8px solid white;
+    }
+    25%{
+        border: 8px solid rgba(131, 194, 82, 1);
+    }
+    75%{
+        background-color: white;
+        color: rgba(131, 194, 82, 1);
     }
     100%{
         background-color: white;
