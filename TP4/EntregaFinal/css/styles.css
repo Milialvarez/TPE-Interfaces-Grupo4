@@ -316,12 +316,10 @@ main {
     background-color: rgba(27, 95, 153, 1);
     padding: 29px;
     z-index: 13;
+}
 
-    view-timeline-name: --move;
-    animation-name: entryLeft;
-    animation-fill-mode: both;
-    animation-timeline: --move;
-    animation-range: entry 35% cover 50%;
+.hidden {
+    display: none;
 }
 
 .app_example {
@@ -329,12 +327,6 @@ main {
     width: 100%;
     height: 100%;
     z-index: 14;
-
-    view-timeline-name: --move;
-    animation-name: entryLeft;
-    animation-fill-mode: both;
-    animation-timeline: --move;
-    animation-range: entry 35% cover 50%;
 }
 
 @keyframes entryTop {

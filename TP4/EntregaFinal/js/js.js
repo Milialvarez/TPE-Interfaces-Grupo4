@@ -73,3 +73,11 @@ function moveLogo(y) {
     }
 
 }
+
+let interval = setInterval(changeImage, 3000)
+
+function changeImage() {
+    document.querySelectorAll(".app_exaple").forEach(e => {
+        e.classList.remove("hidden")
+    })
+}
