@@ -95,7 +95,6 @@ function getScroll() {
 function checkScrollForCardsAnimation() {
     let y = window.scrollY;
     let cards = document.querySelectorAll('.multimedia_container');
-    console.log(y);
     if (y >= 1300 && y< 2300) {
         cards.forEach(card => {
             card.classList.add('float-animation');
