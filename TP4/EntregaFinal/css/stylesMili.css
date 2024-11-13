@@ -263,43 +263,7 @@ nav ul li:nth-child(5){
     left: 100px;
     gap: 0px;
     opacity: 0px;
-<<<<<<< HEAD
 }
-=======
-
-}
-/* 
-#left_cloud {
-    width: 387px;
-    height: 181px;
-    margin-top: 25px;
-    margin-left: -57px;
-    z-index: 2;
-}
-
-#little_right_cloud {
-    width: 265px;
-    height: 124px;
-    gap: 0px;
-    opacity: 0px;
-    z-index: 2;
-}
-
-#big_right_cloud {
-    width: 387px;
-    height: 181px;
-    top: 13175px;
-    margin-left: 500px;
-    gap: 0px;
-    opacity: 0px;
-    z-index: 2;
-
-}
-
-.cloud {
-    opacity: 0.5;
-} */
->>>>>>> 84f1fca0d3f9c36ed72acf5417208d4fe842d5cf
 
 .input_button_container {
     margin-top: 32px;
