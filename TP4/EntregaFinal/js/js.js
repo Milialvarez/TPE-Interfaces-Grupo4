@@ -109,3 +109,21 @@ function changeImage() {
         repetition = 0
     }
 }
+
+const btn_menu = document.getElementById('btn_menu');
+btn_menu.addEventListener('click', ()=>{
+    let nav = document.getElementById('nav');
+    if(nav.classList.contains('hidden')){
+        nav.classList.remove('hidden');
+        nav.classList.add('visible');
+        lin1.classList.add('active');
+        lin2.classList.add('active');
+        lin3.classList.add('active');
+    } else{
+        nav.classList.add('hidden');
+        lin1.classList.remove('active');
+        lin2.classList.remove('active');
+        lin3.classList.remove('active');
+        nav.classList.remove('visible');
+    }
+})
