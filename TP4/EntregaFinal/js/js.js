@@ -12,10 +12,28 @@ document.addEventListener('mousemove', (e) => {
     munequitos.style.transform = `translate(${offsetX}px)`;
 })
 
+function checkScrollForCardsAnimation(y) {
+    let cards = document.querySelectorAll('.multimedia_container');
+
+    if (y >= 1300 && y < 2300) {
+        cards.forEach(card => {
+            card.classList.add('float-animation');
+            card.classList.remove('disappear-animation')
+        })
+    } else if (y >= 2300) {
+        cards.forEach(card => {
+            card.classList.remove('float-animation')
+            card.classList.add('disappear-animation');
+        })
+    }
+}
+
 window.addEventListener("scroll", getScroll)
 
 function getScroll() {
     const y = this.pageYOffset
+
+    checkScrollForCardsAnimation(y)
 
     moveLogo(y)
 
@@ -72,12 +90,4 @@ function moveLogo(y) {
         header.style.background = "#00D1D5"
     }
 
-}
-
-let interval = setInterval(changeImage, 3000)
-
-function changeImage() {
-    document.querySelectorAll(".app_exaple").forEach(e => {
-        e.classList.remove("hidden")
-    })
 }
