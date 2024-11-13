@@ -362,6 +362,7 @@ main {
     height: 266.35px;
     top: 29px;
     z-index: 14;
+    transition: transform 1s;
 }
 
 .app_example:first-child {

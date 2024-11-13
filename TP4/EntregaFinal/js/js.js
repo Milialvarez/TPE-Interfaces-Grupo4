@@ -91,3 +91,21 @@ function moveLogo(y) {
     }
 
 }
+
+let interval = setInterval(changeImage, 3000)
+let repetition = 1
+
+function changeImage() {
+    let imgs = document.querySelectorAll(".app_example")
+
+    for (let i = 0; i < imgs.length; i++) {
+        let img = imgs[i]
+        img.style.transform = "translateX(" + -548.38 * repetition + "px)"
+    }
+
+    if (repetition < imgs.length - 1) {
+        repetition++        
+    } else {
+        repetition = 0
+    }
+}
