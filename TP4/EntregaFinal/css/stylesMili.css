@@ -182,6 +182,7 @@
     width: max-content;
     display: flex;
     flex-direction: column;
+    z-index: 3;
 }
 
 #company_logo {
@@ -197,21 +198,32 @@
 #left_cloud {
     width: 387px;
     height: 181px;
-    top: 13434px;
-    gap: 0px;
-    opacity: 0px;
-    margin-top: 21px;
-    margin-left: -6px;
+    margin-top: 25px;
+    margin-left: -57px;
+    z-index: 2;
 }
 
 #little_right_cloud {
-    opacity: 50%;
-
+    width: 265px;
+    height: 124px;
+    gap: 0px;
+    opacity: 0px;
+    z-index: 2;
 }
 
 #big_right_cloud {
-    opacity: 80%;
-    margin-right: 0px;
+    width: 387px;
+    height: 181px;
+    top: 13175px;
+    margin-left: 500px;
+    gap: 0px;
+    opacity: 0px;
+    z-index: 2;
+
+}
+
+.cloud {
+    opacity: 0.5;
 }
 
 .input_button_container {
@@ -284,32 +296,32 @@
 }
 
 #number2 {
-    margin-left: 30px;
+    margin-left: 25px;
     /* width: 218px;
     height: 420px; */
-    width: 363px;
-    height: 700px;
+    width: 500px;
+    height: 650px;
     z-index: 2;
 }
 
 #number3 {
-    margin-left: 0px;
+    margin-left: -200px;
     /* width: 210px;
     height: 488px; */
-    width: 344px;
-    height: 800px;
+    width: 600px;
+    height: 700px;
     bottom: 0;
-    z-index: 2;
+    z-index: 3;
 }
 
 #number7 {
-    margin-left: 0px;
+    margin-left: -200px;
     /* width: 249px;
     height: 745px; */
     height: 1200px;
-    width: 516px;
-    z-index: 2;
-    margin-bottom: -50px;
+    width: 600px;
+    z-index: 4;
+    margin-bottom: -70px;
 }
 
 #gifs_container {
