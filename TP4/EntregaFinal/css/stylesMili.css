@@ -160,22 +160,17 @@
     color: black;
 }
 
-.news_section_container h1,
-.news_section_container p,
-.news_section_container img {
+.characters_and_form_container h1,
+.characters_and_form_container p,
+.characters_and_form_container img {
     margin-left: 100px;
 }
 
 .news_section_container {
     background: linear-gradient(180deg, #FFFFFF 0%, #ADF8FD 47.09%, #EDFDFF 88.29%, #FFFFFF 107.02%);
-    max-height: 1566px;
+    height: 1380px;
+    position: relative;
 }
-
-.news_section_container #grass_image {
-    margin-left: 0px;
-    z-index: 1;
-}
-
 
 .characters_and_form_container {
     justify-items: left;
@@ -192,38 +187,6 @@
     left: 100px;
     gap: 0px;
     opacity: 0px;
-
-}
-
-#left_cloud {
-    width: 387px;
-    height: 181px;
-    margin-top: 25px;
-    margin-left: -57px;
-    z-index: 2;
-}
-
-#little_right_cloud {
-    width: 265px;
-    height: 124px;
-    gap: 0px;
-    opacity: 0px;
-    z-index: 2;
-}
-
-#big_right_cloud {
-    width: 387px;
-    height: 181px;
-    top: 13175px;
-    margin-left: 500px;
-    gap: 0px;
-    opacity: 0px;
-    z-index: 2;
-
-}
-
-.cloud {
-    opacity: 0.5;
 }
 
 .input_button_container {
@@ -296,37 +259,34 @@
 }
 
 #number2 {
-    margin-left: 25px;
-    /* width: 218px;
-    height: 420px; */
-    width: 500px;
-    height: 650px;
-    z-index: 2;
+    width: 480px;
+    height: 480px;
+    z-index: 1;
+    position: absolute;
+    left: 65px;
+    top: 858px;
 }
 
 #number3 {
-    margin-left: -200px;
-    /* width: 210px;
-    height: 488px; */
-    width: 600px;
-    height: 700px;
-    bottom: 0;
-    z-index: 3;
+    width: 509px;
+    height: 509px;
+    z-index: 1;
+    position: absolute;
+    left: 407px;
+    top: 829px;
 }
 
 #number7 {
-    margin-left: -200px;
-    /* width: 249px;
-    height: 745px; */
-    height: 1200px;
-    width: 600px;
-    z-index: 4;
-    margin-bottom: -70px;
+    height: 997px;
+    width: 561px;
+    z-index: 1;
+    position: absolute;
+    left: 756px;
+    top: 423px;
 }
 
-#gifs_container {
-    display: flex;
-    max-height: 800px;
-    margin-bottom: -350px;
-    align-items: end;
+#grass_image {
+    position: absolute;
+    left: 0;
+    top: 991px;
 }

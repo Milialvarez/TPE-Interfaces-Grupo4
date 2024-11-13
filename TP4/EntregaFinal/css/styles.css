@@ -35,7 +35,7 @@ header button {
     border: none;
 }
 
-.primary_btn{
+.primary_btn {
     background-color: rgba(131, 194, 82, 1);
     border: 8px solid white;
     border-radius: 111px;
@@ -56,36 +56,39 @@ header button {
     text-align: left;
     text-transform: uppercase;
     box-sizing: content-box;
+    cursor: pointer;
 }
 
-.primary_btn img{
+.primary_btn img {
     display: none;
 }
 
-.primary_btn:hover{
+.primary_btn:hover {
     animation: button_animation 4s ease;
     animation-fill-mode: both;
 }
 
-.primary_btn:hover img{
+.primary_btn:hover img {
     display: flex;
 }
 
-
 @keyframes button_animation {
-    0%{
+    0% {
         background-color: rgba(131, 194, 82, 1);
         color: white;
         border: 8px solid white;
     }
-    25%{
+
+    25% {
         border: 8px solid rgba(131, 194, 82, 1);
     }
-    75%{
+
+    75% {
         background-color: white;
         color: rgba(131, 194, 82, 1);
     }
-    100%{
+
+    100% {
         background-color: white;
         color: rgba(131, 194, 82, 1);
         border: 8px solid rgba(131, 194, 82, 1);
@@ -409,4 +412,25 @@ main {
     100% {
         transform: unset;
     }
+}
+
+.clouds {
+    position: absolute;
+    top: 0;
+}
+
+.cloud {
+    opacity: .5;
+}
+
+.cloud:first-child {
+    width: 387px;
+}
+
+.cloud:nth-child(2) {
+    width: 265px;
+}
+
+.cloud:nth-child(3) {
+    width: 387px;
 }
