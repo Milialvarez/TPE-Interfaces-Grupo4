@@ -10,23 +10,23 @@
 }
 
 body {
-    background-color: white;
-    overflow-x: hidden;
+    background-color: black;
+    width: 1280px;
+    margin: 0 auto;
 }
 
 header {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 1280px;
     box-sizing: border-box;
     height: 103px;
     align-items: center;
     padding: 0 108px;
+    z-index: 9999;
     position: fixed;
     top: 0;
-    left: 0;
-    background: none;
-    z-index: 9999;
+    left: auto;
 }
 
 header button {
@@ -54,15 +54,11 @@ header button {
     line-height: 18.9px;
     letter-spacing: 0.11em;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
     text-transform: uppercase;
     box-sizing: content-box;
 }
 
 .main_page {
-    top: 0;
-    left: 0;
     width: 100%;
     height: 1854px;
     background-image: url(../img/background_page.svg), url(../img/background_curve.svg);
@@ -78,9 +74,15 @@ header button {
 }
 
 main {
+    position: relative;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     row-gap: 100px;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .logo_img {
@@ -303,19 +305,36 @@ main {
     height: 154px;
 }
 
-.app_example {
+.app_example_card {
     position: absolute;
+    box-sizing: border-box;
     width: 576.38px;
     height: 324.35px;
     top: 1290px;
     left: 236px;
+    border-radius: 106px;
+    background-color: rgba(27, 95, 153, 1);
+    padding: 29px;
+    z-index: 13;
+
+    view-timeline-name: --move;
+    animation-name: entryLeft;
+    animation-fill-mode: both;
+    animation-timeline: --move;
+    animation-range: entry 35% cover 50%;
+}
+
+.app_example {
+    border-radius: 77px;
+    width: 100%;
+    height: 100%;
     z-index: 14;
 
     view-timeline-name: --move;
     animation-name: entryLeft;
     animation-fill-mode: both;
     animation-timeline: --move;
-    animation-range: entry 25% cover 50%;
+    animation-range: entry 35% cover 50%;
 }
 
 @keyframes entryTop {
