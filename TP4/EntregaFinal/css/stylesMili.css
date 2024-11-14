@@ -90,7 +90,7 @@ nav ul li:nth-child(5){
 }
 
 .float-animation {
-    animation: appear 3s ease-in-out;
+    animation: appear 1s ease-in-out;
     position: sticky;
     transform-origin: center;
     animation-fill-mode: forwards;
@@ -100,11 +100,6 @@ nav ul li:nth-child(5){
     0% {
         opacity: 0;
         transform: translateY(200px);
-    }
-
-    50% {
-        opacity: 0.3;
-        transform: translateY(100px);
     }
 
     100% {
