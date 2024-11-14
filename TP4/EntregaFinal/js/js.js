@@ -1,8 +1,24 @@
 "use strict"
+showLoader();
+
+function showLoader(){
+    let loader_container = document.querySelector('.loader_container');
+    loader_container.classList.remove('hidden');
+    loader_container.classList.add('showLoader');
+
+    const loading = setInterval(() => {}, 50)
+
+    setTimeout(() => {
+        clearInterval(loading)
+        loader_container.classList.add("hidden")
+        loader_container.classList.remove('showLoader')
+    }, 5000)
+}
 
 window.addEventListener("scroll", getScroll)
 window.addEventListener('mousemove', getMouseMove)
 
+// Función que se llama al mover el mouse, se encarga de llamar a otras funciones
 function getMouseMove(e) {
     const mouseX = e.clientX
     const mouseY = e.clientY
@@ -11,8 +27,10 @@ function getMouseMove(e) {
     move3dModel(mouseX)
 }
 
+// Mueve los personajes de la sección "Descubre el juego que convierte
+// las Matemáticas en diversión" de acuerdo a la posición del mouse
 function charactersMove(mouseX, mouseY) {
-    const characters = document.getElementById('munequitos');
+    const characters = document.getElementById('characters');
 
     // Calcula la dirección opuesta al cursor
     const offsetX = (window.innerWidth / 2 - mouseX) / 10;
@@ -22,6 +40,7 @@ function charactersMove(mouseX, mouseY) {
     characters.style.transform = `translate(${offsetX}px,${offsetY}px)`;
 }
 
+// Mueve el modelo 3d de acuerdo a la posición del mouse
 function move3dModel(mouseX) {
     const maxY = window.innerWidth
     const angle = Math.max(0, 360 - (Math.min(mouseX, maxY) / maxY) * 360)
@@ -29,6 +48,8 @@ function move3dModel(mouseX) {
     character3d.setAttribute("camera-orbit", angle + "deg 80deg")
 }
 
+// Activa la animación de las cards de la sección "La app más divertida y educativa
+// y para niños de 3 años"
 function checkScrollForCardsAnimation(y) {
     let cards = document.querySelectorAll('.multimedia_container');
 
@@ -36,13 +57,14 @@ function checkScrollForCardsAnimation(y) {
         cards.forEach(card => {
             card.classList.add('float-animation');
         })
-    } else{
+    } else {
         cards.forEach(card => {
             card.classList.remove('float-animation');
         })
     }
 }
 
+// Función que se llama al scrollear, se encarga de llamar a otras funciones
 function getScroll() {
     const y = this.pageYOffset
 
@@ -55,6 +77,7 @@ function getScroll() {
     disappearShadows(y)
 }
 
+// Desaparece las sombras de los personajes de acuerdo al scroll
 function disappearShadows(y) {
     const shadows = document.querySelectorAll(".shadow")
     const maxY = 600
@@ -67,6 +90,8 @@ function disappearShadows(y) {
     })
 }
 
+// Hace el efecto parallax de la sección "La app más divertida y educativa
+// y para niños de 3 años" de acuerdo al scroll
 function parallaxEffect(y) {
     const parallaxItem = document.querySelectorAll(".parallax")
 
@@ -77,6 +102,7 @@ function parallaxEffect(y) {
     }
 }
 
+// Se encarga de hacer el logo más chico de acuerdo al scroll
 function moveLogo(y) {
     const logo = document.querySelector(".logo_img")
     const header = document.querySelector("#header")
@@ -108,6 +134,8 @@ function moveLogo(y) {
 let interval = setInterval(changeImage, 3000)
 let repetition = 1
 
+// Cambia las imágenes de la sección "La app más divertida y educativa y para niños de 
+// 3 años" cada 3 segundos
 function changeImage() {
     let imgs = document.querySelectorAll(".app_example")
 
@@ -117,26 +145,24 @@ function changeImage() {
     }
 
     if (repetition < imgs.length - 1) {
-        repetition++        
+        repetition++
     } else {
         repetition = 0
     }
 }
 
-<<<<<<< HEAD
-
-// ------------------------------------
-=======
 const btn_menu = document.getElementById('btn_menu');
-btn_menu.addEventListener('click', ()=>{
+
+// Se encarga de mostrar el menú al clickear el botón de menú hamburguesa
+btn_menu.addEventListener('click', () => {
     let nav = document.getElementById('nav');
-    if(nav.classList.contains('hidden')){
+    if (nav.classList.contains('hidden')) {
         nav.classList.remove('hidden');
         nav.classList.add('visible');
         lin1.classList.add('active');
         lin2.classList.add('active');
         lin3.classList.add('active');
-    } else{
+    } else {
         nav.classList.add('hidden');
         lin1.classList.remove('active');
         lin2.classList.remove('active');
@@ -145,8 +171,8 @@ btn_menu.addEventListener('click', ()=>{
     }
 })
 
+// Evita que se recargue la página al clickear el botón del form
 let btn_form = document.getElementById('btn_form');
-btn_form.addEventListener('click', (e)=>{
+btn_form.addEventListener('click', (e) => {
     e.preventDefault();
 })
->>>>>>> 34fa01afd01bcc7bb5e484f144bbff60abe5377d
