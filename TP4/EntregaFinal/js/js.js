@@ -1,18 +1,33 @@
 "use strict"
 
-const munequitos = document.getElementById('munequitos');
+window.addEventListener("scroll", getScroll)
+window.addEventListener('mousemove', getMouseMove)
 
-document.addEventListener('mousemove', (e) => {
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
+function getMouseMove(e) {
+    const mouseX = e.clientX
+    const mouseY = e.clientY
+
+    charactersMove(mouseX, mouseY)
+    move3dModel(mouseX)
+}
+
+function charactersMove(mouseX, mouseY) {
+    const characters = document.getElementById('munequitos');
 
     // Calcula la dirección opuesta al cursor
     const offsetX = (window.innerWidth / 2 - mouseX) / 10;
     const offsetY = (window.innerWidth / 2 - mouseY) / 10;
 
     // Aplica el desplazamiento a la imagen
-    munequitos.style.transform = `translate(${offsetX}px,${offsetY}px)`;
-})
+    characters.style.transform = `translate(${offsetX}px,${offsetY}px)`;
+}
+
+function move3dModel(mouseX) {
+    const maxY = window.innerWidth
+    const angle = Math.max(0, 360 - (Math.min(mouseX, maxY) / maxY) * 360)
+    const character3d = document.querySelector("#character1_3d")
+    character3d.setAttribute("camera-orbit", angle + "deg 80deg")
+}
 
 function checkScrollForCardsAnimation(y) {
     let cards = document.querySelectorAll('.multimedia_container');
@@ -27,8 +42,6 @@ function checkScrollForCardsAnimation(y) {
         })
     }
 }
-
-window.addEventListener("scroll", getScroll)
 
 function getScroll() {
     const y = this.pageYOffset

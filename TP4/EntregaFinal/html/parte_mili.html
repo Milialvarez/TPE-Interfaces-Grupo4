@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body id="body">
     <header id="header">
         <div class="burger_container">
             <div id="btn_menu">
@@ -134,6 +134,28 @@
             <img id="munequitos" src="../img/dowload_characters.svg" alt="">
         </section>
 
+        <section class="container_3d">
+            <article class="content">
+                <h2>¡Experimenta Efectos 3D Asombrosos en NumberBlocks: Una Aventura Matemática Inmersiva!</h2>
+                <p>En NumberBlocks, la aventura no solo está en el aprendizaje, ¡sino también en la experiencia visual!
+                    Disfruta de efectos 3D asombrosos que dan vida a cada número y desafío, haciendo que las matemáticas
+                    cobren una nueva dimensión. A medida que los niños interactúan con los personajes y los bloques,
+                    verán cómo sus acciones tienen un impacto real en el entorno, creando un aprendizaje dinámico y
+                    emocionante. ¡Cada sesión de juego se convierte en una experiencia inolvidable llena de color y
+                    diversión!</p>
+            </article>
+
+            <model-viewer 
+                id="character1_3d" 
+                auto-rotate 
+                src="../3d/one.glb"
+                camera-orbit="-90deg 80deg"
+                alt="A 3D model of character 1"
+                shadow-intensity="2"
+                poster="../img/poster_3d.png">
+            </model-viewer>
+        </section>
+
         <section>
             <div class="full_color_grid">
                 <img src="../img/number1_full_color.png" alt="">
@@ -187,6 +209,7 @@
     </main>
 
 
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
     <script src="../js/js.js"></script>
 </body>
 
