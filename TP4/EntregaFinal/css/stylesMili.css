@@ -1,16 +1,17 @@
 /* LOADER */
 .loader {
-    width: 60px;
-  height: 60px;
+    width: 70px;
+  height: 70px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); 
-    z-index: 25;
+    z-index: 26;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    filter: brightness(1.2);
 }
 
 .loader_container {
@@ -38,7 +39,7 @@
 
 .loader:before {
     content: '';
-  width: 60px;
+  width: 80px;
   height: 5px;
   background: #f0808050; /* Color semitransparente */
   position: absolute;
@@ -47,6 +48,7 @@
   transform: translateX(-50%); /* Centrado horizontal */
   border-radius: 2px;
   animation: cubeShadow 0.5s linear infinite;
+
 }
 
 .loader:after {
@@ -59,30 +61,19 @@
   left: 50%;
   transform: translate(-50%, -50%); /* Centrado vertical y horizontal */
   border-radius: 4px;
-  animation: jumpingCube 0.5s linear infinite;
+  animation: jumpingCube 1.5s linear infinite;
 }
 
 @keyframes jumpingCube {
-    15% {
-        border-bottom-right-radius: 3px;
-    }
-
-    25% {
-        transform: translateY(9px) rotate(22.5deg);
-    }
-
-    50% {
-        transform: translateY(18px) scale(1, .9) rotate(45deg);
-        border-bottom-right-radius: 40px;
-    }
-
-    75% {
-        transform: translateY(9px) rotate(67.5deg);
-    }
-
-    100% {
-        transform: translateY(0) rotate(90deg);
-    }
+     0%{
+        transform: translateY(0) rotate(0deg);
+     }
+     50%{
+        transform: translateY(0) rotate(180deg);
+     }
+     100%{
+        transform: translateY(0) rotate(360deg);
+     }
 }
 
 @keyframes cubeShadow {
@@ -93,6 +84,7 @@
     }
 
     50% {
+        filter: brightness(1.2);
         transform: scale(1.2, 1);
     }
 }
