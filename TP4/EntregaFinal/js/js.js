@@ -123,10 +123,6 @@ function changeImage() {
     }
 }
 
-<<<<<<< HEAD
-
-// ------------------------------------
-=======
 const btn_menu = document.getElementById('btn_menu');
 btn_menu.addEventListener('click', ()=>{
     let nav = document.getElementById('nav');
@@ -149,4 +145,3 @@ let btn_form = document.getElementById('btn_form');
 btn_form.addEventListener('click', (e)=>{
     e.preventDefault();
 })
->>>>>>> 34fa01afd01bcc7bb5e484f144bbff60abe5377d
