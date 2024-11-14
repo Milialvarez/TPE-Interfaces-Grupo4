@@ -4,26 +4,26 @@ const munequitos = document.getElementById('munequitos');
 
 document.addEventListener('mousemove', (e) => {
     const mouseX = e.clientX;
+    const mouseY = e.clientY;
 
     // Calcula la dirección opuesta al cursor
     const offsetX = (window.innerWidth / 2 - mouseX) / 10;
+    const offsetY = (window.innerWidth / 2 - mouseY) / 10;
 
     // Aplica el desplazamiento a la imagen
-    munequitos.style.transform = `translate(${offsetX}px)`;
+    munequitos.style.transform = `translate(${offsetX}px,${offsetY}px)`;
 })
 
 function checkScrollForCardsAnimation(y) {
     let cards = document.querySelectorAll('.multimedia_container');
 
-    if (y >= 1300 && y < 2300) {
+    if (y >= 1300) {
         cards.forEach(card => {
             card.classList.add('float-animation');
-            card.classList.remove('disappear-animation')
         })
-    } else if (y >= 2300) {
+    } else{
         cards.forEach(card => {
-            card.classList.remove('float-animation')
-            card.classList.add('disappear-animation');
+            card.classList.remove('float-animation');
         })
     }
 }

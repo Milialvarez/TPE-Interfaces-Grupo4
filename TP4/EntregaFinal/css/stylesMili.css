@@ -82,39 +82,18 @@ nav ul li:nth-child(5){
 }
 
 .multimedia_container:nth-child(2).float-animation {
-    animation-delay: 1.5s;
+    animation-delay: 1s;
 }
 
 .multimedia_container:nth-child(3).float-animation {
-    animation-delay: 3s;
+    animation-delay: 2s;
 }
 
 .float-animation {
-    animation: appear 3s ease-in;
+    animation: appear 3s ease-in-out;
     position: sticky;
     transform-origin: center;
     animation-fill-mode: forwards;
-}
-
-.disappear-animation {
-    animation: disappear 2s ease-in;
-    position: sticky;
-    transform-origin: center;
-    animation-fill-mode: forwards;
-}
-
-@keyframes disappear {
-    0% {
-        opacity: 0.7;
-    }
-
-    50% {
-        opacity: 0.4;
-    }
-
-    100% {
-        opacity: 0;
-    }
 }
 
 @keyframes appear {
@@ -173,6 +152,7 @@ nav ul li:nth-child(5){
     background-repeat: no-repeat;
     justify-items: center;
     color: white;
+    overflow: hidden;
 }
 
 #info_container {
@@ -213,10 +193,9 @@ nav ul li:nth-child(5){
 
 #munequitos {
     position: relative;
-    height: auto;
+    height: fit-content;
     transition: transform 0.1s ease-out;
     /* Suaviza el movimiento */
-    margin-top: -69px;
     justify-content: center;
 }
 
