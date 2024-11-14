@@ -282,7 +282,7 @@ nav ul li:nth-child(5) {
     width: 565px;
 }
 
-#munequitos {
+#characters {
     position: relative;
     height: fit-content;
     transition: transform 0.1s ease-out;
@@ -293,22 +293,22 @@ nav ul li:nth-child(5) {
 /* FULL COLOR SECTION */
 .full_color_grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(5, auto);
+    grid-template-rows: 368px 320px;
+    grid-gap: 30px;
+    z-index: 0;
+    background-image: url(../img/grid/grid.png);
 }
 
 .full_color_grid img {
-    width: 256px;
-    height: 399.36px;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
+    filter: brightness(0.9);
+    z-index: 1;
 }
 
 .full_color_grid img:hover {
     transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.6),
-        0 6px 20px rgba(0, 0, 0, 0.15);
     filter: brightness(1.2);
-    z-index: 1;
 }
 
 
@@ -355,6 +355,7 @@ nav ul li:nth-child(5) {
     left: 100px;
     gap: 0px;
     opacity: 0px;
+    z-index: 5;
 }
 
 .input_button_container {
