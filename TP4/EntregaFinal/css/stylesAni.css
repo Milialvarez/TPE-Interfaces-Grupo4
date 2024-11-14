@@ -384,13 +384,13 @@ header button {
 }
 
 .character_spritsheet{
-    width: 85px;
+    width: 100px;
     height: 400px;
     left: 15px;
 }
 
 .character2_spritsheet{
-    width: 86px;
+    width: 90px;
     height: 300px;
     left: 15px;
     bottom: 0px;
@@ -416,7 +416,7 @@ header button {
 }
 
 .character3{
-    animation: number_spritsheet 1s steps(8) infinite;
+    animation: number_spritsheet 1s steps(4) infinite;
 }
 
 @keyframes number_spritsheet {
