@@ -1,4 +1,19 @@
 "use strict"
+showLoader();
+
+function showLoader(){
+    let loader_container = document.querySelector('.loader_container');
+    loader_container.classList.remove('hidden');
+    loader_container.classList.add('showLoader');
+
+    const loading = setInterval(() => {}, 50)
+
+    setTimeout(() => {
+        clearInterval(loading)
+        loader_container.classList.add("hidden")
+        loader_container.classList.remove('showLoader')
+    }, 5000)
+}
 
 window.addEventListener("scroll", getScroll)
 window.addEventListener('mousemove', getMouseMove)

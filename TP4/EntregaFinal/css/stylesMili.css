@@ -1,13 +1,113 @@
+/* LOADER */
+.loader {
+    width: 60px;
+  height: 60px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    z-index: 25;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loader_container {
+    width: 100%;
+    height: 100%;
+    z-index: 25;
+    position: fixed;
+    /* Asegura que cubra toda la pantalla */
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    /* Aplica el desenfoque */
+    background-color: rgba(0, 0, 0, 0.725);
+    justify-content: center;
+    justify-items: center;
+}
+
+.showLoader{
+    display: block;
+}
+
+.showLoader main, .showLoader header{
+    filter: blur(5px); /* Aplica el blur al contenido */
+  }
+
+.loader:before {
+    content: '';
+  width: 60px;
+  height: 5px;
+  background: #f0808050; /* Color semitransparente */
+  position: absolute;
+  top: 180%;
+  left: 50%;
+  transform: translateX(-50%); /* Centrado horizontal */
+  border-radius: 2px;
+  animation: cubeShadow 0.5s linear infinite;
+}
+
+.loader:after {
+    content: '';
+  width: 100%;
+  height: 100%;
+  background: #f08080;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrado vertical y horizontal */
+  border-radius: 4px;
+  animation: jumpingCube 0.5s linear infinite;
+}
+
+@keyframes jumpingCube {
+    15% {
+        border-bottom-right-radius: 3px;
+    }
+
+    25% {
+        transform: translateY(9px) rotate(22.5deg);
+    }
+
+    50% {
+        transform: translateY(18px) scale(1, .9) rotate(45deg);
+        border-bottom-right-radius: 40px;
+    }
+
+    75% {
+        transform: translateY(9px) rotate(67.5deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(90deg);
+    }
+}
+
+@keyframes cubeShadow {
+
+    0%,
+    100% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.2, 1);
+    }
+}
+
 /* NAV */
 
-.hidden{
+.hidden {
     display: none;
 }
 
-@keyframes hideNav{
+@keyframes hideNav {
     0% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
@@ -20,41 +120,47 @@ nav {
     z-index: 3;
     padding: 10px 0;
 }
+
 nav ul {
-    list-style: none; 
+    list-style: none;
     padding: 0;
-    margin: 0; 
-    display: block; 
-    justify-content: center; 
+    margin: 0;
+    display: block;
+    justify-content: center;
 }
+
 nav ul li {
     opacity: 0;
     background: linear-gradient(to right, rgb(255, 166, 0), rgba(215, 146, 16, 0.907), rgba(194, 128, 6, 0.66), rgba(168, 117, 23, 0.534));
     text-transform: uppercase;
-    animation: showNav 0.5s ease forwards; 
+    animation: showNav 0.5s ease forwards;
     padding: 8px 12px;
 }
 
-a{
+a {
     text-decoration: none;
     color: rgb(255, 255, 255);
     font-family: Lato;
     font-size: large;
 }
 
-nav ul li:nth-child(1){
+nav ul li:nth-child(1) {
     animation-delay: 0s;
 }
-nav ul li:nth-child(2){
+
+nav ul li:nth-child(2) {
     animation-delay: 0.3s;
 }
-nav ul li:nth-child(3){
+
+nav ul li:nth-child(3) {
     animation-delay: 0.6s;
 }
-nav ul li:nth-child(4){
+
+nav ul li:nth-child(4) {
     animation-delay: 0.9s;
 }
-nav ul li:nth-child(5){
+
+nav ul li:nth-child(5) {
     animation-delay: 1.2s;
 }
 
@@ -63,6 +169,7 @@ nav ul li:nth-child(5){
         opacity: 0;
         transform: translateY(-20px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -195,22 +302,22 @@ nav ul li:nth-child(5){
 }
 
 /* FULL COLOR SECTION */
-.full_color_grid{
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(2, auto);
+.full_color_grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, auto);
 }
 
-.full_color_grid img{
+.full_color_grid img {
     width: 256px;
     height: 399.36px;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.full_color_grid img:hover{
+.full_color_grid img:hover {
     transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.6), 
-    0 6px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.6),
+        0 6px 20px rgba(0, 0, 0, 0.15);
     filter: brightness(1.2);
     z-index: 1;
 }
