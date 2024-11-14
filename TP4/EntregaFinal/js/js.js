@@ -81,3 +81,6 @@ function changeImage() {
         e.classList.remove("hidden")
     })
 }
+
+
+// ------------------------------------
