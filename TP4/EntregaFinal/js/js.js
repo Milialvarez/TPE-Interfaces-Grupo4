@@ -1,21 +1,52 @@
 "use strict"
 
-const munequitos = document.getElementById('munequitos');
+window.addEventListener("scroll", getScroll)
+window.addEventListener('mousemove', getMouseMove)
 
-document.addEventListener('mousemove', (e) => {
-    const mouseX = e.clientX;
+function getMouseMove(e) {
+    const mouseX = e.clientX
+    const mouseY = e.clientY
+
+    charactersMove(mouseX, mouseY)
+    move3dModel(mouseX)
+}
+
+function charactersMove(mouseX, mouseY) {
+    const characters = document.getElementById('munequitos');
 
     // Calcula la dirección opuesta al cursor
     const offsetX = (window.innerWidth / 2 - mouseX) / 10;
+    const offsetY = (window.innerWidth / 2 - mouseY) / 10;
 
     // Aplica el desplazamiento a la imagen
-    munequitos.style.transform = `translate(${offsetX}px)`;
-})
+    characters.style.transform = `translate(${offsetX}px,${offsetY}px)`;
+}
 
-window.addEventListener("scroll", getScroll)
+function move3dModel(mouseX) {
+    const maxY = window.innerWidth
+    const angle = Math.max(0, 360 - (Math.min(mouseX, maxY) / maxY) * 360)
+    const character3d = document.querySelector("#character1_3d")
+    character3d.setAttribute("camera-orbit", angle + "deg 80deg")
+}
+
+function checkScrollForCardsAnimation(y) {
+    let cards = document.querySelectorAll('.multimedia_container');
+
+    if (y >= 1300) {
+        cards.forEach(card => {
+            card.classList.add('float-animation');
+        })
+    } else{
+        cards.forEach(card => {
+            card.classList.remove('float-animation');
+        })
+    }
+}
 
 function getScroll() {
     const y = this.pageYOffset
+
+    checkScrollForCardsAnimation(y)
 
     moveLogo(y)
 
@@ -75,12 +106,47 @@ function moveLogo(y) {
 }
 
 let interval = setInterval(changeImage, 3000)
+let repetition = 1
 
 function changeImage() {
-    document.querySelectorAll(".app_exaple").forEach(e => {
-        e.classList.remove("hidden")
-    })
+    let imgs = document.querySelectorAll(".app_example")
+
+    for (let i = 0; i < imgs.length; i++) {
+        let img = imgs[i]
+        img.style.transform = "translateX(" + -548.38 * repetition + "px)"
+    }
+
+    if (repetition < imgs.length - 1) {
+        repetition++        
+    } else {
+        repetition = 0
+    }
 }
 
+<<<<<<< HEAD
 
 // ------------------------------------
+=======
+const btn_menu = document.getElementById('btn_menu');
+btn_menu.addEventListener('click', ()=>{
+    let nav = document.getElementById('nav');
+    if(nav.classList.contains('hidden')){
+        nav.classList.remove('hidden');
+        nav.classList.add('visible');
+        lin1.classList.add('active');
+        lin2.classList.add('active');
+        lin3.classList.add('active');
+    } else{
+        nav.classList.add('hidden');
+        lin1.classList.remove('active');
+        lin2.classList.remove('active');
+        lin3.classList.remove('active');
+        nav.classList.remove('visible');
+    }
+})
+
+let btn_form = document.getElementById('btn_form');
+btn_form.addEventListener('click', (e)=>{
+    e.preventDefault();
+})
+>>>>>>> 34fa01afd01bcc7bb5e484f144bbff60abe5377d
