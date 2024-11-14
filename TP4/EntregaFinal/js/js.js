@@ -127,3 +127,8 @@ btn_menu.addEventListener('click', ()=>{
         nav.classList.remove('visible');
     }
 })
+
+let btn_form = document.getElementById('btn_form');
+btn_form.addEventListener('click', (e)=>{
+    e.preventDefault();
+})

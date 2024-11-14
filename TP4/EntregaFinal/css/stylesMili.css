@@ -199,6 +199,19 @@ nav ul li:nth-child(5){
     justify-content: center;
 }
 
+/* FULL COLOR SECTION */
+.full_color_grid{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, auto);
+}
+
+.full_color_grid img{
+    width: 256px;
+    height: 399.36px;
+}
+
+
 /* NEWS SECTION */
 
 .news_section_container h1 {
