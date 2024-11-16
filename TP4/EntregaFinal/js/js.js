@@ -202,23 +202,41 @@ function getScroll() {
 function moveImages(y) {
     let cant = 0;
     let images = document.querySelectorAll('.images_character');
-    let mm = 0;
 
     for (let index = 0; index < images.length; index++) {
-        let image = images[index]
         cant++;
-        if (y == 400 * cant) {
-            for (let index = 0; index < images.length; index++) {
-                let img = images[index]
-                let styles = window.getComputedStyle(img).top;
+        algo(y, cant, images);
+        
+    }
+}
 
-                let actual = parseInt(styles, 10);
+function algo(y, cant, images){
+    let styles;
+    let actual;
+    let mm;
+    if (y == 600 * cant) {
+        for (let index = 0; index < images.length; index++) {
+            let img = images[index]
 
-                console.log(actual)
+            if(images[cant-1] == images[index]){
+                img.style.opacity = 0
+            }
 
-                mm = actual - 500 * 2;
+            styles = window.getComputedStyle(img).top;
 
-                img.style.top = mm + "px"
+            actual = parseInt(styles, 10);
+
+            mm = (actual - 500);
+
+            img.style.top = mm + "px"
+        }
+
+    } else if(y < 600 * cant){
+        for (let index = 0; index < images.length; index++) {
+            let img = images[index]
+
+            if(images[cant-1] == images[index]){
+                img.style.opacity = 1
             }
         }
     }

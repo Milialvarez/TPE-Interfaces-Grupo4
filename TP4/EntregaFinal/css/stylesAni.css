@@ -115,8 +115,8 @@ header button {
     width: 500px;
     height: 500px;
     position: sticky;
-    transition: .5s;
     left: calc(50% - 250px);
+    transition: .10s;
 }
 
 .images_character:nth-child(1) {
