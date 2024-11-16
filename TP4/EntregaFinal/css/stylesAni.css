@@ -81,147 +81,109 @@ header button {
 
 /* ----------------- */
 
+.title_friends{
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 56.7px;
+    width: 802px;
+    height: 57px;
+}
 
-.content{
+.content {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: chocolate;
-    height: 400px;
+    height: fit-content;
+    justify-content: center;
+    align-items: start;
+    gap: 120px;
+    padding-top: 100px;
 }
 
-.descriptions {
+.description:first-child {
+    padding-top: 200px;
+}
+
+.image-container {
     display: flex;
     flex-direction: column;
-    width: 467px;
-    height: 114px;
+    gap: 120px;
+    position: relative;
+    width: 50%;
 }
 
-.hidden{
-    opacity: 0;
-    overflow: hidden;
-}
-
-.scroll-item{
-    position: absolute;
-    /* opacity: 0;
-    visibility: hidden; */
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-}
-
-.description h1 {
-    font-family: Lato;
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 37.8px;
-}
-
-.description p {
-    font-size: 20px;
-    line-height: 18.9px;
-}
-
-.character{
-    height: 436px;
-    object-fit: contain;
-}
-
-.scroll-item.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.title_friends{
-    display: flex;
-    align-items: center;
-    margin-left: 50px;
-    font-size: 60px;
-    line-height: 56.7px;
-    font-family: Lato;
-}
-/* .content {
-    display: flex;
-    flex-direction: column;
-}
-
-.descriptions {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 40vh;
-}
-
-.description {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 467px;
-    height: 114px;
-}
-
-.description h1 {
-    font-family: Lato;
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 37.8px;
-}
-
-.description p {
-    font-size: 20px;
-    line-height: 18.9px;
-}
-
-.title_friends{
-    display: flex;
-    align-items: center;
-    margin-left: 50px;
-}
-
-.amigos_diversion {
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    width: 100%;
-    margin: 200px 0;
-    font-family: Lato;
-}
-
-.amigos_diversion h1 {
-    font-size: 60px;
-    line-height: 56.7px;
-}
-
-.character{
-    animation: appear 15s both ease;
+.image-container img {
+    width: 500px;
+    height: 500px;
     position: sticky;
-    transform-origin: center;
-    animation-timeline: view();
-    animation-range: entry 25% cover 40%;
+    transition: .5s;
+    left: calc(50% - 250px);
 }
 
-@keyframes appear {
-    0% {
-        opacity: 0;
-        transform: scale(0);
-    }
+.images_character:nth-child(1) {
+    top: 150px;
+}
+.images_character:nth-child(2) {
+    top: 650px;
+}
+.images_character:nth-child(3) {
+    top: 1150px;
+}
+.images_character:nth-child(4) {
+    top: 1650px;
+}
+.images_character:nth-child(5) {
+    top: 2150px;
+}
+.images_character:nth-child(6) {
+    top: 2650px;
+}
+.images_character:nth-child(7) {
+    top: 3150px;
+}
+.images_character:nth-child(8) {
+    top: 3650px;
+}
+.images_character:nth-child(9) {
+    top: 4150px;
+}
+.images_character:nth-child(10) {
+    top: 4650px;
+}
+.images_character:nth-child(11) {
+    top: 5150px;
+}
 
-    25% {
-        opacity: 0.5;
-        transform: scale(0.50);
-    }
+.descriptions {
+    display: flex;
+    flex-direction: column;
+    gap: 450px;
+}
 
-    75% {
-        opacity: 0.7;
-        transform: scale(0.75);
-    }
+.description p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 18.9px;
+    height: 114px;
+    width: 467px;
+}
 
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-} */
+.description, .title_friends {
+    font-family: Lato;
+    text-align: left;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+}
+
+.description h1 {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 37.8px;
+    width: 550px;
+    height: 38px;
+}
 
 /* ................. */
 
@@ -316,7 +278,7 @@ header button {
     height: 171px;
 }
 
-.container_video{
+.container_video {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -332,7 +294,7 @@ header button {
     position: absolute;
 }
 
-.character_video{
+.character_video {
     display: flex;
     position: absolute;
     left: 53%;
@@ -340,7 +302,7 @@ header button {
     animation: character 1s ease-in;
 }
 
-.character_and_video{
+.character_and_video {
     display: flex;
     flex-direction: row;
     align-items: start;
@@ -349,10 +311,11 @@ header button {
 @keyframes video {
     from {
         transform: translateX(-100px);
-      }
-      to {
+    }
+
+    to {
         transform: unset;
-      }
+    }
 }
 
 @keyframes character {
@@ -367,70 +330,63 @@ header button {
 
 /* ----------------- */
 
-.number_spritsheet, .character_spritsheet, .character2_spritsheet, .character3_spritsheet{
+.number_spritsheet,
+.character_spritsheet,
+.character2_spritsheet,
+.character3_spritsheet {
     overflow: hidden;
     position: absolute;
 }
 
-.number_spritsheet{
+.number_spritsheet {
     width: 150px;
     height: 300px;
     left: 50%;
 }
 
-.character_spritsheet img {
-    width: 400px;
+.character_spritsheet {
+    width: 150px;
     height: 400px;
+    top: 0;
+    left: 5px;
 }
 
-.character_spritsheet{
-    width: 100px;
-    height: 400px;
-    left: 15px;
-}
-
-.character2_spritsheet{
+.character2_spritsheet {
     width: 90px;
     height: 300px;
     left: 15px;
-    bottom: 0px;
+    bottom: 10px;
 }
 
-.character3_spritsheet{
+.character3_spritsheet {
     width: 140px;
     height: 300px;
     right: 100px;
     top: 150px;
 }
 
-.number{
+.number {
     animation: number_spritsheet 1s steps(7) infinite;
 }
 
-.character{
+.character {
     animation: number_spritsheet 1s steps(4) infinite;
 }
 
-.character2{
+.character2 {
     animation: number_spritsheet 1s steps(5) infinite;
 }
 
-.character3{
+.character3 {
     animation: number_spritsheet 1s steps(4) infinite;
 }
 
 @keyframes number_spritsheet {
-    from{
+    from {
         transform: translate3d(0px, 0, 0);
     }
-    to{
+
+    to {
         transform: translate3d(-100%, 0, 0);
     }
 }
-
-/* .c{
-    width: 130px;
-    height: 156px;
-    background-color: #242424;
-    position: absolute;
-} */
