@@ -211,9 +211,9 @@ function moveImages(y) {
 }
 
 function algo(y, cant, images){
-    let styles;
+    let top_image;
     let actual;
-    let mm;
+    let new_top_image;
     if (y == 600 * cant) {
         for (let index = 0; index < images.length; index++) {
             let img = images[index]
@@ -222,13 +222,13 @@ function algo(y, cant, images){
                 img.style.opacity = 0
             }
 
-            styles = window.getComputedStyle(img).top;
+            top_image = window.getComputedStyle(img).top;
 
-            actual = parseInt(styles, 10);
+            actual = parseInt(top_image, 10);
 
-            mm = (actual - 500);
+            new_top_image = (actual - 500);
 
-            img.style.top = mm + "px"
+            img.style.top = new_top_image + "px"
         }
 
     } else if(y < 600 * cant){
