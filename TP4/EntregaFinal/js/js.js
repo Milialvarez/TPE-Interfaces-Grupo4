@@ -78,7 +78,7 @@ function getScroll() {
 
     moveImages(y)
 
-    if (y >= 4040) {
+    if (y >= 10800) {
         document.querySelector(".container_video").style.animation = "transformUnset 2s ease-in-out both"
         document.querySelector(".character_video").style.animation = "transformUnset 1s ease-in-out both"
     }
