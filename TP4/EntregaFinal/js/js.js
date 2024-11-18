@@ -1,5 +1,5 @@
 "use strict"
-// showLoader();
+showLoader();
 
 function showLoader() {
     let loader_container = document.querySelector('.loader_container');
