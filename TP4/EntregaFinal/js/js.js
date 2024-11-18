@@ -184,43 +184,19 @@ btn_form.addEventListener('click', (e) => {
     e.preventDefault();
 })
 
+// Se encarga de mover las imágenes de la sección "Más amigos, más diversión!"
 function moveImages(y) {
-    let cant = 0;
-    let images = document.querySelectorAll('.images_character');
+    if (y >= 4103 && y < 10144) {
+        let n = Math.floor((y - 3783) / 600)
 
-    for (let index = 0; index < images.length; index++) {
-        cant++;
-        algo(y, cant, images);
-    }
-}
+        let images = document.querySelectorAll('.images_character')
 
-function algo(y, cant, images) {
-    let top_image;
-    let actual;
-    let new_top_image;
-    if (y == 600 * cant) {
         for (let index = 0; index < images.length; index++) {
-            let img = images[index]
-
-            if (images[cant - 1] == images[index]) {
-                img.style.opacity = 0
-            }
-
-            top_image = window.getComputedStyle(img).top;
-
-            actual = parseInt(top_image, 10);
-
-            new_top_image = (actual - 500);
-
-            img.style.top = new_top_image + "px"
-        }
-
-    } else if (y < 600 * cant) {
-        for (let index = 0; index < images.length; index++) {
-            let img = images[index]
-
-            if (images[cant - 1] == images[index]) {
-                img.style.opacity = 1
+            if (index != n) {
+                images[index].style.transform = "translateX(-200%)"
+            } else {
+                images[index].style.transform = "unset"
+                images[index].style.top = y - 4150 + "px"
             }
         }
     }
