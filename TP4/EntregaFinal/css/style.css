@@ -953,14 +953,6 @@ main {
     transform: translateX(-100px);
 }
 
-#btn_play {
-    display: flex;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-}
-
 .character_video {
     display: flex;
     position: absolute;
@@ -973,6 +965,12 @@ main {
     display: flex;
     flex-direction: row;
     align-items: start;
+}
+
+.video{
+    position: absolute;
+    width: 750px;
+    height: 390px;
 }
 
 @keyframes transformUnset {
